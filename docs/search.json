@@ -1,0 +1,87 @@
+[
+  {
+    "objectID": "Lab-1.html",
+    "href": "Lab-1.html",
+    "title": "Lab 1",
+    "section": "",
+    "text": "print (\"Hello, World!\")\n\n[1] \"Hello, World!\"",
+    "crumbs": [
+      "Home",
+      "Basics",
+      "Lab 1"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "environment_setup.html",
+    "href": "environment_setup.html",
+    "title": "Seting Up Your Environment",
+    "section": "",
+    "text": "Cloud solution means that you don’t need to install anything on your computer. You can run R code directly in your web browser. This is the easiest way to get started without worrying about installation issues. But soon enough, you will realize that the cloud-based solution is limited\n\ncomputational power\nstorage space\ncustomization options\nAI integration is better in local environment\nGitHub Copilot is a powerful AI tool that can assist you in writing code, but it requires a local development environment to function optimally.\n\nNonetheless, here are two popular cloud solutions:\n\nGoogle Colab: good support for .ipynb.\nRStudio Cloud: basic emulator for RStudio IDE in the cloud.\n\n\n\n\n\n\nRStudio Desktop is a free and open-source integrated development environment (IDE) for R. It provides a user-friendly interface for writing and executing R code, making it easier to work with R scripts, data analysis, visualization.\nTo install RStudio Desktop, follow these steps:\n\nInstall R\nInstall RStudio Desktop\n\nGo to RStudio Desktop Download and download the installer for your operating system (Windows, macOS, or Linux).",
+    "crumbs": [
+      "Home",
+      "Environment Setup"
+    ]
+  },
+  {
+    "objectID": "environment_setup.html#cloud-solution",
+    "href": "environment_setup.html#cloud-solution",
+    "title": "Seting Up Your Environment",
+    "section": "",
+    "text": "Cloud solution means that you don’t need to install anything on your computer. You can run R code directly in your web browser. This is the easiest way to get started without worrying about installation issues. But soon enough, you will realize that the cloud-based solution is limited\n\ncomputational power\nstorage space\ncustomization options\nAI integration is better in local environment\nGitHub Copilot is a powerful AI tool that can assist you in writing code, but it requires a local development environment to function optimally.\n\nNonetheless, here are two popular cloud solutions:\n\nGoogle Colab: good support for .ipynb.\nRStudio Cloud: basic emulator for RStudio IDE in the cloud.",
+    "crumbs": [
+      "Home",
+      "Environment Setup"
+    ]
+  },
+  {
+    "objectID": "environment_setup.html#local-solution",
+    "href": "environment_setup.html#local-solution",
+    "title": "Seting Up Your Environment",
+    "section": "",
+    "text": "RStudio Desktop is a free and open-source integrated development environment (IDE) for R. It provides a user-friendly interface for writing and executing R code, making it easier to work with R scripts, data analysis, visualization.\nTo install RStudio Desktop, follow these steps:\n\nInstall R\nInstall RStudio Desktop\n\nGo to RStudio Desktop Download and download the installer for your operating system (Windows, macOS, or Linux).",
+    "crumbs": [
+      "Home",
+      "Environment Setup"
+    ]
+  },
+  {
+    "objectID": "index.html#course-materials",
+    "href": "index.html#course-materials",
+    "title": "Business Analytics 2025Fall",
+    "section": "Course Materials",
+    "text": "Course Materials"
+  },
+  {
+    "objectID": "index.html#study-objectives",
+    "href": "index.html#study-objectives",
+    "title": "Business Analytics 2025Fall",
+    "section": "Study Objectives",
+    "text": "Study Objectives"
+  },
+  {
+    "objectID": "index.html#how-to-reach-me",
+    "href": "index.html#how-to-reach-me",
+    "title": "Business Analytics 2025Fall",
+    "section": "How to Reach Me",
+    "text": "How to Reach Me"
+  },
+  {
+    "objectID": "introduction.html",
+    "href": "introduction.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Introduction\nFirst lecture here.",
+    "crumbs": [
+      "Home",
+      "Basics",
+      "Introduction"
+    ]
+  }
+]
