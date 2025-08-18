@@ -5,7 +5,7 @@
 
 - Apply probability rules to real business events.
 - Distinguish clearly between population parameters and sample estimators.
-- Compute and explain expectation, variance (including shortcut $E[X^2]-(E[X])^2$), and standard deviation in business contexts.
+- Compute and explain expectation, variance, and standard deviation in business contexts.
 - Interpret higher moments: skewness ($\mu_3$) and kurtosis ($\mu_4$) for tail and asymmetry assessment.
 - Combine random variables (e.g., portfolio or multi‑channel forecast) and decompose variance with covariance terms.
 - Calculate and interpret covariance and correlation; relate independence vs. zero correlation.

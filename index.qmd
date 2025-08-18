@@ -27,7 +27,7 @@ The aim of this course is to provide students advanced knowledge, skills and com
 
 R is an open-source programming language widely used for statistical computing and data analysis. It provides a rich ecosystem of packages and libraries for data manipulation, visualization, and modeling.
 
-Why open-source wins?
+Why open-source stands out in the competition?
 
 AI is the game changer here. AI significantly improves coding efficiency and productivity. You don't need to memorize every
 function or syntax anymore. The current role for humans is to communicate your needs to AI, and AI will generate the code for you.

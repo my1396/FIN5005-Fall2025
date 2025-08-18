@@ -14,11 +14,11 @@ website:
     search: true
     contents:
       - text: "Environment Setup"
-        href: environment_setup.qmd
+        href: 00_environment_setup.qmd
       - section: "Basics"
         contents:
-          - introduction.qmd
-          - Lab-1.ipynb
+          - 01_introduction.qmd
+          - 01_Lab-1.ipynb
 
 format:
   html:
