@@ -1,9 +1,13 @@
 # Seting Up Your Environment
 
 ::: {.callout-note appearance="simple" icon=false}
-This guide helps you set up your coding environment for FIN5005, including both cloud and local solutions. You will learn how to use RStudio Cloud for quick access and RStudio Desktop for full features.  
+This guide will help you set up your coding environment for FIN5005, with both cloud-based and local options available (you may choose either).
 
-**You are strongly recommended to install the local version ([RStudio Desktop](#RStudio-Desktop)) on your computer.** Follow the instructions below to get started.
+- You will learn how to use **RStudio Cloud** for quick, browser-based access and **RStudio Desktop** for the full set of features on your computer.
+
+- **It is strongly recommended to install the local version ([RStudio Desktop](#RStudio-Desktop)) on your computer.** 
+
+Follow the instructions below to get started.
 
 **Estimated reading time: 6 minutes**
 :::
