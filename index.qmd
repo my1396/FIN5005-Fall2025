@@ -21,6 +21,19 @@ The aim of this course is to provide students advanced knowledge, skills and com
   Using optimization, simulation, and decision analysis techniques to suggest the best course of action based on data, predictions, and constraints. 
 - Autonomous: automated decision-making using Machine Learning (ML) and Artificial Intelligence (AI) techniques.
 
+
+Outline of models and applications we will cover in this course:<sup>1</sup>
+
+| **Category**     | **Topics**                               | **Applications in Business**                                                                         |
+| ---------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| **Descriptive**  | Data Visualization, Descriptive Analysis | Asset return → **Finance**                                                                           |
+| **Predictive**   | Linear regression                        | Asset return prediction → **Finance**<br>Demand prediction → **Economics**                           |
+|                  | Hypothesis testing                       | Effectiveness of advertisements → **Marketing**                                                      |
+|                  | Classification, logistic regression      | Asset return increasing/decreasing prediction → **Finance**<br>Employee satisfaction → **Operation** |
+| **Prescriptive** | Optimization models                      | Pricing optimization → **Operation**<br>Sensitivity analysis, Scenario analysis → **Accounting**     |
+
+<sup>[1]<sub> This is a preliminary plan. Topics and applications are subject to change as the course moves forward.</sub></sup>
+
 --------------------------------------------------------------------------------
 
 **Software**: R programming
