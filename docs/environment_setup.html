@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>environment_setup – 2025Fall</title>
+<title>environment_setup – FIN5005 Fall 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -36,10 +36,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2757cfadcc89ddbfb9e61569f8c3689f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5b4cf5093efd5cfbe529cd69f348b6a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-da0ba2ceeba8fa26af489a233ba15051.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-5b4cf5093efd5cfbe529cd69f348b6a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,12 +71,371 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+ 
+<!-- This is what works with Quarto and MathJax 3+ -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [   // start/end delimiter pairs for in-line math
+          ['$', '$'],
+          ['\\(', '\\)']
+        ],
+      displayMath: [  // start/end delimiter pairs for display math
+        ['$$', '$$'],
+        ['\\[', '\\]']
+      ],
+      processEscapes: true, // use \$ to produce a literal dollar sign
+      tags: 'ams',  // should be 'ams', 'none', or 'all'
+      macros: {  //define TeX macros
+        bold: ["{\\boldsymbol #1}", 1],  // use \bold as a shorthand
+        indep: "{\\perp \\!\\!\\! \\perp}",
+        vect: ["\\mathbf{#1}", 1],
+        mat: ["\\mathbf{#1}", 1], 
+
+        bA: "\\boldsymbol{A}",
+        bB: "\\boldsymbol{B}",
+        bC: "\\boldsymbol{C}",
+        bD: "\\boldsymbol{D}",
+        bE: "\\boldsymbol{E}",
+        bF: "\\boldsymbol{F}",
+        bG: "\\boldsymbol{G}",
+        bH: "\\boldsymbol{H}",
+        bI: "\\boldsymbol{I}",
+        bJ: "\\boldsymbol{J}",
+        bK: "\\boldsymbol{K}",
+        bL: "\\boldsymbol{L}",
+        bM: "\\boldsymbol{M}",
+        bN: "\\boldsymbol{N}",
+        bP: "\\boldsymbol{P}",
+        bQ: "\\boldsymbol{Q}",
+        bR: "\\boldsymbol{R}",
+        bS: "\\boldsymbol{S}",
+        bT: "\\boldsymbol{T}",
+        bU: "\\boldsymbol{U}",
+        bV: "\\boldsymbol{V}",
+        bW: "\\boldsymbol{W}",
+        bX: "\\boldsymbol{X}",
+        bY: "\\boldsymbol{Y}",
+        bZ: "\\boldsymbol{Z}",
+        ba: "\\boldsymbol{a}",
+        bb: "\\boldsymbol{b}",
+        bc: "\\boldsymbol{c}",
+        bd: "\\boldsymbol{d}",
+        be: "\\boldsymbol{e}",
+        bg: "\\boldsymbol{g}",
+        bh: "\\boldsymbol{h}",
+        bi: "\\boldsymbol{i}",
+        bm: "\\boldsymbol{m}",
+        bp: "\\boldsymbol{p}",
+        bq: "\\boldsymbol{q}",
+        br: "\\boldsymbol{r}",
+        bs: "\\boldsymbol{s}",
+        bt: "\\boldsymbol{t}",
+        bu: "\\boldsymbol{u}",
+        bv: "\\boldsymbol{v}",
+        bw: "\\boldsymbol{w}",
+        bx: "\\boldsymbol{x}",
+        by: "\\boldsymbol{y}",
+        bz: "\\boldsymbol{z}",
+
+        Acal: "\\mathcal{A}",
+        Bcal: "\\mathcal{B}",
+        Ccal: "\\mathcal{C}",
+        Dcal: "\\mathcal{D}",
+        Ecal: "\\mathcal{E}",
+        Fcal: "\\mathcal{F}",
+        Gcal: "\\mathcal{G}",
+        Hcal: "\\mathcal{H}",
+        Ical: "\\mathcal{I}",
+        Jcal: "\\mathcal{J}",
+        Kcal: "\\mathcal{K}",
+        Lcal: "\\mathcal{L}",
+        Mcal: "\\mathcal{M}",
+        Ncal: "\\mathcal{N}",
+        Ocal: "\\mathcal{O}",
+        Pcal: "\\mathcal{P}",
+        Qcal: "\\mathcal{Q}",
+        Rcal: "\\mathcal{R}",
+        Scal: "\\mathcal{S}",
+        Tcal: "\\mathcal{T}",
+        Ucal: "\\mathcal{U}",
+        Vcal: "\\mathcal{V}",
+        Wcal: "\\mathcal{W}",
+        Xcal: "\\mathcal{X}",
+        Ycal: "\\mathcal{Y}",
+        Zcal: "\\mathcal{Z}",
+
+        A: "\\mathbb{A}",
+        B: "\\mathbb{B}",
+        C: "\\mathbb{C}",
+        D: "\\mathbb{D}",
+        E: "\\mathbb{E}",
+        F: "\\mathbb{F}",
+        G: "\\mathbb{G}",
+        H: "\\mathbb{H}",
+        I: "\\mathbb{I}",
+        J: "\\mathbb{J}",
+        K: "\\mathbb{K}",
+        L: "\\mathbb{L}",
+        M: "\\mathbb{M}",
+        N: "\\mathbb{N}",
+        O: "\\mathbb{O}",
+        P: "\\mathbb{P}",
+        Q: "\\mathbb{Q}",
+        R: "\\mathbb{R}",
+        S: "\\mathbb{S}",
+        T: "\\mathbb{T}",
+        U: "\\mathbb{U}",
+        V: "\\mathbb{V}",
+        W: "\\mathbb{W}",
+        X: "\\mathbb{X}",
+        Y: "\\mathbb{Y}",
+        Z: "\\mathbb{Z}",
+
+        bAlpha: "\\boldsymbol{\\Alpha}",
+        bBeta: "\\boldsymbol{\\beta}",
+        bDelta: "\\boldsymbol{\\delta}",
+        bEta: "\\boldsymbol{\\eta}",
+        bGamma: "\\boldsymbol{\\Gamma}",
+        bLambda: "\\boldsymbol{\\Lambda}",
+        bOmega: "\\boldsymbol{\\Omega}",
+        bPhi: "\\boldsymbol{\\Phi}",
+        bPi: "\\boldsymbol{\\Pi}",
+        bPsi: "\\boldsymbol{\\Psi}",
+        bSigma: "\\boldsymbol{\\Sigma}",
+        bTau: "\\boldsymbol{\\tau}",
+        bXi: "\\boldsymbol{\\Xi}",
+        bLambda: "\\boldsymbol{\\Lambda}",
+        
+        balpha: "\\boldsymbol{\\alpha}",
+        bbeta: "\\boldsymbol{\\beta}",
+        bepsilon: "\\boldsymbol{\\epsilon}",
+        bvarepsilon: "\\boldsymbol{\\varepsilon}",
+        bdelta: "\\boldsymbol{\\delta}",
+        blambda: "\\boldsymbol{\\lambda}",
+        bmu: "\\boldsymbol{\\mu}",
+        bphi: "\\boldsymbol{\\phi}",
+        bpi: "\\boldsymbol{\\pi}",
+        bpsi: "\\boldsymbol{\\psi}",
+        brho: "\\boldsymbol{\\rho}",
+        bsigma: "\\boldsymbol{\\sigma}",
+        btau: "\\boldsymbol{\\tau}",
+        bxi: "\\boldsymbol{\\xi}",
+        bEta: "\\boldsymbol{\\eta}",
+        bPhi: "\\boldsymbol{\\Phi}",
+        bPi: "\\boldsymbol{\\Pi}",
+        bPsi: "\\boldsymbol{\\Psi}",
+        bXi: "\\boldsymbol{\\Xi}",
+        blambda: "\\boldsymbol{\\lambda}",
+        bmu: "\\boldsymbol{\\mu}",
+        bphi: "\\boldsymbol{\\phi}",
+        bpi: "\\boldsymbol{\\pi}",
+        bpsi: "\\boldsymbol{\\psi}",
+        brho: "\\boldsymbol{\\rho}",
+        bsigma: "\\boldsymbol{\\sigma}",
+                   
+        curl: ["\\left\\lbrace#1\\right\\rbrace", 1],
+        floor: ["\\left\\lfloor#1\\right\\rfloor", 1],
+        ceil: ["\\left\\lceil#1\\right\\rceil", 1],
+        abs: ["\\left\\lvert#1\\right\\rvert", 1],
+        norm: ["\\left\\lVert#1\\right\\rVert", 1],
+
+        independent: "\\mathrel{\\perp\\!\\!\\perp}",
+
+        var: "\\mathrm{Var}",
+        cov: "\\mathrm{Cov}",
+        cor: "\\mathrm{Corr}",
+        diag: "\\mathrm{diag}",
+        rank: "\\mathrm{rank}",
+        vecc: "\\mathrm{vec}",
+      }
+    }
+  };
+</script>
+<!-- ===================== Icon Library ====================== -->
+<!-- load Font Awesome 6 icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+<!-- Load MS codicon library -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@vscode/codicons@latest/dist/codicon.css">
 
 
-<link rel="stylesheet" href="styles.css">
+<script language="JavaScript" src="themes/my_jxscript.js"></script>
+
+
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -80,7 +443,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">2025Fall</span>
+    <span class="navbar-title">FIN5005 Fall 2025</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -100,6 +463,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -146,13 +510,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text">Probability and Data in Business Analytics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Lab-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 1</span></a>
+ <span class="menu-text">Lab 1: Probability &amp; Descriptive Statistics</span></a>
   </div>
 </li>
       </ul>
@@ -167,12 +531,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#seting-up-your-environment" id="toc-seting-up-your-environment" class="nav-link active" data-scroll-target="#seting-up-your-environment">Seting Up Your Environment</a>
+  <li><a href="#seting-up-your-environment" id="toc-seting-up-your-environment" class="nav-link active" data-scroll-target="#seting-up-your-environment"><span class="header-section-number">1</span> Seting Up Your Environment</a>
   <ul class="collapse">
-  <li><a href="#cloud-solution" id="toc-cloud-solution" class="nav-link" data-scroll-target="#cloud-solution">Cloud Solution</a></li>
-  <li><a href="#local-solution" id="toc-local-solution" class="nav-link" data-scroll-target="#local-solution">Local Solution</a>
+  <li><a href="#cloud-solution" id="toc-cloud-solution" class="nav-link" data-scroll-target="#cloud-solution"><span class="header-section-number">1.1</span> Cloud Solution</a>
   <ul class="collapse">
-  <li><a href="#rstudio-desktop" id="toc-rstudio-desktop" class="nav-link" data-scroll-target="#rstudio-desktop">RStudio Desktop</a></li>
+  <li><a href="#rstudio-cloud" id="toc-rstudio-cloud" class="nav-link" data-scroll-target="#rstudio-cloud">RStudio Cloud</a></li>
+  </ul></li>
+  <li><a href="#local-solution" id="toc-local-solution" class="nav-link" data-scroll-target="#local-solution"><span class="header-section-number">1.2</span> Local Solution</a>
+  <ul class="collapse">
+  <li><a href="#RStudio-Desktop" id="toc-RStudio-Desktop" class="nav-link" data-scroll-target="#RStudio-Desktop">RStudio Desktop</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -184,28 +551,65 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="seting-up-your-environment" class="level1">
-<h1>Seting Up Your Environment</h1>
-<section id="cloud-solution" class="level2">
-<h2 class="anchored" data-anchor-id="cloud-solution">Cloud Solution</h2>
-<p>Cloud solution means that you don’t need to install anything on your computer. You can run R code directly in your web browser. This is the easiest way to get started without worrying about installation issues. But soon enough, you will realize that the cloud-based solution is limited</p>
+
+<section id="seting-up-your-environment" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Seting Up Your Environment</h1>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>This guide helps you set up your coding environment for FIN5005, including both cloud and local solutions. You will learn how to use RStudio Cloud for quick access and RStudio Desktop for full features.</p>
+<p><strong>You are strongly recommended to install the local version (<a href="#RStudio-Desktop">RStudio Desktop</a>) on your computer.</strong> Follow the instructions below to get started.</p>
+<p><strong>Estimated reading time: 6 minutes</strong></p>
+</div>
+</div>
+</div>
+<section id="cloud-solution" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="cloud-solution"><span class="header-section-number">1.1</span> Cloud Solution</h2>
+<p>Cloud solution means that you don’t need to install anything on your computer. You can run R code directly in your web browser. This is the easiest way to get started without worrying about installation issues.</p>
+<p>But soon enough, you will realize that the cloud-based solution is <strong>limited</strong> in:</p>
 <ul>
-<li><p>computational power</p></li>
-<li><p>storage space</p></li>
-<li><p>customization options</p></li>
-<li><p>AI integration is better in local environment</p>
-<p>GitHub Copilot is a powerful AI tool that can assist you in writing code, but it requires a local development environment to function optimally.</p></li>
-</ul>
-<p>Nonetheless, here are two popular cloud solutions:</p>
+<li><p>compute power: 1 CPU core, 1 GB RAM</p></li>
+<li><p>execution hours: 25 hours per month;</p></li>
+<li><p>slow performance</p></li>
+<li><p><span class="env-green"><strong>AI integration</strong></span> is better in local environment</p>
+<p><strong>GitHub Copilot</strong> is a powerful AI tool that offers autocomplete-style suggestions as you code. The tool can give you suggestions based on the code you want to use or by simply inquiring about what you want the code to do.</p>
+<p>It is developed by GitHub in partnership with OpenAI, and it is designated to best assist developers in writing code more efficiently.</p>
+<p>Some of its highlight features include:</p>
 <ul>
-<li><a href="https://colab.research.google.com/">Google Colab</a>: good support for <code>.ipynb</code>.</li>
-<li><a href="https://rstudio.cloud/">RStudio Cloud</a>: basic emulator for RStudio IDE in the cloud.</li>
+<li><strong>Code autocompletion</strong>: generating suggestions while typing the code.</li>
+<li><strong>Code generation</strong>: Copilot will use the context of the active document to generate suggestions for code that might be useful.</li>
+<li><strong>Answering questions</strong>: it can also be used to ask simple questions while you are coding (e.g., “What is the definition of mean?”).</li>
+<li><strong>Language support</strong>: supports multiple programming languages, including R, Python, SQL, HTML, and JavaScript.</li>
 </ul>
+<p><strong>To enable Copilot in RStudio</strong>: click on Tools → Global Options → Copilot → tick the box saying “Enable GitHub Copilot” → sign in to your GitHub account, and there you go; you are ready to start!</p>
+<p>GiHub Copilot free plan has limited usage: 2000 code autocompletions per month, 30 code generations per month, and 30 question answers per month.</p>
+<p>Soon enough, you will realize that you need more than that. Because every character you type counts as usage, regless of whether you accept the suggestion or not.</p>
+<p>🎈 The good news is: You can use <strong>Copilot Pro for free</strong> if you are a student!</p>
+<p>See <a href="https://docs.github.com/en/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-students/apply-to-github-education-as-a-student">Apply to GitHub Education as a student</a>.</p>
+<p>If you wonder anything, look up in <a href="https://docs.github.com/en/copilot">GitHub Copilot Documentation</a>.</p></li>
+</ul>
+<hr>
+<p><strong>Nonetheless, here are two popular cloud solutions:</strong></p>
+<ul>
+<li><p><a href="https://colab.research.google.com/">Google Colab</a>: good support for Jupyter Notebooks <code>.ipynb</code>.</p>
+<p>We will use Jupyter Notebooks in this course.</p></li>
+<li><p><a href="https://rstudio.cloud/">RStudio Cloud</a>: basic emulator for RStudio IDE in the cloud.</p></li>
+</ul>
+<section id="rstudio-cloud" class="level3">
+<h3 class="anchored" data-anchor-id="rstudio-cloud">RStudio Cloud</h3>
+<p>Once in the dashboard, you can click on the <em>New Project</em> - <em>New RStudio Project</em> to get started:</p>
+<p><img src="https://webflow-prod-assets.s3.amazonaws.com/6525256482c9e9a06c7a9d3c%2F65b01f0848b83fcd2e55d022_new-project-in-rstudio-cloud.webp" alt="New Project in RStudio Cloud" style="display: block; margin: 0 auto; width: 60vw;"></p>
+<p>Once the new project is created, you will see the RStudio IDE interface, which is similar to the one you would find in RStudio Desktop. You can write and execute R code, create scripts, and manage your projects directly in the cloud.</p>
+<p><img src="https://webflow-prod-assets.s3.amazonaws.com/6525256482c9e9a06c7a9d3c%2F65b01f0a0a2ba062e1ba336f_rstudio-cloud-interface.webp" alt="RStudio Cloud Interface" style="display: block; margin-right: auto; margin-left: auto; width: 60vw;"></p>
 </section>
-<section id="local-solution" class="level2">
-<h2 class="anchored" data-anchor-id="local-solution">Local Solution</h2>
-<section id="rstudio-desktop" class="level3">
-<h3 class="anchored" data-anchor-id="rstudio-desktop">RStudio Desktop</h3>
+</section>
+<section id="local-solution" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="local-solution"><span class="header-section-number">1.2</span> Local Solution</h2>
+<section id="RStudio-Desktop" class="level3">
+<h3 class="anchored" data-anchor-id="RStudio-Desktop">RStudio Desktop</h3>
 <p><a href="https://posit.co/download/rstudio-desktop/">RStudio Desktop</a> is a free and open-source integrated development environment (IDE) for R. It provides a user-friendly interface for writing and executing R code, making it easier to work with R scripts, data analysis, visualization.</p>
 <p>To install RStudio Desktop, follow these steps:</p>
 <ol type="1">
@@ -213,6 +617,11 @@ ul.task-list li input[type="checkbox"] {
 <li>Install RStudio Desktop</li>
 </ol>
 <p>Go to <a href="https://posit.co/download/rstudio-desktop/">RStudio Desktop Download</a> and download the installer for your operating system (Windows, macOS, or Linux).</p>
+<hr>
+<p>ref:</p>
+<ul>
+<li><a href="https://www.appsilon.com/post/r-studio-cloud">RStudio Cloud - How to Get Started For Free</a></li>
+</ul>
 
 
 </section>
@@ -222,6 +631,19 @@ ul.task-list li input[type="checkbox"] {
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {

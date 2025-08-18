@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Business Analytics 2025Fall – 2025Fall</title>
+<title>Business Analytics (Fall 2025) – FIN5005 Fall 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -36,10 +36,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2757cfadcc89ddbfb9e61569f8c3689f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5b4cf5093efd5cfbe529cd69f348b6a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-da0ba2ceeba8fa26af489a233ba15051.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-5b4cf5093efd5cfbe529cd69f348b6a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,12 +71,371 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+ 
+<!-- This is what works with Quarto and MathJax 3+ -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [   // start/end delimiter pairs for in-line math
+          ['$', '$'],
+          ['\\(', '\\)']
+        ],
+      displayMath: [  // start/end delimiter pairs for display math
+        ['$$', '$$'],
+        ['\\[', '\\]']
+      ],
+      processEscapes: true, // use \$ to produce a literal dollar sign
+      tags: 'ams',  // should be 'ams', 'none', or 'all'
+      macros: {  //define TeX macros
+        bold: ["{\\boldsymbol #1}", 1],  // use \bold as a shorthand
+        indep: "{\\perp \\!\\!\\! \\perp}",
+        vect: ["\\mathbf{#1}", 1],
+        mat: ["\\mathbf{#1}", 1], 
+
+        bA: "\\boldsymbol{A}",
+        bB: "\\boldsymbol{B}",
+        bC: "\\boldsymbol{C}",
+        bD: "\\boldsymbol{D}",
+        bE: "\\boldsymbol{E}",
+        bF: "\\boldsymbol{F}",
+        bG: "\\boldsymbol{G}",
+        bH: "\\boldsymbol{H}",
+        bI: "\\boldsymbol{I}",
+        bJ: "\\boldsymbol{J}",
+        bK: "\\boldsymbol{K}",
+        bL: "\\boldsymbol{L}",
+        bM: "\\boldsymbol{M}",
+        bN: "\\boldsymbol{N}",
+        bP: "\\boldsymbol{P}",
+        bQ: "\\boldsymbol{Q}",
+        bR: "\\boldsymbol{R}",
+        bS: "\\boldsymbol{S}",
+        bT: "\\boldsymbol{T}",
+        bU: "\\boldsymbol{U}",
+        bV: "\\boldsymbol{V}",
+        bW: "\\boldsymbol{W}",
+        bX: "\\boldsymbol{X}",
+        bY: "\\boldsymbol{Y}",
+        bZ: "\\boldsymbol{Z}",
+        ba: "\\boldsymbol{a}",
+        bb: "\\boldsymbol{b}",
+        bc: "\\boldsymbol{c}",
+        bd: "\\boldsymbol{d}",
+        be: "\\boldsymbol{e}",
+        bg: "\\boldsymbol{g}",
+        bh: "\\boldsymbol{h}",
+        bi: "\\boldsymbol{i}",
+        bm: "\\boldsymbol{m}",
+        bp: "\\boldsymbol{p}",
+        bq: "\\boldsymbol{q}",
+        br: "\\boldsymbol{r}",
+        bs: "\\boldsymbol{s}",
+        bt: "\\boldsymbol{t}",
+        bu: "\\boldsymbol{u}",
+        bv: "\\boldsymbol{v}",
+        bw: "\\boldsymbol{w}",
+        bx: "\\boldsymbol{x}",
+        by: "\\boldsymbol{y}",
+        bz: "\\boldsymbol{z}",
+
+        Acal: "\\mathcal{A}",
+        Bcal: "\\mathcal{B}",
+        Ccal: "\\mathcal{C}",
+        Dcal: "\\mathcal{D}",
+        Ecal: "\\mathcal{E}",
+        Fcal: "\\mathcal{F}",
+        Gcal: "\\mathcal{G}",
+        Hcal: "\\mathcal{H}",
+        Ical: "\\mathcal{I}",
+        Jcal: "\\mathcal{J}",
+        Kcal: "\\mathcal{K}",
+        Lcal: "\\mathcal{L}",
+        Mcal: "\\mathcal{M}",
+        Ncal: "\\mathcal{N}",
+        Ocal: "\\mathcal{O}",
+        Pcal: "\\mathcal{P}",
+        Qcal: "\\mathcal{Q}",
+        Rcal: "\\mathcal{R}",
+        Scal: "\\mathcal{S}",
+        Tcal: "\\mathcal{T}",
+        Ucal: "\\mathcal{U}",
+        Vcal: "\\mathcal{V}",
+        Wcal: "\\mathcal{W}",
+        Xcal: "\\mathcal{X}",
+        Ycal: "\\mathcal{Y}",
+        Zcal: "\\mathcal{Z}",
+
+        A: "\\mathbb{A}",
+        B: "\\mathbb{B}",
+        C: "\\mathbb{C}",
+        D: "\\mathbb{D}",
+        E: "\\mathbb{E}",
+        F: "\\mathbb{F}",
+        G: "\\mathbb{G}",
+        H: "\\mathbb{H}",
+        I: "\\mathbb{I}",
+        J: "\\mathbb{J}",
+        K: "\\mathbb{K}",
+        L: "\\mathbb{L}",
+        M: "\\mathbb{M}",
+        N: "\\mathbb{N}",
+        O: "\\mathbb{O}",
+        P: "\\mathbb{P}",
+        Q: "\\mathbb{Q}",
+        R: "\\mathbb{R}",
+        S: "\\mathbb{S}",
+        T: "\\mathbb{T}",
+        U: "\\mathbb{U}",
+        V: "\\mathbb{V}",
+        W: "\\mathbb{W}",
+        X: "\\mathbb{X}",
+        Y: "\\mathbb{Y}",
+        Z: "\\mathbb{Z}",
+
+        bAlpha: "\\boldsymbol{\\Alpha}",
+        bBeta: "\\boldsymbol{\\beta}",
+        bDelta: "\\boldsymbol{\\delta}",
+        bEta: "\\boldsymbol{\\eta}",
+        bGamma: "\\boldsymbol{\\Gamma}",
+        bLambda: "\\boldsymbol{\\Lambda}",
+        bOmega: "\\boldsymbol{\\Omega}",
+        bPhi: "\\boldsymbol{\\Phi}",
+        bPi: "\\boldsymbol{\\Pi}",
+        bPsi: "\\boldsymbol{\\Psi}",
+        bSigma: "\\boldsymbol{\\Sigma}",
+        bTau: "\\boldsymbol{\\tau}",
+        bXi: "\\boldsymbol{\\Xi}",
+        bLambda: "\\boldsymbol{\\Lambda}",
+        
+        balpha: "\\boldsymbol{\\alpha}",
+        bbeta: "\\boldsymbol{\\beta}",
+        bepsilon: "\\boldsymbol{\\epsilon}",
+        bvarepsilon: "\\boldsymbol{\\varepsilon}",
+        bdelta: "\\boldsymbol{\\delta}",
+        blambda: "\\boldsymbol{\\lambda}",
+        bmu: "\\boldsymbol{\\mu}",
+        bphi: "\\boldsymbol{\\phi}",
+        bpi: "\\boldsymbol{\\pi}",
+        bpsi: "\\boldsymbol{\\psi}",
+        brho: "\\boldsymbol{\\rho}",
+        bsigma: "\\boldsymbol{\\sigma}",
+        btau: "\\boldsymbol{\\tau}",
+        bxi: "\\boldsymbol{\\xi}",
+        bEta: "\\boldsymbol{\\eta}",
+        bPhi: "\\boldsymbol{\\Phi}",
+        bPi: "\\boldsymbol{\\Pi}",
+        bPsi: "\\boldsymbol{\\Psi}",
+        bXi: "\\boldsymbol{\\Xi}",
+        blambda: "\\boldsymbol{\\lambda}",
+        bmu: "\\boldsymbol{\\mu}",
+        bphi: "\\boldsymbol{\\phi}",
+        bpi: "\\boldsymbol{\\pi}",
+        bpsi: "\\boldsymbol{\\psi}",
+        brho: "\\boldsymbol{\\rho}",
+        bsigma: "\\boldsymbol{\\sigma}",
+                   
+        curl: ["\\left\\lbrace#1\\right\\rbrace", 1],
+        floor: ["\\left\\lfloor#1\\right\\rfloor", 1],
+        ceil: ["\\left\\lceil#1\\right\\rceil", 1],
+        abs: ["\\left\\lvert#1\\right\\rvert", 1],
+        norm: ["\\left\\lVert#1\\right\\rVert", 1],
+
+        independent: "\\mathrel{\\perp\\!\\!\\perp}",
+
+        var: "\\mathrm{Var}",
+        cov: "\\mathrm{Cov}",
+        cor: "\\mathrm{Corr}",
+        diag: "\\mathrm{diag}",
+        rank: "\\mathrm{rank}",
+        vecc: "\\mathrm{vec}",
+      }
+    }
+  };
+</script>
+<!-- ===================== Icon Library ====================== -->
+<!-- load Font Awesome 6 icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+<!-- Load MS codicon library -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@vscode/codicons@latest/dist/codicon.css">
 
 
-<link rel="stylesheet" href="styles.css">
+<script language="JavaScript" src="themes/my_jxscript.js"></script>
+
+
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -80,7 +443,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">2025Fall</span>
+    <span class="navbar-title">FIN5005 Fall 2025</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -100,6 +463,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -108,7 +472,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Business Analytics 2025Fall</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Business Analytics (Fall 2025)</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -146,13 +510,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text">Probability and Data in Business Analytics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Lab-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 1</span></a>
+ <span class="menu-text">Lab 1: Probability &amp; Descriptive Statistics</span></a>
   </div>
 </li>
       </ul>
@@ -167,19 +531,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#course-overview" id="toc-course-overview" class="nav-link active" data-scroll-target="#course-overview">Course Overview</a></li>
-  <li><a href="#course-materials" id="toc-course-materials" class="nav-link" data-scroll-target="#course-materials">Course Materials</a></li>
-  <li><a href="#study-objectives" id="toc-study-objectives" class="nav-link" data-scroll-target="#study-objectives">Study Objectives</a></li>
-  <li><a href="#how-to-reach-me" id="toc-how-to-reach-me" class="nav-link" data-scroll-target="#how-to-reach-me">How to Reach Me</a></li>
+  <li><a href="#course-overview" id="toc-course-overview" class="nav-link active" data-scroll-target="#course-overview"><span class="header-section-number">1</span> Course Overview</a></li>
+  <li><a href="#course-materials" id="toc-course-materials" class="nav-link" data-scroll-target="#course-materials"><span class="header-section-number">2</span> Course Materials</a></li>
+  <li><a href="#course-evaluation" id="toc-course-evaluation" class="nav-link" data-scroll-target="#course-evaluation"><span class="header-section-number">3</span> Course Evaluation</a></li>
+  <li><a href="#study-objectives" id="toc-study-objectives" class="nav-link" data-scroll-target="#study-objectives"><span class="header-section-number">4</span> Study Objectives</a></li>
+  <li><a href="#how-to-reach-me" id="toc-how-to-reach-me" class="nav-link" data-scroll-target="#how-to-reach-me"><span class="header-section-number">5</span> How to Reach Me</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Business Analytics 2025Fall</h1>
+<h1 class="title">Business Analytics (Fall 2025)</h1>
 </div>
 
 
@@ -196,17 +562,128 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="course-overview" class="level2">
-<h2 class="anchored" data-anchor-id="course-overview">Course Overview</h2>
+<section id="course-overview" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="course-overview"><span class="header-section-number">1</span> Course Overview</h2>
+<p>What Business Analytics (BA) is about?</p>
+<p>The aim of this course is to provide students advanced knowledge, skills and competencies they can use to make data driven decisions for organizations.</p>
+<p><strong>Data-driven decision making</strong></p>
+<ul>
+<li><p><strong>Describe the data</strong>: what happened</p>
+<p>Using introductory statistics to identify patterns, trends, and insights embedded in historical data. E.g., summary statistics.</p></li>
+<li><p><strong>Predictive</strong>: what will happen</p>
+<p>Using statistical models on historical data and forecast future outcomes. E.g., regression, time series.</p></li>
+<li><p>Prescriptive: what should we do</p>
+<p>Using optimization, simulation, and decision analysis techniques to suggest the best course of action based on data, predictions, and constraints.</p></li>
+<li><p>Autonomous: automated decision-making using Machine Learning (ML) and Artificial Intelligence (AI) techniques.</p></li>
+</ul>
+<hr>
+<p><strong>Software</strong>: R programming</p>
+<p>R is an open-source programming language widely used for statistical computing and data analysis. It provides a rich ecosystem of packages and libraries for data manipulation, visualization, and modeling.</p>
+<p>Why open-source wins?</p>
+<p>AI is the game changer here. AI significantly improves coding efficiency and productivity. You don’t need to memorize every function or syntax anymore. The current role for humans is to communicate your needs to AI, and AI will generate the code for you.</p>
+<ul>
+<li>Open-source software integrates cutting-edge AI tools, faster and more efficiently than paid software.</li>
+<li>By contrast, paid software is often slower to implement new features due to development cycles and licensing restrictions.</li>
+</ul>
+<p><span class="env-green"><i class="codicon codicon-debug-console" style="font-size:1.5em; vertical-align: middle;"></i> Demonstration in VS Code. </span></p>
+<p>By typing <code># create a function taking the n-th power of a number</code>, AI will generate the code for you.</p>
+<p>Here is how to use GitHub Copilot in RStudio: <a href="https://docs.posit.co/ide/user/ide/guide/tools/copilot.html#using-copilot">RStudio User Guide: Tools, GitHub Copilot</a>.</p>
 </section>
-<section id="course-materials" class="level2">
-<h2 class="anchored" data-anchor-id="course-materials">Course Materials</h2>
+<section id="course-materials" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="course-materials"><span class="header-section-number">2</span> Course Materials</h2>
+<p>The course materials will be self-contained.</p>
+<ul>
+<li><p><strong>Lecture notes</strong>: lecture notes will be provided in the course website.</p></li>
+<li><p><strong>R code</strong>: R code will be provided in form of Lab Jupyter Notebooks.</p>
+<p>You may copy and paste the code into RStudio to run it.</p></li>
+</ul>
+<p>If you want to learn in-depth, you can refer to the following textbooks and resources.</p>
+<p><strong>Textbooks</strong></p>
+<ul>
+<li><p>Evans, J.R. (2021) <em>Business analytics: methods, models, and decisions</em>. Third edition. Harlow: Pearson.</p>
+<p>Statistics primer. Basic introduction to business analytics at the undergraduate level.</p></li>
+<li><p>James, G., Witten, D., Hastie, T., &amp; Tibshirani, R. (2021). <em>An Introduction to Statistical Learning with Applications in R</em>. 2nd edition. Springer. <a href="https://www.statlearning.com/">Online version</a></p>
+<p><strong>Main textbook</strong> for the course. It covers the fundamental concepts and methods of statistical learning, with practical applications in R.</p></li>
+<li><p>Huntsinger, R. (2025). <em>Business Analytics: Methods and Cases for Data-Driven Decisions.</em> Cambridge: Cambridge University Press. eTextbook available through <a href="https://www.cambridge.org/highereducation/books/business-analytics/49F97FC7360294F70056ADDC895C61AE#overview">Cambridge University Press</a>.</p>
+<p>Advanced methods and case studies for data-driven decision-making. We might use case studies from this book in the course.</p></li>
+</ul>
 </section>
-<section id="study-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="study-objectives">Study Objectives</h2>
+<section id="course-evaluation" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="course-evaluation"><span class="header-section-number">3</span> Course Evaluation</h2>
+<p>Compud Assessment</p>
+<ul>
+<li><p>Oppgave (home assignment): 40%</p>
+<p>Group work (1-3 students) is possible; including a case study with data analysis and visualization; a report will be submitted;</p>
+<p>Date: week 43 (preliminary)</p>
+<p>The assignment will be released in Inspera, and you will have one week to complete it.</p>
+<p>More details will be provided as the course progresses.</p></li>
+<li><p>Eksamen (school exam): 60%</p>
+<p>Digitally in Inspera; Date: 03.11.2026</p></li>
+</ul>
 </section>
-<section id="how-to-reach-me" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-reach-me">How to Reach Me</h2>
+<section id="study-objectives" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="study-objectives"><span class="header-section-number">4</span> Study Objectives</h2>
+<ul>
+<li><strong>Knowledge</strong>:
+<ul>
+<li>Familiarity with statistical methods and models used in business analytics.</li>
+<li>Focus on descriptive analytics and predictive analytics. Prescriptive analytics will be introduced if time allows.</li>
+<li>Knowledge of data visualization techniques and tools.</li>
+</ul></li>
+<li><strong>Skills</strong>:
+<ul>
+<li>Ability to analyze and interpret data using statistical methods.</li>
+<li>Proficiency in using R for data analysis and visualization.</li>
+<li>Competence in applying business analytics techniques to real-world problems.</li>
+</ul></li>
+<li><strong>Competencies</strong>:
+<ul>
+<li>Develop critical thinking skills to evaluate data-driven decisions.</li>
+<li>Ability to communicate findings effectively through reports and presentations.</li>
+</ul></li>
+</ul>
+</section>
+<section id="how-to-reach-me" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="how-to-reach-me"><span class="header-section-number">5</span> How to Reach Me</h2>
+<table border="0" cellspacing="0" cellpadding="5">
+<tbody><tr>
+<td>
+Instructor:
+</td>
+<td>
+Menghan Yuan
+</td>
+</tr>
+<tr>
+<td>
+Email:
+</td>
+<td>
+<a href="mailto:menghan.yuan@nord.no">menghan.yuan@nord.no</a>
+</td>
+</tr>
+<tr>
+<td>
+Office Hours:
+</td>
+<td>
+By appointment
+</td>
+</tr>
+<tr>
+<td>
+Office:
+</td>
+<td>
+Hovedbygning A257
+</td>
+</tr>
+<tr>
+<td colspan="2">
+&nbsp;
+</td>
+</tr>
+</tbody></table>
 
 
 </section>
@@ -214,6 +691,19 @@ ul.task-list li input[type="checkbox"] {
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {

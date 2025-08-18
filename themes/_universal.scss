@@ -1,0 +1,77 @@
+// Remove inner border from input code blocks
+.sourceCode {
+    border: none !important;
+}
+pre.sourceCode {
+    border: none !important;
+}
+
+// R code chunk outputs - remove background
+.cell-output,
+.cell-output pre,
+.cell-output code,
+.cell-output .sourceCode {
+  background-color: transparent !important;
+  background: none !important;
+}
+
+// Remove border from kableExtra scroll box div
+.cell-output-display div[style*="border"] {
+  border: none !important;
+}
+
+/**
+ * Tables
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+th, td {
+  border-spacing: 0px;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3em;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+// Bullet lists
+p + ul {
+  margin-top: 0.5em;
+}
+
+p:has(+ ul) {
+  margin-bottom: 0.5em;
+}
+
+
+
+// Callouts
+// Add space between callout title and content
+.callout .callout-title-container {
+  margin-bottom: 0.5em;
+}
+
+// Solution toggle button styling
+.solution-btn {
+  background: none;
+  border: 1px solid currentColor;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-bottom: 0.6rem; /* added spacing below solution buttons */
+  display: inline-block;
+}
+
+.solution-btn:hover {
+  opacity: 0.8;
+}
+
+// Answer box (will get color via .env-green in theme-specific files)
+.solution-answer {
+  padding: 0.4rem 0.6rem;
+  border-left: 4px solid currentColor;
+  margin: 0.4rem 0 0.8rem 0;
+  display: none; // hidden by default until toggled
+}

@@ -1,0 +1,45 @@
+/*-- scss:defaults --*/
+
+/*-- scss:rules --*/
+// Import universal styles
+@import "_universal";
+
+// Add box to theorem environments
+.theorem, .lemma, .proposition, .corollary, .definition, .example, .proof{
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Environment variable colors adaptive to light/dark mode */
+// light mode green
+.env-green {
+  color: #008B45 !important;
+  /* Default green color */
+  /* Light mode */
+}
+.env-green>code,
+.env-green code {
+  // light mode
+  color: #008B45 !important;
+}
+
+// Apply green to solution answer container in light mode
+.solution-answer.env-green {
+  color: #008B45 !important;
+  border-color: #008B45 !important;
+}
+
+// Light mode solution button inherits text, uses example border (#ddd)
+.solution-btn {
+  color: inherit !important;
+  border-color: #ddd !important; /* match example environment border */
+  font-weight: 500;
+  margin-bottom: 0.6rem !important; /* ensure spacing */
+}
+
+.solution-btn:hover, .solution-btn:focus {
+  background: rgba(0,0,0,0.04) !important;
+  outline: none;
+}

@@ -3,11 +3,11 @@ project:
   output-dir: docs
 
 website:
-  title: "2025Fall"
+  title: "FIN5005 Fall 2025"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
+      - text: Home
+        href: index.qmd
       - about.qmd
   sidebar:
     style: "docked"
@@ -22,11 +22,16 @@ website:
 
 format:
   html:
+    include-in-header: 
+      - file: themes/mathjax.html
+      - file: themes/common-header.html
+    respect-user-color-scheme: true
     theme:
-      - cosmo
-      - brand
-    css: styles.css
+      light: [cosmo, themes/custom-light.scss]
+      dark: [darkly, themes/custom-dark.scss]
     toc: true
+    number-sections: true
+    number-depth: 2
 
 
 
