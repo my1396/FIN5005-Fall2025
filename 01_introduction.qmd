@@ -6,7 +6,7 @@
 - Apply probability rules to real business events.
 - Distinguish clearly between population parameters and sample estimators.
 - Compute and explain expectation, variance, and standard deviation in business contexts.
-- Interpret higher moments: skewness ($\mu_3$) and kurtosis ($\mu_4$) for tail and asymmetry assessment.
+- Interpret higher moments: skewness and kurtosis for tail and asymmetry assessment.
 - Combine random variables (e.g., portfolio or multi‑channel forecast) and decompose variance with covariance terms.
 - Calculate and interpret covariance and correlation; relate independence vs. zero correlation.
 :::
@@ -26,12 +26,13 @@ $$P(A) = \frac{\text{Number of ways A can occur}}{\text{Total possible outcomes}
 3. $P(A \text{ or } B) = P(A) + P(B) - P(A\text{ and }B)$ 
 4. If $A$ and $B$ are mutually exclusive, then 
    $$
-   P(A \text{ or } B) = P(A) + P(B)
+   P(A \text{ and } B) = 0
    $$
    and
    $$
-    P(A \text{ and } B) = 0
+   P(A \text{ or } B) = P(A) + P(B)
    $$
+   Mutually exclusive means “cannot happen together.”
 
 
 
@@ -40,7 +41,14 @@ A retailer estimates a 30% chance of a supply chain disruption and a 50% chance 
 :::
 
 <button class="solution-btn" onclick="myFunction('sol-1')">Solution</button>
-<div id="sol-1" class="solution-answer env-green">$0.8$</div>
+<div id="sol-1" class="solution-answer env-green">
+Since the events are mutually exclusive, $P(A \text{ and } B)=0,$ then
+$$
+\begin{split}
+P(A \text{ and } B)=P(A)+P(B)-P(A \text{ and } B)=0.30+0.50=0.80.
+\end{split}
+$$
+</div>
 
 
 ::: {.example #exm-2}
@@ -51,13 +59,27 @@ In a multi-channel marketing campaign, 35% of customers click an email offer (Ev
 <div id="sol-2" class="solution-answer env-green">$P(A) + P(B) - P(A \text{ and } B) = 0.35 + 0.25 - 0.10 = 0.50$</div>
 
 ## Sample vs. Population: Estimating the Big Picture
+
 In business, we use samples to estimate population characteristics.
 
-**Formula:**
-Sample mean: $\overline{X} = \frac{1}{n} \sum_{i=1}^n X_i$
+Sample mean: 
 
-**Advanced Example:**
-A telecom company surveys 500 customers about service quality. The sample mean satisfaction score is 4.2. How can this estimate help guide company-wide improvements?
+$$
+\overline{X} = \frac{1}{n} \sum_{i=1}^n X_i
+$$
+
+::: {.example #exm-telecom}
+A telecom company surveys a randomly selected sample of 500 customers about service quality. The sample mean satisfaction score is 4.2. How can this estimate help guide company-wide improvements?
+:::
+
+<button class="solution-btn" onclick="myFunction('sol-telecom')">Solution</button>
+<div id="sol-telecom" class="solution-answer env-green">
+- The sample mean (4.2) is based on 500 surveyed customers (the sample).
+- The population is all customers of the telecom company.
+- To guide company-wide improvements, we need to know if the sample is representative of the population.
+- There is uncertainty in the estimate; larger samples make the sample mean closer to the true population mean.
+- The sample mean is useful, but its reliability depends on sample representativeness and size.
+</div>
 
 ::: {.example #exm-3}
 Why is it important to distinguish between sample and population in business analytics?
@@ -110,16 +132,37 @@ An operations planner models next-hour demand arrivals for a micro-warehouse (nu
 :::
 
 <button class="solution-btn" onclick="myFunction('sol-10')">Solution</button>
-<div id="sol-10" class="solution-answer env-green">$\mathbb{E}[X] = 0(0.2)+1(0.5)+2(0.3)=1.1$. $\mathbb{E}[X^2] = 0^2(0.2)+1^2(0.5)+2^2(0.3)=0+0.5+1.2=1.7$.  
-Variance $=1.7 - 1.1^2 = 1.7 - 1.21 = 0.49$.</div>
+::: {#sol-10 .solution-answer .env-green}
+$$
+\begin{split}
+\mathbb{E}[X] &= 0(0.2)+1(0.5)+2(0.3)=1.1 \\
+\mathbb{E}[X^2] &= 0^2(0.2)+1^2(0.5)+2^2(0.3)=0+0.5+1.2=1.7 \\
+\text{Var}(X) &= \mathbb{E}[X^2] - (\mathbb{E}[X])^2 = 1.7 - 1.1^2 = 1.7 - 1.21 = 0.49
+\end{split}
+$$
+:::
 
 ::: {.example #exm-11}
-A SaaS company tracks daily change in Daily Active Users (DAU) (in %) over 5 days: 0.4, 0.6, -0.2, 0.5, 0.7. Verify that the direct variance definition and the shortcut formula match; interpret what the variance implies for short‑term engagement volatility.
+A SaaS company tracks daily change in Daily Active Users (DAU) (in %) over 5 days: $0.4$, $0.6$, $-0.2$, $0.5$, $0.7$. Verify that the direct variance definition and the shortcut formula match; interpret what the variance implies for short‑term engagement volatility.
 :::
 
 <button class="solution-btn" onclick="myFunction('sol-11')">Solution</button>
-<div id="sol-11" class="solution-answer env-green">Mean $= (0.4+0.6-0.2+0.5+0.7)/5 = 0.4$. $\mathbb{E}[X^2] = (0.16+0.36+0.04+0.25+0.49)/5 = 1.30/5 = 0.26$.  
-Variance $= 0.26 - 0.4^2 = 0.26 - 0.16 = 0.10$. Direct method gives the same (0.10). Interpretation: moderate short‑term volatility; product or marketing experiments causing swings should be monitored if variance rises.</div>
+<div id="sol-11" class="solution-answer env-green">
+Daily % changes: $0.4,\ 0.6,\ -0.2,\ 0.5,\ 0.7$. Let units be **percentage points** (pp).
+$$
+\mathbb{E}[X] = \frac{0.4+0.6-0.2+0.5+0.7}{5} = 0.4 \text{ pp}
+$$
+$$
+\mathbb{E}[X^2] = \frac{0.16+0.36+0.04+0.25+0.49}{5} = \frac{1.30}{5} = 0.26 \text{ (pp)}^2
+$$
+Variance (percentage-point squared):
+$$
+\text{Var}(X) = 0.26 - (0.4)^2 = 0.26 - 0.16 = 0.10 \text{ (pp)}^2
+$$
+Standard deviation $= \sqrt{0.10} \approx 0.316$ pp (about $0.32$ percentage points).
+Direct (long) method matches (0.10).  
+Interpretation: Moderate short-term volatility compared to the mean change of 0.4 pp. This suggests some fluctuations in user engagement, but not extreme. 
+</div>
 
 - **Standard Deviation (population):** Square root of variance, showing average deviation from the true mean.
 
@@ -324,10 +367,29 @@ $$r_{XY} = \frac{s_{XY}}{s_X s_Y}.$$
 Independence means knowing one event doesn’t affect the other:
 $$P(A \text{ and } B) = P(A) \cdot P(B)$$
 
+
 - **Independence implies zero correlation, but not vice versa**
 
 **Business Example:**
 Suppose a retailer finds that sales and weather are correlated. This information can be used to adjust inventory planning for seasonal effects. If two marketing campaigns are independent, the outcome of one does not affect the other.
+
+::: {.example #exm-independence-supermarket}
+Supermarket independence: Let $A$ = "customer buys a loaf of bread today" and $P(A)=30\%$. 
+Let $B$ = "customer buys laundry detergent today" and $P(B)=10\%$. 
+
+What is the probability the customer buys both bread and detergent today? 
+What does observing a bread purchase tell you about $P(B)$?
+:::
+
+<button class="solution-btn" onclick="myFunction('sol-independence-supermarket')">Solution</button>
+<div id="sol-independence-supermarket" class="solution-answer env-green">
+Bread (frequent staple) and detergent (infrequent refill) decisions are unrelated, so it is reasonable to assume independence. Hence
+$$
+P(A\text{ and }B) = 30\% \times 10\% = 3\%
+$$
+Observing bread does not change $P(B)=10\%$.
+</div>
+
 
 ::: {.example #exm-7}
 If the correlation between two stocks is -0.8, what does this mean for portfolio diversification?
@@ -335,6 +397,19 @@ If the correlation between two stocks is -0.8, what does this mean for portfolio
 
 <button class="solution-btn" onclick="myFunction('sol-7')">Solution</button>
 <div id="sol-7" class="solution-answer env-green">They tend to move in opposite directions, aiding diversification and reducing portfolio variance.</div>
+
+
+
+
+:::{.callout-caution title="Mutually Exclusive vs Independence"}
+**Mutually exclusive:** Cannot happen together 
+$$P(A\cap B)=0$$
+
+**Independent:** Knowledge of one does not change probability of the other 
+$$P(A\cap B)=P(A)P(B)$$
+
+Think: Disjoint = "never together"; Independent = "no influence".
+:::
 
 
 ## Population vs. Sample: Summary & Estimators
@@ -349,8 +424,7 @@ Key principles:
 1. Replace integrals / probability-weighted sums with empirical averages.
 2. Center around the sample mean when the population mean is unknown.
 3. Use $n-1$ (unbiased) denominators for second moments (variance, covariance) when estimating from an i.i.d. sample.
-4. Higher-moment estimators (skewness, kurtosis) include finite-sample correction factors to reduce bias.
-5. Always interpret sample statistics as **estimates** with sampling variability; risk management and forecasting should account for estimation error (e.g., confidence intervals, simulation, bootstrapping).
+4. Always interpret sample statistics as **estimates** with sampling variability; risk management and forecasting should account for estimation error (e.g., standard deviation and confidence intervals).
 
 ### Quick Reference Table
 

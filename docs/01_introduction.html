@@ -600,7 +600,7 @@ window.Quarto = {
 <li>Apply probability rules to real business events.</li>
 <li>Distinguish clearly between population parameters and sample estimators.</li>
 <li>Compute and explain expectation, variance, and standard deviation in business contexts.</li>
-<li>Interpret higher moments: skewness (<span class="math inline">\(\mu_3\)</span>) and kurtosis (<span class="math inline">\(\mu_4\)</span>) for tail and asymmetry assessment.</li>
+<li>Interpret higher moments: skewness and kurtosis for tail and asymmetry assessment.</li>
 <li>Combine random variables (e.g., portfolio or multi‑channel forecast) and decompose variance with covariance terms.</li>
 <li>Calculate and interpret covariance and correlation; relate independence vs.&nbsp;zero correlation.</li>
 </ul>
@@ -617,10 +617,10 @@ window.Quarto = {
 <li><span class="math inline">\(P(\text{all possible outcomes}) = 1\)</span></li>
 <li><span class="math inline">\(P(A \text{ or } B) = P(A) + P(B) - P(A\text{ and }B)\)</span></li>
 <li>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are mutually exclusive, then <span class="math display">\[
-P(A \text{ or } B) = P(A) + P(B)
-\]</span> and <span class="math display">\[
 P(A \text{ and } B) = 0
-\]</span></li>
+\]</span> and <span class="math display">\[
+P(A \text{ or } B) = P(A) + P(B)
+\]</span> Mutually exclusive means “cannot happen together.”</li>
 </ol>
 <div id="exm-1" class="example theorem">
 <p><span class="theorem-title"><strong>Example 1</strong></span> A retailer estimates a 30% chance of a supply chain disruption and a 50% chance of a demand spike. If these events are mutually exclusive, what is the probability of either event occurring?</p>
@@ -629,8 +629,11 @@ P(A \text{ and } B) = 0
 Solution
 </button>
 <div id="sol-1" class="solution-answer env-green proof solution">
-<p><span class="proof-title"><em>Solution 1</em>. </span></p>
-<span class="math inline">\(0.8\)</span>
+<p><span class="proof-title"><em>Solution 1</em>. </span>Since the events are mutually exclusive, <span class="math inline">\(P(A \text{ and } B)=0,\)</span> then <span class="math display">\[
+\begin{split}
+P(A \text{ and } B)=P(A)+P(B)-P(A \text{ and } B)=0.30+0.50=0.80.
+\end{split}
+\]</span></p>
 </div>
 <div id="exm-2" class="example theorem">
 <p><span class="theorem-title"><strong>Example 2</strong></span> In a multi-channel marketing campaign, 35% of customers click an email offer (Event A) and 25% engage with a social media ad (Event B). Data shows 10% of customers do both. What is the probability a randomly selected customer engages with at least one of the two channels (email OR social)?</p>
@@ -646,16 +649,34 @@ Solution
 <section id="sample-vs.-population-estimating-the-big-picture" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="sample-vs.-population-estimating-the-big-picture"><span class="header-section-number">1.2</span> Sample vs.&nbsp;Population: Estimating the Big Picture</h2>
 <p>In business, we use samples to estimate population characteristics.</p>
-<p><strong>Formula:</strong> Sample mean: <span class="math inline">\(\overline{X} = \frac{1}{n} \sum_{i=1}^n X_i\)</span></p>
-<p><strong>Advanced Example:</strong> A telecom company surveys 500 customers about service quality. The sample mean satisfaction score is 4.2. How can this estimate help guide company-wide improvements?</p>
+<p>Sample mean:</p>
+<p><span class="math display">\[
+\overline{X} = \frac{1}{n} \sum_{i=1}^n X_i
+\]</span></p>
+<div id="exm-telecom" class="example theorem">
+<p><span class="theorem-title"><strong>Example 3</strong></span> A telecom company surveys a randomly selected sample of 500 customers about service quality. The sample mean satisfaction score is 4.2. How can this estimate help guide company-wide improvements?</p>
+</div>
+<button class="solution-btn" onclick="myFunction('sol-telecom')">
+Solution
+</button>
+<div id="sol-telecom" class="solution-answer env-green proof solution">
+<p><span class="proof-title"><em>Solution 3</em>. </span></p>
+<ul>
+<li>The sample mean (4.2) is based on 500 surveyed customers (the sample).</li>
+<li>The population is all customers of the telecom company.</li>
+<li>To guide company-wide improvements, we need to know if the sample is representative of the population.</li>
+<li>There is uncertainty in the estimate; larger samples make the sample mean closer to the true population mean.</li>
+<li>The sample mean is useful, but its reliability depends on sample representativeness and size.</li>
+</ul>
+</div>
 <div id="exm-3" class="example theorem">
-<p><span class="theorem-title"><strong>Example 3</strong></span> Why is it important to distinguish between sample and population in business analytics?</p>
+<p><span class="theorem-title"><strong>Example 4</strong></span> Why is it important to distinguish between sample and population in business analytics?</p>
 </div>
 <button class="solution-btn" onclick="myFunction('sol-3')">
 Solution
 </button>
 <div id="sol-3" class="solution-answer env-green proof solution">
-<p><span class="proof-title"><em>Solution 3</em>. </span></p>
+<p><span class="proof-title"><em>Solution 4</em>. </span></p>
 Because we use samples to estimate population parameters, and understanding the difference helps us make better decisions and avoid bias.
 </div>
 </section>
@@ -688,26 +709,35 @@ Because we use samples to estimate population parameters, and understanding the 
 </ul></li>
 </ul>
 <div id="exm-10" class="example theorem">
-<p><span class="theorem-title"><strong>Example 4</strong></span> An operations planner models next-hour demand arrivals for a micro-warehouse (number of urgent orders) as <span class="math inline">\(X \in \{0,1,2\}\)</span> with probabilities 0.2, 0.5, 0.3. Compute the variability (variance) of order arrivals using the shortcut formula <span class="math inline">\(\mathbb{E}[X^2] - (\mathbb{E}[X])^2\)</span> to inform staffing.</p>
+<p><span class="theorem-title"><strong>Example 5</strong></span> An operations planner models next-hour demand arrivals for a micro-warehouse (number of urgent orders) as <span class="math inline">\(X \in \{0,1,2\}\)</span> with probabilities 0.2, 0.5, 0.3. Compute the variability (variance) of order arrivals using the shortcut formula <span class="math inline">\(\mathbb{E}[X^2] - (\mathbb{E}[X])^2\)</span> to inform staffing.</p>
 </div>
 <button class="solution-btn" onclick="myFunction('sol-10')">
 Solution
 </button>
 <div id="sol-10" class="solution-answer env-green proof solution">
-<p><span class="proof-title"><em>Solution 4</em>. </span></p>
-<span class="math inline">\(\mathbb{E}[X] = 0(0.2)+1(0.5)+2(0.3)=1.1\)</span>. <span class="math inline">\(\mathbb{E}[X^2] = 0^2(0.2)+1^2(0.5)+2^2(0.3)=0+0.5+1.2=1.7\)</span>.<br>
-Variance <span class="math inline">\(=1.7 - 1.1^2 = 1.7 - 1.21 = 0.49\)</span>.
+<p><span class="proof-title"><em>Solution 5</em>. </span><span class="math display">\[
+\begin{split}
+\mathbb{E}[X] &amp;= 0(0.2)+1(0.5)+2(0.3)=1.1 \\
+\mathbb{E}[X^2] &amp;= 0^2(0.2)+1^2(0.5)+2^2(0.3)=0+0.5+1.2=1.7 \\
+\text{Var}(X) &amp;= \mathbb{E}[X^2] - (\mathbb{E}[X])^2 = 1.7 - 1.1^2 = 1.7 - 1.21 = 0.49
+\end{split}
+\]</span></p>
 </div>
 <div id="exm-11" class="example theorem">
-<p><span class="theorem-title"><strong>Example 5</strong></span> A SaaS company tracks daily change in Daily Active Users (DAU) (in %) over 5 days: 0.4, 0.6, -0.2, 0.5, 0.7. Verify that the direct variance definition and the shortcut formula match; interpret what the variance implies for short‑term engagement volatility.</p>
+<p><span class="theorem-title"><strong>Example 6</strong></span> A SaaS company tracks daily change in Daily Active Users (DAU) (in %) over 5 days: <span class="math inline">\(0.4\)</span>, <span class="math inline">\(0.6\)</span>, <span class="math inline">\(-0.2\)</span>, <span class="math inline">\(0.5\)</span>, <span class="math inline">\(0.7\)</span>. Verify that the direct variance definition and the shortcut formula match; interpret what the variance implies for short‑term engagement volatility.</p>
 </div>
 <button class="solution-btn" onclick="myFunction('sol-11')">
 Solution
 </button>
 <div id="sol-11" class="solution-answer env-green proof solution">
-<p><span class="proof-title"><em>Solution 5</em>. </span></p>
-Mean <span class="math inline">\(= (0.4+0.6-0.2+0.5+0.7)/5 = 0.4\)</span>. <span class="math inline">\(\mathbb{E}[X^2] = (0.16+0.36+0.04+0.25+0.49)/5 = 1.30/5 = 0.26\)</span>.<br>
-Variance <span class="math inline">\(= 0.26 - 0.4^2 = 0.26 - 0.16 = 0.10\)</span>. Direct method gives the same (0.10). Interpretation: moderate short‑term volatility; product or marketing experiments causing swings should be monitored if variance rises.
+<p><span class="proof-title"><em>Solution 6</em>. </span>Daily % changes: <span class="math inline">\(0.4,\ 0.6,\ -0.2,\ 0.5,\ 0.7\)</span>. Let units be <strong>percentage points</strong> (pp). <span class="math display">\[
+\mathbb{E}[X] = \frac{0.4+0.6-0.2+0.5+0.7}{5} = 0.4 \text{ pp}
+\]</span> <span class="math display">\[
+\mathbb{E}[X^2] = \frac{0.16+0.36+0.04+0.25+0.49}{5} = \frac{1.30}{5} = 0.26 \text{ (pp)}^2
+\]</span> Variance (percentage-point squared): <span class="math display">\[
+\text{Var}(X) = 0.26 - (0.4)^2 = 0.26 - 0.16 = 0.10 \text{ (pp)}^2
+\]</span> Standard deviation <span class="math inline">\(= \sqrt{0.10} \approx 0.316\)</span> pp (about <span class="math inline">\(0.32\)</span> percentage points). Direct (long) method matches (0.10).<br>
+Interpretation: Moderate short-term volatility compared to the mean change of 0.4 pp.&nbsp;This suggests some fluctuations in user engagement, but not extreme.</p>
 </div>
 <ul>
 <li><p><strong>Standard Deviation (population):</strong> Square root of variance, showing average deviation from the true mean.</p>
@@ -715,23 +745,23 @@ Variance <span class="math inline">\(= 0.26 - 0.4^2 = 0.26 - 0.16 = 0.10\)</span
 <p><strong>Sample estimator:</strong> <span class="math inline">\(s = \sqrt{s^2}\)</span> (using the unbiased <span class="math inline">\(s^2\)</span> above).</p></li>
 </ul>
 <div id="exm-9" class="example theorem">
-<p><span class="theorem-title"><strong>Example 6</strong></span> A hedge fund analyzes daily returns of two portfolios. Portfolio A has higher mean but also higher variance. How should risk-adjusted performance be compared?</p>
+<p><span class="theorem-title"><strong>Example 7</strong></span> A hedge fund analyzes daily returns of two portfolios. Portfolio A has higher mean but also higher variance. How should risk-adjusted performance be compared?</p>
 </div>
 <button class="solution-btn" onclick="myFunction('sol-9')">
 Solution
 </button>
 <div id="sol-9" class="solution-answer env-green proof solution">
-<p><span class="proof-title"><em>Solution 6</em>. </span></p>
+<p><span class="proof-title"><em>Solution 7</em>. </span></p>
 Compare risk-adjusted metrics (e.g., Sharpe ratio = (mean - rf)/sd). Higher mean with disproportionate variance may yield lower Sharpe.
 </div>
 <div id="exm-4" class="example theorem">
-<p><span class="theorem-title"><strong>Example 7</strong></span> A business has daily profits of $200, $250, $180, $220, and $210. Calculate the mean and variance.</p>
+<p><span class="theorem-title"><strong>Example 8</strong></span> A business has daily profits of $200, $250, $180, $220, and $210. Calculate the mean and variance.</p>
 </div>
 <button class="solution-btn" onclick="myFunction('sol-4')">
 Solution
 </button>
 <div id="sol-4" class="solution-answer env-green proof solution">
-<p><span class="proof-title"><em>Solution 7</em>. </span><strong>Mean:</strong> <span class="math inline">\(\bar{x}=\dfrac{200+250+180+220+210}{5}=\dfrac{1060}{5}=212\)</span>.</p>
+<p><span class="proof-title"><em>Solution 8</em>. </span><strong>Mean:</strong> <span class="math inline">\(\bar{x}=\dfrac{200+250+180+220+210}{5}=\dfrac{1060}{5}=212\)</span>.</p>
 <p><strong>Variance calculations:</strong></p>
 <ol type="1">
 <li><strong>Sum of squared deviations</strong><br>
@@ -758,13 +788,13 @@ Solution
 <p>Sample counterpart (unbiased style): <span class="math display">\[s_{X+Y}^2 = s_X^2 + s_Y^2 + 2 s_{XY},\]</span> where <span class="math inline">\(s_{XY} = \dfrac{1}{n-1}\sum_{i=1}^n (X_i-\bar{X})(Y_i-\bar{Y}).\)</span></p>
 <p><strong>Intuitive Example:</strong> In portfolio management, the total risk (variance) of a portfolio depends on the variances of individual assets and how they move together (covariance).</p>
 <div id="exm-6" class="example theorem">
-<p><span class="theorem-title"><strong>Example 8</strong></span> Two independent projects have profit variances of 100 and 150. What is the variance of total profit?</p>
+<p><span class="theorem-title"><strong>Example 9</strong></span> Two independent projects have profit variances of 100 and 150. What is the variance of total profit?</p>
 </div>
 <button class="solution-btn" onclick="myFunction('sol-6')">
 Solution
 </button>
 <div id="sol-6" class="solution-answer env-green proof solution">
-<p><span class="proof-title"><em>Solution 8</em>. </span></p>
+<p><span class="proof-title"><em>Solution 9</em>. </span></p>
 <span class="math inline">\(100 + 150 = 250\)</span>.
 </div>
 <section id="variance-of-linear-transformations-portfolios" class="level4">
@@ -779,23 +809,23 @@ Solution
 \]</span></p>
 <p>If the <span class="math inline">\(X_i\)</span> are pairwise independent (or uncorrelated), the double sum of covariance terms drops out for <span class="math inline">\(i\neq j\)</span>, leaving only the first sum.</p>
 <div id="exm-12" class="example theorem">
-<p><span class="theorem-title"><strong>Example 9</strong></span> A portfolio allocates 40% to Asset A and 60% to Asset B. <span class="math inline">\(\text{Var}(A)=0.04\)</span>, <span class="math inline">\(\text{Var}(B)=0.09\)</span>, and <span class="math inline">\(\text{Cov}(A,B)=0.01\)</span>. Compute portfolio variance using the general formula.</p>
+<p><span class="theorem-title"><strong>Example 10</strong></span> A portfolio allocates 40% to Asset A and 60% to Asset B. <span class="math inline">\(\text{Var}(A)=0.04\)</span>, <span class="math inline">\(\text{Var}(B)=0.09\)</span>, and <span class="math inline">\(\text{Cov}(A,B)=0.01\)</span>. Compute portfolio variance using the general formula.</p>
 </div>
 <button class="solution-btn" onclick="myFunction('sol-12')">
 Solution
 </button>
 <div id="sol-12" class="solution-answer env-green proof solution">
-<p><span class="proof-title"><em>Solution 9</em>. </span></p>
+<p><span class="proof-title"><em>Solution 10</em>. </span></p>
 <span class="math inline">\(\text{Var}(P)=0.4^2(0.04)+0.6^2(0.09)+2(0.4)(0.6)(0.01)=0.0064+0.0324+0.0048=0.0436\)</span>.
 </div>
 <div id="exm-13" class="example theorem">
-<p><span class="theorem-title"><strong>Example 10</strong></span> A production planner combines forecasts: Final forecast <span class="math inline">\(F = 2 + 0.7X_1 + 0.3X_2\)</span>. If <span class="math inline">\(\text{Var}(X_1)=25\)</span>, <span class="math inline">\(\text{Var}(X_2)=9\)</span>, and <span class="math inline">\(\text{Cov}(X_1,X_2)=6\)</span>, find <span class="math inline">\(\text{Var}(F)\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 11</strong></span> A production planner combines forecasts: Final forecast <span class="math inline">\(F = 2 + 0.7X_1 + 0.3X_2\)</span>. If <span class="math inline">\(\text{Var}(X_1)=25\)</span>, <span class="math inline">\(\text{Var}(X_2)=9\)</span>, and <span class="math inline">\(\text{Cov}(X_1,X_2)=6\)</span>, find <span class="math inline">\(\text{Var}(F)\)</span>.</p>
 </div>
 <button class="solution-btn" onclick="myFunction('sol-13')">
 Solution
 </button>
 <div id="sol-13" class="solution-answer env-green proof solution">
-<p><span class="proof-title"><em>Solution 10</em>. </span></p>
+<p><span class="proof-title"><em>Solution 11</em>. </span></p>
 Constant 2 adds no variance. <span class="math inline">\(\text{Var}(F)=0.7^2(25)+0.3^2(9)+2(0.7)(0.3)(6)=12.25+0.81+2.52=15.58\)</span>.
 </div>
 </section>
@@ -904,13 +934,13 @@ For the <span class="math inline">\(t\)</span>-distribution:
 <p>Let <span class="math inline">\(\mu_4 = E[(X-\mathbb{E}[X])^4]\)</span> be the fourth central moment. Standardized (population) kurtosis: <span class="math display">\[\kappa = \frac{\mu_4}{\text{sd}(X)^4}, \qquad \text{Excess kurtosis} = \kappa - 3.\]</span> Sample (Fisher) excess kurtosis estimator: <span class="math display">\[\hat{g}_2 = \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum_{i=1}^n \left(\frac{X_i-\bar{X}}{s}\right)^4 - \frac{3(n-1)^2}{(n-2)(n-3)}.\]</span> High excess kurtosis signals greater tail risk; low or negative excess indicates fewer extreme outcomes.</p>
 <p>Interpretation link: High positive skewness without high kurtosis means upside spikes with limited extra tail risk; high kurtosis (regardless of skew sign) means fatter tails and a need to focus on outlier management.</p>
 <div id="exm-5" class="example theorem">
-<p><span class="theorem-title"><strong>Example 11</strong></span> A company’s quarterly profits have excess kurtosis of 4. What does this mean for risk management?</p>
+<p><span class="theorem-title"><strong>Example 12</strong></span> A company’s quarterly profits have excess kurtosis of 4. What does this mean for risk management?</p>
 </div>
 <button class="solution-btn" onclick="myFunction('sol-5')">
 Solution
 </button>
 <div id="sol-5" class="solution-answer env-green proof solution">
-<p><span class="proof-title"><em>Solution 11</em>. </span></p>
+<p><span class="proof-title"><em>Solution 12</em>. </span></p>
 Higher tail risk: higher chance of extreme profit or loss; focus risk management on outliers.
 </div>
 </section>
@@ -937,15 +967,42 @@ Higher tail risk: higher chance of extreme profit or loss; focus risk management
 <li><strong>Independence implies zero correlation, but not vice versa</strong></li>
 </ul>
 <p><strong>Business Example:</strong> Suppose a retailer finds that sales and weather are correlated. This information can be used to adjust inventory planning for seasonal effects. If two marketing campaigns are independent, the outcome of one does not affect the other.</p>
+<div id="exm-independence-supermarket" class="example theorem">
+<p><span class="theorem-title"><strong>Example 13</strong></span> Supermarket independence: Let <span class="math inline">\(A\)</span> = “customer buys a loaf of bread today” and <span class="math inline">\(P(A)=30\%\)</span>. Let <span class="math inline">\(B\)</span> = “customer buys laundry detergent today” and <span class="math inline">\(P(B)=10\%\)</span>.</p>
+<p>What is the probability the customer buys both bread and detergent today? What does observing a bread purchase tell you about <span class="math inline">\(P(B)\)</span>?</p>
+</div>
+<button class="solution-btn" onclick="myFunction('sol-independence-supermarket')">
+Solution
+</button>
+<div id="sol-independence-supermarket" class="solution-answer env-green proof solution">
+<p><span class="proof-title"><em>Solution 13</em>. </span>Bread (frequent staple) and detergent (infrequent refill) decisions are unrelated, so it is reasonable to assume independence. Hence <span class="math display">\[
+P(A\text{ and }B) = 30\% \times 10\% = 3\%
+\]</span> Observing Version A does not change the Europe probability: still 25%.</p>
+</div>
 <div id="exm-7" class="example theorem">
-<p><span class="theorem-title"><strong>Example 12</strong></span> If the correlation between two stocks is -0.8, what does this mean for portfolio diversification?</p>
+<p><span class="theorem-title"><strong>Example 14</strong></span> If the correlation between two stocks is -0.8, what does this mean for portfolio diversification?</p>
 </div>
 <button class="solution-btn" onclick="myFunction('sol-7')">
 Solution
 </button>
 <div id="sol-7" class="solution-answer env-green proof solution">
-<p><span class="proof-title"><em>Solution 12</em>. </span></p>
+<p><span class="proof-title"><em>Solution 14</em>. </span></p>
 They tend to move in opposite directions, aiding diversification and reducing portfolio variance.
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Mutually Exclusive vs Independence">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Mutually Exclusive vs Independence
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Mutually exclusive:</strong> Cannot happen together <span class="math display">\[P(A\cap B)=0\]</span></p>
+<p><strong>Independent:</strong> Knowledge of one does not change probability of the other <span class="math display">\[P(A\cap B)=P(A)P(B)\]</span></p>
+<p>Think: Disjoint = “never together”; Independent = “no influence”.</p>
+</div>
 </div>
 </section>
 <section id="population-vs.-sample-summary-estimators" class="level2" data-number="1.5">
@@ -960,8 +1017,7 @@ They tend to move in opposite directions, aiding diversification and reducing po
 <li>Replace integrals / probability-weighted sums with empirical averages.</li>
 <li>Center around the sample mean when the population mean is unknown.</li>
 <li>Use <span class="math inline">\(n-1\)</span> (unbiased) denominators for second moments (variance, covariance) when estimating from an i.i.d. sample.</li>
-<li>Higher-moment estimators (skewness, kurtosis) include finite-sample correction factors to reduce bias.</li>
-<li>Always interpret sample statistics as <strong>estimates</strong> with sampling variability; risk management and forecasting should account for estimation error (e.g., confidence intervals, simulation, bootstrapping).</li>
+<li>Always interpret sample statistics as <strong>estimates</strong> with sampling variability; risk management and forecasting should account for estimation error (e.g., standard deviation and confidence intervals).</li>
 </ol>
 <section id="quick-reference-table" class="level3">
 <h3 class="anchored" data-anchor-id="quick-reference-table">Quick Reference Table</h3>
