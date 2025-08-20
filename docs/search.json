@@ -37,7 +37,7 @@
     "href": "01_Lab-1.html",
     "title": "Lab 1: Probability & Descriptive Statistics",
     "section": "",
-    "text": "Focus: explore core descriptive statistics and dependence concepts using simple synthetic data.\nYou will:\nOpen in Colab (optional): Link",
+    "text": "Focus: explore core descriptive statistics and dependence concepts using simple synthetic data.\nYou will:\nOpen in Google Colab: Link\nAlternatively, copy and paste the code below into RStuido Desktop or RStudio Cloud.",
     "crumbs": [
       "Home",
       "Basics",
