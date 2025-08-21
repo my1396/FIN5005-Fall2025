@@ -11,7 +11,7 @@
 - Calculate and interpret covariance and correlation; relate independence vs. zero correlation.
 :::
 
-Probability is the foundation for making data-driven decisions in business. This section covers the essential concepts, formulas, and advanced business examples you’ll use in analytics.
+Probability is the foundation for making data-driven decisions in business. This section covers the essential concepts, formulas, and business examples you’ll use in analytics.
 
 
 
@@ -316,8 +316,7 @@ knitr::include_graphics("images/t distribution.png")
 knitr::include_graphics("images/t-dist change df.gif") 
 ```
 
-:::{.callout-tip}
-## For the $t$-distribution:
+:::{.callout-tip title="For the $t$-distribution:"}
 
 - As the degrees of freedom (df) increase, the $t$-distribution approaches the normal distribution.
 - A common rule of thumb is that for $df > 30$, one can pretty safely use the normal distribution in place of a *t*-distribution unless you are interested in the extreme tails. 
@@ -336,7 +335,14 @@ A company’s quarterly profits have excess kurtosis of 4. What does this mean f
 :::
 
 <button class="solution-btn" onclick="myFunction('sol-5')">Solution</button>
-<div id="sol-5" class="solution-answer env-green">Higher tail risk: higher chance of extreme profit or loss; focus risk management on outliers.</div>
+<div id="sol-5" class="solution-answer env-green">
+Excess kurtosis is defined relative to a normal distribution (which has kurtosis 3).
+
+  * Excess kurtosis = Kurtosis − 3
+  * So an excess kurtosis of 4 means the total kurtosis is **7**, much higher than a normal distribution.
+
+This implies the distribution of quarterly profits has **fat tails** — extreme profit or loss outcomes are more likely than under a normal distribution. Recommend to focus risk management on outliers.
+</div>
 
 
 ## Covariance, Correlation & Independence
@@ -361,7 +367,7 @@ $$\text{Corr}(X, Y) = \frac{\text{Cov}(X, Y)}{\text{sd}(X) \cdot \text{sd}(Y)}$$
 $$r_{XY} = \frac{s_{XY}}{s_X s_Y}.$$
 
 - **Correlation = 1:** Perfect positive relationship
-- **Correlation = -1:** Perfect negative relationship
+- **Correlation = $-1$:** Perfect negative relationship
 - **Correlation = 0:** No linear relationship
 
 Independence means knowing one event doesn’t affect the other:
@@ -374,8 +380,10 @@ $$P(A \text{ and } B) = P(A) \cdot P(B)$$
 Suppose a retailer finds that sales and weather are correlated. This information can be used to adjust inventory planning for seasonal effects. If two marketing campaigns are independent, the outcome of one does not affect the other.
 
 ::: {.example #exm-independence-supermarket}
-Supermarket independence: Let $A$ = "customer buys a loaf of bread today" and $P(A)=30\%$. 
-Let $B$ = "customer buys laundry detergent today" and $P(B)=10\%$. 
+Suppose a customer visits a supermarket. Let: 
+
+- $A$ = "customer buys a loaf of bread today" and $P(A)=30\%$. 
+- $B$ = "customer buys laundry detergent today" and $P(B)=10\%$. 
 
 What is the probability the customer buys both bread and detergent today? 
 What does observing a bread purchase tell you about $P(B)$?
@@ -392,7 +400,7 @@ Observing bread does not change $P(B)=10\%$.
 
 
 ::: {.example #exm-7}
-If the correlation between two stocks is -0.8, what does this mean for portfolio diversification?
+If the correlation between two stocks is $-0.8,$ what does this mean for portfolio diversification?
 :::
 
 <button class="solution-btn" onclick="myFunction('sol-7')">Solution</button>
@@ -439,9 +447,8 @@ Key principles:
 | Correlation | $\rho=\dfrac{\text{Cov}(X,Y)}{\text{sd}(X)\text{sd}(Y)}$ | $r_{XY}=\dfrac{s_{XY}}{s_X s_Y}$ | Scale-free ( -1 to 1 ) |
 
 
-Interpretation tip: If a sample statistic looks extreme (e.g., very high skewness or kurtosis), examine sample size and outliers; small samples amplify noise in higher-moment estimates.
-
-
-
+:::{.callout-tip title="Interpretation tip"}
+If a sample statistic looks extreme (e.g., very high skewness or kurtosis), examine sample size and outliers; small samples amplify noise in higher-moment estimates.
+:::
 
 

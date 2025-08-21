@@ -607,7 +607,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Probability is the foundation for making data-driven decisions in business. This section covers the essential concepts, formulas, and advanced business examples you’ll use in analytics.</p>
+<p>Probability is the foundation for making data-driven decisions in business. This section covers the essential concepts, formulas, and business examples you’ll use in analytics.</p>
 <section id="probability-axioms" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="probability-axioms"><span class="header-section-number">1.1</span> Probability Axioms</h2>
 <p>Probability measures how likely an event is.</p>
@@ -915,7 +915,7 @@ Figure&nbsp;3: The comparison between the <em>t</em>-distribution and the normal
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-tip callout-titled" title="For the $t$-distribution:">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -940,8 +940,12 @@ For the <span class="math inline">\(t\)</span>-distribution:
 Solution
 </button>
 <div id="sol-5" class="solution-answer env-green proof solution">
-<p><span class="proof-title"><em>Solution 12</em>. </span></p>
-Higher tail risk: higher chance of extreme profit or loss; focus risk management on outliers.
+<p><span class="proof-title"><em>Solution 12</em>. </span>Excess kurtosis is defined relative to a normal distribution (which has kurtosis 3).</p>
+<ul>
+<li>Excess kurtosis = Kurtosis − 3</li>
+<li>So an excess kurtosis of 4 means the total kurtosis is <strong>7</strong>, much higher than a normal distribution.</li>
+</ul>
+<p>This implies the distribution of quarterly profits has <strong>fat tails</strong> — extreme profit or loss outcomes are more likely than under a normal distribution. Recommend to focus risk management on outliers.</p>
 </div>
 </section>
 </section>
@@ -959,7 +963,7 @@ Higher tail risk: higher chance of extreme profit or loss; focus risk management
 <p><strong>Sample correlation:</strong> <span class="math display">\[r_{XY} = \frac{s_{XY}}{s_X s_Y}.\]</span></p>
 <ul>
 <li><strong>Correlation = 1:</strong> Perfect positive relationship</li>
-<li><strong>Correlation = -1:</strong> Perfect negative relationship</li>
+<li><strong>Correlation = <span class="math inline">\(-1\)</span>:</strong> Perfect negative relationship</li>
 <li><strong>Correlation = 0:</strong> No linear relationship</li>
 </ul>
 <p>Independence means knowing one event doesn’t affect the other: <span class="math display">\[P(A \text{ and } B) = P(A) \cdot P(B)\]</span></p>
@@ -968,7 +972,11 @@ Higher tail risk: higher chance of extreme profit or loss; focus risk management
 </ul>
 <p><strong>Business Example:</strong> Suppose a retailer finds that sales and weather are correlated. This information can be used to adjust inventory planning for seasonal effects. If two marketing campaigns are independent, the outcome of one does not affect the other.</p>
 <div id="exm-independence-supermarket" class="example theorem">
-<p><span class="theorem-title"><strong>Example 13</strong></span> Supermarket independence: Let <span class="math inline">\(A\)</span> = “customer buys a loaf of bread today” and <span class="math inline">\(P(A)=30\%\)</span>. Let <span class="math inline">\(B\)</span> = “customer buys laundry detergent today” and <span class="math inline">\(P(B)=10\%\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 13</strong></span> Suppose a customer visits a supermarket. Let:</p>
+<ul>
+<li><span class="math inline">\(A\)</span> = “customer buys a loaf of bread today” and <span class="math inline">\(P(A)=30\%\)</span>.</li>
+<li><span class="math inline">\(B\)</span> = “customer buys laundry detergent today” and <span class="math inline">\(P(B)=10\%\)</span>.</li>
+</ul>
 <p>What is the probability the customer buys both bread and detergent today? What does observing a bread purchase tell you about <span class="math inline">\(P(B)\)</span>?</p>
 </div>
 <button class="solution-btn" onclick="myFunction('sol-independence-supermarket')">
@@ -980,7 +988,7 @@ P(A\text{ and }B) = 30\% \times 10\% = 3\%
 \]</span> Observing bread does not change <span class="math inline">\(P(B)=10\%\)</span>.</p>
 </div>
 <div id="exm-7" class="example theorem">
-<p><span class="theorem-title"><strong>Example 14</strong></span> If the correlation between two stocks is -0.8, what does this mean for portfolio diversification?</p>
+<p><span class="theorem-title"><strong>Example 14</strong></span> If the correlation between two stocks is <span class="math inline">\(-0.8,\)</span> what does this mean for portfolio diversification?</p>
 </div>
 <button class="solution-btn" onclick="myFunction('sol-7')">
 Solution
@@ -1081,7 +1089,19 @@ Mutually Exclusive vs Independence
 </tr>
 </tbody>
 </table>
-<p>Interpretation tip: If a sample statistic looks extreme (e.g., very high skewness or kurtosis), examine sample size and outliers; small samples amplify noise in higher-moment estimates.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Interpretation tip">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Interpretation tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If a sample statistic looks extreme (e.g., very high skewness or kurtosis), examine sample size and outliers; small samples amplify noise in higher-moment estimates.</p>
+</div>
+</div>
 
 
 </section>
