@@ -374,7 +374,15 @@ Independence means knowing one event doesn’t affect the other:
 $$P(A \text{ and } B) = P(A) \cdot P(B)$$
 
 
-- **Independence implies zero correlation, but not vice versa**
+
+::: {.callout-caution title="Independence vs. Correlation"}
+Independence means no influence between events, while correlation measures linear relationship strength. 
+
+Independence implies zero correlation, but zero correlation does not imply independence.
+
+E.g., $X$ and $Y = X^2$ have zero correlation but are not independent.
+:::
+
 
 **Business Example:**
 Suppose a retailer finds that sales and weather are correlated. This information can be used to adjust inventory planning for seasonal effects. If two marketing campaigns are independent, the outcome of one does not affect the other.
