@@ -7,9 +7,10 @@
 # ignore output
 /.quarto/
 /_site/
-/_quiz/
 /_book/
+# ignore user folders you don't want to share
 /data/
+/_quiz/
 
 # auto generated system files
 .DS_Store
