@@ -23,8 +23,8 @@ website:
 format:
   html:
     include-in-header: 
-      - file: themes/mathjax.html
-      - file: themes/common-header.html
+      - file: themes/mathjax.html       # MathJax for LaTeX custom macro support
+      - file: themes/common-header.html # load js scripts and external css (e.g., font-awesome) for all pages
     respect-user-color-scheme: true
     theme:
       light: [cosmo, themes/custom-light.scss]
