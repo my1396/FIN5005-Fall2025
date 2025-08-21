@@ -601,10 +601,10 @@ window.Quarto = {
   <li><a href="#datasets" id="toc-datasets" class="nav-link active" data-scroll-target="#datasets"><span class="header-section-number">1</span> Datasets</a></li>
   <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions"><span class="header-section-number">2</span> Instructions</a></li>
   <li><a href="#independence-vs.-zero-correlation" id="toc-independence-vs.-zero-correlation" class="nav-link" data-scroll-target="#independence-vs.-zero-correlation"><span class="header-section-number">3</span> Independence vs.&nbsp;Zero Correlation</a></li>
-  <li><a href="#descriptive-statistics-on-asset-returns" id="toc-descriptive-statistics-on-asset-returns" class="nav-link" data-scroll-target="#descriptive-statistics-on-asset-returns"><span class="header-section-number">4</span> Descriptive Statistics on Asset Returns</a>
+  <li><a href="#descriptive-statistics-on-asset-returns" id="toc-descriptive-statistics-on-asset-returns" class="nav-link" data-scroll-target="#descriptive-statistics-on-asset-returns"><span class="header-section-number">4</span> Descriptive Statistics on Asset Returns</a></li>
+  <li><a href="#large-sample-gives-more-accurate-estimates" id="toc-large-sample-gives-more-accurate-estimates" class="nav-link" data-scroll-target="#large-sample-gives-more-accurate-estimates"><span class="header-section-number">5</span> Large Sample Gives More Accurate Estimates</a></li>
+  <li><a href="#correlated-asset-returns" id="toc-correlated-asset-returns" class="nav-link" data-scroll-target="#correlated-asset-returns"><span class="header-section-number">6</span> Correlated Asset Returns</a>
   <ul class="collapse">
-  <li><a href="#negatively-skewed-sample" id="toc-negatively-skewed-sample" class="nav-link" data-scroll-target="#negatively-skewed-sample">Negatively Skewed Sample</a></li>
-  <li><a href="#sampling-distributions-of-two-asset-returns" id="toc-sampling-distributions-of-two-asset-returns" class="nav-link" data-scroll-target="#sampling-distributions-of-two-asset-returns">Sampling Distributions of Two Asset Returns</a></li>
   <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
   </ul></li>
   </ul>
@@ -715,8 +715,11 @@ sample estimates:
 0.01983657 </code></pre>
 </div>
 </div>
-<p>💡 Q: What is the p-value for the correlation test? What can you conclude about the correlation between the two variables? Write your answer in the cell below.</p>
+<hr>
+<p>💡 <strong>Q: Based on the output of <code>cor.test</code>, what is the p-value for the correlation test? What can you conclude about the correlation between the two variables?</strong> Write your answer in the cell below.</p>
 <p>A: [Type your answer here]</p>
+<hr>
+<p>Now let’s visualize <span class="math inline">\(Y=X^2\)</span> by plotting the scatter plot.</p>
 <div id="7dd71422" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width =</span> <span class="dv">8</span>, <span class="at">repr.plot.height =</span> <span class="dv">7</span>)</span>
@@ -742,23 +745,24 @@ sample estimates:
 </section>
 <section id="descriptive-statistics-on-asset-returns" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="descriptive-statistics-on-asset-returns"><span class="header-section-number">4</span> Descriptive Statistics on Asset Returns</h2>
-<div id="583cea2b" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>asset_df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="583cea2b" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Load Asset Returns Data ----</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>asset_df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/asset_returns.csv"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Preview: first 6 rows of asset returns data frame:"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(asset_df) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Preview: first 6 rows of asset returns data frame:"</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true">
-<caption>A data.frame: 6 × 3</caption>
+<caption>A tibble: 6 × 3</caption>
 <thead>
 <tr class="header">
-<th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th" scope="col">Asset_A</th>
 <th data-quarto-table-cell-role="th" scope="col">Asset_B</th>
 <th data-quarto-table-cell-role="th" scope="col">Asset_C</th>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
 <th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
 <th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
@@ -766,45 +770,40 @@ sample estimates:
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th" scope="row">1</td>
-<td>17.88517</td>
-<td>4.305714</td>
-<td>9.940056</td>
+<td>17.89</td>
+<td>4.31</td>
+<td>9.94</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th" scope="row">2</td>
-<td>10.30022</td>
-<td>4.165024</td>
-<td>10.549088</td>
+<td>10.30</td>
+<td>4.17</td>
+<td>10.55</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th" scope="row">3</td>
-<td>20.87020</td>
-<td>14.160931</td>
-<td>6.608859</td>
+<td>20.87</td>
+<td>14.16</td>
+<td>6.61</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th" scope="row">4</td>
-<td>18.20515</td>
-<td>22.326560</td>
-<td>9.580894</td>
+<td>18.21</td>
+<td>22.33</td>
+<td>9.58</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th" scope="row">5</td>
-<td>17.49377</td>
-<td>2.227112</td>
-<td>10.226785</td>
+<td>17.49</td>
+<td>2.23</td>
+<td>10.23</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th" scope="row">6</td>
-<td>29.87376</td>
-<td>15.721318</td>
-<td>8.969147</td>
+<td>29.87</td>
+<td>15.72</td>
+<td>8.97</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
+<p>We define a summary statistics function to compute the statistics of interest.</p>
 <div id="b87cab78" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="48">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>quick_summary <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Function to compute basic descriptive statistics</span></span>
@@ -819,181 +818,109 @@ sample estimates:
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="a1b3a86e" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="50">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(asset_df, quick_summary) <span class="sc">%&gt;%</span> </span>
+<p>The summary statistic table is generated as follows:</p>
+<div id="cf5b0a54" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(asset_df, quick_summary) <span class="sc">%&gt;%</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">do.call</span>(rbind, .) <span class="sc">%&gt;%</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>, <span class="at">caption =</span> <span class="st">"Descriptive Statistics of Asset Returns"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>, <span class="at">caption =</span> <span class="st">"Descriptive Statistics of Asset Returns"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>
 
 Table: Descriptive Statistics of Asset Returns
 
-|        |     n|   mean|    sd|    var| skewness| kurtosis|
-|:-------|-----:|------:|-----:|------:|--------:|--------:|
-|Asset_A | 10000| 19.679| 4.969| 24.695|    0.095|    2.919|
-|Asset_B | 10000|  8.237| 4.420| 19.533|    1.579|    7.023|
-|Asset_C | 10000| 10.001| 0.987|  0.975|   -0.825|    3.442|</code></pre>
+|        |     n|  mean|   sd|   var| skewness| kurtosis|
+|:-------|-----:|-----:|----:|-----:|--------:|--------:|
+|Asset_A | 10000| 20.14| 4.82| 23.24|    -0.10|     3.15|
+|Asset_B | 10000|  8.50| 4.44| 19.71|     1.71|     9.19|
+|Asset_C | 10000|  9.99| 1.01|  1.01|    -0.85|     3.50|</code></pre>
 </div>
 </div>
-<div id="ff254445" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="59">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Descriptive statistics ----</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>summary_skewed <span class="ot">&lt;-</span> <span class="fu">quick_summary</span>(skewed_sample)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>summary_normal <span class="ot">&lt;-</span> <span class="fu">quick_summary</span>(normal_sample)</span>
+<p>Plot the histograms of the asset returns to visualize their distributions.</p>
+<div id="0a7c1d55" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="56">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Visualization: Histograms with Normal Density Overlay ----</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to long form</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>combined <span class="ot">&lt;-</span> asset_df <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"type"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>)</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">'Comparison of key statistics: note higher skewness &amp; kurtosis for log-normal sample.</span><span class="sc">\n</span><span class="st">'</span>)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>(</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">skewed =</span> summary_skewed,</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">normal =</span> summary_normal,</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">.id =</span> <span class="st">"distribution"</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Comparison of key statistics: note higher skewness &amp; kurtosis for log-normal sample.</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true">
-<caption>A data.frame: 2 × 7</caption>
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" scope="col">distribution</th>
-<th data-quarto-table-cell-role="th" scope="col">n</th>
-<th data-quarto-table-cell-role="th" scope="col">mean</th>
-<th data-quarto-table-cell-role="th" scope="col">sd</th>
-<th data-quarto-table-cell-role="th" scope="col">var</th>
-<th data-quarto-table-cell-role="th" scope="col">skewness</th>
-<th data-quarto-table-cell-role="th" scope="col">kurtosis</th>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th" scope="col">&lt;chr&gt;</th>
-<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
-<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
-<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
-<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
-<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
-<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>skewed</td>
-<td>1000</td>
-<td>8.428385</td>
-<td>4.496494</td>
-<td>20.21846</td>
-<td>1.64801605</td>
-<td>7.072802</td>
-</tr>
-<tr class="even">
-<td>normal</td>
-<td>1000</td>
-<td>20.221132</td>
-<td>5.043640</td>
-<td>25.43830</td>
-<td>-0.01362832</td>
-<td>2.942717</td>
-</tr>
-</tbody>
-</table>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute per-type mean &amp; sd and create normal curve points</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>norm_params <span class="ot">&lt;-</span> combined <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(type) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">mu =</span> <span class="fu">mean</span>(value), <span class="at">sigma =</span> <span class="fu">sd</span>(value), <span class="at">.groups =</span> <span class="st">'drop'</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>norm_curve <span class="ot">&lt;-</span> norm_params <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(type) <span class="sc">%&gt;%</span> <span class="fu">do</span>({</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  mu <span class="ot">&lt;-</span> .<span class="sc">$</span>mu; sigma <span class="ot">&lt;-</span> .<span class="sc">$</span>sigma</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">seq</span>(mu <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span>sigma, mu <span class="sc">+</span> <span class="dv">4</span><span class="sc">*</span>sigma, <span class="at">length.out =</span> <span class="dv">400</span>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">value =</span> x, <span class="at">density =</span> <span class="fu">dnorm</span>(x, mu, sigma))</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width =</span> <span class="dv">15</span>, <span class="at">repr.plot.height =</span> <span class="dv">6</span>)</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(combined, <span class="fu">aes</span>(value)) <span class="sc">+</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..), <span class="at">bins =</span> <span class="dv">40</span>, <span class="at">fill =</span> <span class="st">"#3182bd"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> norm_curve, <span class="fu">aes</span>(value, density), <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> type, <span class="at">scales =</span> <span class="st">"free"</span>, <span class="at">nrow =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution Contrast with Normal Overlay"</span>,</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Red curve = fitted normal using sample mean &amp; sd per asset"</span>,</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Value"</span>, <span class="at">y =</span> <span class="st">"Density"</span>) <span class="sc">+</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.spacing.x =</span> <span class="fu">unit</span>(<span class="fl">1.2</span>, <span class="st">"lines"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<div class="ansi-escaped-output">
+<pre>Warning message:
+
+“The dot-dot notation (`..density..`) was deprecated in ggplot2 3.4.0.
+
+<span class="ansi-cyan-fg">ℹ</span> Please use `after_stat(density)` instead.”
+</pre>
 </div>
 </div>
-<div id="0a7c1d55" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="60">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Visualization: Histograms ----</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>combined <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">value =</span> skewed_sample, <span class="at">type =</span> <span class="st">"Skewed (Log-normal)"</span>),</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">value =</span> normal_sample, <span class="at">type =</span> <span class="st">"Approx. Normal"</span>)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width =</span> <span class="dv">13</span>, <span class="at">repr.plot.height =</span> <span class="dv">6</span>)</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(combined, <span class="fu">aes</span>(value)) <span class="sc">+</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">40</span>, <span class="at">fill =</span> <span class="st">"#3182bd"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> type, <span class="at">scales =</span> <span class="st">"free"</span>, <span class="at">nrow =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution Contrast"</span>, <span class="at">x =</span> <span class="st">"Value"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.spacing.x =</span> <span class="fu">unit</span>(<span class="fl">1.2</span>, <span class="st">"lines"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="01_Lab-1_files/figure-html/cell-10-output-1.png" width="780" height="360" class="figure-img"></p>
+<p><img src="01_Lab-1_files/figure-html/cell-9-output-2.png" width="900" height="360" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<section id="negatively-skewed-sample" class="level3">
-<h3 class="anchored" data-anchor-id="negatively-skewed-sample">Negatively Skewed Sample</h3>
-<p>To illustrate a left (negative) skew, we can reflect a right‑skewed log-normal draw: <code>neg_skew_sample = -rlnorm(...)</code>. This produces many moderate values with a few extreme negative tail values (long left tail). We’ll summarize and visualize it next.</p>
-<div id="861c6f83" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Generate &amp; Summarize Negatively Skewed Sample ----</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">321</span>)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>neg_skew_sample <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">rlnorm</span>(<span class="dv">1000</span>, <span class="at">meanlog =</span> <span class="dv">2</span>, <span class="at">sdlog =</span> <span class="fl">0.5</span>)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>neg_summary <span class="ot">&lt;-</span> <span class="fu">quick_summary</span>(neg_skew_sample)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">'Negative skew sample summary (note skewness &lt; 0):</span><span class="sc">\n</span><span class="st">'</span>)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>neg_summary</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare with original positively skewed (if present)</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">exists</span>(<span class="st">'skewed_sample'</span>)) {</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  comp <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">bind_rows</span>(</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">pos_skew =</span> <span class="fu">quick_summary</span>(skewed_sample),</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">neg_skew =</span> neg_summary,</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">.id =</span> <span class="st">'type'</span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">'</span><span class="sc">\n</span><span class="st">Comparison vs original positive skew sample:</span><span class="sc">\n</span><span class="st">'</span>)</span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>  comp</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="aa18dc57" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="61">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Covariance &amp; Correlation example ----</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Suppose revenue depends on marketing spend with noise</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>marketing_spend <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>revenue <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="sc">+</span> <span class="fl">1.8</span> <span class="sc">*</span> marketing_spend <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">15</span>)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">'Covariance &amp; correlation between marketing spend and revenue (positive association expected).</span><span class="sc">\n</span><span class="st">'</span>)</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>summary_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">cov =</span> <span class="fu">cov</span>(marketing_spend, revenue), <span class="at">cor =</span> <span class="fu">cor</span>(marketing_spend, revenue))</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>summary_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Covariance &amp; correlation between marketing spend and revenue (positive association expected).</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true">
-<caption>A data.frame: 1 × 2</caption>
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" scope="col">cov</th>
-<th data-quarto-table-cell-role="th" scope="col">cor</th>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
-<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>149.4054</td>
-<td>0.7856426</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="726ae372" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="62">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Simulation: Sample vs Population variance ----</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>true_var <span class="ot">&lt;-</span> <span class="dv">25</span>  <span class="co"># sd^2 with sd=5</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>sample_sizes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">250</span>, <span class="dv">500</span>)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">lapply</span>(sample_sizes, <span class="cf">function</span>(n){</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">5</span>)</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">n =</span> n, <span class="at">var_n =</span> <span class="fu">mean</span>((x <span class="sc">-</span> <span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">2</span>), <span class="at">var_n1 =</span> <span class="fu">var</span>(x))</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>}) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">bind_rows</span>()</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">'Variance estimators: var_n (biased, divide by n) vs var_n1 (unbiased, divide by n-1).</span><span class="sc">\n</span><span class="st">'</span>)</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+<p>💡 <strong>Q: Answer the following questions based on the summary statistics and the distribution plots:</strong></p>
+<ul>
+<li>Which asset has the highest mean return?</li>
+<li>Which asset is the most risky? and which one has the most stable returns?</li>
+<li>Which asset shows the positive and what does it mean?</li>
+<li>If an investor prefers assets with low risk and nearly normal returns, which asset is most appropriate?</li>
+<li>Based on mean and standard deviation, which asset has the best risk–return trade-off (highest mean per unit of risk)?</li>
+</ul>
+<p>A: [Type your answer here]</p>
+<hr>
+</section>
+<section id="large-sample-gives-more-accurate-estimates" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="large-sample-gives-more-accurate-estimates"><span class="header-section-number">5</span> Large Sample Gives More Accurate Estimates</h2>
+<p>We have a variable <span class="math inline">\(X\sim N(0,5^2).\)</span></p>
+<p>Now we draw random samples of size 5, 10, 10, … until 5000 from this distribution and compute the sample mean and standard deviation for each sample.</p>
+<p>For each sample, we compute the biased and unbiased sample variance</p>
+<ul>
+<li>The biased sample variance is computed as <span class="math display">\[\frac{1}{n}\sum_{i=1}^n (x_i - \bar{x})^2.\]</span></li>
+<li>The unbiased sample variance is computed as <span class="math display">\[\frac{1}{n-1}\sum_{i=1}^n (x_i - \bar{x})^2\]</span></li>
+</ul>
+<div id="726ae372" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="67">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Simulation: Sample vs Population variance ----</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2025</span>)  <span class="co"># for reproducibility</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>true_var <span class="ot">&lt;-</span> <span class="dv">25</span>  <span class="co"># sd^2 with sd=5, true population variance</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>sample_sizes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">250</span>, <span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">5000</span>) <span class="co"># varying sample sizes from 5 to 500</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">lapply</span>(sample_sizes, <span class="cf">function</span>(n){</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">5</span>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="st">"sample_size"</span> <span class="ot">=</span> n, <span class="st">"var_biased"</span> <span class="ot">=</span> <span class="fu">mean</span>((x <span class="sc">-</span> <span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">2</span>), <span class="st">"var_unbiased"</span> <span class="ot">=</span> <span class="fu">var</span>(x))</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>}) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">bind_rows</span>()</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">'Variance estimators: var_n (biased, divide by n) vs var_n1 (unbiased, divide by n-1).</span><span class="sc">\n</span><span class="st">'</span>)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Variance estimators: var_n (biased, divide by n) vs var_n1 (unbiased, divide by n-1).</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true">
-<caption>A data.frame: 7 × 3</caption>
+<caption>A data.frame: 9 × 3</caption>
 <thead>
 <tr class="header">
-<th data-quarto-table-cell-role="th" scope="col">n</th>
-<th data-quarto-table-cell-role="th" scope="col">var_n</th>
-<th data-quarto-table-cell-role="th" scope="col">var_n1</th>
+<th data-quarto-table-cell-role="th" scope="col">sample_size</th>
+<th data-quarto-table-cell-role="th" scope="col">var_biased</th>
+<th data-quarto-table-cell-role="th" scope="col">var_unbiased</th>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
@@ -1004,96 +931,126 @@ Table: Descriptive Statistics of Asset Returns
 <tbody>
 <tr class="odd">
 <td>5</td>
-<td>15.17886</td>
-<td>18.97357</td>
+<td>4.262707</td>
+<td>5.328384</td>
 </tr>
 <tr class="even">
 <td>10</td>
-<td>26.34624</td>
-<td>29.27360</td>
+<td>14.832929</td>
+<td>16.481032</td>
 </tr>
 <tr class="odd">
 <td>20</td>
-<td>16.53123</td>
-<td>17.40129</td>
+<td>33.210505</td>
+<td>34.958426</td>
 </tr>
 <tr class="even">
 <td>50</td>
-<td>21.11229</td>
-<td>21.54315</td>
+<td>25.332410</td>
+<td>25.849398</td>
 </tr>
 <tr class="odd">
 <td>100</td>
-<td>23.98626</td>
-<td>24.22854</td>
+<td>24.957059</td>
+<td>25.209150</td>
 </tr>
 <tr class="even">
 <td>250</td>
-<td>25.38000</td>
-<td>25.48193</td>
+<td>22.936725</td>
+<td>23.028840</td>
 </tr>
 <tr class="odd">
 <td>500</td>
-<td>25.58307</td>
-<td>25.63434</td>
+<td>25.862610</td>
+<td>25.914439</td>
+</tr>
+<tr class="even">
+<td>1000</td>
+<td>25.574182</td>
+<td>25.599782</td>
+</tr>
+<tr class="odd">
+<td>5000</td>
+<td>25.301658</td>
+<td>25.306719</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div id="0fff7b04" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="63">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Plot: Convergence of variance estimators ----</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>results_long <span class="ot">&lt;-</span> results <span class="sc">%&gt;%</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(var_n<span class="sc">:</span>var_n1, <span class="at">names_to =</span> <span class="st">"estimator"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">estimator =</span> dplyr<span class="sc">::</span><span class="fu">recode</span>(estimator, <span class="at">var_n =</span> <span class="st">"Divide by n"</span>, <span class="at">var_n1 =</span> <span class="st">"Divide by n-1"</span>))</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width =</span> <span class="dv">8</span>, <span class="at">repr.plot.height =</span> <span class="dv">6</span>)</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(results_long, <span class="fu">aes</span>(n, value, <span class="at">color =</span> estimator)) <span class="sc">+</span></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> true_var, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Convergence of Variance Estimators"</span>, <span class="at">y =</span> <span class="st">"Estimated variance"</span>, <span class="at">x =</span> <span class="st">"Sample size"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+<p>💡 <strong>Q: Based on the variance estimates for different sample sizes:</strong></p>
+<ul>
+<li><strong>As the sample size increases, how do the sample variance estimates compare to the true variance <span class="math inline">\(25\)</span>?</strong></li>
+<li><strong>Does the sample variance converge to the true variance as the sample size increases?</strong></li>
+<li><strong>What is the difference between the biased and unbiased sample variance estimators?</strong></li>
+</ul>
+<p>A: [Type your answer here]</p>
+<hr>
+<div id="0fff7b04" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="76">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Plot: Convergence of variance estimators ----</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>results_long <span class="ot">&lt;-</span> results <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(var_biased<span class="sc">:</span>var_unbiased, <span class="at">names_to =</span> <span class="st">"estimator"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">estimator =</span> dplyr<span class="sc">::</span><span class="fu">recode</span>(estimator, <span class="at">var_n =</span> <span class="st">"Divide by n"</span>, <span class="at">var_n1 =</span> <span class="st">"Divide by n-1"</span>))</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width =</span> <span class="dv">8</span>, <span class="at">repr.plot.height =</span> <span class="dv">6</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(results_long, <span class="fu">aes</span>(sample_size, value, <span class="at">color =</span> estimator)) <span class="sc">+</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> true_var, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">500</span>)) <span class="sc">+</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Convergence of Variance Estimators"</span>, <span class="at">y =</span> <span class="st">"Estimated variance"</span>, <span class="at">x =</span> <span class="st">"Sample size"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<div class="ansi-escaped-output">
+<pre>Warning message:
+
+“Removed 4 rows containing missing values or values outside the scale range
+
+(`geom_line()`).”
+
+Warning message:
+
+“Removed 4 rows containing missing values or values outside the scale range
+
+(`geom_point()`).”
+
+Warning message:
+
+“Removed 4 rows containing missing values or values outside the scale range
+
+(`geom_point()`).”
+</pre>
+</div>
+</div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="01_Lab-1_files/figure-html/cell-14-output-1.png" width="480" height="360" class="figure-img"></p>
+<p><img src="01_Lab-1_files/figure-html/cell-11-output-2.png" width="480" height="360" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="sampling-distributions-of-two-asset-returns" class="level3">
-<h3 class="anchored" data-anchor-id="sampling-distributions-of-two-asset-returns">Sampling Distributions of Two Asset Returns</h3>
+<section id="correlated-asset-returns" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="correlated-asset-returns"><span class="header-section-number">6</span> Correlated Asset Returns</h2>
 <p>We will simulate repeated samples of two (correlated) asset return series and compare the sampling distributions of their sample means and the distribution of the portfolio mean (equal weights).</p>
-<div id="8548b195" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="64">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Stretch: parameters ----</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2025</span>)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.0005</span>, <span class="fl">0.0008</span>)          <span class="co"># daily expected returns</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>sd_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.02</span>, <span class="fl">0.03</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>rho <span class="ot">&lt;-</span> <span class="fl">0.9</span>  <span class="co"># increased to 0.90 to demonstrate strong correlation</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>Sigma2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(sd_vec[<span class="dv">1</span>]<span class="sc">^</span><span class="dv">2</span>, rho<span class="sc">*</span><span class="fu">prod</span>(sd_vec), rho<span class="sc">*</span><span class="fu">prod</span>(sd_vec), sd_vec[<span class="dv">2</span>]<span class="sc">^</span><span class="dv">2</span>), <span class="dv">2</span>, <span class="dv">2</span>)</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">chol</span>(Sigma2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6e243cba" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>X_demo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>()</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>assetA_demo <span class="ot">&lt;-</span> X_demo[, <span class="dv">1</span>]</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>assetB_demo <span class="ot">&lt;-</span> X_demo[, <span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="fdd163cc" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="65">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Stretch: demonstrate high correlation ----</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Single large sample to visualize relationship</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>N_demo <span class="ot">&lt;-</span> <span class="dv">2000</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>Z_demo <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">2</span><span class="sc">*</span>N_demo), N_demo, <span class="dv">2</span>) <span class="sc">%*%</span> B</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>X_demo <span class="ot">&lt;-</span> <span class="fu">sweep</span>(Z_demo, <span class="dv">2</span>, mu, <span class="st">"+"</span>)</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>assetA_demo <span class="ot">&lt;-</span> X_demo[,<span class="dv">1</span>]</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>assetB_demo <span class="ot">&lt;-</span> X_demo[,<span class="dv">2</span>]</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>emp_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(assetA_demo, assetB_demo)</span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">'Empirical correlation from demo sample: %.3f (target rho = %.2f)</span><span class="sc">\n</span><span class="st">'</span>, emp_cor, rho))</span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width =</span> <span class="dv">6</span>, <span class="at">repr.plot.height =</span> <span class="dv">5</span>)</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(assetA_demo, assetB_demo), <span class="fu">aes</span>(assetA_demo, assetB_demo)) <span class="sc">+</span></span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.35</span>, <span class="at">color =</span> <span class="st">'#1b7837'</span>) <span class="sc">+</span></span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">'lm'</span>, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">color=</span><span class="st">'#762a83'</span>) <span class="sc">+</span></span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'Scatter of Two Asset Returns (High Correlation)'</span>, <span class="at">x=</span><span class="st">'Asset A Return'</span>, <span class="at">y=</span><span class="st">'Asset B Return'</span>,</span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="fu">paste0</span>(<span class="st">'Empirical r = '</span>, <span class="fu">round</span>(emp_cor,<span class="dv">3</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fdd163cc" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>emp_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(assetA_demo, assetB_demo)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">'Empirical correlation from demo sample: %.3f (target rho = %.2f)</span><span class="sc">\n</span><span class="st">'</span>, emp_cor, rho))</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width =</span> <span class="dv">6</span>, <span class="at">repr.plot.height =</span> <span class="dv">5</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(assetA_demo, assetB_demo), <span class="fu">aes</span>(assetA_demo, assetB_demo)) <span class="sc">+</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.35</span>, <span class="at">color =</span> <span class="st">'#1b7837'</span>) <span class="sc">+</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">'lm'</span>, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">color=</span><span class="st">'#762a83'</span>) <span class="sc">+</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'Scatter of Two Asset Returns (High Correlation)'</span>, <span class="at">x=</span><span class="st">'Asset A Return'</span>, <span class="at">y=</span><span class="st">'Asset B Return'</span>,</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="fu">paste0</span>(<span class="st">'Empirical r = '</span>, <span class="fu">round</span>(emp_cor,<span class="dv">3</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Empirical correlation from demo sample: 0.904 (target rho = 0.90)</code></pre>
 </div>
@@ -1106,12 +1063,11 @@ Table: Descriptive Statistics of Asset Returns
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="01_Lab-1_files/figure-html/cell-16-output-3.png" width="360" height="300" class="figure-img"></p>
+<p><img src="01_Lab-1_files/figure-html/cell-13-output-3.png" width="360" height="300" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
 <section id="reflection" class="level3">
 <h3 class="anchored" data-anchor-id="reflection">Reflection</h3>
 <p>How does correlation between assets influence the portfolio mean’s variability? Write 3–4 sentences interpreting for a diversified vs concentrated investment decision.</p>
