@@ -189,16 +189,16 @@ A business has daily profits of $200, $250, $180, $220, and $210. Calculate the 
 **Variance calculations:**
 
 1. **Sum of squared deviations**  
-  $$
-  \begin{aligned}
-  (200-212)^2 &+ (250-212)^2 + (180-212)^2 + (220-212)^2 + (210-212)^2 \\
-  &= 144 + 1444 + 1024 + 64 + 4 = 2680
-  \end{aligned}
-  $$
-1. **Population variance** (divide by $n=5$)  
-  $$ \sigma^2 = \frac{2680}{5} = 536 $$
-1. **Sample variance** (unbiased, divide by $n-1=4$)  
-  $$ s^2 = \frac{2680}{4} = 670 $$
+   $$
+   \begin{aligned}
+   (200-212)^2 &+ (250-212)^2 + (180-212)^2 + (220-212)^2 + (210-212)^2 \\
+   &= 144 + 1444 + 1024 + 64 + 4 = 2680
+   \end{aligned}
+   $$
+2. **Population variance** (divide by $n=5$)  
+   $$ \sigma^2 = \frac{2680}{5} = 536 $$
+3. **Sample variance** (unbiased, divide by $n-1=4$)  
+   $$ s^2 = \frac{2680}{4} = 670 $$
 
 Population variance uses $n$ when treating these 5 observations as the entire population; sample variance uses $n-1$ to unbiasedly estimate $\text{Var}(X)$ of a larger process.
 :::
@@ -401,7 +401,7 @@ What does observing a bread purchase tell you about $P(B)$?
 <div id="sol-independence-supermarket" class="solution-answer env-green">
 Bread (frequent staple) and detergent (infrequent refill) decisions are unrelated, so it is reasonable to assume independence. Hence
 $$
-P(A\text{ and }B) = 30\% \times 10\% = 3\%
+P(A \text{ and } B) = 30\% \times 10\% = 3\%
 $$
 Observing bread does not change $P(B)=10\%$.
 </div>
