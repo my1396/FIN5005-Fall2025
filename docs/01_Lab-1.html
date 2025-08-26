@@ -743,8 +743,8 @@ The following object is masked from ‘package:dplyr’:
 </div>
 <p>We got <span class="math inline">\(\rho_{X,Y}=0.0198\)</span>. It seems to be close to zero, but we need a statistical test to confirm this formally.</p>
 <p>→ Test for significance of the correlation coefficient</p>
-<div id="3a0f1de8" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(X,Y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3a0f1de8" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(X, Y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>
     Pearson's product-moment correlation
@@ -760,7 +760,7 @@ sample estimates:
 </div>
 </div>
 <hr>
-<p>💡 <strong>Q: Based on the output of <code>cor.test</code>, what is the p-value for the correlation test? What can you conclude about the correlation between the two variables?</strong> Write your answer in the cell below.</p>
+<p>💡 <strong>Q: Based on the output of <code>cor.test</code>, what is the p-value for the correlation test? What can you conclude about the correlation between the two variables?</strong> Are <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> independent? Write your answer in the cell below.</p>
 <p>A: [Type your answer here]</p>
 <hr>
 <p>Now let’s visualize <span class="math inline">\(Y=X^2\)</span> by plotting the scatter plot.</p>
@@ -786,6 +786,8 @@ sample estimates:
 </div>
 </div>
 </div>
+<p>The following figure shows the scatter plot of two assets with various correlation coefficients.</p>
+<p><img src="https://drive.google.com/thumbnail?id=1nF_8ajDVk6tXjIgnRFBd4jc4Ddl9L8rI&amp;sz=w1000" alt="" style="display: block; margin-right: auto; margin-left: auto; zoom:80%;"></p>
 </section>
 <section id="descriptive-statistics-on-asset-returns" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="descriptive-statistics-on-asset-returns"><span class="header-section-number">4</span> Descriptive Statistics on Asset Returns</h2>
@@ -917,8 +919,8 @@ Table: Descriptive Statistics of Asset Returns
 <ul>
 <li>Which asset has the highest mean return?</li>
 <li>Which asset is the most risky? and which one has the most stable returns?</li>
-<li>Which asset shows the positive and what does it mean?</li>
-<li>If an investor prefers assets with low risk and nearly normal returns, which asset is most appropriate?</li>
+<li>Which asset shows the positive skewness and what does it mean?</li>
+<li>If an investor prefers assets with low risk and return distributions with tails close to normal, which asset is most appropriate?</li>
 <li>Based on mean and standard deviation, which asset has the best risk–return trade-off (highest mean per unit of risk)?</li>
 </ul>
 <p>A: [Type your answer here]</p>
@@ -1164,7 +1166,7 @@ Warning message:
 <p>Step 2: Construct a equally weighted portfolio of the two assets. Calculate the portfolio returns. <span class="math display">\[
 E[r_p] = \frac{1}{2} (E[r_A] + E[r_B])
 \]</span></p>
-<p>Step 3: Calculate the standard deviation of the portfolio returns, <span class="math inline">\(\text{var}(r_p)\)</span>.</p>
+<p>Step 3: Calculate the standard deviation of the portfolio returns, <span class="math inline">\(\text{sd}(r_p)\)</span>.</p>
 <p>Step 4: Calculate the average of the volatility of Asset A and B (using results in Step 1). Compare it with the volatility of the portfolio returns.</p>
 </section>
 <section id="reflection" class="level3">

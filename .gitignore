@@ -12,6 +12,7 @@
 # /data/
 /Rscripts/
 /_quiz/
+/_lab/
 
 # auto generated system files
 .DS_Store
