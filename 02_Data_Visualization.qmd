@@ -16,15 +16,13 @@ Scatter plots and line plots are useful for visualizing relationships between tw
 
 ```{r set-up}
 # load packages and dataset
-pkgs <- c("AER", "tidyverse", "moments", "data.table", "ggsci")
+pkgs <- c("tidyverse", "moments", "data.table", "ggsci")
 missing <- setdiff(pkgs, rownames(installed.packages()))
 if (length(missing) > 0) install.packages(missing)
 invisible(lapply(pkgs, function(pkg) suppressPackageStartupMessages(library(pkg, character.only = TRUE))))
-data(CASchools)
-cas <- CASchools
+f_name <- "https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"
+cas <- read_csv(f_name)
 ```
-
-
 
 
 Overview of the dataset:

@@ -653,19 +653,19 @@ window.Quarto = {
 <p>Scatter plots and line plots are useful for visualizing relationships between two continuous variables, in the following session we will use a case study to illustrate other types of figures.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages and dataset</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"AER"</span>, <span class="st">"tidyverse"</span>, <span class="st">"moments"</span>, <span class="st">"data.table"</span>, <span class="st">"ggsci"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"moments"</span>, <span class="st">"data.table"</span>, <span class="st">"ggsci"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>missing <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(pkgs, <span class="fu">rownames</span>(<span class="fu">installed.packages</span>()))</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(missing) <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="fu">install.packages</span>(missing)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">lapply</span>(pkgs, <span class="cf">function</span>(pkg) <span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(pkg, <span class="at">character.only =</span> <span class="cn">TRUE</span>))))</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(CASchools)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>cas <span class="ot">&lt;-</span> CASchools</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>f_name <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>cas <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(f_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Overview of the dataset:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cas <span class="sc">%&gt;%</span> <span class="fu">as.data.table</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     district                          school      county grades students
-       &lt;char&gt;                          &lt;char&gt;      &lt;fctr&gt; &lt;fctr&gt;    &lt;num&gt;
+        &lt;num&gt;                          &lt;char&gt;      &lt;char&gt; &lt;char&gt;    &lt;num&gt;
   1:    75119              Sunol Glen Unified     Alameda  KK-08      195
   2:    61499            Manzanita Elementary       Butte  KK-08      240
   3:    61549     Thermalito Union Elementary       Butte  KK-08     1550
@@ -789,14 +789,13 @@ window.Quarto = {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   district            school                  county      grades   
- Length:420         Length:420         Sonoma     : 29   KK-06: 61  
- Class :character   Class :character   Kern       : 27   KK-08:359  
- Mode  :character   Mode  :character   Los Angeles: 27              
-                                       Tulare     : 24              
-                                       San Diego  : 21              
-                                       Santa Clara: 20              
-                                       (Other)    :272              
+<pre><code>    district        school             county             grades         
+ Min.   :61382   Length:420         Length:420         Length:420        
+ 1st Qu.:64308   Class :character   Class :character   Class :character  
+ Median :67760   Mode  :character   Mode  :character   Mode  :character  
+ Mean   :67473                                                           
+ 3rd Qu.:70419                                                           
+ Max.   :75440                                                           
     students          teachers          calworks          lunch       
  Min.   :   81.0   Min.   :   4.85   Min.   : 0.000   Min.   :  0.00  
  1st Qu.:  379.0   1st Qu.:  19.66   1st Qu.: 4.395   1st Qu.: 23.28  
@@ -804,7 +803,6 @@ window.Quarto = {
  Mean   : 2628.8   Mean   : 129.07   Mean   :13.246   Mean   : 44.71  
  3rd Qu.: 3008.0   3rd Qu.: 146.35   3rd Qu.:18.981   3rd Qu.: 66.86  
  Max.   :27176.0   Max.   :1429.00   Max.   :78.994   Max.   :100.00  
-                                                                      
     computer       expenditure       income          english      
  Min.   :   0.0   Min.   :3926   Min.   : 5.335   Min.   : 0.000  
  1st Qu.:  46.0   1st Qu.:4906   1st Qu.:10.639   1st Qu.: 1.941  
@@ -812,15 +810,13 @@ window.Quarto = {
  Mean   : 303.4   Mean   :5312   Mean   :15.317   Mean   :15.768  
  3rd Qu.: 375.2   3rd Qu.:5601   3rd Qu.:17.629   3rd Qu.:22.970  
  Max.   :3324.0   Max.   :7712   Max.   :55.328   Max.   :85.540  
-                                                                  
       read            math      
  Min.   :604.5   Min.   :605.4  
  1st Qu.:640.4   1st Qu.:639.4  
  Median :655.8   Median :652.4  
  Mean   :655.0   Mean   :653.3  
  3rd Qu.:668.7   3rd Qu.:665.8  
- Max.   :704.0   Max.   :709.5  
-                                </code></pre>
+ Max.   :704.0   Max.   :709.5  </code></pre>
 </div>
 </div>
 <p>Q: To what extent does expenditure per student vary?</p>
@@ -878,7 +874,7 @@ window.Quarto = {
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 8
   grades.grades     N     Min. `1st Qu.`   Median     Mean `3rd Qu.`     Max.
-  &lt;fct&gt;         &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+  &lt;chr&gt;         &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
 1 KK-06            61 4715.446  5092.917 5399.383 5577.493  5990.794 7614.379
 2 KK-08           359 3926.070  4881.139 5195.919 5267.365  5539.380 7711.507</code></pre>
 </div>
@@ -1022,8 +1018,8 @@ window.Quarto = {
 <p>Summary statistics:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>      n   min mean median  max sd skewness kurtosis
-1 10000 -1.84    0  -0.18 4.63  1     0.86     3.51</code></pre>
+<pre><code>      n   min mean median  max   sd skewness kurtosis
+1 10000 -1.92 0.01  -0.18 4.52 0.99     0.87     3.52</code></pre>
 </div>
 </div>
 <p>💡 Note that for a positive skewed distribution, <strong>the median is larger than the mean</strong> because the long right tail pulls the mean above the median.</p>
@@ -1053,7 +1049,7 @@ window.Quarto = {
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>      n   min  mean median  max   sd skewness kurtosis
-1 10000 -5.16 -0.01   0.17 1.86 1.01    -0.88     3.64</code></pre>
+1 10000 -5.41 -0.01   0.18 1.92 1.01     -0.9     3.62</code></pre>
 </div>
 </div>
 <p>💡 Note that for a negatively skewed distribution, <strong>the median is smaller than the mean</strong> because the long left tail pulls the mean above the median.</p>
@@ -1085,8 +1081,8 @@ window.Quarto = {
 <p>Summary statistics:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>     n   min mean median  max   sd skewness kurtosis
-1 1000 -9.86    0  -0.01 7.46 1.54    -0.04     6.95</code></pre>
+<pre><code>     n    min mean median  max   sd skewness kurtosis
+1 1000 -14.92    0   0.01 8.05 1.65    -1.23    16.18</code></pre>
 </div>
 </div>
 </section>
@@ -1114,7 +1110,7 @@ window.Quarto = {
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>     n   min  mean median  max   sd skewness kurtosis
-1 1000 -1.13 -0.01  -0.03 1.23 0.58     0.05     1.86</code></pre>
+1 1000 -1.19 -0.01  -0.02 1.21 0.59        0     1.86</code></pre>
 </div>
 </div>
 
