@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Business Analytics (Fall 2025) – FIN5005 Fall 2025</title>
+<title>data_visualization – FIN5005 Fall 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -261,6 +296,35 @@ ul.task-list li input[type="checkbox"] {
 <!-- ============== js for show/hide solutions ================ -->
 <script language="JavaScript" src="themes/my_jxscript.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -453,7 +517,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -472,7 +536,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Business Analytics (Fall 2025)</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_introduction.html">Basics</a></li><li class="breadcrumb-item"><a href="./02_Data_Visualization.html">Data Visualization</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -521,7 +585,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_Data_Visualization.html" class="sidebar-item-text sidebar-link">
+  <a href="./02_Data_Visualization.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Data Visualization</span></a>
   </div>
 </li>
@@ -543,205 +607,521 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#course-overview" id="toc-course-overview" class="nav-link active" data-scroll-target="#course-overview"><span class="header-section-number">1</span> Course Overview</a></li>
-  <li><a href="#course-materials" id="toc-course-materials" class="nav-link" data-scroll-target="#course-materials"><span class="header-section-number">2</span> Course Materials</a></li>
-  <li><a href="#course-evaluation" id="toc-course-evaluation" class="nav-link" data-scroll-target="#course-evaluation"><span class="header-section-number">3</span> Course Evaluation</a></li>
-  <li><a href="#study-objectives" id="toc-study-objectives" class="nav-link" data-scroll-target="#study-objectives"><span class="header-section-number">4</span> Study Objectives</a></li>
-  <li><a href="#how-to-reach-me" id="toc-how-to-reach-me" class="nav-link" data-scroll-target="#how-to-reach-me"><span class="header-section-number">5</span> How to Reach Me</a></li>
+  <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link active" data-scroll-target="#data-visualization"><span class="header-section-number">1</span> Data Visualization</a>
+  <ul class="collapse">
+  <li><a href="#data-visualization-with-caschools" id="toc-data-visualization-with-caschools" class="nav-link" data-scroll-target="#data-visualization-with-caschools"><span class="header-section-number">1.1</span> Data Visualization with <code>CASchools</code></a></li>
+  <li><a href="#q-q-plot" id="toc-q-q-plot" class="nav-link" data-scroll-target="#q-q-plot"><span class="header-section-number">1.2</span> Q-Q Plot</a>
+  <ul class="collapse">
+  <li><a href="#qq-plot-visualization-tool" id="toc-qq-plot-visualization-tool" class="nav-link" data-scroll-target="#qq-plot-visualization-tool">QQ plot visualization tool</a></li>
+  <li><a href="#skewness" id="toc-skewness" class="nav-link" data-scroll-target="#skewness">Skewness</a></li>
+  <li><a href="#kurtosis" id="toc-kurtosis" class="nav-link" data-scroll-target="#kurtosis">Kurtosis</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_introduction.html">Basics</a></li><li class="breadcrumb-item"><a href="./02_Data_Visualization.html">Data Visualization</a></li></ol></nav></header>
 
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Business Analytics (Fall 2025)</h1>
+
+
+
+<section id="data-visualization" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Data Visualization</h1>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="course-overview" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="course-overview"><span class="header-section-number">1</span> Course Overview</h2>
-<p>What Business Analytics (BA) is about?</p>
-<p>The aim of this course is to provide students advanced knowledge, skills and competencies they can use to make data driven decisions for organizations.</p>
-<p><strong>Data-driven decision making</strong></p>
+<div class="callout-body-container">
+<p><strong>Study Objectives</strong></p>
 <ul>
-<li><p><strong>Describe the data</strong>: what happened</p>
-<p>Using introductory statistics to identify patterns, trends, and insights embedded in historical data. E.g., summary statistics.</p></li>
-<li><p><strong>Predictive</strong>: what will happen</p>
-<p>Using statistical models on historical data and forecast future outcomes. E.g., regression, time series.</p></li>
-<li><p>Prescriptive: what should we do</p>
-<p>Using optimization, simulation, and decision analysis techniques to suggest the best course of action based on data, predictions, and constraints.</p></li>
-<li><p>Autonomous: automated decision-making using Machine Learning (ML) and Artificial Intelligence (AI) techniques.</p></li>
+<li>Loads and prepares the California school dataset (CASchools) for analysis.
+<ul>
+<li>Demonstrates how to visualize data using scatter plots, line charts, histograms, box plots.</li>
+<li>Explores expenditure per student across different grade spans.</li>
+<li>Investigates correlations between expenditure and other variables.</li>
+</ul></li>
+<li>QQ plots to assess normality and interpret skewness and kurtosis in the data.</li>
 </ul>
-<p>Outline of models and applications we will cover in this course:<sup>1</sup></p>
+</div>
+</div>
+</div>
+<section id="data-visualization-with-caschools" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="data-visualization-with-caschools"><span class="header-section-number">1.1</span> Data Visualization with <code>CASchools</code></h2>
+<p>Scatter plots and line plots are useful for visualizing relationships between two continuous variables, in the following session we will use a case study to illustrate other types of figures.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages and dataset</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"AER"</span>, <span class="st">"tidyverse"</span>, <span class="st">"moments"</span>, <span class="st">"data.table"</span>, <span class="st">"ggsci"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>missing <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(pkgs, <span class="fu">rownames</span>(<span class="fu">installed.packages</span>()))</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(missing) <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="fu">install.packages</span>(missing)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">lapply</span>(pkgs, <span class="cf">function</span>(pkg) <span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(pkg, <span class="at">character.only =</span> <span class="cn">TRUE</span>))))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(CASchools)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>cas <span class="ot">&lt;-</span> CASchools</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Overview of the dataset:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cas <span class="sc">%&gt;%</span> <span class="fu">as.data.table</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     district                          school      county grades students
+       &lt;char&gt;                          &lt;char&gt;      &lt;fctr&gt; &lt;fctr&gt;    &lt;num&gt;
+  1:    75119              Sunol Glen Unified     Alameda  KK-08      195
+  2:    61499            Manzanita Elementary       Butte  KK-08      240
+  3:    61549     Thermalito Union Elementary       Butte  KK-08     1550
+  4:    61457 Golden Feather Union Elementary       Butte  KK-08      243
+  5:    61523        Palermo Union Elementary       Butte  KK-08     1335
+ ---                                                                     
+416:    68957          Las Lomitas Elementary   San Mateo  KK-08      984
+417:    69518            Los Altos Elementary Santa Clara  KK-08     3724
+418:    72611          Somis Union Elementary     Ventura  KK-08      441
+419:    72744               Plumas Elementary        Yuba  KK-08      101
+420:    72751            Wheatland Elementary        Yuba  KK-08     1778
+     teachers calworks   lunch computer expenditure    income   english  read
+        &lt;num&gt;    &lt;num&gt;   &lt;num&gt;    &lt;num&gt;       &lt;num&gt;     &lt;num&gt;     &lt;num&gt; &lt;num&gt;
+  1:    10.90   0.5102  2.0408       67    6384.911 22.690001  0.000000 691.6
+  2:    11.15  15.4167 47.9167      101    5099.381  9.824000  4.583333 660.5
+  3:    82.90  55.0323 76.3226      169    5501.955  8.978000 30.000002 636.3
+  4:    14.00  36.4754 77.0492       85    7101.831  8.978000  0.000000 651.9
+  5:    71.50  33.1086 78.4270      171    5235.988  9.080333 13.857677 641.8
+ ---                                                                         
+416:    59.73   0.1016  3.5569      195    7290.339 28.716999  5.995935 700.9
+417:   208.48   1.0741  1.5038      721    5741.463 41.734108  4.726101 704.0
+418:    20.15   3.5635 37.1938       45    4402.832 23.733000 24.263039 648.3
+419:     5.00  11.8812 59.4059       14    4776.336  9.952000  2.970297 667.9
+420:    93.40   6.9235 47.5712      313    5993.393 12.502000  5.005624 660.5
+      math
+     &lt;num&gt;
+  1: 690.0
+  2: 661.9
+  3: 650.9
+  4: 643.5
+  5: 639.9
+ ---      
+416: 707.7
+417: 709.5
+418: 641.7
+419: 676.5
+420: 651.0</code></pre>
+</div>
+</div>
+<p>The <a href="https://www.rdocumentation.org/packages/AER/versions/1.2-15/topics/CASchools"><code>cas</code></a> dataset contains information on 420 public school districts in California, specifically those that operate either kindergarten through 6th grade (K–6) or kindergarten through 8th grade (K–8) schools, with data collected for the years 1998 and 1999.</p>
+<p>The dataset includes:</p>
+<ul>
+<li><strong>Student performance measures</strong> (average reading and math scores).</li>
+<li><strong>School characteristics</strong> (such as enrollment, number of teachers, student–teacher ratio, number of computers, expenditure per student).</li>
+<li><strong>Student demographics</strong> (including income, percentage qualifying for reduced-price lunch, percentage of English learners, etc.).</li>
+</ul>
+<p><code>cas</code> is a data frame containing 420 observations on 14 variables. Refer to the following table for the full definition.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 10%">
-<col style="width: 25%">
-<col style="width: 64%">
+<col style="width: 17%">
+<col style="width: 82%">
 </colgroup>
 <thead>
 <tr class="header">
-<th><strong>Category</strong></th>
-<th><strong>Topics</strong></th>
-<th><strong>Applications in Business</strong></th>
+<th>Variable</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Descriptive</strong></td>
-<td>Data Visualization, Descriptive Analysis</td>
-<td>Asset return → <strong>Finance</strong></td>
+<td><code>district</code></td>
+<td>Character. District code. Unique ID.</td>
 </tr>
 <tr class="even">
-<td><strong>Predictive</strong></td>
-<td>Linear regression</td>
-<td>Asset return prediction → <strong>Finance</strong><br>Demand prediction → <strong>Economics</strong></td>
+<td><code>school</code></td>
+<td>Character. School name.</td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>Hypothesis testing</td>
-<td>Effectiveness of advertisements → <strong>Marketing</strong></td>
+<td><code>county</code></td>
+<td>Factor indicating county.</td>
 </tr>
 <tr class="even">
-<td></td>
-<td>Classification, logistic regression</td>
-<td>Asset return increasing/decreasing prediction → <strong>Finance</strong><br>Employee satisfaction → <strong>Operation</strong></td>
+<td><code>grades</code></td>
+<td>Factor indicating grade span covered by the district’s schools. <br>It takes on two values: <br>- <code>KK-06</code>: means the district’s schools serve kindergarten through 6th grade.<br>- <code>KK-08</code>: means the district’s schools serve kindergarten through 6th grade.</td>
 </tr>
 <tr class="odd">
-<td><strong>Prescriptive</strong></td>
-<td>Optimization models</td>
-<td>Pricing optimization → <strong>Operation</strong><br>Sensitivity analysis, Scenario analysis → <strong>Accounting</strong></td>
+<td><code>students</code></td>
+<td>Total enrollment.</td>
+</tr>
+<tr class="even">
+<td><code>teachers</code></td>
+<td>Number of teachers.</td>
+</tr>
+<tr class="odd">
+<td><code>calworks</code></td>
+<td>Percent qualifying for CalWorks (income assistance program).</td>
+</tr>
+<tr class="even">
+<td><code>lunch</code></td>
+<td>Percent qualifying for reduced-price lunch.</td>
+</tr>
+<tr class="odd">
+<td><code>computer</code></td>
+<td>Number of computers.</td>
+</tr>
+<tr class="even">
+<td><code>expenditure</code></td>
+<td>Expenditure per student.</td>
+</tr>
+<tr class="odd">
+<td><code>income</code></td>
+<td>District average income (in USD 1,000).</td>
+</tr>
+<tr class="even">
+<td><code>english</code></td>
+<td>Percent of English learners <br>(i.e., students for whom English is a second language).</td>
+</tr>
+<tr class="odd">
+<td><code>read</code></td>
+<td>Average reading score.</td>
+</tr>
+<tr class="even">
+<td><code>math</code></td>
+<td>Average math score.</td>
 </tr>
 </tbody>
 </table>
-<p><sup>[1]<sub> This is a preliminary plan. Topics and applications are subject to change as the course moves forward.</sub></sup></p>
+<p>Data source: Stock, J. H. and Watson, M. W. (2020). <a href="https://www.sea-stat.com/wp-content/uploads/2020/08/James-H.-Stock-Mark-W.-Watson-Introduction-to-Econometrics-Global-Edition-Pearson-Education-Limited-2020.pdf">Introduction to Econometrics</a>, 4th ed.&nbsp;Pearson.</p>
 <hr>
-<p><strong>Software</strong>: R programming</p>
-<p>R is an open-source programming language widely used for statistical computing and data analysis. It provides a rich ecosystem of packages and libraries for data manipulation, visualization, and modeling.</p>
-<p>Why open-source stands out in the competition?</p>
-<p>AI is the game changer here. AI significantly improves coding efficiency and productivity. You don’t need to memorize every function or syntax anymore. The current role for humans is to communicate your needs to AI, and AI will generate the code for you.</p>
+<p>Overview of dataset</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   district            school                  county      grades   
+ Length:420         Length:420         Sonoma     : 29   KK-06: 61  
+ Class :character   Class :character   Kern       : 27   KK-08:359  
+ Mode  :character   Mode  :character   Los Angeles: 27              
+                                       Tulare     : 24              
+                                       San Diego  : 21              
+                                       Santa Clara: 20              
+                                       (Other)    :272              
+    students          teachers          calworks          lunch       
+ Min.   :   81.0   Min.   :   4.85   Min.   : 0.000   Min.   :  0.00  
+ 1st Qu.:  379.0   1st Qu.:  19.66   1st Qu.: 4.395   1st Qu.: 23.28  
+ Median :  950.5   Median :  48.56   Median :10.520   Median : 41.75  
+ Mean   : 2628.8   Mean   : 129.07   Mean   :13.246   Mean   : 44.71  
+ 3rd Qu.: 3008.0   3rd Qu.: 146.35   3rd Qu.:18.981   3rd Qu.: 66.86  
+ Max.   :27176.0   Max.   :1429.00   Max.   :78.994   Max.   :100.00  
+                                                                      
+    computer       expenditure       income          english      
+ Min.   :   0.0   Min.   :3926   Min.   : 5.335   Min.   : 0.000  
+ 1st Qu.:  46.0   1st Qu.:4906   1st Qu.:10.639   1st Qu.: 1.941  
+ Median : 117.5   Median :5215   Median :13.728   Median : 8.778  
+ Mean   : 303.4   Mean   :5312   Mean   :15.317   Mean   :15.768  
+ 3rd Qu.: 375.2   3rd Qu.:5601   3rd Qu.:17.629   3rd Qu.:22.970  
+ Max.   :3324.0   Max.   :7712   Max.   :55.328   Max.   :85.540  
+                                                                  
+      read            math      
+ Min.   :604.5   Min.   :605.4  
+ 1st Qu.:640.4   1st Qu.:639.4  
+ Median :655.8   Median :652.4  
+ Mean   :655.0   Mean   :653.3  
+ 3rd Qu.:668.7   3rd Qu.:665.8  
+ Max.   :704.0   Max.   :709.5  
+                                </code></pre>
+</div>
+</div>
+<p>Q: To what extent does expenditure per student vary?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>quick_summary <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Function to compute basic descriptive statistics</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">data.frame</span>(</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">n =</span> <span class="fu">length</span>(x),</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">min =</span> <span class="fu">min</span>(x),</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">mean =</span> <span class="fu">mean</span>(x),</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">median =</span> <span class="fu">median</span>(x),</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">max =</span> <span class="fu">max</span>(x),</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">sd =</span> <span class="fu">sd</span>(x),</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">skewness =</span> moments<span class="sc">::</span><span class="fu">skewness</span>(x),</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">kurtosis =</span> moments<span class="sc">::</span><span class="fu">kurtosis</span>(x),</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">row.names =</span> <span class="cn">NULL</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="fu">quick_summary</span>(cas<span class="sc">$</span>expenditure) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    n     min    mean  median     max     sd skewness kurtosis
+1 420 3926.07 5312.41 5214.52 7711.51 633.94     1.07     4.88</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic histogram</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cas, <span class="fu">aes</span>(<span class="at">x =</span> expenditure)) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">500</span>, <span class="at">fill =</span> <span class="st">"lightblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histogram of Expenditure per Student"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Expenditure per Student (USD)"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frequency"</span>) <span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+<p>Q: Are there any differences in expenditure per student between K-6 and K-8 schools?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cas <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(grades) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_map</span>(<span class="sc">~</span> {</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        s <span class="ot">&lt;-</span> <span class="fu">summary</span>(.x<span class="sc">$</span>expenditure)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        s <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">grades =</span> .y,    <span class="co"># add group info</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">N =</span> <span class="fu">nrow</span>(.x),   <span class="co"># add other statistics</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>            s)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(s)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">%&gt;%</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_rows</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 8
+  grades.grades     N     Min. `1st Qu.`   Median     Mean `3rd Qu.`     Max.
+  &lt;fct&gt;         &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 KK-06            61 4715.446  5092.917 5399.383 5577.493  5990.794 7614.379
+2 KK-08           359 3926.070  4881.139 5195.919 5267.365  5539.380 7711.507</code></pre>
+</div>
+</div>
+<p>Box plot by grades</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cas, <span class="fu">aes</span>(<span class="at">x =</span> grades, <span class="at">y =</span> expenditure, <span class="at">fill =</span> grades)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_npg</span>() <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Grade Span"</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Expenditure per Student (USD)"</span>) <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+<p><strong>Q: What predicts expenditure per student?</strong></p>
+<p>Correlation coefficients:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the set of numeric variables</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">names</span>(cas),</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">"district"</span>, <span class="st">"school"</span>, <span class="st">"county"</span>, <span class="st">"grades"</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>corExp <span class="ot">&lt;-</span> <span class="fu">cor</span>(cas[<span class="st">"expenditure"</span>], cas[<span class="fu">setdiff</span>(v, <span class="st">"expenditure"</span>)])</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(corExp) <span class="sc">%&gt;%</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"variable"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">correlation =</span> expenditure) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(correlation)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  variable correlation
+1 students -0.11228455
+2 teachers -0.09519483
+3  english -0.07139604
+4 computer -0.07131050
+5    lunch -0.06103871
+6 calworks  0.06788857
+7     math  0.15498949
+8     read  0.21792682
+9   income  0.31448448</code></pre>
+</div>
+</div>
+<p>More is spent per student in schools with high</p>
 <ul>
-<li>Open-source software integrates cutting-edge AI tools, faster and more efficiently than paid software.</li>
-<li>By contrast, paid software is often slower to implement new features due to development cycles and licensing restrictions.</li>
+<li>income levels,</li>
+<li>math and read test scores</li>
 </ul>
-<p><span class="env-green"><i class="codicon codicon-debug-console" style="font-size:1.5em; vertical-align: middle;"></i> Demonstration in VS Code. </span></p>
-<p>By typing <code># create a function taking the n-th power of a number</code>, AI will generate the code for you.</p>
-<p>Here is how to use GitHub Copilot in RStudio: <a href="https://docs.posit.co/ide/user/ide/guide/tools/copilot.html#using-copilot">RStudio User Guide: Tools, GitHub Copilot</a>.</p>
+<p>Plot scatter plots for the top 3 correlated variables</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>top_vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"income"</span>, <span class="st">"math"</span>, <span class="st">"read"</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>cas_long <span class="ot">&lt;-</span> cas <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(expenditure, <span class="fu">all_of</span>(top_vars)) <span class="sc">%&gt;%</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">all_of</span>(top_vars), <span class="at">names_to =</span> <span class="st">"variable"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cas_long, <span class="fu">aes</span>(<span class="at">x =</span> value, <span class="at">y =</span> expenditure)) <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">color =</span> <span class="st">"#1976d2"</span>) <span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>variable, <span class="at">scales =</span> <span class="st">"free_x"</span>) <span class="sc">+</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"Scatter Plots of Expenditure per Student vs. Top Correlated Variables"</span>,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"Value"</span>,</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">"Expenditure per Student (USD)"</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="1152"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+<p>Q: what is the relationship between district level maths and reading scores?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cas, <span class="fu">aes</span>(<span class="at">x =</span> read, <span class="at">y =</span> math)) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">color =</span> <span class="st">"#1976d2"</span>) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"#d32f2f"</span>) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"Scatter Plot of Math vs. Reading Scores"</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"Average Reading Score"</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">"Average Math Score"</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
 </section>
-<section id="course-materials" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="course-materials"><span class="header-section-number">2</span> Course Materials</h2>
-<p>The course materials will be self-contained.</p>
+<section id="q-q-plot" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="q-q-plot"><span class="header-section-number">1.2</span> Q-Q Plot</h2>
+<p>The <span class="env-green">Q-Q plot</span>, or <span class="env-green">quantile-quantile plot</span>, is a graphical tool to help us assess if a set of data plausibly came from some theoretical distribution such as a normal distribution.</p>
+<p>A QQ plot is a scatter plot created by plotting two sets of quantiles against one another.</p>
 <ul>
-<li><p><strong>Lecture notes</strong>: lecture notes will be provided in the course website.</p></li>
-<li><p><strong>R code</strong>: R code will be provided in form of Lab Jupyter Notebooks.</p>
-<p>You may copy and paste the code into RStudio to run it.</p></li>
+<li><p>If both sets of quantiles came from the same distribution, we should see the points forming a line that’s roughly straight.</p></li>
+<li><p>For example, if we run a statistical analysis that assumes our <strong>residuals</strong> are normally distributed, we can use a <span class="env-green">normal QQ plot</span> to check that assumption.</p>
+<p>When the theoretical quantiles are from a normal distribution, the plot is called a <strong>normal QQ plot</strong>.</p></li>
 </ul>
-<p>If you want to learn in-depth, you can refer to the following textbooks and resources.</p>
-<p><strong>Textbooks</strong></p>
-<ul>
-<li><p>Evans, J.R. (2021) <em>Business analytics: methods, models, and decisions</em>. Third edition. Harlow: Pearson.</p>
-<p>Statistics primer. Basic introduction to business analytics at the undergraduate level.</p></li>
-<li><p>James, G., Witten, D., Hastie, T., &amp; Tibshirani, R. (2021). <em>An Introduction to Statistical Learning with Applications in R</em>. 2nd edition. Springer. <a href="https://www.statlearning.com/">Online version</a></p>
-<p><strong>Main textbook</strong> for the course. It covers the fundamental concepts and methods of statistical learning, with practical applications in R.</p></li>
-<li><p>Huntsinger, R. (2025). <em>Business Analytics: Methods and Cases for Data-Driven Decisions.</em> Cambridge: Cambridge University Press. eTextbook available through <a href="https://www.cambridge.org/highereducation/books/business-analytics/49F97FC7360294F70056ADDC895C61AE#overview">Cambridge University Press</a>.</p>
-<p>Advanced methods and case studies for data-driven decision-making. We might use case studies from this book in the course.</p></li>
-</ul>
+<section id="qq-plot-visualization-tool" class="level3">
+<h3 class="anchored" data-anchor-id="qq-plot-visualization-tool">QQ plot visualization tool</h3>
+<p><a href="https://xiongge.shinyapps.io/QQplots/" class="uri">https://xiongge.shinyapps.io/QQplots/</a></p>
+<p>Adjust Skewness and Kurtosis to see how the QQ plot changes.</p>
+<hr>
 </section>
-<section id="course-evaluation" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="course-evaluation"><span class="header-section-number">3</span> Course Evaluation</h2>
-<p>Compud Assessment</p>
-<ul>
-<li><p>Oppgave (home assignment): 40%</p>
-<p>Group work (1-3 students) is possible; including a case study with data analysis and visualization; a report will be submitted;</p>
-<p>Date: week 42 (preliminary date: 14.10.2025)</p>
-<p>The assignment will be released in Inspera, and you will have one week to complete it.</p>
-<p>More details will be provided as the course progresses.</p></li>
-<li><p>Eksamen (school exam): 60%</p>
-<p>Digitally in Inspera;<br>
-Date: 17.11.2025</p></li>
-</ul>
+<section id="skewness" class="level3">
+<h3 class="anchored" data-anchor-id="skewness">Skewness</h3>
+<section id="positive-skew" class="level4">
+<h4 class="anchored" data-anchor-id="positive-skew">Positive skew</h4>
+<p>Positively skewed (mean &gt; median) data have a J-shaped pattern in the Q-Q plot.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Summary statistics:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>      n   min mean median  max sd skewness kurtosis
+1 10000 -1.84    0  -0.18 4.63  1     0.86     3.51</code></pre>
+</div>
+</div>
+<p>💡 Note that for a positive skewed distribution, <strong>the median is larger than the mean</strong> because the long right tail pulls the mean above the median.</p>
 </section>
-<section id="study-objectives" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="study-objectives"><span class="header-section-number">4</span> Study Objectives</h2>
-<ul>
-<li><strong>Knowledge</strong>:
-<ul>
-<li>Familiarity with statistical methods and models used in business analytics.</li>
-<li>Focus on descriptive analytics and predictive analytics. Prescriptive analytics will be introduced if time allows.</li>
-<li>Knowledge of data visualization techniques and tools.</li>
-</ul></li>
-<li><strong>Skills</strong>:
-<ul>
-<li>Ability to analyze and interpret data using statistical methods.</li>
-<li>Proficiency in using R for data analysis and visualization.</li>
-<li>Competence in applying business analytics techniques to real-world problems.</li>
-</ul></li>
-<li><strong>Competencies</strong>:
-<ul>
-<li>Develop critical thinking skills to evaluate data-driven decisions.</li>
-<li>Ability to communicate findings effectively through reports and presentations.</li>
-</ul></li>
-</ul>
+<section id="negative-skew" class="level4">
+<h4 class="anchored" data-anchor-id="negative-skew">Negative skew</h4>
+<p>Negatively skewed (mean &lt; median) data have Q-Q plots that display an inverted J-shape.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Summary statistics:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>      n   min  mean median  max   sd skewness kurtosis
+1 10000 -5.16 -0.01   0.17 1.86 1.01    -0.88     3.64</code></pre>
+</div>
+</div>
+<p>💡 Note that for a negatively skewed distribution, <strong>the median is smaller than the mean</strong> because the long left tail pulls the mean above the median.</p>
 </section>
-<section id="how-to-reach-me" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="how-to-reach-me"><span class="header-section-number">5</span> How to Reach Me</h2>
-<table border="0" cellspacing="0" cellpadding="5">
-<tbody><tr>
-<td>
-Instructor:
-</td>
-<td>
-Menghan Yuan
-</td>
-</tr>
-<tr>
-<td>
-Email:
-</td>
-<td>
-<a href="mailto:menghan.yuan@nord.no">menghan.yuan@nord.no</a>
-</td>
-</tr>
-<tr>
-<td>
-Office Hours:
-</td>
-<td>
-By appointment
-</td>
-</tr>
-<tr>
-<td>
-Office:
-</td>
-<td>
-Hovedbygning A257
-</td>
-</tr>
-<tr>
-<td colspan="2">
-&nbsp;
-</td>
-</tr>
-</tbody></table>
+</section>
+<section id="kurtosis" class="level3">
+<h3 class="anchored" data-anchor-id="kurtosis">Kurtosis</h3>
+<section id="fat-tails" class="level4">
+<h4 class="anchored" data-anchor-id="fat-tails">Fat tails</h4>
+<p>This plot shows a t-distribution with <span class="math inline">\(3\)</span> degrees of freedom.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Summary statistics:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>     n   min mean median  max   sd skewness kurtosis
+1 1000 -9.86    0  -0.01 7.46 1.54    -0.04     6.95</code></pre>
+</div>
+</div>
+</section>
+<section id="thin-tails" class="level4">
+<h4 class="anchored" data-anchor-id="thin-tails">Thin tails</h4>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Summary statistics:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>     n   min  mean median  max   sd skewness kurtosis
+1 1000 -1.13 -0.01  -0.03 1.23 0.58     0.05     1.86</code></pre>
+</div>
+</div>
 
 
+</section>
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

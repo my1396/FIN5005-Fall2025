@@ -1,0 +1,378 @@
+# Data Visualization 
+
+::: {.callout-note appearance="simple" icon=false}
+**Study Objectives**
+
+- Loads and prepares the California school dataset (CASchools) for analysis.
+  - Demonstrates how to visualize data using scatter plots, line charts, histograms, box plots.
+  - Explores expenditure per student across different grade spans.
+  - Investigates correlations between expenditure and other variables.
+- QQ plots to assess normality and interpret skewness and kurtosis in the data.
+:::
+
+## Data Visualization with `CASchools`
+
+Scatter plots and line plots are useful for visualizing relationships between two continuous variables, in the following session we will use a case study to illustrate other types of figures.
+
+```{r set-up}
+# load packages and dataset
+pkgs <- c("AER", "tidyverse", "moments", "data.table", "ggsci")
+missing <- setdiff(pkgs, rownames(installed.packages()))
+if (length(missing) > 0) install.packages(missing)
+invisible(lapply(pkgs, function(pkg) suppressPackageStartupMessages(library(pkg, character.only = TRUE))))
+data(CASchools)
+cas <- CASchools
+```
+
+
+
+
+Overview of the dataset:
+
+```{r}
+cas %>% as.data.table()
+```
+
+The [`cas`](https://www.rdocumentation.org/packages/AER/versions/1.2-15/topics/CASchools) dataset contains information on 420 public school districts in California, specifically those that operate either kindergarten through 6th grade (K–6) or kindergarten through 8th grade (K–8) schools, with data collected for the years 1998 and 1999.
+
+The dataset includes:
+
+- **Student performance measures** (average reading and math scores).
+- **School characteristics** (such as enrollment, number of teachers, student–teacher ratio, number of computers, expenditure per student).
+- **Student demographics** (including income, percentage qualifying for reduced-price lunch, percentage of English learners, etc.).
+
+`cas` is a data frame containing 420 observations on 14 variables. Refer to the following table for the full definition.
+
+| Variable      | Description                                                  |
+| ------------- | ------------------------------------------------------------ |
+| `district`    | Character. District code. Unique ID.                         |
+| `school`      | Character. School name.                                      |
+| `county`      | Factor indicating county.                                    |
+| `grades`      | Factor indicating grade span covered by the district’s schools. <br />It takes on two values: <br />- `KK-06`: means the district’s schools serve kindergarten through 6th grade.<br />- `KK-08`: means the district’s schools serve kindergarten through 6th grade. |
+| `students`    | Total enrollment.                                            |
+| `teachers`    | Number of teachers.                                          |
+| `calworks`    | Percent qualifying for CalWorks (income assistance program). |
+| `lunch`       | Percent qualifying for reduced-price lunch.                  |
+| `computer`    | Number of computers.                                         |
+| `expenditure` | Expenditure per student.                                     |
+| `income`      | District average income (in USD 1,000).                      |
+| `english`     | Percent of English learners <br />(i.e., students for whom English is a second language). |
+| `read`        | Average reading score.                                       |
+| `math`        | Average math score.                                          |
+
+Data source: Stock, J. H. and Watson, M. W. (2020). [Introduction to Econometrics](https://www.sea-stat.com/wp-content/uploads/2020/08/James-H.-Stock-Mark-W.-Watson-Introduction-to-Econometrics-Global-Edition-Pearson-Education-Limited-2020.pdf), 4th ed. Pearson.
+
+--------------------------------------------------------------------------------
+
+Overview of dataset
+
+```{r}
+summary(cas)
+```
+
+
+Q: To what extent does expenditure per student vary?  
+
+```{r}
+quick_summary <- function(x) {
+    # Function to compute basic descriptive statistics
+    data.frame(
+        n = length(x),
+        min = min(x),
+        mean = mean(x),
+        median = median(x),
+        max = max(x),
+        sd = sd(x),
+        skewness = moments::skewness(x),
+        kurtosis = moments::kurtosis(x),
+        row.names = NULL
+    )
+}
+quick_summary(cas$expenditure) %>% round(2)
+```
+
+
+```{r fig.width=6, fig.asp=0.6}
+# Basic histogram
+ggplot(cas, aes(x = expenditure)) +
+  geom_histogram(binwidth = 500, fill = "lightblue", color = "black") +
+  labs(title = "Histogram of Expenditure per Student",
+       x = "Expenditure per Student (USD)",
+       y = "Frequency") +
+  theme_minimal(base_size = 14)
+```
+
+
+--------------------------------------------------------------------------------
+
+Q: Are there any differences in expenditure per student between K-6 and K-8 schools?
+
+```{r}
+cas %>%
+    group_by(grades) %>%
+    group_map(~ {
+        s <- summary(.x$expenditure)
+        s <- c(
+            grades = .y,    # add group info
+            N = nrow(.x),   # add other statistics
+            s)
+        return(s)
+    }) %>%
+    bind_rows()
+```
+
+Box plot by grades
+
+```{r fig.asp=1.2, out.width="40%"}
+ggplot(cas, aes(x = grades, y = expenditure, fill = grades)) +
+  geom_boxplot() +
+  scale_fill_npg() +
+  labs(x = "Grade Span",
+       y = "Expenditure per Student (USD)") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "none")
+```
+
+
+--------------------------------------------------------------------------------
+
+**Q: What predicts expenditure per student?**
+
+Correlation coefficients:
+
+```{r}
+# Get the set of numeric variables
+v <- setdiff(
+    names(cas),
+    c("district", "school", "county", "grades")
+)
+corExp <- cor(cas["expenditure"], cas[setdiff(v, "expenditure")])
+t(corExp) %>%
+    as.data.frame() %>%
+    rownames_to_column(var = "variable") %>%
+    rename(correlation = expenditure) %>% 
+    arrange(correlation)
+```
+
+
+More is spent per student in schools with high
+
+- income levels,
+- math and read test scores
+
+Plot scatter plots for the top 3 correlated variables
+
+```{r fig.width=12, fig.asp=0.3}
+top_vars <- c("income", "math", "read")
+cas_long <- cas %>%
+    select(expenditure, all_of(top_vars)) %>%
+    pivot_longer(cols = all_of(top_vars), names_to = "variable", values_to = "value")
+ggplot(cas_long, aes(x = value, y = expenditure)) +
+    geom_point(alpha = 0.6, color = "#1976d2") +
+    facet_wrap(~variable, scales = "free_x") +
+    labs(
+        title = "Scatter Plots of Expenditure per Student vs. Top Correlated Variables",
+        x = "Value",
+        y = "Expenditure per Student (USD)"
+    ) +
+    theme_minimal(base_size = 14)   
+```
+
+--------------------------------------------------------------------------------
+
+Q: what is the relationship between district level maths and reading scores?
+
+
+```{r fig.width=6, fig.asp=0.6}
+ggplot(cas, aes(x = read, y = math)) +
+    geom_point(alpha = 0.6, color = "#1976d2") +
+    geom_smooth(method = "lm", color = "#d32f2f") +
+    labs(
+        title = "Scatter Plot of Math vs. Reading Scores",
+        x = "Average Reading Score",
+        y = "Average Math Score"
+    ) +
+    theme_minimal(base_size = 14)
+```
+
+--------------------------------------------------------------------------------
+
+## Q-Q Plot
+
+The <span class="env-green">Q-Q plot</span>, or <span class="env-green">quantile-quantile plot</span>, is a graphical tool to help us assess if a set of data plausibly came from some theoretical distribution such as a normal distribution. 
+
+A QQ plot is a scatter plot created by plotting two sets of quantiles against one another. 
+
+- If both sets of quantiles came from the same distribution, we should see the points forming a line that's roughly straight. 
+
+- For example, if we run a statistical analysis that assumes our **residuals** are normally distributed, we can use a <span class="env-green">normal QQ plot</span> to check that assumption. 
+  
+  When the theoretical quantiles are from a normal distribution, the plot is called a **normal QQ plot**.
+
+
+### QQ plot visualization tool 
+
+<https://xiongge.shinyapps.io/QQplots/>
+
+Adjust Skewness and Kurtosis to see how the QQ plot changes.
+
+--------------------------------------------------------------------------------
+
+### Skewness
+
+#### Positive skew
+
+Positively skewed (mean > median) data have a J-shaped pattern in the Q-Q plot.
+
+```{r echo = FALSE, message=FALSE}
+library(fGarch)
+sim_data <- rsnorm(10000, mean = 0, sd = 1, xi = 2.5)
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+ggplot() +
+    geom_histogram(aes(x=sim_data, 
+                       y=..density..),
+                   fill="#BDBCBC", 
+                   color="black", 
+                   binwidth = .2, 
+                   boundary=0) +
+    geom_density(aes(x=sim_data), color="black") +
+    stat_function(fun = dnorm, args = list(mean = 0, sd = 1), color="blue") +
+    stat_function(fun = dnorm, args = list(mean = 0, sd = 1), fill="blue", geom="area", alpha=0.2) +
+    labs(x="Sample values", y="Density", title="Density plot") +
+    scale_x_continuous(limits = c(-4,4))
+```
+
+```{r echo=FALSE}
+ggplot() +
+    geom_qq(aes(sample=sim_data)) +
+    geom_qq_line(aes(sample=sim_data), color="red") +
+    labs(x="Theoretical quantiles", y="Sample quantiles", 
+         title="Normal Q-Q plot")
+```
+
+Summary statistics:
+
+```{r echo=FALSE}
+quick_summary(sim_data) %>% round(2)
+```
+
+💡 Note that for a positive skewed distribution, **the median is larger than the mean** because the long right tail pulls the mean above the median.
+
+#### Negative skew
+
+Negatively skewed (mean < median) data have Q-Q plots that display an inverted J-shape.
+
+```{r echo = FALSE}
+sim_data <- rsnorm(10000, mean = 0, sd = 1, xi = -2.5)
+```
+
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+ggplot() +
+    geom_histogram(aes(x=sim_data, 
+                       y=..density..),
+                   fill="#BDBCBC", 
+                   color="black", 
+                   binwidth = .2, 
+                   boundary=0) +
+    geom_density(aes(x=sim_data), color="black") +
+    stat_function(fun = dnorm, args = list(mean = 0, sd = 1), color="blue") +
+    stat_function(fun = dnorm, args = list(mean = 0, sd = 1), fill="blue", geom="area", alpha=0.2) +
+    labs(x="Sample values", y="Density", title="Density plot") +
+    scale_x_continuous(limits = c(-4,4))
+
+```
+
+```{r echo = FALSE}
+ggplot() +
+    geom_qq(aes(sample=sim_data)) +
+    geom_qq_line(aes(sample=sim_data), color="red") +
+    labs(x="Theoretical quantiles", y="Sample quantiles", 
+         title="Normal Q-Q plot")
+```
+
+Summary statistics:
+
+```{r echo=FALSE}
+quick_summary(sim_data) %>% round(2)
+```
+
+💡 Note that for a negatively skewed distribution, **the median is smaller than the mean** because the long left tail pulls the mean above the median.
+
+### Kurtosis
+
+#### Fat tails
+
+This plot shows a t-distribution with $3$ degrees of freedom.
+```{r echo = FALSE}
+sim_data <-  rt(n=1000, df=3)
+```
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+ggplot() +
+    geom_histogram(aes(x=sim_data, 
+                       y=..density..),
+                   fill="#BDBCBC", 
+                   color="black", 
+                   binwidth = .2, 
+                   boundary=0) +
+    geom_density(aes(x=sim_data), color="black") +
+    stat_function(fun = dnorm, args = list(mean = 0, sd = 1), color="blue") +
+    stat_function(fun = dnorm, args = list(mean = 0, sd = 1), fill="blue", geom="area", alpha=0.2) +
+    labs(x="Sample values", y="Density", title="Density plot") +
+    scale_x_continuous(limits = c(-4,4))
+
+```
+
+```{r echo = FALSE}
+ggplot() +
+    geom_qq(aes(sample=sim_data)) +
+    geom_qq_line(aes(sample=sim_data), color="red") +
+    labs(x="Theoretical quantiles", y="Sample quantiles", 
+         title="Normal Q-Q plot")
+```
+
+Summary statistics:
+
+```{r echo=FALSE}
+quick_summary(sim_data) %>% round(2)
+```
+
+#### Thin tails
+
+```{r  echo = FALSE}
+sim_data <-  rnorm(n=1000, mean=0, sd=0.1) + runif(1000, -1, 1)
+```
+
+```{r echo = FALSE, message=FALSE}
+ggplot() +
+    geom_histogram(aes(x=sim_data, 
+                       y=..density..),
+                   fill="#BDBCBC", 
+                   color="black", 
+                   binwidth = .2, 
+                   boundary=0) +
+    geom_density(aes(x=sim_data), color="black") +
+    stat_function(fun = dnorm, args = list(mean = 0, sd = 1), color="blue") +
+    stat_function(fun = dnorm, args = list(mean = 0, sd = 1), fill="blue", geom="area", alpha=0.2) +
+    labs(x="Sample values", y="Density", title="Density plot") +
+    scale_x_continuous(limits = c(-4,4))
+
+```
+
+```{r echo = FALSE}
+ggplot() +
+    geom_qq(aes(sample=sim_data)) +
+    geom_qq_line(aes(sample=sim_data), color="red") +
+    labs(x="Theoretical quantiles", y="Sample quantiles", 
+         title="Normal Q-Q plot")
+```
+
+
+Summary statistics:
+
+```{r echo=FALSE}
+quick_summary(sim_data) %>% round(2)
+```

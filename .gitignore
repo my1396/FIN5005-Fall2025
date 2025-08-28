@@ -8,11 +8,12 @@
 /.quarto/
 /_site/
 /_book/
+
 # ignore user folders you don't want to share
-# /data/
 /Rscripts/
 /_quiz/
 /_lab/
+/latex/
 
 # auto generated system files
 .DS_Store

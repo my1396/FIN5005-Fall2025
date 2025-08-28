@@ -586,6 +586,18 @@ window.Quarto = {
  <span class="menu-text">Lab 1: Probability &amp; Descriptive Statistics</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_Data_Visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_Linear_Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Regression</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -693,6 +705,38 @@ window.Quarto = {
 
 <span class="ansi-cyan-fg">ℹ</span> Use the conflicted package (<span style="font-style:italic" class="ansi-blue-fg">&lt;http://conflicted.r-lib.org/&gt;</span>) to force all conflicts to become errors
 
+── <span class="ansi-bold">Conflicts</span> ────────────────────────────────────────── tidyverse_conflicts() ──
+
+<span class="ansi-red-fg">✖</span> <span class="ansi-blue-fg">dplyr</span>::<span class="ansi-green-fg">filter()</span> masks <span class="ansi-blue-fg">stats</span>::filter()
+
+<span class="ansi-red-fg">✖</span> <span class="ansi-blue-fg">dplyr</span>::<span class="ansi-green-fg">lag()</span>    masks <span class="ansi-blue-fg">stats</span>::lag()
+
+<span class="ansi-cyan-fg">ℹ</span> Use the conflicted package (<span style="font-style:italic" class="ansi-blue-fg">&lt;http://conflicted.r-lib.org/&gt;</span>) to force all conflicts to become errors
+
+
+
+Attaching package: ‘kableExtra’
+
+
+
+
+
+The following object is masked from ‘package:dplyr’:
+
+
+
+    group_rows
+
+
+
+
+
+
+
+ Setup complete (packages loaded: tidyverse, ggsci, moments, knitr, kableExtra).
+
+
+
 
 
 Attaching package: ‘kableExtra’
@@ -726,7 +770,7 @@ The following object is masked from ‘package:dplyr’:
 <p>Independence means no influence between events, while correlation measures linear relationship strength.</p>
 <p>Independence implies zero correlation, but zero correlation does not imply independence.</p>
 <p>E.g., <span class="math inline">\(X\)</span> and <span class="math inline">\(Y = X^2\)</span> have zero correlation but are not independent.</p>
-<div id="2596e873" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="4">
+<div id="2596e873" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Zero Correlation but NOT Independence: Y = X^2 ----</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Idea: X ~ N(0,1); define Y = X^2.  Then cor(X,Y) ~ 0 (symmetry cancels linear relation),</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># yet Y is a deterministic function of X so they are NOT independent.</span></span>
@@ -743,7 +787,7 @@ The following object is masked from ‘package:dplyr’:
 </div>
 <p>We got <span class="math inline">\(\rho_{X,Y}=0.0198\)</span>. It seems to be close to zero, but we need a statistical test to confirm this formally.</p>
 <p>→ Test for significance of the correlation coefficient</p>
-<div id="3a0f1de8" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}">
+<div id="3a0f1de8" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(X, Y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>
@@ -762,9 +806,14 @@ sample estimates:
 <hr>
 <p>💡 <strong>Q: Based on the output of <code>cor.test</code>, what is the p-value for the correlation test? What can you conclude about the correlation between the two variables?</strong> Are <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> independent? Write your answer in the cell below.</p>
 <p>A: [Type your answer here]</p>
+<p>Distinguish the two expressions:</p>
+<ul>
+<li>correlation coefficient equals zero ❌</li>
+<li>correlation coefficient (statistically) indifferent from zero ✅</li>
+</ul>
 <hr>
 <p>Now let’s visualize <span class="math inline">\(Y=X^2\)</span> by plotting the scatter plot.</p>
-<div id="7dd71422" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="6">
+<div id="7dd71422" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width =</span> <span class="dv">8</span>, <span class="at">repr.plot.height =</span> <span class="dv">7</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>scatter_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">X =</span> X, <span class="at">Y =</span> Y)</span>
@@ -791,7 +840,7 @@ sample estimates:
 </section>
 <section id="descriptive-statistics-on-asset-returns" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="descriptive-statistics-on-asset-returns"><span class="header-section-number">4</span> Descriptive Statistics on Asset Returns</h2>
-<div id="583cea2b" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="7">
+<div id="583cea2b" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Load Asset Returns Data ----</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>asset_df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/asset_returns.csv"</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Preview: first 6 rows of asset returns data frame:"</span>)</span>
@@ -850,7 +899,7 @@ sample estimates:
 </div>
 </div>
 <p>We define a summary statistics function to compute the statistics of interest.</p>
-<div id="b87cab78" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="8">
+<div id="b87cab78" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>quick_summary <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Function to compute basic descriptive statistics</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
@@ -865,7 +914,7 @@ sample estimates:
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The summary statistic table is generated as follows:</p>
-<div id="cf5b0a54" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="9">
+<div id="cf5b0a54" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(asset_df, quick_summary) <span class="sc">%&gt;%</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">do.call</span>(rbind, .) <span class="sc">%&gt;%</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>, <span class="at">caption =</span> <span class="st">"Descriptive Statistics of Asset Returns"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -882,7 +931,7 @@ Table: Descriptive Statistics of Asset Returns
 </div>
 </div>
 <p>Plot the histograms of the asset returns to visualize their distributions.</p>
-<div id="0a7c1d55" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="10">
+<div id="0a7c1d55" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Visualization: Histograms with Normal Density Overlay ----</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to long form</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>combined <span class="ot">&lt;-</span> asset_df <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"type"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>)</span>
@@ -929,13 +978,15 @@ Table: Descriptive Statistics of Asset Returns
 <section id="large-sample-gives-more-accurate-estimates" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="large-sample-gives-more-accurate-estimates"><span class="header-section-number">5</span> Large Sample Gives More Accurate Estimates</h2>
 <p>We have a variable <span class="math inline">\(X\sim N(0,5^2).\)</span></p>
+<p>Normal distribution notation: <span class="math inline">\(X\sim N(\mu, \sigma^2)\)</span> means that <span class="math inline">\(X\)</span> is normally distributed with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2.\)</span></p>
+<p>The second parameter is the variance, <strong>NOT</strong> the standard deviation.</p>
 <p>Now we draw random samples of size 5, 10, 10, … until 5000 from this distribution and compute the sample mean and standard deviation for each sample.</p>
 <p>For each sample, we compute the biased and unbiased sample variance</p>
 <ul>
 <li>The biased sample variance is computed as <span class="math display">\[\frac{1}{n}\sum_{i=1}^n (x_i - \bar{x})^2.\]</span></li>
 <li>The unbiased sample variance is computed as <span class="math display">\[\frac{1}{n-1}\sum_{i=1}^n (x_i - \bar{x})^2\]</span></li>
 </ul>
-<div id="726ae372" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="11">
+<div id="726ae372" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Simulation: Sample vs Population variance ----</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2025</span>)  <span class="co"># for reproducibility</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>true_var <span class="ot">&lt;-</span> <span class="dv">25</span>  <span class="co"># sd^2 with sd=5, true population variance</span></span>
@@ -1023,7 +1074,7 @@ Table: Descriptive Statistics of Asset Returns
 </ul>
 <p>A: [Type your answer here]</p>
 <hr>
-<div id="0fff7b04" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="12">
+<div id="0fff7b04" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Plot: Convergence of variance estimators ----</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>results_long <span class="ot">&lt;-</span> results <span class="sc">%&gt;%</span></span>
@@ -1039,35 +1090,12 @@ Table: Descriptive Statistics of Asset Returns
 <span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> true_var, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
 <span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">500</span>)) <span class="sc">+</span></span>
 <span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Convergence of Variance Estimators"</span>, <span class="at">y =</span> <span class="st">"Estimated variance"</span>, <span class="at">x =</span> <span class="st">"Sample size"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<div class="ansi-escaped-output">
-<pre>Warning message:
-
-“Removed 4 rows containing missing values or values outside the scale range
-
-(`geom_line()`).”
-
-Warning message:
-
-“Removed 4 rows containing missing values or values outside the scale range
-
-(`geom_point()`).”
-</pre>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="01_Lab-1_files/figure-html/cell-11-output-2.png" width="720" height="480" class="figure-img"></p>
-</figure>
-</div>
-</div>
 </div>
 </section>
 <section id="correlated-asset-returns" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="correlated-asset-returns"><span class="header-section-number">6</span> Correlated Asset Returns</h2>
 <p>We will simulate repeated samples of two (correlated) asset return series and compare the sampling distributions of their sample means and the distribution of the portfolio mean (equal weights).</p>
-<div id="6e243cba" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="13">
+<div id="6e243cba" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Load Correlated Asset Returns Data ----</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>X_demo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/correlated_asset_returns.csv"</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(X_demo) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Asset_A"</span>, <span class="st">"Asset_B"</span>)  <span class="co"># Rename columns for clarity</span></span>
@@ -1114,46 +1142,15 @@ Warning message:
 </table>
 </div>
 </div>
-<div id="44d63c33" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="14">
+<div id="44d63c33" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>emp_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(X_demo)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>emp_cor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true">
-<caption>A matrix: 2 × 2 of type dbl</caption>
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th" scope="col">Asset_A</th>
-<th data-quarto-table-cell-role="th" scope="col">Asset_B</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th" scope="row">Asset_A</td>
-<td>1.0000000</td>
-<td>0.9040318</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th" scope="row">Asset_B</td>
-<td>0.9040318</td>
-<td>1.0000000</td>
-</tr>
-</tbody>
-</table>
-</div>
 </div>
 <p>Plot the scatter plot of the two asset returns to visualize their relationship.</p>
-<div id="68d62995" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="15">
+<div id="68d62995" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width =</span> <span class="dv">8</span>, <span class="at">repr.plot.height =</span> <span class="dv">7</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(X_demo, <span class="fu">aes</span>(Asset_A, Asset_B)) <span class="sc">+</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.35</span>, <span class="at">color =</span> <span class="st">'#1b7837'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="01_Lab-1_files/figure-html/cell-14-output-1.png" width="480" height="420" class="figure-img"></p>
-</figure>
-</div>
-</div>
 </div>
 <hr>
 <p>💡<strong>Q: What is the correlation between the two asset returns? How do their prices move together?</strong></p>

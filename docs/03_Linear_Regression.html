@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Business Analytics (Fall 2025) – FIN5005 Fall 2025</title>
+<title>linear_regression – FIN5005 Fall 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -453,7 +453,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -472,7 +472,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Business Analytics (Fall 2025)</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_introduction.html">Basics</a></li><li class="breadcrumb-item"><a href="./03_Linear_Regression.html">Linear Regression</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -527,7 +527,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_Linear_Regression.html" class="sidebar-item-text sidebar-link">
+  <a href="./03_Linear_Regression.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Linear Regression</span></a>
   </div>
 </li>
@@ -543,203 +543,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#course-overview" id="toc-course-overview" class="nav-link active" data-scroll-target="#course-overview"><span class="header-section-number">1</span> Course Overview</a></li>
-  <li><a href="#course-materials" id="toc-course-materials" class="nav-link" data-scroll-target="#course-materials"><span class="header-section-number">2</span> Course Materials</a></li>
-  <li><a href="#course-evaluation" id="toc-course-evaluation" class="nav-link" data-scroll-target="#course-evaluation"><span class="header-section-number">3</span> Course Evaluation</a></li>
-  <li><a href="#study-objectives" id="toc-study-objectives" class="nav-link" data-scroll-target="#study-objectives"><span class="header-section-number">4</span> Study Objectives</a></li>
-  <li><a href="#how-to-reach-me" id="toc-how-to-reach-me" class="nav-link" data-scroll-target="#how-to-reach-me"><span class="header-section-number">5</span> How to Reach Me</a></li>
+  <li><a href="#linear-regression" id="toc-linear-regression" class="nav-link active" data-scroll-target="#linear-regression"><span class="header-section-number">1</span> Linear Regression</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Business Analytics (Fall 2025)</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_introduction.html">Basics</a></li><li class="breadcrumb-item"><a href="./03_Linear_Regression.html">Linear Regression</a></li></ol></nav></header>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
 
 
-</header>
-
-
-<section id="course-overview" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="course-overview"><span class="header-section-number">1</span> Course Overview</h2>
-<p>What Business Analytics (BA) is about?</p>
-<p>The aim of this course is to provide students advanced knowledge, skills and competencies they can use to make data driven decisions for organizations.</p>
-<p><strong>Data-driven decision making</strong></p>
-<ul>
-<li><p><strong>Describe the data</strong>: what happened</p>
-<p>Using introductory statistics to identify patterns, trends, and insights embedded in historical data. E.g., summary statistics.</p></li>
-<li><p><strong>Predictive</strong>: what will happen</p>
-<p>Using statistical models on historical data and forecast future outcomes. E.g., regression, time series.</p></li>
-<li><p>Prescriptive: what should we do</p>
-<p>Using optimization, simulation, and decision analysis techniques to suggest the best course of action based on data, predictions, and constraints.</p></li>
-<li><p>Autonomous: automated decision-making using Machine Learning (ML) and Artificial Intelligence (AI) techniques.</p></li>
-</ul>
-<p>Outline of models and applications we will cover in this course:<sup>1</sup></p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 25%">
-<col style="width: 64%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Category</strong></th>
-<th><strong>Topics</strong></th>
-<th><strong>Applications in Business</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Descriptive</strong></td>
-<td>Data Visualization, Descriptive Analysis</td>
-<td>Asset return → <strong>Finance</strong></td>
-</tr>
-<tr class="even">
-<td><strong>Predictive</strong></td>
-<td>Linear regression</td>
-<td>Asset return prediction → <strong>Finance</strong><br>Demand prediction → <strong>Economics</strong></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Hypothesis testing</td>
-<td>Effectiveness of advertisements → <strong>Marketing</strong></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Classification, logistic regression</td>
-<td>Asset return increasing/decreasing prediction → <strong>Finance</strong><br>Employee satisfaction → <strong>Operation</strong></td>
-</tr>
-<tr class="odd">
-<td><strong>Prescriptive</strong></td>
-<td>Optimization models</td>
-<td>Pricing optimization → <strong>Operation</strong><br>Sensitivity analysis, Scenario analysis → <strong>Accounting</strong></td>
-</tr>
-</tbody>
-</table>
-<p><sup>[1]<sub> This is a preliminary plan. Topics and applications are subject to change as the course moves forward.</sub></sup></p>
-<hr>
-<p><strong>Software</strong>: R programming</p>
-<p>R is an open-source programming language widely used for statistical computing and data analysis. It provides a rich ecosystem of packages and libraries for data manipulation, visualization, and modeling.</p>
-<p>Why open-source stands out in the competition?</p>
-<p>AI is the game changer here. AI significantly improves coding efficiency and productivity. You don’t need to memorize every function or syntax anymore. The current role for humans is to communicate your needs to AI, and AI will generate the code for you.</p>
-<ul>
-<li>Open-source software integrates cutting-edge AI tools, faster and more efficiently than paid software.</li>
-<li>By contrast, paid software is often slower to implement new features due to development cycles and licensing restrictions.</li>
-</ul>
-<p><span class="env-green"><i class="codicon codicon-debug-console" style="font-size:1.5em; vertical-align: middle;"></i> Demonstration in VS Code. </span></p>
-<p>By typing <code># create a function taking the n-th power of a number</code>, AI will generate the code for you.</p>
-<p>Here is how to use GitHub Copilot in RStudio: <a href="https://docs.posit.co/ide/user/ide/guide/tools/copilot.html#using-copilot">RStudio User Guide: Tools, GitHub Copilot</a>.</p>
-</section>
-<section id="course-materials" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="course-materials"><span class="header-section-number">2</span> Course Materials</h2>
-<p>The course materials will be self-contained.</p>
-<ul>
-<li><p><strong>Lecture notes</strong>: lecture notes will be provided in the course website.</p></li>
-<li><p><strong>R code</strong>: R code will be provided in form of Lab Jupyter Notebooks.</p>
-<p>You may copy and paste the code into RStudio to run it.</p></li>
-</ul>
-<p>If you want to learn in-depth, you can refer to the following textbooks and resources.</p>
-<p><strong>Textbooks</strong></p>
-<ul>
-<li><p>Evans, J.R. (2021) <em>Business analytics: methods, models, and decisions</em>. Third edition. Harlow: Pearson.</p>
-<p>Statistics primer. Basic introduction to business analytics at the undergraduate level.</p></li>
-<li><p>James, G., Witten, D., Hastie, T., &amp; Tibshirani, R. (2021). <em>An Introduction to Statistical Learning with Applications in R</em>. 2nd edition. Springer. <a href="https://www.statlearning.com/">Online version</a></p>
-<p><strong>Main textbook</strong> for the course. It covers the fundamental concepts and methods of statistical learning, with practical applications in R.</p></li>
-<li><p>Huntsinger, R. (2025). <em>Business Analytics: Methods and Cases for Data-Driven Decisions.</em> Cambridge: Cambridge University Press. eTextbook available through <a href="https://www.cambridge.org/highereducation/books/business-analytics/49F97FC7360294F70056ADDC895C61AE#overview">Cambridge University Press</a>.</p>
-<p>Advanced methods and case studies for data-driven decision-making. We might use case studies from this book in the course.</p></li>
-</ul>
-</section>
-<section id="course-evaluation" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="course-evaluation"><span class="header-section-number">3</span> Course Evaluation</h2>
-<p>Compud Assessment</p>
-<ul>
-<li><p>Oppgave (home assignment): 40%</p>
-<p>Group work (1-3 students) is possible; including a case study with data analysis and visualization; a report will be submitted;</p>
-<p>Date: week 42 (preliminary date: 14.10.2025)</p>
-<p>The assignment will be released in Inspera, and you will have one week to complete it.</p>
-<p>More details will be provided as the course progresses.</p></li>
-<li><p>Eksamen (school exam): 60%</p>
-<p>Digitally in Inspera;<br>
-Date: 17.11.2025</p></li>
-</ul>
-</section>
-<section id="study-objectives" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="study-objectives"><span class="header-section-number">4</span> Study Objectives</h2>
-<ul>
-<li><strong>Knowledge</strong>:
-<ul>
-<li>Familiarity with statistical methods and models used in business analytics.</li>
-<li>Focus on descriptive analytics and predictive analytics. Prescriptive analytics will be introduced if time allows.</li>
-<li>Knowledge of data visualization techniques and tools.</li>
-</ul></li>
-<li><strong>Skills</strong>:
-<ul>
-<li>Ability to analyze and interpret data using statistical methods.</li>
-<li>Proficiency in using R for data analysis and visualization.</li>
-<li>Competence in applying business analytics techniques to real-world problems.</li>
-</ul></li>
-<li><strong>Competencies</strong>:
-<ul>
-<li>Develop critical thinking skills to evaluate data-driven decisions.</li>
-<li>Ability to communicate findings effectively through reports and presentations.</li>
-</ul></li>
-</ul>
-</section>
-<section id="how-to-reach-me" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="how-to-reach-me"><span class="header-section-number">5</span> How to Reach Me</h2>
-<table border="0" cellspacing="0" cellpadding="5">
-<tbody><tr>
-<td>
-Instructor:
-</td>
-<td>
-Menghan Yuan
-</td>
-</tr>
-<tr>
-<td>
-Email:
-</td>
-<td>
-<a href="mailto:menghan.yuan@nord.no">menghan.yuan@nord.no</a>
-</td>
-</tr>
-<tr>
-<td>
-Office Hours:
-</td>
-<td>
-By appointment
-</td>
-</tr>
-<tr>
-<td>
-Office:
-</td>
-<td>
-Hovedbygning A257
-</td>
-</tr>
-<tr>
-<td colspan="2">
-&nbsp;
-</td>
-</tr>
-</tbody></table>
+<section id="linear-regression" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Linear Regression</h1>
 
 
 </section>
