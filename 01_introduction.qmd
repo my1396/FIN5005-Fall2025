@@ -1,4 +1,6 @@
-# Probability and Data in Business Analytics
+---
+title: "Probability and Data in Business Analytics"
+---
 
 ::: {.callout-note appearance="simple" icon=false}
 **Study Objectives**
@@ -112,8 +114,8 @@ Why is it important to distinguish between sample and population in business ana
 
   $$
   \begin{aligned}
-  \color{#008B45FF}{\text{Var}(X)} &= \mathbb{E}\left[\left(X - \mathbb{E}[X]\right)^2\right] \\
-  &= \color{#008B45FF}{\mathbb{E}[X^2] - (\mathbb{E}[X])^2}.
+  \color{#00CC66}{\text{Var}(X)} &= \mathbb{E}\left[\left(X - \mathbb{E}[X]\right)^2\right] \\
+  &= \color{#00CC66}{\mathbb{E}[X^2] - (\mathbb{E}[X])^2}.
   \end{aligned}
   $$
 

@@ -33,7 +33,7 @@ format:
       dark: [darkly, themes/custom-dark.scss]
     toc: true
     number-sections: true
-    number-depth: 2
+    number-depth: 3
 
 
 

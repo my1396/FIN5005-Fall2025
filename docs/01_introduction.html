@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>introduction – FIN5005 Fall 2025</title>
+<title>Probability and Data in Business Analytics – FIN5005 Fall 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -572,35 +572,46 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#probability-and-data-in-business-analytics" id="toc-probability-and-data-in-business-analytics" class="nav-link active" data-scroll-target="#probability-and-data-in-business-analytics"><span class="header-section-number">1</span> Probability and Data in Business Analytics</a>
+  <li><a href="#probability-axioms" id="toc-probability-axioms" class="nav-link active" data-scroll-target="#probability-axioms"><span class="header-section-number">1</span> Probability Axioms</a></li>
+  <li><a href="#sample-vs.-population-estimating-the-big-picture" id="toc-sample-vs.-population-estimating-the-big-picture" class="nav-link" data-scroll-target="#sample-vs.-population-estimating-the-big-picture"><span class="header-section-number">2</span> Sample vs.&nbsp;Population: Estimating the Big Picture</a></li>
+  <li><a href="#moments" id="toc-moments" class="nav-link" data-scroll-target="#moments"><span class="header-section-number">3</span> Moments</a>
   <ul class="collapse">
-  <li><a href="#probability-axioms" id="toc-probability-axioms" class="nav-link" data-scroll-target="#probability-axioms"><span class="header-section-number">1.1</span> Probability Axioms</a></li>
-  <li><a href="#sample-vs.-population-estimating-the-big-picture" id="toc-sample-vs.-population-estimating-the-big-picture" class="nav-link" data-scroll-target="#sample-vs.-population-estimating-the-big-picture"><span class="header-section-number">1.2</span> Sample vs.&nbsp;Population: Estimating the Big Picture</a></li>
-  <li><a href="#moments" id="toc-moments" class="nav-link" data-scroll-target="#moments"><span class="header-section-number">1.3</span> Moments</a>
-  <ul class="collapse">
-  <li><a href="#expectation-variance-and-standard-deviation" id="toc-expectation-variance-and-standard-deviation" class="nav-link" data-scroll-target="#expectation-variance-and-standard-deviation">Expectation, Variance, and Standard Deviation</a></li>
-  <li><a href="#sums-of-random-variables-expectation-variance" id="toc-sums-of-random-variables-expectation-variance" class="nav-link" data-scroll-target="#sums-of-random-variables-expectation-variance">Sums of Random Variables: Expectation &amp; Variance</a></li>
-  <li><a href="#skewness" id="toc-skewness" class="nav-link" data-scroll-target="#skewness">Skewness</a></li>
-  <li><a href="#kurtosis" id="toc-kurtosis" class="nav-link" data-scroll-target="#kurtosis">Kurtosis</a></li>
+  <li><a href="#expectation-variance-and-standard-deviation" id="toc-expectation-variance-and-standard-deviation" class="nav-link" data-scroll-target="#expectation-variance-and-standard-deviation"><span class="header-section-number">3.1</span> Expectation, Variance, and Standard Deviation</a></li>
+  <li><a href="#sums-of-random-variables-expectation-variance" id="toc-sums-of-random-variables-expectation-variance" class="nav-link" data-scroll-target="#sums-of-random-variables-expectation-variance"><span class="header-section-number">3.2</span> Sums of Random Variables: Expectation &amp; Variance</a></li>
+  <li><a href="#skewness" id="toc-skewness" class="nav-link" data-scroll-target="#skewness"><span class="header-section-number">3.3</span> Skewness</a></li>
+  <li><a href="#kurtosis" id="toc-kurtosis" class="nav-link" data-scroll-target="#kurtosis"><span class="header-section-number">3.4</span> Kurtosis</a></li>
   </ul></li>
-  <li><a href="#covariance-correlation-independence" id="toc-covariance-correlation-independence" class="nav-link" data-scroll-target="#covariance-correlation-independence"><span class="header-section-number">1.4</span> Covariance, Correlation &amp; Independence</a></li>
-  <li><a href="#population-vs.-sample-summary-estimators" id="toc-population-vs.-sample-summary-estimators" class="nav-link" data-scroll-target="#population-vs.-sample-summary-estimators"><span class="header-section-number">1.5</span> Population vs.&nbsp;Sample: Summary &amp; Estimators</a>
+  <li><a href="#covariance-correlation-independence" id="toc-covariance-correlation-independence" class="nav-link" data-scroll-target="#covariance-correlation-independence"><span class="header-section-number">4</span> Covariance, Correlation &amp; Independence</a></li>
+  <li><a href="#population-vs.-sample-summary-estimators" id="toc-population-vs.-sample-summary-estimators" class="nav-link" data-scroll-target="#population-vs.-sample-summary-estimators"><span class="header-section-number">5</span> Population vs.&nbsp;Sample: Summary &amp; Estimators</a>
   <ul class="collapse">
-  <li><a href="#quick-reference-table" id="toc-quick-reference-table" class="nav-link" data-scroll-target="#quick-reference-table">Quick Reference Table</a></li>
-  </ul></li>
+  <li><a href="#quick-reference-table" id="toc-quick-reference-table" class="nav-link" data-scroll-target="#quick-reference-table"><span class="header-section-number">5.1</span> Quick Reference Table</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_introduction.html">Basics</a></li><li class="breadcrumb-item"><a href="./01_introduction.html">Probability and Data in Business Analytics</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_introduction.html">Basics</a></li><li class="breadcrumb-item"><a href="./01_introduction.html">Probability and Data in Business Analytics</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Probability and Data in Business Analytics</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
-<section id="probability-and-data-in-business-analytics" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Probability and Data in Business Analytics</h1>
+</header>
+
+
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -620,8 +631,8 @@ window.Quarto = {
 </div>
 </div>
 <p>Probability is the foundation for making data-driven decisions in business. This section covers the essential concepts, formulas, and business examples you’ll use in analytics.</p>
-<section id="probability-axioms" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="probability-axioms"><span class="header-section-number">1.1</span> Probability Axioms</h2>
+<section id="probability-axioms" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="probability-axioms"><span class="header-section-number">1</span> Probability Axioms</h2>
 <p>Probability measures how likely an event is.</p>
 <p><span class="math display">\[P(A) = \frac{\text{Number of ways A can occur}}{\text{Total possible outcomes}}\]</span></p>
 <ol type="1">
@@ -658,8 +669,8 @@ Solution
 <span class="math inline">\(P(A) + P(B) - P(A \text{ and } B) = 0.35 + 0.25 - 0.10 = 0.50\)</span>
 </div>
 </section>
-<section id="sample-vs.-population-estimating-the-big-picture" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="sample-vs.-population-estimating-the-big-picture"><span class="header-section-number">1.2</span> Sample vs.&nbsp;Population: Estimating the Big Picture</h2>
+<section id="sample-vs.-population-estimating-the-big-picture" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="sample-vs.-population-estimating-the-big-picture"><span class="header-section-number">2</span> Sample vs.&nbsp;Population: Estimating the Big Picture</h2>
 <p>In business, we use samples to estimate population characteristics.</p>
 <p>Sample mean:</p>
 <p><span class="math display">\[
@@ -692,10 +703,10 @@ Solution
 Because we use samples to estimate population parameters, and understanding the difference helps us make better decisions and avoid bias.
 </div>
 </section>
-<section id="moments" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="moments"><span class="header-section-number">1.3</span> Moments</h2>
-<section id="expectation-variance-and-standard-deviation" class="level3">
-<h3 class="anchored" data-anchor-id="expectation-variance-and-standard-deviation">Expectation, Variance, and Standard Deviation</h3>
+<section id="moments" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="moments"><span class="header-section-number">3</span> Moments</h2>
+<section id="expectation-variance-and-standard-deviation" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="expectation-variance-and-standard-deviation"><span class="header-section-number">3.1</span> Expectation, Variance, and Standard Deviation</h3>
 <ul>
 <li><p><strong>Expectation (population):</strong> Average level of the outcome (true but unknown in practice). <span class="math display">\[
 \mathbb{E}[X] =
@@ -709,8 +720,8 @@ Because we use samples to estimate population parameters, and understanding the 
 <p>The variance can also be expressed as:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\color{#008B45FF}{\text{Var}(X)} &amp;= \mathbb{E}\left[\left(X - \mathbb{E}[X]\right)^2\right] \\
-&amp;= \color{#008B45FF}{\mathbb{E}[X^2] - (\mathbb{E}[X])^2}.
+\color{#00CC66}{\text{Var}(X)} &amp;= \mathbb{E}\left[\left(X - \mathbb{E}[X]\right)^2\right] \\
+&amp;= \color{#00CC66}{\mathbb{E}[X^2] - (\mathbb{E}[X])^2}.
 \end{aligned}
 \]</span></p>
 <p>This second form is often faster to compute when you already have (or can easily get) <span class="math inline">\(\mathbb{E}[X^2]\)</span> (e.g., from grouped data or a probability model). In finance, we frequently estimate variance from simulated or historical returns by computing the average of squared returns (giving <span class="math inline">\(\mathbb{E}[X^2]\)</span>) and subtracting the square of the average return.</p>
@@ -791,8 +802,8 @@ Solution
 <p>Population variance uses <span class="math inline">\(n\)</span> when treating these 5 observations as the entire population; sample variance uses <span class="math inline">\(n-1\)</span> to unbiasedly estimate <span class="math inline">\(\text{Var}(X)\)</span> of a larger process.</p>
 </div>
 </section>
-<section id="sums-of-random-variables-expectation-variance" class="level3">
-<h3 class="anchored" data-anchor-id="sums-of-random-variables-expectation-variance">Sums of Random Variables: Expectation &amp; Variance</h3>
+<section id="sums-of-random-variables-expectation-variance" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="sums-of-random-variables-expectation-variance"><span class="header-section-number">3.2</span> Sums of Random Variables: Expectation &amp; Variance</h3>
 <p>Population linearity of expectation: <span class="math display">\[E[X + Y] = E[X] + E[Y]\]</span></p>
 <p>Sample counterpart: <span class="math inline">\(\overline{X+Y} = \bar{X} + \bar{Y}\)</span> (sample means add componentwise).</p>
 <p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, the population variance of their sum is the sum of their variances: <span class="math display">\[\text{Var}(X + Y) = \text{Var}(X) + \text{Var}(Y)\]</span></p>
@@ -842,8 +853,8 @@ Constant 2 adds no variance. <span class="math inline">\(\text{Var}(F)=0.7^2(25)
 </div>
 </section>
 </section>
-<section id="skewness" class="level3">
-<h3 class="anchored" data-anchor-id="skewness">Skewness</h3>
+<section id="skewness" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="skewness"><span class="header-section-number">3.3</span> Skewness</h3>
 <p>Skewness measures asymmetry in a distribution.</p>
 <ul>
 <li><strong>Skewness = 0:</strong> Symmetric (e.g., normal)</li>
@@ -885,8 +896,8 @@ Tip
 </div>
 </div>
 </section>
-<section id="kurtosis" class="level3">
-<h3 class="anchored" data-anchor-id="kurtosis">Kurtosis</h3>
+<section id="kurtosis" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="kurtosis"><span class="header-section-number">3.4</span> Kurtosis</h3>
 <p>Kurtosis measures tail weight (propensity for outliers) relative to a normal distribution.</p>
 <ul>
 <li><strong>Kurtosis ≈ 3:</strong> Normal tail thickness</li>
@@ -961,8 +972,8 @@ Solution
 </div>
 </section>
 </section>
-<section id="covariance-correlation-independence" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="covariance-correlation-independence"><span class="header-section-number">1.4</span> Covariance, Correlation &amp; Independence</h2>
+<section id="covariance-correlation-independence" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="covariance-correlation-independence"><span class="header-section-number">4</span> Covariance, Correlation &amp; Independence</h2>
 <p>Population covariance measures the direction of comovement between two variables:</p>
 <ul>
 <li><strong>Positive covariance:</strong> Both variables increase or decrease together</li>
@@ -1037,8 +1048,8 @@ Mutually Exclusive vs Independence
 </div>
 </div>
 </section>
-<section id="population-vs.-sample-summary-estimators" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="population-vs.-sample-summary-estimators"><span class="header-section-number">1.5</span> Population vs.&nbsp;Sample: Summary &amp; Estimators</h2>
+<section id="population-vs.-sample-summary-estimators" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="population-vs.-sample-summary-estimators"><span class="header-section-number">5</span> Population vs.&nbsp;Sample: Summary &amp; Estimators</h2>
 <p>When analysing data we distinguish between:</p>
 <ul>
 <li><strong>Population parameters (target):</strong> Fixed (but usually unknown) numerical characteristics of the underlying process (e.g., <span class="math inline">\(\mathbb{E}[X], \text{Var}(X), \gamma_1, \kappa, \text{Cov}(X,Y)\)</span>).</li>
@@ -1051,8 +1062,8 @@ Mutually Exclusive vs Independence
 <li>Use <span class="math inline">\(n-1\)</span> (unbiased) denominators for second moments (variance, covariance) when estimating from an i.i.d. sample.</li>
 <li>Always interpret sample statistics as <strong>estimates</strong> with sampling variability; risk management and forecasting should account for estimation error (e.g., standard deviation and confidence intervals).</li>
 </ol>
-<section id="quick-reference-table" class="level3">
-<h3 class="anchored" data-anchor-id="quick-reference-table">Quick Reference Table</h3>
+<section id="quick-reference-table" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="quick-reference-table"><span class="header-section-number">5.1</span> Quick Reference Table</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 13%">
@@ -1128,7 +1139,6 @@ Interpretation tip
 </div>
 
 
-</section>
 </section>
 </section>
 

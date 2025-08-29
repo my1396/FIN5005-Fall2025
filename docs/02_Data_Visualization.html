@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>data_visualization – FIN5005 Fall 2025</title>
+<title>Data Visualization – FIN5005 Fall 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -607,28 +607,47 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link active" data-scroll-target="#data-visualization"><span class="header-section-number">1</span> Data Visualization</a>
+  <li><a href="#data-visualization-with-caschools" id="toc-data-visualization-with-caschools" class="nav-link active" data-scroll-target="#data-visualization-with-caschools"><span class="header-section-number">1</span> Data Visualization with <code>CASchools</code></a>
   <ul class="collapse">
-  <li><a href="#data-visualization-with-caschools" id="toc-data-visualization-with-caschools" class="nav-link" data-scroll-target="#data-visualization-with-caschools"><span class="header-section-number">1.1</span> Data Visualization with <code>CASchools</code></a></li>
-  <li><a href="#q-q-plot" id="toc-q-q-plot" class="nav-link" data-scroll-target="#q-q-plot"><span class="header-section-number">1.2</span> Q-Q Plot</a>
-  <ul class="collapse">
-  <li><a href="#qq-plot-visualization-tool" id="toc-qq-plot-visualization-tool" class="nav-link" data-scroll-target="#qq-plot-visualization-tool">QQ plot visualization tool</a></li>
-  <li><a href="#skewness" id="toc-skewness" class="nav-link" data-scroll-target="#skewness">Skewness</a></li>
-  <li><a href="#kurtosis" id="toc-kurtosis" class="nav-link" data-scroll-target="#kurtosis">Kurtosis</a></li>
+  <li><a href="#dataset-overview" id="toc-dataset-overview" class="nav-link" data-scroll-target="#dataset-overview"><span class="header-section-number">1.1</span> Dataset Overview</a></li>
+  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics"><span class="header-section-number">1.2</span> Summary Statistics</a></li>
+  <li><a href="#expenditure-variation-analysis" id="toc-expenditure-variation-analysis" class="nav-link" data-scroll-target="#expenditure-variation-analysis"><span class="header-section-number">1.3</span> Expenditure Variation Analysis</a></li>
+  <li><a href="#group-comparison-k-6-vs-k-8-schools" id="toc-group-comparison-k-6-vs-k-8-schools" class="nav-link" data-scroll-target="#group-comparison-k-6-vs-k-8-schools"><span class="header-section-number">1.4</span> Group Comparison: K-6 vs K-8 Schools</a></li>
+  <li><a href="#correlation-analysis" id="toc-correlation-analysis" class="nav-link" data-scroll-target="#correlation-analysis"><span class="header-section-number">1.5</span> Correlation Analysis</a></li>
+  <li><a href="#academic-performance-relationship" id="toc-academic-performance-relationship" class="nav-link" data-scroll-target="#academic-performance-relationship"><span class="header-section-number">1.6</span> Academic Performance Relationship</a></li>
   </ul></li>
+  <li><a href="#q-q-plot" id="toc-q-q-plot" class="nav-link" data-scroll-target="#q-q-plot"><span class="header-section-number">2</span> Q-Q Plot</a>
+  <ul class="collapse">
+  <li><a href="#qq-plot-visualization-tool" id="toc-qq-plot-visualization-tool" class="nav-link" data-scroll-target="#qq-plot-visualization-tool"><span class="header-section-number">2.1</span> QQ plot visualization tool</a></li>
+  <li><a href="#skewness" id="toc-skewness" class="nav-link" data-scroll-target="#skewness"><span class="header-section-number">2.2</span> Skewness</a></li>
+  <li><a href="#kurtosis" id="toc-kurtosis" class="nav-link" data-scroll-target="#kurtosis"><span class="header-section-number">2.3</span> Kurtosis</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_introduction.html">Basics</a></li><li class="breadcrumb-item"><a href="./02_Data_Visualization.html">Data Visualization</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_introduction.html">Basics</a></li><li class="breadcrumb-item"><a href="./02_Data_Visualization.html">Data Visualization</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Data Visualization</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
-<section id="data-visualization" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Data Visualization</h1>
+</header>
+
+
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -643,14 +662,20 @@ window.Quarto = {
 <li>Explores expenditure per student across different grade spans.</li>
 <li>Investigates correlations between expenditure and other variables.</li>
 </ul></li>
-<li>QQ plots to assess normality and interpret skewness and kurtosis in the data.</li>
+<li>QQ plots to assess normality and interpret skewness and kurtosis in the data.
+<ul>
+<li>Given a QQ plot, you should be able to identify how does the distribution compare to normal: positively skewed, negatively skewed, has fat tails, or thin tails.</li>
+</ul></li>
 </ul>
 </div>
 </div>
 </div>
-<section id="data-visualization-with-caschools" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="data-visualization-with-caschools"><span class="header-section-number">1.1</span> Data Visualization with <code>CASchools</code></h2>
-<p>Scatter plots and line plots are useful for visualizing relationships between two continuous variables, in the following session we will use a case study to illustrate other types of figures.</p>
+<section id="data-visualization-with-caschools" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="data-visualization-with-caschools"><span class="header-section-number">1</span> Data Visualization with <code>CASchools</code></h2>
+<p>Data visualization is a powerful tool for understanding patterns, relationships, and distributions in datasets. In this session, we will explore the California Schools dataset using various visualization techniques including histograms, box plots, scatter plots, and Q-Q plots. These visualizations help us answer important questions about educational spending, student performance, and the relationships between various school characteristics.</p>
+<section id="dataset-overview" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="dataset-overview"><span class="header-section-number">1.1</span> Dataset Overview</h3>
+<p>The following prints the first and last 5 rows of the dataset, together with data types of each column:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages and dataset</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"moments"</span>, <span class="st">"data.table"</span>, <span class="st">"ggsci"</span>)</span>
@@ -660,7 +685,7 @@ window.Quarto = {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>f_name <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>cas <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(f_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Overview of the dataset:</p>
+<p>The following prints the first and last 5 rows of the dataset, together with data types of each column:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cas <span class="sc">%&gt;%</span> <span class="fu">as.data.table</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -785,7 +810,10 @@ window.Quarto = {
 </table>
 <p>Data source: Stock, J. H. and Watson, M. W. (2020). <a href="https://www.sea-stat.com/wp-content/uploads/2020/08/James-H.-Stock-Mark-W.-Watson-Introduction-to-Econometrics-Global-Edition-Pearson-Education-Limited-2020.pdf">Introduction to Econometrics</a>, 4th ed.&nbsp;Pearson.</p>
 <hr>
-<p>Overview of dataset</p>
+</section>
+<section id="summary-statistics" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="summary-statistics"><span class="header-section-number">1.2</span> Summary Statistics</h3>
+<p>The following displays the summary for each variable in the dataset:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -819,32 +847,71 @@ window.Quarto = {
  Max.   :704.0   Max.   :709.5  </code></pre>
 </div>
 </div>
+<p><strong>Interpreting the Summary Statistics</strong></p>
+<p>This summary provides key insights into our dataset:</p>
+<ul>
+<li><strong>Continuous variables</strong> (students, teachers, expenditure, income, etc.) show their distribution through quartiles, mean, and range</li>
+<li><strong>Categorical variables</strong> (county, grades) show frequency counts</li>
+<li>Notice the <strong>range of expenditure</strong> per student: from around $3,900 to over $7,700 - this substantial variation will be a key focus of our analysis</li>
+<li><strong>Test scores</strong> (reading and math) also show considerable variation, suggesting potential relationships with school resources</li>
+</ul>
+</section>
+<section id="expenditure-variation-analysis" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="expenditure-variation-analysis"><span class="header-section-number">1.3</span> Expenditure Variation Analysis</h3>
 <p>Q: To what extent does expenditure per student vary?</p>
+<p>Understanding the distribution of expenditure per student is crucial for education policy analysis. Let’s examine detailed descriptive statistics:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>quick_summary <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>quick_summary <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">full=</span><span class="cn">FALSE</span>) {</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Function to compute basic descriptive statistics</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">data.frame</span>(</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">n =</span> <span class="fu">length</span>(x),</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">min =</span> <span class="fu">min</span>(x),</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">mean =</span> <span class="fu">mean</span>(x),</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">median =</span> <span class="fu">median</span>(x),</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">max =</span> <span class="fu">max</span>(x),</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">sd =</span> <span class="fu">sd</span>(x),</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">skewness =</span> moments<span class="sc">::</span><span class="fu">skewness</span>(x),</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">kurtosis =</span> moments<span class="sc">::</span><span class="fu">kurtosis</span>(x),</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">row.names =</span> <span class="cn">NULL</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="fu">quick_summary</span>(cas<span class="sc">$</span>expenditure) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span>full){</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Basic summary</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">data.frame</span>(</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">n =</span> <span class="fu">length</span>(x),</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">min =</span> <span class="fu">min</span>(x),</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">mean =</span> <span class="fu">mean</span>(x),</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">median =</span> <span class="fu">median</span>(x),</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">max =</span> <span class="fu">max</span>(x),</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">sd =</span> <span class="fu">sd</span>(x),</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">skewness =</span> moments<span class="sc">::</span><span class="fu">skewness</span>(x),</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">kurtosis =</span> moments<span class="sc">::</span><span class="fu">kurtosis</span>(x),</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">row.names =</span> <span class="cn">NULL</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Full summary with quartiles and IQR</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">data.frame</span>(</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>          <span class="at">n =</span> <span class="fu">length</span>(x),</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>          <span class="at">min =</span> <span class="fu">min</span>(x),</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>          <span class="at">Q1 =</span> <span class="fu">quantile</span>(x, <span class="fl">0.25</span>),</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>          <span class="at">mean =</span> <span class="fu">mean</span>(x),</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>          <span class="at">median =</span> <span class="fu">median</span>(x),</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>          <span class="at">Q3 =</span> <span class="fu">quantile</span>(x, <span class="fl">0.75</span>),</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>          <span class="at">max =</span> <span class="fu">max</span>(x),</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>          <span class="at">IQR =</span> <span class="fu">IQR</span>(x),</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>          <span class="at">sd =</span> <span class="fu">sd</span>(x),</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>          <span class="at">skewness =</span> moments<span class="sc">::</span><span class="fu">skewness</span>(x),</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>          <span class="at">kurtosis =</span> moments<span class="sc">::</span><span class="fu">kurtosis</span>(x),</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>          <span class="at">row.names =</span> <span class="cn">NULL</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="fu">quick_summary</span>(cas<span class="sc">$</span>expenditure) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    n     min    mean  median     max     sd skewness kurtosis
 1 420 3926.07 5312.41 5214.52 7711.51 633.94     1.07     4.88</code></pre>
 </div>
 </div>
+<p><strong>Interpreting the Results:</strong></p>
+<ul>
+<li><strong>Range:</strong> Expenditure varies from about $3,926 to $7,712 per student - a difference of nearly $4,000</li>
+<li><strong>Central Tendency:</strong> The mean ($5,312) is slightly higher than the median ($5,196), <strong>suggesting a slight right skew</strong></li>
+<li><strong>Variability:</strong> Standard deviation of $633 indicates moderate spread around the mean</li>
+<li><strong>Skewness (1.07):</strong> Positive skewness confirms some districts spend considerably more than average</li>
+<li><strong>Kurtosis (4.88):</strong> Larger than 3 indicates a distribution with fat tails relative to the normal distribution.</li>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic histogram</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cas, <span class="fu">aes</span>(<span class="at">x =</span> expenditure)) <span class="sc">+</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">500</span>, <span class="at">fill =</span> <span class="st">"lightblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">500</span>, <span class="at">boundary =</span> <span class="dv">0</span>, <span class="at">fill =</span> <span class="st">"lightblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histogram of Expenditure per Student"</span>,</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Expenditure per Student (USD)"</span>,</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frequency"</span>) <span class="sc">+</span></span>
@@ -857,28 +924,47 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<p><strong>What the Histogram Reveals:</strong></p>
+<ul>
+<li>Most districts cluster around the $5,000-$5,500 range</li>
+<li>Variability is moderate</li>
+<li>The distribution has a long right tail, indicating positive skewness. That suggests that expenditure per student is concentrated at lower values for most districts, while a smaller number of districts spend substantially more, pulling the mean above the median</li>
+<li>There are <strong>few extreme positive outliers</strong>, indicating some districts do spend significantly more than average</li>
+</ul>
 <hr>
+</section>
+<section id="group-comparison-k-6-vs-k-8-schools" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="group-comparison-k-6-vs-k-8-schools"><span class="header-section-number">1.4</span> Group Comparison: K-6 vs K-8 Schools</h3>
 <p>Q: Are there any differences in expenditure per student between K-6 and K-8 schools?</p>
+<p>This comparison helps us understand whether grade span affects resource allocation. Let’s examine the statistics for each group:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cas <span class="sc">%&gt;%</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(grades) <span class="sc">%&gt;%</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_map</span>(<span class="sc">~</span> {</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        s <span class="ot">&lt;-</span> <span class="fu">summary</span>(.x<span class="sc">$</span>expenditure)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        s <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">grades =</span> .y,    <span class="co"># add group info</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">N =</span> <span class="fu">nrow</span>(.x),   <span class="co"># add other statistics</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>            s)</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(s)</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">%&gt;%</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_rows</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        s <span class="ot">&lt;-</span> <span class="fu">quick_summary</span>(.x<span class="sc">$</span>expenditure, <span class="at">full=</span><span class="cn">TRUE</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        s <span class="ot">&lt;-</span> <span class="fu">cbind</span>(</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">grades =</span> .y<span class="sc">$</span>grades,    <span class="co"># add group info</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>            s)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(s)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">%&gt;%</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_rows</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 8
-  grades.grades     N     Min. `1st Qu.`   Median     Mean `3rd Qu.`     Max.
-  &lt;chr&gt;         &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-1 KK-06            61 4715.446  5092.917 5399.383 5577.493  5990.794 7614.379
-2 KK-08           359 3926.070  4881.139 5195.919 5267.365  5539.380 7711.507</code></pre>
+<pre><code>  grades   n      min       Q1     mean   median       Q3      max      IQR
+1  KK-06  61 4715.446 5092.917 5577.493 5399.383 5990.794 7614.379 897.8770
+2  KK-08 359 3926.070 4881.139 5267.365 5195.919 5539.380 7711.507 658.2412
+        sd skewness kurtosis
+1 662.8033 1.019435 3.309185
+2 618.6415 1.094514 5.284716</code></pre>
 </div>
 </div>
+<p><strong>Key Findings:</strong></p>
+<ul>
+<li><strong>K–6 schools</strong> (61 districts): Mean expenditure of $5,577, slightly higher than K–8 schools</li>
+<li><strong>K–8 schools</strong> (359 districts): Mean expenditure of $5,267, with a larger sample size</li>
+<li>K–6 schools indicating higher variability, with a standard deviation of $662 compared to $618 for K-8 schools</li>
+<li><strong>Skewness</strong> is positive for both groups, with K–8 schools showing slightly more skewness</li>
+<li>The difference suggests that <strong>smaller grade span districts may have slightly higher per-pupil spending</strong></li>
+</ul>
 <p>Box plot by grades</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cas, <span class="fu">aes</span>(<span class="at">x =</span> grades, <span class="at">y =</span> expenditure, <span class="at">fill =</span> grades)) <span class="sc">+</span></span>
@@ -891,14 +977,66 @@ window.Quarto = {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" style="width:40.0%"></p>
+<p><img src="02_Data_Visualization_files/figure-html/hist-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
 </figure>
 </div>
 </div>
 </div>
+<p>Understanding the Box Plot:</p>
+<p>1.&nbsp;<strong>Box and middle bar (median)</strong></p>
+<ul>
+<li><p>The&nbsp;<strong>box</strong>&nbsp;itself spans from the&nbsp;<strong>first quartile (Q1, 25th percentile)</strong>&nbsp;to the&nbsp;<strong>third quartile (Q3, 75th percentile)</strong>.</p></li>
+<li><p>This range is called the&nbsp;<strong>interquartile range (IQR = Q3 - Q1)</strong>.</p></li>
+<li><p>The&nbsp;<strong>middle bar</strong>&nbsp;inside the box represents the&nbsp;<strong>median (50th percentile)</strong>.</p>
+<ul>
+<li><p>If the median is closer to the bottom of the box, the lower half of the data is more concentrated.</p></li>
+<li><p>If closer to the top, the upper half is more concentrated.</p></li>
+</ul></li>
+</ul>
+<p>2.&nbsp;<strong>Whiskers</strong></p>
+<ul>
+<li><p>The&nbsp;<strong>whiskers</strong>&nbsp;extend from the box to show the range of the data&nbsp;<strong>excluding outliers</strong>.</p></li>
+<li><p>A whisker extends to the&nbsp;<strong>largest/smallest value within 1.5 × IQR from the box</strong>:</p>
+<ul>
+<li><p>Upper whisker = largest value ≤ Q3 + 1.5 × IQR</p></li>
+<li><p>Lower whisker = smallest value ≥ Q1 - 1.5 × IQR</p></li>
+</ul></li>
+</ul>
+<p>3.&nbsp;<strong>Outliers</strong></p>
+<ul>
+<li><p><strong>Points beyond the whiskers</strong>&nbsp;are plotted individually as&nbsp;<strong>outliers</strong>.</p></li>
+<li><p>These are values that are unusually high or low relative to the bulk of the data.</p></li>
+</ul>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Summary of boxplot</strong></p>
+<ul>
+<li>Box: middle 50% of the data</li>
+<li>Middle line: median</li>
+<li>Whiskers: typical range, excluding extreme values</li>
+<li>Outliers: extreme observations</li>
+</ul>
+</div>
+</div>
+</div>
 <hr>
+<p><strong>Interpreting the Box Plot:</strong></p>
+<ul>
+<li><strong>Median lines:</strong> K–6 districts show a higher median expenditure than K-8 districts</li>
+<li><strong>Box sizes:</strong> K–6 district show a larger interquartile ranges (IQR), indicating greater middle 50% spread</li>
+<li><strong>Outliers:</strong> K–8 groups show more positive outliers (points beyond the whiskers), representing districts with unusually high expenditure</li>
+</ul>
+<hr>
+</section>
+<section id="correlation-analysis" class="level3" data-number="1.5">
+<h3 data-number="1.5" class="anchored" data-anchor-id="correlation-analysis"><span class="header-section-number">1.5</span> Correlation Analysis</h3>
 <p><strong>Q: What predicts expenditure per student?</strong></p>
-<p>Correlation coefficients:</p>
+<p>Understanding which factors correlate with expenditure helps identify patterns in educational resource allocation. Let’s examine correlations:</p>
+<p>Correlation coefficients in ascending order:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the set of numeric variables</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(</span>
@@ -924,12 +1062,19 @@ window.Quarto = {
 9   income  0.31448448</code></pre>
 </div>
 </div>
-<p>More is spent per student in schools with high</p>
+<p><strong>Key Correlation Insights:</strong></p>
 <ul>
-<li>income levels,</li>
-<li>math and read test scores</li>
+<li>No strong correlations (e.g., <span class="math inline">\(&gt;|0.7|\)</span>) with expenditure</li>
+<li><strong>Positive correlations:</strong> Income (0.31), math scores (0.22), and reading scores (0.15)</li>
+<li><strong>Moderate Negative correlations:</strong> Students(<span class="math inline">\(-0.11\)</span>), indicating districts with a larger amount of students tend to spend less per student</li>
+<li><strong>Interpretation:</strong>
+<ul>
+<li>Wealthier districts tend to spend more per student</li>
+<li>Higher spending correlates with better test scores</li>
+<li>Districts with more students may face budget constraints leading to lower per-student expenditure</li>
+</ul></li>
 </ul>
-<p>Plot scatter plots for the top 3 correlated variables</p>
+<p>Plot scatter plots for the top three correlated variables</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>top_vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"income"</span>, <span class="st">"math"</span>, <span class="st">"read"</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>cas_long <span class="ot">&lt;-</span> cas <span class="sc">%&gt;%</span></span>
@@ -947,13 +1092,24 @@ window.Quarto = {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="1152"></p>
+<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="1152"></p>
 </figure>
 </div>
 </div>
 </div>
+<p><strong>What These Scatter Plots Reveal:</strong></p>
+<ul>
+<li><strong>Income vs.&nbsp;Expenditure:</strong> Positive relationship - wealthier districts consistently spend more per student; the trend is relatively clear with some variability;</li>
+<li><strong>Math Scores vs.&nbsp;Expenditure:</strong> Positive trend suggests higher spending correlates with better math performance; the points are more scattered, indicating other factors also play a role;</li>
+<li><strong>Reading Scores vs.&nbsp;Expenditure:</strong> Similar pattern to math scores, showing the relationship between resources and achievement</li>
+<li><strong>Data Distribution:</strong> Points are fairly scattered, indicating that while correlations exist, other factors also influence these relationships</li>
+</ul>
 <hr>
+</section>
+<section id="academic-performance-relationship" class="level3" data-number="1.6">
+<h3 data-number="1.6" class="anchored" data-anchor-id="academic-performance-relationship"><span class="header-section-number">1.6</span> Academic Performance Relationship</h3>
 <p>Q: what is the relationship between district level maths and reading scores?</p>
+<p>Academic performance across different subjects often correlates, as they reflect overall educational quality and student preparation. Let’s examine this relationship:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cas, <span class="fu">aes</span>(<span class="at">x =</span> read, <span class="at">y =</span> math)) <span class="sc">+</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">color =</span> <span class="st">"#1976d2"</span>) <span class="sc">+</span></span>
@@ -964,39 +1120,64 @@ window.Quarto = {
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">"Average Math Score"</span></span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="576"></p>
+<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
+<p><strong>Analysis of the Relationship:</strong></p>
+<ul>
+<li><strong>Strong positive correlation:</strong> Districts with higher reading scores typically have higher math scores</li>
+<li><strong>Linear trend:</strong> The smooth line shows a clear linear relationship between the two subjects</li>
+<li><strong>Tight clustering:</strong> Most points cluster closely around the trend line, indicating a strong relationship</li>
+<li><strong>Educational insights:</strong>
+<ul>
+<li>This suggests that factors affecting academic performance impact multiple subjects similarly</li>
+<li>Districts that excel in one area tend to excel in others</li>
+</ul></li>
+</ul>
 <hr>
 </section>
-<section id="q-q-plot" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="q-q-plot"><span class="header-section-number">1.2</span> Q-Q Plot</h2>
+</section>
+<section id="q-q-plot" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="q-q-plot"><span class="header-section-number">2</span> Q-Q Plot</h2>
 <p>The <span class="env-green">Q-Q plot</span>, or <span class="env-green">quantile-quantile plot</span>, is a graphical tool to help us assess if a set of data plausibly came from some theoretical distribution such as a normal distribution.</p>
+<p><strong>Understanding Q-Q Plots:</strong></p>
 <p>A QQ plot is a scatter plot created by plotting two sets of quantiles against one another.</p>
 <ul>
 <li><p>If both sets of quantiles came from the same distribution, we should see the points forming a line that’s roughly straight.</p></li>
 <li><p>For example, if we run a statistical analysis that assumes our <strong>residuals</strong> are normally distributed, we can use a <span class="env-green">normal QQ plot</span> to check that assumption.</p>
 <p>When the theoretical quantiles are from a normal distribution, the plot is called a <strong>normal QQ plot</strong>.</p></li>
 </ul>
-<section id="qq-plot-visualization-tool" class="level3">
-<h3 class="anchored" data-anchor-id="qq-plot-visualization-tool">QQ plot visualization tool</h3>
+<p><strong>Why Q-Q Plots Matter:</strong></p>
+<ul>
+<li>Many statistical tests assume normality; deviations from normality can affect the validity of statistical inferences</li>
+<li>Q-Q plots provide a visual method to assess these assumptions</li>
+<li>They help identify the type of non-normality (skewness, heavy tails, etc.)</li>
+</ul>
+<section id="qq-plot-visualization-tool" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="qq-plot-visualization-tool"><span class="header-section-number">2.1</span> QQ plot visualization tool</h3>
 <p><a href="https://xiongge.shinyapps.io/QQplots/" class="uri">https://xiongge.shinyapps.io/QQplots/</a></p>
 <p>Adjust Skewness and Kurtosis to see how the QQ plot changes.</p>
 <hr>
 </section>
-<section id="skewness" class="level3">
-<h3 class="anchored" data-anchor-id="skewness">Skewness</h3>
+<section id="skewness" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="skewness"><span class="header-section-number">2.2</span> Skewness</h3>
 <section id="positive-skew" class="level4">
 <h4 class="anchored" data-anchor-id="positive-skew">Positive skew</h4>
 <p>Positively skewed (mean &gt; median) data have a J-shaped pattern in the Q-Q plot.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -1006,27 +1187,35 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>Summary statistics:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>      n   min mean median  max   sd skewness kurtosis
-1 10000 -1.92 0.01  -0.18 4.52 0.99     0.87     3.52</code></pre>
+<pre><code>      n min mean median  max sd skewness kurtosis
+1 10000  -2    0  -0.18 6.14  1     0.93     3.79</code></pre>
 </div>
 </div>
 <p>💡 Note that for a positive skewed distribution, <strong>the median is larger than the mean</strong> because the long right tail pulls the mean above the median.</p>
+<p><strong>Understanding Positive Skewness:</strong></p>
+<ul>
+<li><strong>Shape:</strong> Long tail extending to the right</li>
+<li><strong>Mean vs.&nbsp;Median:</strong> Mean &gt; Median (tail pulls the mean upward)</li>
+<li><strong>Q-Q Plot Pattern:</strong> J-shaped curve, points above the line at higher quantiles</li>
+<li><strong>Real-world examples:</strong> Income distribution, housing prices</li>
+<li><strong>Statistical implications:</strong> May indicate floor effects or bounded distributions</li>
+</ul>
 </section>
 <section id="negative-skew" class="level4">
 <h4 class="anchored" data-anchor-id="negative-skew">Negative skew</h4>
 <p>Negatively skewed (mean &lt; median) data have Q-Q plots that display an inverted J-shape.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -1036,30 +1225,39 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<p>Summary statistics:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>      n   min mean median  max   sd skewness kurtosis
+1 10000 -5.23 0.02    0.2 1.81 0.99     -0.9     3.71</code></pre>
+</div>
+</div>
+<p>💡 Note that for a negatively skewed distribution, <strong>the median is smaller than the mean</strong> because the long left tail pulls the mean above the median.</p>
+<p><strong>Understanding Negative Skewness:</strong></p>
+<ul>
+<li><strong>Shape:</strong> Long tail extending to the left</li>
+<li><strong>Mean vs.&nbsp;Median:</strong> Mean &lt; Median (tail pulls the mean downward)</li>
+<li><strong>Q-Q Plot Pattern:</strong> Inverted J-shaped curve, points below the line at lower quantiles</li>
+<li><strong>Real-world examples:</strong> Test scores (when most students perform well), age at retirement</li>
+<li><strong>Statistical implications:</strong> May indicate ceiling effects or bounded distributions</li>
+</ul>
+</section>
+</section>
+<section id="kurtosis" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="kurtosis"><span class="header-section-number">2.3</span> Kurtosis</h3>
+<p>Kurtosis measures the “tailedness” of a distribution compared to a normal distribution. Understanding kurtosis helps identify distributions with unusually many or few extreme values.</p>
+<section id="fat-tails" class="level4">
+<h4 class="anchored" data-anchor-id="fat-tails">Fat tails</h4>
+<p>This plot shows a t-distribution with <span class="math inline">\(3\)</span> degrees of freedom, which has heavier tails than a normal distribution.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Summary statistics:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>      n   min  mean median  max   sd skewness kurtosis
-1 10000 -5.41 -0.01   0.18 1.92 1.01     -0.9     3.62</code></pre>
-</div>
-</div>
-<p>💡 Note that for a negatively skewed distribution, <strong>the median is smaller than the mean</strong> because the long left tail pulls the mean above the median.</p>
-</section>
-</section>
-<section id="kurtosis" class="level3">
-<h3 class="anchored" data-anchor-id="kurtosis">Kurtosis</h3>
-<section id="fat-tails" class="level4">
-<h4 class="anchored" data-anchor-id="fat-tails">Fat tails</h4>
-<p>This plot shows a t-distribution with <span class="math inline">\(3\)</span> degrees of freedom.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -1069,25 +1267,39 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<p>Summary statistics:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>     n    min  mean median  max   sd skewness kurtosis
+1 1000 -11.24 -0.16   -0.1 9.58 1.61    -0.92     11.1</code></pre>
+</div>
+</div>
+<p><strong>Understanding Fat Tails (High Kurtosis):</strong></p>
+<ul>
+<li><strong>Q-Q Plot Pattern:</strong> S-shaped curve - points below the line at both extremes, above in the middle</li>
+<li><strong>Kurtosis &gt; 3:</strong> Indicates heavier tails than normal distribution</li>
+<li><strong>Practical meaning:</strong> More extreme values (both high and low) occur than expected under normality</li>
+<li><strong>Real-world examples:</strong>
+<ul>
+<li><strong>Financial returns:</strong> Stock market crashes and booms occur more frequently than normal distribution predicts</li>
+<li><strong>Measurement errors:</strong> Occasionally very large errors occur due to equipment malfunction or human mistakes</li>
+<li><strong>Response times:</strong> Most responses are quick, but some take much longer due to system overload or user distraction</li>
+</ul></li>
+<li><strong>Statistical implications:</strong> Higher risk of extreme events; standard confidence intervals may be too narrow</li>
+</ul>
+</section>
+<section id="thin-tails" class="level4">
+<h4 class="anchored" data-anchor-id="thin-tails">Thin tails</h4>
+<p>This example shows a distribution with lighter tails than normal.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Summary statistics:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>     n    min mean median  max   sd skewness kurtosis
-1 1000 -14.92    0   0.01 8.05 1.65    -1.23    16.18</code></pre>
-</div>
-</div>
-</section>
-<section id="thin-tails" class="level4">
-<h4 class="anchored" data-anchor-id="thin-tails">Thin tails</h4>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -1097,25 +1309,33 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="02_Data_Visualization_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>Summary statistics:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>     n   min  mean median  max   sd skewness kurtosis
-1 1000 -1.19 -0.01  -0.02 1.21 0.59        0     1.86</code></pre>
+1 1000 -1.15 -0.01  -0.02 1.25 0.58     0.03     1.88</code></pre>
 </div>
 </div>
+<p><strong>Understanding Thin Tails (Low Kurtosis):</strong></p>
+<ul>
+<li><strong>Q-Q Plot Pattern:</strong> Reverse S-shaped curve - points above the line at extremes, below in the middle</li>
+<li><strong>Kurtosis &lt; 3:</strong> Indicates lighter tails than normal distribution</li>
+<li><strong>Practical meaning:</strong> Fewer extreme values occur than expected under normality</li>
+<li><strong>Real-world examples:</strong> Bounded measurements, standardized test scores, some quality control data</li>
+<li><strong>Statistical implications:</strong> Lower risk of extreme events; data more predictable than normal assumption suggests</li>
+</ul>
+<hr>
+<p><strong>Summary of Distribution Shapes</strong></p>
+<p>Understanding these patterns helps in:</p>
+<ul>
+<li><strong>Choosing appropriate statistical methods</strong></li>
+<li><strong>Identifying data quality issues</strong></li>
+<li><strong>Making informed assumptions about uncertainty</strong></li>
+<li><strong>Selecting proper transformations when needed</strong></li>
+<li><strong>Interpreting results correctly in context</strong></li>
+</ul>
 
 
-</section>
 </section>
 </section>
 </section>
