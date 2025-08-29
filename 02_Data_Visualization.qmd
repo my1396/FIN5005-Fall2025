@@ -28,7 +28,11 @@ missing <- setdiff(pkgs, rownames(installed.packages()))
 if (length(missing) > 0) install.packages(missing)
 invisible(lapply(pkgs, function(pkg) suppressPackageStartupMessages(library(pkg, character.only = TRUE))))
 f_name <- "https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"
-cas <- read_csv(f_name)
+cas <- read_csv(f_name, 
+  col_types = cols(
+    county = col_factor(), # read as factor
+    grades = col_factor()
+  ))
 ```
 
 

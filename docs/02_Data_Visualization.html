@@ -683,14 +683,18 @@ window.Quarto = {
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(missing) <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="fu">install.packages</span>(missing)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">lapply</span>(pkgs, <span class="cf">function</span>(pkg) <span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(pkg, <span class="at">character.only =</span> <span class="cn">TRUE</span>))))</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>f_name <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>cas <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(f_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>cas <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(f_name, </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">col_types =</span> <span class="fu">cols</span>(</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">county =</span> <span class="fu">col_factor</span>(), <span class="co"># read as factor</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">grades =</span> <span class="fu">col_factor</span>()</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The following prints the first and last 5 rows of the dataset, together with data types of each column:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cas <span class="sc">%&gt;%</span> <span class="fu">as.data.table</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     district                          school      county grades students
-        &lt;num&gt;                          &lt;char&gt;      &lt;char&gt; &lt;char&gt;    &lt;num&gt;
+        &lt;num&gt;                          &lt;char&gt;      &lt;fctr&gt; &lt;fctr&gt;    &lt;num&gt;
   1:    75119              Sunol Glen Unified     Alameda  KK-08      195
   2:    61499            Manzanita Elementary       Butte  KK-08      240
   3:    61549     Thermalito Union Elementary       Butte  KK-08     1550
@@ -817,13 +821,14 @@ window.Quarto = {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    district        school             county             grades         
- Min.   :61382   Length:420         Length:420         Length:420        
- 1st Qu.:64308   Class :character   Class :character   Class :character  
- Median :67760   Mode  :character   Mode  :character   Mode  :character  
- Mean   :67473                                                           
- 3rd Qu.:70419                                                           
- Max.   :75440                                                           
+<pre><code>    district        school                  county      grades   
+ Min.   :61382   Length:420         Sonoma     : 29   KK-08:359  
+ 1st Qu.:64308   Class :character   Kern       : 27   KK-06: 61  
+ Median :67760   Mode  :character   Los Angeles: 27              
+ Mean   :67473                      Tulare     : 24              
+ 3rd Qu.:70419                      San Diego  : 21              
+ Max.   :75440                      Santa Clara: 20              
+                                    (Other)    :272              
     students          teachers          calworks          lunch       
  Min.   :   81.0   Min.   :   4.85   Min.   : 0.000   Min.   :  0.00  
  1st Qu.:  379.0   1st Qu.:  19.66   1st Qu.: 4.395   1st Qu.: 23.28  
@@ -831,6 +836,7 @@ window.Quarto = {
  Mean   : 2628.8   Mean   : 129.07   Mean   :13.246   Mean   : 44.71  
  3rd Qu.: 3008.0   3rd Qu.: 146.35   3rd Qu.:18.981   3rd Qu.: 66.86  
  Max.   :27176.0   Max.   :1429.00   Max.   :78.994   Max.   :100.00  
+                                                                      
     computer       expenditure       income          english      
  Min.   :   0.0   Min.   :3926   Min.   : 5.335   Min.   : 0.000  
  1st Qu.:  46.0   1st Qu.:4906   1st Qu.:10.639   1st Qu.: 1.941  
@@ -838,13 +844,15 @@ window.Quarto = {
  Mean   : 303.4   Mean   :5312   Mean   :15.317   Mean   :15.768  
  3rd Qu.: 375.2   3rd Qu.:5601   3rd Qu.:17.629   3rd Qu.:22.970  
  Max.   :3324.0   Max.   :7712   Max.   :55.328   Max.   :85.540  
+                                                                  
       read            math      
  Min.   :604.5   Min.   :605.4  
  1st Qu.:640.4   1st Qu.:639.4  
  Median :655.8   Median :652.4  
  Mean   :655.0   Mean   :653.3  
  3rd Qu.:668.7   3rd Qu.:665.8  
- Max.   :704.0   Max.   :709.5  </code></pre>
+ Max.   :704.0   Max.   :709.5  
+                                </code></pre>
 </div>
 </div>
 <p><strong>Interpreting the Summary Statistics</strong></p>
@@ -950,11 +958,11 @@ window.Quarto = {
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_rows</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  grades   n      min       Q1     mean   median       Q3      max      IQR
-1  KK-06  61 4715.446 5092.917 5577.493 5399.383 5990.794 7614.379 897.8770
-2  KK-08 359 3926.070 4881.139 5267.365 5195.919 5539.380 7711.507 658.2412
+1  KK-08 359 3926.070 4881.139 5267.365 5195.919 5539.380 7711.507 658.2412
+2  KK-06  61 4715.446 5092.917 5577.493 5399.383 5990.794 7614.379 897.8770
         sd skewness kurtosis
-1 662.8033 1.019435 3.309185
-2 618.6415 1.094514 5.284716</code></pre>
+1 618.6415 1.094514 5.284716
+2 662.8033 1.019435 3.309185</code></pre>
 </div>
 </div>
 <p><strong>Key Findings:</strong></p>
@@ -1190,8 +1198,8 @@ window.Quarto = {
 <p>Summary statistics:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>      n   min mean median max   sd skewness kurtosis
-1 10000 -1.88    0  -0.19 5.1 1.01     0.89     3.64</code></pre>
+<pre><code>      n   min mean median  max   sd skewness kurtosis
+1 10000 -1.99    0  -0.19 5.23 1.01     0.93     3.82</code></pre>
 </div>
 </div>
 <p>💡 Note that for a positive skewed distribution, <strong>the median is larger than the mean</strong> because the long right tail pulls the mean above the median.</p>
@@ -1228,8 +1236,8 @@ window.Quarto = {
 <p>Summary statistics:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>      n   min mean median  max   sd skewness kurtosis
-1 10000 -5.47 0.02   0.18 1.83 0.98    -0.88     3.67</code></pre>
+<pre><code>      n   min mean median  max sd skewness kurtosis
+1 10000 -4.99    0   0.18 1.87  1    -0.91     3.73</code></pre>
 </div>
 </div>
 <p>💡 Note that for a negatively skewed distribution, <strong>the median is smaller than the mean</strong> because the long left tail pulls the mean above the median.</p>
@@ -1270,8 +1278,8 @@ window.Quarto = {
 <p>Summary statistics:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>     n   min mean median  max   sd skewness kurtosis
-1 1000 -9.41    0   0.06 7.28 1.62    -0.94     8.24</code></pre>
+<pre><code>     n   min mean median   max  sd skewness kurtosis
+1 1000 -8.24 0.06   0.05 13.51 1.7     0.74    11.21</code></pre>
 </div>
 </div>
 <p><strong>Understanding Fat Tails (High Kurtosis):</strong></p>
@@ -1313,7 +1321,7 @@ window.Quarto = {
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>     n   min  mean median  max   sd skewness kurtosis
-1 1000 -1.15 -0.01  -0.03 1.21 0.59     0.03     1.87</code></pre>
+1 1000 -1.21 -0.01  -0.02 1.17 0.59     0.06     1.86</code></pre>
 </div>
 </div>
 <p><strong>Understanding Thin Tails (Low Kurtosis):</strong></p>
