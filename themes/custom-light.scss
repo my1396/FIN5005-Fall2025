@@ -25,6 +25,16 @@
   color: #008B45 !important;
 }
 
+// light mode orange
+.env-orange {
+  color: #D2691E !important;
+  /* Red-orange color for good visibility in light mode */
+}
+.env-orange>code,
+.env-orange code {
+  color: #D2691E !important;
+}
+
 // Apply green to solution answer container in light mode
 .solution-answer.env-green {
   color: #008B45 !important;

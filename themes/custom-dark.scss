@@ -45,6 +45,15 @@ blockquote {
   color: #C3E88D !important;
 }
 
+// dark mode orange
+.env-orange {
+  color: #FF9900 !important;
+}
+.env-orange>code,
+.env-orange code {
+  color: #FF9900 !important;
+}
+
 // Apply green to solution answer container in dark mode
 .solution-answer.env-green {
   color: #C3E88D !important;

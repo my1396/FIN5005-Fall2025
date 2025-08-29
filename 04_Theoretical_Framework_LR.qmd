@@ -1,0 +1,260 @@
+---
+title: "Theoretical Framework of Linear Regression"
+---
+
+In this section, we will discuss the theoretical framework of linear regression, including the assumptions underlying the linear regression model and essentail hypothesis tests.
+
+Q: Why the assumptions matter?
+
+A: In short, violation of the assumptions may lead to biased or inefficient estimates, incorrect inferences, and unreliable predictions.
+
+--------------------------------------------------------------------------------
+
+## Assumptions of Linear Regression
+
+Q: What are the assumptions of linear regression?
+
+A: The **Gauss-Markov Assumptions** ensure that the Ordinary Least Squares (OLS) estimator is the Best Linear Unbiased Estimator (BLUE). 
+
+1. **Linearity**: The relationship between the independent variable(s) and the dependent variable is linear in parameters.
+2. **No perfect multicollinearity**: The independent variables are NOT <span class="env-orange">perfectly correlated.</span>
+3. **Error has zero conditional mean**
+4. **Error is homoskedastic**
+   - Homoscedasticity: The variance of the error term is constant across all levels of the independent variable(s).
+   
+   <span style="color: #888888;">In time series settings (we won't cover in this course), we also assume:</span>
+   
+   - <span style="color: #888888;">No autocorrelation: The error terms are not correlated with each other.</span>
+   
+5. **Residuals are normally distributed**
+   
+   This assumption is useful for conducting hypothesis tests and constructing confidence intervals. 
+
+## Regression Framework
+
+Multiple linear regression models is defined as 
+
+$$
+Y_i = \beta_0 + \beta_1 X_{i1} + \beta_2 X_{i2} + ... + \beta_k X_{ik} + \varepsilon_i
+$$
+
+
+where $i$ indexes the observations, $Y_i$ is the dependent variable, and $X_{ij}$ represents the $j$-th independent variable for observation $i$, with $j = 1, \ldots, k$ and $k$ denoting the total number of independent variables. The coefficients $\beta_j$ are to be estimated, and $\varepsilon_i$ is the error term.
+
+**OLS estimator $\hat{\beta}^{OLS}$ minimizes the sum of squared residuals (SSR)**:
+
+$$
+\hat{\beta}^{OLS} = \arg\min_{\beta} \sum_{i=1}^{n} e_i^2 
+$$
+
+where $e_i = Y_i - \hat{Y}_i$ is the residual for observation $i$.
+
+$\hat{Y}_i$ is the predicted value of $Y_i$ given the estimated coefficients.
+
+$$
+\hat{\beta}^{OLS} = \arg\min_{\beta} \sum_{i=1}^{n} (Y_i - \beta_0 - \sum_{j=1}^{k} \beta_j X_{ij})^2
+$$
+
+
+**Properties of OLS estimator:**
+
+- **Unbiasedness**: $E[\hat{\beta}^{OLS}] = \beta$ (if Gauss-Markov assumptions hold)
+- **Efficiency**: Among all linear unbiased estimators, OLS has the smallest variance
+- **Consistency**: As sample size $n \to \infty$, $\hat{\beta}^{OLS} \to \beta$ in probability
+
+## Measure of Fit
+
+We often use $R^2$ to measure the goodness of fit of a regression model. 
+
+- It represents the proportion of variance in the dependent variable that is predictable by the regression model.
+
+$R^2$ is defined as:
+
+$$
+R^2 = 1 - \frac{SSR}{SST} = \frac{SST - SSR}{SST} = \frac{SSE}{SST}
+$$
+
+where
+
+- $SSR = \sum_{i=1}^{n} (Y_i - \hat{Y}_i)^2 = \sum_{i=1}^{n} e_i^2$ is the sum of squared residuals (unexplained variation)
+- $SST = \sum_{i=1}^{n} (Y_i - \bar{Y})^2$ is the total sum of squares (total variation)
+- $SSE = \sum_{i=1}^{n} (\hat{Y}_i - \bar{Y})^2$ is the explained sum of squares (explained variation)
+- $\bar{Y}= \frac{1}{n}\sum_{i=1}^n Y_i$ is the mean of the dependent variable
+
+Note that adding variables always increases $R^2$, even if the new variables are not statistically significant. To address this, we use the **adjusted $R^2$**.
+
+In a regression model with multiple explanatory variables, we often use **adjusted** $R^2$ that adjusts the number of explanatory variables.
+
+
+## Hypothesis Testing in Regression
+
+We have been using t-statistics and p-values to for testing hypotheses such as whether a correlation coefficient is significantly different from zero or if a regression coefficient is significantly different from zero.
+
+In the following section, we will introduce the procedure of hypothesis testing formally. 
+
+:::{.callout-important title="Study objectives for hypothesis testing"}
+The goal is be able to conduct hypothesis test manually given necessary information.
+
+For example, in case of testing if a regression coefficient is significantly different from zero, you should be able to 
+
+::: {.step-list style="font-size: 1.2em;"}
+1. Establish null and alternative hypotheses.
+2. Calculate the t-statistic given the coefficient estimate, standard error.
+3. Find the critical value of your test statistic given the significance level, 5% is commonly used.
+   
+   You need to be familiar with the distribution table to find the critical value. The tables can be found in the formula sheet on Canvas under the "Past Exam" module.
+4. Decision rule. 
+   
+   Compare the t-stat with the critical value to make decision on rejecting or not rejecting the null hypothesis.
+5. Interpret the result in context. What it means in reality?
+:::
+
+:::
+
+### t-test for Single Coefficient
+
+Using the simple linear regression model of California School Test Scores in the previous session as an example, test whether expenditure has a significant effect on test scores at the 5% significance level.
+
+```
+Call:
+lm(formula = TestScore ~ expenditure, data = cas)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-50.146 -14.206   0.689  13.513  50.127 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 6.236e+02  7.720e+00  80.783  < 2e-16 ***
+expenditure 5.749e-03  1.443e-03   3.984 7.99e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 18.72 on 418 degrees of freedom
+Multiple R-squared:  0.03659,   Adjusted R-squared:  0.03428 
+F-statistic: 15.87 on 1 and 418 DF,  p-value: 7.989e-05
+```
+
+Here is the hypothesis test step by step for the expenditure coefficient in the simple linear regression of California school test scores.
+
+::: {.step-list}
+1. Hypotheses
+
+   * $H_0:\ \beta_{\text{exp}} = 0$  (expenditure has no effect on test scores)
+   * $H_1:\ \beta_{\text{exp}} \neq 0$  (two-sided)
+
+2. Test statistic
+   
+   Estimate $= 0.005749$, standard error $= 0.001443$.
+
+   $$
+   t=\frac{\hat\beta}{\text{SE}}=\frac{0.005749}{0.001443}=3.984
+   $$
+
+   The **degrees of freedom (df)** $= n - k - 1,$ where $n=420$ (number of observations) and $k=1$ (number of predictors), so $df=420-1-1=418$.
+
+3. Critical value at 5%
+   
+   Two-sided $t_{0.975,418}\approx 1.96$.
+
+   :::{.callout-tip title="Finding critical value"}
+   Notice that when df is large, the critical value approaches that of the standard normal distribution, $z_{0.975}=1.96$.
+
+   The rule-of-thumb is that when $df > 30$, you can use the standard normal critical values.
+   :::
+
+4. Decision rule
+   
+   - Reject $H_0$ if $|t|>1.96$. 
+   - Fail to reject $H_0$ if $|t|\leq 1.96$.
+   
+   Since $3.984>1.97$, reject $H_0$.
+
+5. Interpretation in context
+   
+   Expenditure has a statistically significant positive association with test scores at the 5% level. The point estimate implies that a \\$1,000 increase in per-student expenditure is associated with about $0.005749\times 1000=5.75$ points higher test scores. 
+:::
+
+
+### Confidence Interval for Single Coefficient
+
+A 95 percent confidence interval for the slope is given by
+
+$$
+\left(\hat{\beta}-C_{\alpha/2}\times SE(\hat{\beta}),\; \hat{\beta}+C_{\alpha/2}\times SE(\hat{\beta})\right)
+$$
+
+where $C_{\alpha/2}$ is the critical value for a two-sided test at significance level $\alpha$.
+
+For the expenditure coefficient in the simple linear regression of California school test scores, $\hat{\beta}=0.005749$, $SE(\hat{\beta})=0.001443$, and $C_{0.025}=1.96$.
+
+
+
+A 95% confidence interval is therefore
+
+$$
+0.005749 \pm 1.97\times 0.001443 \approx [0.0029,\ 0.0086],
+$$
+
+which corresponds to roughly 2.9 to 8.6 points per \$1,000. 
+
+The effect is statistically significant but modest in size, and the low $R^2$ indicates that many other factors also influence test scores.
+
+### F-test for Significance of the Overall Regression
+
+F-test is also known as the one-way analysis of variance (ANOVA) test. It tests whether the regression model as a whole is statistically significant.
+
+[To be finished...]
+
+
+
+### Homoskedasticity 
+
+Homoskedasticity assumption requires constant variance of the error term across all levels of the independent variable(s).
+
+$$
+\var(\varepsilon_i | X) = \sigma^2
+$$
+
+When the assumption is violated, we have heteroskedasticity:
+
+$$
+\var(\varepsilon_i | X) = \sigma^2_i
+$$
+
+that is, the variance of the error term varies with the level of the independent variable(s).
+
+If the error has heteroskedasticity, the standard error under homoskedasticity assumption will be underestimated, leading to invalid t statistics, affecting hypothesis tests and confidence intervals.
+
+A quick fix is to use heteroskedasticity-robust standard errors, which are valid even when the homoskedasticity assumption is violated.
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(sandwich) # for robust standard errors
+library(lmtest)   # for coeftest()
+f_name <- "https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"
+cas <- read_csv(f_name,
+    col_types = cols(
+        county = col_factor(), # read as factor
+        grades = col_factor()
+    )
+)
+cas <- cas %>%
+    mutate(TestScore = (read + math) / 2)
+```
+
+```{r}
+model <- lm(TestScore ~ expenditure, data = cas)
+# heteroskedasticity-robust standard errors
+coeftest(model, vcov = vcovHC(model, type = "HC1"))
+```
+
+
+**Under the heteroskedasticity-robust standard errors:**
+
+- no effects on the coefficient estimates
+- the Std. Error is slightly larger (0.001620 vs. 0.001443). The coefficient remains statistically significant at the 5% level.
+
+**Interpretation**
+
+The heteroskedasticity-robust results suggest that the OLS standard errors may have been too optimistic (underestimated variability). While the statistical significance of the expenditure effect is slightly reduced, it remains highly significant, indicating a robust positive relationship between expenditure and test scores.

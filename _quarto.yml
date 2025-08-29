@@ -24,6 +24,7 @@ website:
           - 01_Lab-1.ipynb
           - 02_Data_Visualization.qmd
           - 03_Linear_Regression.qmd
+          - 04_Theoretical_Framework_LR.qmd
 
 format:
   html:
