@@ -3,4 +3,6 @@ title: "Linear Regression"
 ---
 
 
+In this session, we will use the same `CASchools` dataset from the previous session and implement a simple linear regression model to explore a question of interest: *What contributes to student performance in elementary school education?*
+
 
