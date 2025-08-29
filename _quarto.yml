@@ -2,6 +2,9 @@ project:
   type: website
   output-dir: docs
 
+execute: 
+  freeze: auto
+
 website:
   title: "FIN5005 Fall 2025"
   navbar:
@@ -32,6 +35,7 @@ format:
       light: [cosmo, themes/custom-light.scss]
       dark: [darkly, themes/custom-dark.scss]
     toc: true
+    toc-depth: 4
     number-sections: true
     number-depth: 3
 

@@ -13,7 +13,7 @@ title: "Data Visualization"
   - Given a QQ plot, you should be able to identify how does the distribution compare to normal: positively skewed, negatively skewed, has fat tails, or thin tails.
 :::
 
-## Data Visualization with `CASchools`
+## Descriptive Analysis and Data Visualization with `CASchools` {#descriptive-analysis-and-data-visualization-with-caschools}
 
 Data visualization is a powerful tool for understanding patterns, relationships, and distributions in datasets. In this session, we will explore the California Schools dataset using various visualization techniques including histograms, box plots, scatter plots, and Q-Q plots. These visualizations help us answer important questions about educational spending, student performance, and the relationships between various school characteristics.
 
@@ -189,7 +189,8 @@ cas %>%
 - **Skewness** is positive for both groups, with K--8 schools showing slightly more skewness
 - The difference suggests that **smaller grade span districts may have slightly higher per-pupil spending**
 
-Box plot by grades
+
+#### Box plot by grades span
 
 ```{r hist, fig.asp=1.2, out.width="50%"}
 ggplot(cas, aes(x = grades, y = expenditure, fill = grades)) +
@@ -201,7 +202,7 @@ ggplot(cas, aes(x = grades, y = expenditure, fill = grades)) +
   theme(legend.position = "none")
 ```
 
-Understanding the Box Plot:
+**Understanding the Box Plot:**
 
 1. **Box and middle bar (median)**
 
@@ -314,11 +315,16 @@ ggplot(cas_long, aes(x = value, y = expenditure)) +
 
 --------------------------------------------------------------------------------
 
-### Academic Performance Relationship
+### Academic Performance Relationship {#academic-performance-relationship}
 
 Q: what is the relationship between district level maths and reading scores?
 
 Academic performance across different subjects often correlates, as they reflect overall educational quality and student preparation. Let's examine this relationship:
+
+```{r}
+with(cas, cor.test(math, read))
+```
+
 
 ```{r fig.width=6, fig.asp=0.6, message=FALSE}
 ggplot(cas, aes(x = read, y = math)) +
@@ -419,7 +425,7 @@ quick_summary(sim_data) %>% round(2)
 
 - **Shape:** Long tail extending to the right
 - **Mean vs. Median:** Mean > Median (tail pulls the mean upward)
-- **Q-Q Plot Pattern:** J-shaped curve, points above the line at higher quantiles
+- **Q-Q Plot Pattern:** J-shaped curve, points above the line at both ends
 - **Real-world examples:** Income distribution, housing prices
 - **Statistical implications:** May indicate floor effects or bounded distributions
 
@@ -469,8 +475,10 @@ quick_summary(sim_data) %>% round(2)
 
 - **Shape:** Long tail extending to the left
 - **Mean vs. Median:** Mean < Median (tail pulls the mean downward)
-- **Q-Q Plot Pattern:** Inverted J-shaped curve, points below the line at lower quantiles
-- **Real-world examples:** Test scores (when most students perform well), age at retirement
+- **Q-Q Plot Pattern:** Inverted J-shaped curve, points below the line at both ends
+- **Real-world examples:** 
+  - **Test scores (when most students perform well):** Most students score high (80-100), with fewer low scores creating a left tail
+  - **Age at retirement:** Most people retire around 65-67, but some retire much earlier due to health or financial reasons
 - **Statistical implications:** May indicate ceiling effects or bounded distributions
 
 ### Kurtosis
@@ -516,7 +524,7 @@ quick_summary(sim_data) %>% round(2)
 
 **Understanding Fat Tails (High Kurtosis):**
 
-- **Q-Q Plot Pattern:** S-shaped curve - points below the line at both extremes, above in the middle
+- **Q-Q Plot Pattern:** Reverse S-shaped curve - points below the line at low quantiles, above at high quantiles.
 - **Kurtosis > 3:** Indicates heavier tails than normal distribution
 - **Practical meaning:** More extreme values (both high and low) occur than expected under normality
 - **Real-world examples:** 
@@ -566,7 +574,7 @@ quick_summary(sim_data) %>% round(2)
 
 **Understanding Thin Tails (Low Kurtosis):**
 
-- **Q-Q Plot Pattern:** Reverse S-shaped curve - points above the line at extremes, below in the middle
+- **Q-Q Plot Pattern:** S-shaped curve - points above the line at low quantiles, below at high quantilees.
 - **Kurtosis < 3:** Indicates lighter tails than normal distribution
 - **Practical meaning:** Fewer extreme values occur than expected under normality
 - **Real-world examples:** Bounded measurements, standardized test scores, some quality control data
