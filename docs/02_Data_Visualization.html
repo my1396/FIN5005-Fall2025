@@ -1204,7 +1204,10 @@ sample estimates:
 <section id="qq-plot-visualization-tool" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="qq-plot-visualization-tool"><span class="header-section-number">2.1</span> QQ plot visualization tool</h3>
 <p><a href="https://xiongge.shinyapps.io/QQplots/" class="uri">https://xiongge.shinyapps.io/QQplots/</a></p>
-<p>Adjust Skewness and Kurtosis to see how the QQ plot changes.</p>
+<ul>
+<li>Adjust Skewness and Kurtosis to see how the QQ plot changes.</li>
+<li>Note the website is not able to host many users at the same time, so if it does not load, please try again later.</li>
+</ul>
 <hr>
 </section>
 <section id="skewness" class="level3" data-number="2.2">
@@ -1233,11 +1236,11 @@ sample estimates:
 <p>Summary statistics:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>      n   min  mean median  max sd skewness kurtosis
-1 10000 -1.79 -0.01  -0.19 4.82  1     0.86     3.53</code></pre>
+<pre><code>      n   min mean median  max sd skewness kurtosis
+1 10000 -2.01 0.01  -0.16 5.48  1     0.82     3.44</code></pre>
 </div>
 </div>
-<p>💡 Note that for a positive skewed distribution, <strong>the median is larger than the mean</strong> because the long right tail pulls the mean above the median.</p>
+<p>💡 Note that for a positive skewed distribution, <strong>the mean is larger than the median</strong> because the long right tail pulls the mean above the median.</p>
 <p><strong>Understanding Positive Skewness:</strong></p>
 <ul>
 <li><strong>Shape:</strong> Long tail extending to the right</li>
@@ -1271,11 +1274,11 @@ sample estimates:
 <p>Summary statistics:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>      n   min  mean median  max   sd skewness kurtosis
-1 10000 -5.72 -0.02   0.16 1.84 1.02    -0.83     3.52</code></pre>
+<pre><code>      n  min  mean median  max   sd skewness kurtosis
+1 10000 -5.9 -0.02   0.16 1.98 1.01     -0.9     3.69</code></pre>
 </div>
 </div>
-<p>💡 Note that for a negatively skewed distribution, <strong>the median is smaller than the mean</strong> because the long left tail pulls the mean above the median.</p>
+<p>💡 Note that for a negatively skewed distribution, <strong>the mean is smaller than the median</strong> because the long left tail pulls the mean above the median.</p>
 <p><strong>Understanding Negative Skewness:</strong></p>
 <ul>
 <li><strong>Shape:</strong> Long tail extending to the left</li>
@@ -1318,7 +1321,7 @@ sample estimates:
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>     n    min  mean median  max   sd skewness kurtosis
-1 1000 -30.19 -0.02  -0.02 9.17 1.81     -4.4    82.11</code></pre>
+1 1000 -14.61 -0.05  -0.03 9.14 1.61    -0.67    13.74</code></pre>
 </div>
 </div>
 <p><strong>Understanding Fat Tails (High Kurtosis):</strong></p>
@@ -1360,7 +1363,7 @@ sample estimates:
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>     n   min mean median  max   sd skewness kurtosis
-1 1000 -1.22    0   0.01 1.17 0.59    -0.05      1.9</code></pre>
+1 1000 -1.18 0.01   0.01 1.17 0.58    -0.07     1.91</code></pre>
 </div>
 </div>
 <p><strong>Understanding Thin Tails (Low Kurtosis):</strong></p>

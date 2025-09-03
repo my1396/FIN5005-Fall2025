@@ -375,7 +375,8 @@ A QQ plot is a scatter plot created by plotting two sets of quantiles against on
 
 <https://xiongge.shinyapps.io/QQplots/>
 
-Adjust Skewness and Kurtosis to see how the QQ plot changes.
+- Adjust Skewness and Kurtosis to see how the QQ plot changes.
+- Note the website is not able to host many users at the same time, so if it does not load, please try again later.
 
 --------------------------------------------------------------------------------
 
@@ -419,7 +420,7 @@ Summary statistics:
 quick_summary(sim_data) %>% round(2)
 ```
 
-💡 Note that for a positive skewed distribution, **the median is larger than the mean** because the long right tail pulls the mean above the median.
+💡 Note that for a positive skewed distribution, **the mean is larger than the median** because the long right tail pulls the mean above the median.
 
 **Understanding Positive Skewness:**
 
@@ -469,7 +470,7 @@ Summary statistics:
 quick_summary(sim_data) %>% round(2)
 ```
 
-💡 Note that for a negatively skewed distribution, **the median is smaller than the mean** because the long left tail pulls the mean above the median.
+💡 Note that for a negatively skewed distribution, **the mean is smaller than the median** because the long left tail pulls the mean above the median.
 
 **Understanding Negative Skewness:**
 
