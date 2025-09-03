@@ -8,7 +8,7 @@ In this session, we will use the same `CASchools` dataset from the previous sess
 ## Research Question
 
 <center style="font-size: 1.5em; font-weight: bold;">
-Does expenditure per students affect student performance \
+Does expenditure per student affect student performance \
 in elementary school education?
 </center>
 :::
