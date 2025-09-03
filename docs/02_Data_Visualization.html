@@ -76,9 +76,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f5faa3fe8d40d54d1a1dae307dff01ca.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-67cba87a374c9942e90cf999b0fa4b83.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-f5faa3fe8d40d54d1a1dae307dff01ca.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4901acce58ad5bda5e3977d620428328.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-0aa8c316ed991d25735ce583b32a16cd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-4901acce58ad5bda5e3977d620428328.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -1233,8 +1233,8 @@ sample estimates:
 <p>Summary statistics:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>      n   min mean median  max sd skewness kurtosis
-1 10000 -1.82 0.01  -0.17 5.05  1     0.89     3.59</code></pre>
+<pre><code>      n   min  mean median  max sd skewness kurtosis
+1 10000 -1.79 -0.01  -0.19 4.82  1     0.86     3.53</code></pre>
 </div>
 </div>
 <p>💡 Note that for a positive skewed distribution, <strong>the median is larger than the mean</strong> because the long right tail pulls the mean above the median.</p>
@@ -1271,8 +1271,8 @@ sample estimates:
 <p>Summary statistics:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>      n min mean median  max   sd skewness kurtosis
-1 10000  -5 0.01   0.18 1.86 0.99    -0.89     3.66</code></pre>
+<pre><code>      n   min  mean median  max   sd skewness kurtosis
+1 10000 -5.72 -0.02   0.16 1.84 1.02    -0.83     3.52</code></pre>
 </div>
 </div>
 <p>💡 Note that for a negatively skewed distribution, <strong>the median is smaller than the mean</strong> because the long left tail pulls the mean above the median.</p>
@@ -1317,8 +1317,8 @@ sample estimates:
 <p>Summary statistics:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>     n    min mean median   max   sd skewness kurtosis
-1 1000 -11.44 0.08   0.07 10.38 1.61     0.06    10.28</code></pre>
+<pre><code>     n    min  mean median  max   sd skewness kurtosis
+1 1000 -30.19 -0.02  -0.02 9.17 1.81     -4.4    82.11</code></pre>
 </div>
 </div>
 <p><strong>Understanding Fat Tails (High Kurtosis):</strong></p>
@@ -1359,8 +1359,8 @@ sample estimates:
 <p>Summary statistics:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>     n   min  mean median  max   sd skewness kurtosis
-1 1000 -1.16 -0.02  -0.04 1.14 0.57     0.03     1.92</code></pre>
+<pre><code>     n   min mean median  max   sd skewness kurtosis
+1 1000 -1.22    0   0.01 1.17 0.59    -0.05      1.9</code></pre>
 </div>
 </div>
 <p><strong>Understanding Thin Tails (Low Kurtosis):</strong></p>

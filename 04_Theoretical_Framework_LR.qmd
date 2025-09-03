@@ -2,7 +2,7 @@
 title: "Theoretical Framework of Linear Regression"
 ---
 
-In this section, we will discuss the theoretical framework of linear regression, including the assumptions underlying the linear regression model and essentail hypothesis tests.
+In this section, we will discuss the theoretical framework of linear regression, including the assumptions underlying the linear regression model and essential hypothesis tests.
 
 Q: Why the assumptions matter?
 

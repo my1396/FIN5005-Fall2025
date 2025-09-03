@@ -52,6 +52,11 @@ p:has(+ ul) {
   margin-bottom: 0.5em;
 }
 
+// Set callout-note font size to match body text
+.callout-note {
+  font-size: 1em;
+}
+
 // Solution toggle button styling
 .solution-btn {
   background: none;
