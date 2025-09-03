@@ -53,7 +53,7 @@ p:has(+ ul) {
 }
 
 // Set callout-note font size to match body text (17px)
-.callout-note .callout-body-container {
+.callout-important .callout-tip .callout-warning .callout-caution .callout-note .callout-body-container {
   font-size: 1rem !important;
 }
 
