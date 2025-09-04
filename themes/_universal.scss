@@ -52,9 +52,13 @@ p:has(+ ul) {
   margin-bottom: 0.5em;
 }
 
-// Set callout-note font size to match body text (17px)
-.callout-important .callout-tip .callout-warning .callout-caution .callout-note .callout-body-container {
-  font-size: 1rem !important;
+// Set all callout types font size to match body text (1rem)
+.callout.callout-important .callout-body-container,
+.callout.callout-tip .callout-body-container,
+.callout.callout-warning .callout-body-container, 
+.callout.callout-caution .callout-body-container,
+.callout.callout-note .callout-body-container {
+  font-size: 1rem;
 }
 
 // Solution toggle button styling
