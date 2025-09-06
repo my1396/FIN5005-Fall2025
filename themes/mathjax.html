@@ -288,27 +288,26 @@ document.addEventListener('DOMContentLoaded', () => {
       toggleButton.addEventListener('click', () => {
         console.log(`🎚️ TOGGLE BUTTON CLICKED! Current theme was: ${currentTheme}`);
         
-        // Wait a bit for Quarto to update the DOM, then read the actual state
+        // Wait for Quarto to actually toggle the theme, then detect the new state
         setTimeout(() => {
-          const actualTheme = getCurrentTheme();
-          console.log(`🔍 After click, DOM shows: ${actualTheme} (isDark: ${isDarkTheme(actualTheme)})`);
+          // Check what the new theme state is after Quarto has processed the toggle
+          const newToggleClass = toggleButton.className;
+          const newHasAlternate = newToggleClass.includes('alternate');
+          const newHtmlTheme = document.documentElement.getAttribute('data-bs-theme');
+          const newBodyTheme = document.body.getAttribute('data-bs-theme');
           
-          // Update our tracking to match reality
-          currentTheme = actualTheme;
+          console.log(`🔄 After toggle - toggleClass: "${newToggleClass}", hasAlternate: ${newHasAlternate}, htmlTheme: "${newHtmlTheme}", bodyTheme: "${newBodyTheme}"`);
           
-          console.log(`🎚️ Updated tracking to: ${currentTheme}`);
+          // Update our current theme tracking
+          currentTheme = getCurrentTheme();
+          console.log(`🎚️ Updated tracking to: ${currentTheme} (isDark: ${isDarkTheme(currentTheme)})`);
           
-          // Store the current state (sync with Quarto)
-          if (currentTheme !== 'default') {
-            localStorage.setItem('quarto-color-scheme', currentTheme);
-          }
-          
-          // Force color override
+          // Force color override with the new theme
           setTimeout(() => {
-            console.log(`🔄 Applying color override for theme: ${currentTheme} (isDark: ${isDarkTheme(currentTheme)})`);
+            console.log(`🔄 Applying color override for new theme: ${currentTheme}`);
             forceGreenColorOverride();
           }, 100);
-        }, 200); // Give Quarto time to update DOM
+        }, 300); // Give Quarto time to update everything
       });
     } else {
       console.log('❌ No theme toggle button found!');
