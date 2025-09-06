@@ -1,3 +1,127 @@
+// Global font family
+body, html {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, SimSun, sans-serif !important;
+}
+
+// MathJax theme-aware color overrides - target MJX-MSTYLE elements specifically
+// LIGHT MODE: dark green (#006600) for better contrast
+// DARK MODE: light green (#90EE90) for better visibility
+
+/* Filter approach - catch anything green-ish in math */
+mjx-container * {
+  filter: none; // Reset any existing filters
+}
+
+/* In light mode: any green gets forced to DARK green - target MJX-MSTYLE specifically */
+mjx-container mjx-mstyle[style*="rgb(0, 204, 102)"],
+mjx-container mjx-mstyle[style*="rgb(0,204,102)"],
+mjx-container mjx-mstyle[style*="color: rgb(0, 204, 102)"],
+mjx-container mjx-mstyle[style*="color:rgb(0,204,102)"],
+mjx-container *[style*="#00AA00"],
+mjx-container *[style*="#006600"],
+mjx-container *[style*="#00CC66"],
+mjx-container *[style*="color:#00AA00"],
+mjx-container *[style*="color:#006600"], 
+mjx-container *[style*="color:#00CC66"],
+mjx-container *[style*="color: #00AA00"],
+mjx-container *[style*="color: #006600"], 
+mjx-container *[style*="color: #00CC66"],
+mjx-container *[style*="rgb(0, 170, 0)"],
+mjx-container *[style*="rgb(0, 102, 0)"],
+mjx-container *[style*="rgb(0, 204, 102)"],
+mjx-container *[style*="color: rgb(0, 170, 0)"],
+mjx-container *[style*="color: rgb(0, 102, 0)"],
+mjx-container *[style*="color: rgb(0, 204, 102)"],
+mjx-container *[style*="rgb(0,170,0)"],
+mjx-container *[style*="rgb(0,102,0)"],
+mjx-container *[style*="rgb(0,204,102)"],
+mjx-container *[mathcolor*="#00AA00"],
+mjx-container *[mathcolor*="#006600"],
+mjx-container *[mathcolor*="#00CC66"],
+mjx-container mjx-mstyle[style*="rgb(0, 170, 0)"],
+mjx-container mjx-mstyle[style*="rgb(0, 102, 0)"],
+mjx-container mjx-mstyle[style*="rgb(0, 139, 69)"],
+.MathJax *[style*="#00AA00"],
+.MathJax *[style*="#006600"],
+.MathJax *[style*="#00CC66"],
+.MathJax *[style*="color: #00AA00"],
+.MathJax *[style*="color: #006600"],
+.MathJax *[style*="color: #00CC66"],
+.MathJax *[style*="rgb(0, 170, 0)"],
+.MathJax *[style*="rgb(0, 102, 0)"],
+.MathJax *[style*="rgb(0, 204, 102)"] {
+  color: #006600 !important; /* DARK green for light mode */
+  fill: #006600 !important;
+  -webkit-text-fill-color: #006600 !important;
+}
+
+/* In dark mode: keep LIGHT green - multiple selectors for robustness */
+[data-bs-theme="dark"] mjx-container mjx-mstyle[style*="rgb(0, 204, 102)"],
+[data-bs-theme="dark"] mjx-container mjx-mstyle[style*="rgb(0,204,102)"],
+[data-bs-theme="dark"] mjx-container mjx-mstyle[style*="color: rgb(0, 204, 102)"],
+[data-bs-theme="dark"] mjx-container mjx-mstyle[style*="color:rgb(0,204,102)"],
+[data-bs-theme="dark"] mjx-container *[style*="#00AA00"],
+[data-bs-theme="dark"] mjx-container *[style*="#006600"],
+[data-bs-theme="dark"] mjx-container *[style*="#00CC66"],
+[data-bs-theme="dark"] mjx-container *[style*="color:#00AA00"],
+[data-bs-theme="dark"] mjx-container *[style*="color:#006600"],
+[data-bs-theme="dark"] mjx-container *[style*="color:#00CC66"],
+[data-bs-theme="dark"] mjx-container *[style*="color: #00AA00"],
+[data-bs-theme="dark"] mjx-container *[style*="color: #006600"],
+[data-bs-theme="dark"] mjx-container *[style*="color: #00CC66"],
+[data-bs-theme="dark"] mjx-container *[style*="rgb(0, 170, 0)"],
+[data-bs-theme="dark"] mjx-container *[style*="rgb(0, 102, 0)"],
+[data-bs-theme="dark"] mjx-container *[style*="rgb(0, 204, 102)"],
+[data-bs-theme="dark"] mjx-container *[style*="color: rgb(0, 170, 0)"],
+[data-bs-theme="dark"] mjx-container *[style*="color: rgb(0, 102, 0)"],
+[data-bs-theme="dark"] mjx-container *[style*="color: rgb(0, 204, 102)"],
+[data-bs-theme="dark"] mjx-container *[style*="rgb(0,170,0)"],
+[data-bs-theme="dark"] mjx-container *[style*="rgb(0,102,0)"],
+[data-bs-theme="dark"] mjx-container *[style*="rgb(0,204,102)"],
+[data-bs-theme="dark"] mjx-container *[mathcolor*="#00AA00"],
+[data-bs-theme="dark"] mjx-container *[mathcolor*="#006600"],
+[data-bs-theme="dark"] mjx-container *[mathcolor*="#00CC66"],
+[data-bs-theme="dark"] mjx-container mjx-mstyle[style*="rgb(0, 170, 0)"],
+[data-bs-theme="dark"] mjx-container mjx-mstyle[style*="rgb(0, 102, 0)"],
+[data-bs-theme="dark"] mjx-container mjx-mstyle[style*="rgb(0, 139, 69)"],
+[data-bs-theme="dark"] .MathJax *[style*="#00AA00"],
+[data-bs-theme="dark"] .MathJax *[style*="#006600"],
+[data-bs-theme="dark"] .MathJax *[style*="#00CC66"],
+[data-bs-theme="dark"] .MathJax *[style*="color: #00AA00"],
+[data-bs-theme="dark"] .MathJax *[style*="color: #006600"],
+[data-bs-theme="dark"] .MathJax *[style*="color: #00CC66"],
+[data-bs-theme="dark"] .MathJax *[style*="rgb(0, 170, 0)"],
+[data-bs-theme="dark"] .MathJax *[style*="rgb(0, 102, 0)"],
+[data-bs-theme="dark"] .MathJax *[style*="rgb(0, 204, 102)"],
+body[data-bs-theme="dark"] mjx-container *[style*="#00AA00"],
+body[data-bs-theme="dark"] mjx-container *[style*="#006600"],
+body[data-bs-theme="dark"] mjx-container *[style*="#00CC66"],
+body[data-bs-theme="dark"] mjx-container *[style*="rgb(0, 170, 0)"],
+body[data-bs-theme="dark"] mjx-container *[style*="rgb(0, 102, 0)"],
+body[data-bs-theme="dark"] mjx-container *[style*="rgb(0, 204, 102)"],
+body[data-bs-theme="dark"] .MathJax *[style*="#00AA00"],
+body[data-bs-theme="dark"] .MathJax *[style*="#006600"],
+body[data-bs-theme="dark"] .MathJax *[style*="#00CC66"],
+body[data-bs-theme="dark"] .MathJax *[style*="rgb(0, 170, 0)"],
+body[data-bs-theme="dark"] .MathJax *[style*="rgb(0, 102, 0)"],
+body[data-bs-theme="dark"] .MathJax *[style*="rgb(0, 204, 102)"],
+.dark mjx-container *[style*="#00AA00"],
+.dark mjx-container *[style*="#006600"],
+.dark mjx-container *[style*="#00CC66"],
+.dark mjx-container *[style*="rgb(0, 170, 0)"],
+.dark mjx-container *[style*="rgb(0, 102, 0)"],
+.dark mjx-container *[style*="rgb(0, 204, 102)"],
+.dark .MathJax *[style*="#00AA00"],
+.dark .MathJax *[style*="#006600"],
+.dark .MathJax *[style*="#00CC66"],
+.dark .MathJax *[style*="rgb(0, 170, 0)"],
+.dark .MathJax *[style*="rgb(0, 102, 0)"],
+.dark .MathJax *[style*="rgb(0, 204, 102)"] {
+  color: #90EE90 !important; /* LIGHT green for dark mode */
+  fill: #90EE90 !important;
+  -webkit-text-fill-color: #90EE90 !important;
+}
+
 // Remove inner border from input code blocks
 .sourceCode {
     border: none !important;
@@ -123,3 +247,4 @@ p:has(+ ul) {
 /* Avoid nested lists double-indenting; they can add their own bullets with slight padding */
 .step-list ol>li > *:not(:first-child) ul,
 .step-list ol>li > *:not(:first-child) ol { margin-left: 1.2em; }
+

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MathJax Debug Test</title>
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        macros: {
+          lightgreen: "\\color{#00CC66}",
+        }
+      }
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
+    body[data-theme="light"] { background: white; color: black; }
+    body[data-theme="dark"] { background: #222; color: white; }
+    
+    /* Try the most basic CSS override possible */
+    mjx-mstyle[style*="rgb(0, 204, 102)"] {
+        color: red !important; /* Use red to make it obvious if this works */
+    }
+    
+    [data-theme="dark"] mjx-mstyle[style*="rgb(0, 204, 102)"] {
+        color: yellow !important; /* Use yellow to make it obvious if this works */
+    }
+    </style>
+</head>
+<body data-theme="light">
+    <h1>Ultra Simple MathJax Test</h1>
+    
+    <button onclick="toggleTheme()">Toggle Theme</button>
+    <p>Current theme: <span id="theme">light</span></p>
+    
+    <p>Test: \({\color{#00CC66} \text{Green text here}}\)</p>
+    
+    <div id="debug"></div>
+    
+    <script>
+    function toggleTheme() {
+        const body = document.body;
+        const current = body.getAttribute('data-theme');
+        const newTheme = current === 'dark' ? 'light' : 'dark';
+        body.setAttribute('data-theme', newTheme);
+        document.getElementById('theme').textContent = newTheme;
+        
+        console.log('Theme switched to:', newTheme);
+        debugMathJax();
+    }
+    
+    function debugMathJax() {
+        setTimeout(() => {
+            const debug = document.getElementById('debug');
+            const mathElements = document.querySelectorAll('mjx-mstyle');
+            let html = '<h3>Debug Info:</h3>';
+            html += '<p>Found ' + mathElements.length + ' mjx-mstyle elements:</p>';
+            
+            mathElements.forEach((el, i) => {
+                const style = el.getAttribute('style') || '';
+                html += '<p>Element ' + i + ': style="' + style + '"</p>';
+                
+                // Force color change manually
+                if (style.includes('rgb(0, 204, 102)')) {
+                    const theme = document.body.getAttribute('data-theme');
+                    const targetColor = theme === 'dark' ? 'yellow' : 'red';
+                    el.style.setProperty('color', targetColor, 'important');
+                    html += '<p>→ Forced color to: ' + targetColor + '</p>';
+                }
+            });
+            
+            debug.innerHTML = html;
+        }, 500);
+    }
+    
+    // Run debug after MathJax loads
+    window.MathJax.startup.promise.then(() => {
+        console.log('MathJax loaded');
+        debugMathJax();
+    });
+    </script>
+</body>
+</html>

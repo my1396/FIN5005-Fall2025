@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathJax Color Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <script>
+    function forceColorUpdate() {
+        const isDark = document.body.getAttribute('data-bs-theme') === 'dark';
+        const targetColor = isDark ? '#00CC66' : '#008B45';
+        
+        console.log('Theme:', isDark ? 'DARK' : 'LIGHT', 'Target color:', targetColor);
+        
+        setTimeout(() => {
+            // Debug: Show all MathJax elements
+            const mathElements = document.querySelectorAll('mjx-container, mjx-math, mjx-mstyle, mjx-mi, mjx-mo, mjx-mn, .MathJax');
+            console.log('Found MathJax elements:', mathElements.length);
+            mathElements.forEach((el, i) => {
+                console.log(`MathJax element ${i}:`, el, 'style:', el.getAttribute('style'), 'color:', el.getAttribute('color'));
+            });
+            
+            const allElements = document.querySelectorAll('*');
+            let count = 0;
+            allElements.forEach(el => {
+                const style = el.getAttribute('style') || '';
+                const color = el.getAttribute('color') || '';
+                const mathcolor = el.getAttribute('mathcolor') || '';
+                
+                if (style.includes('#00CC66') || color.includes('#00CC66') || mathcolor.includes('#00CC66')) {
+                    console.log('Found green element:', el.tagName, 'style:', style, 'color:', color, 'mathcolor:', mathcolor);
+                    console.log('Setting color to:', targetColor);
+                    el.style.setProperty('color', targetColor, 'important');
+                    el.style.setProperty('-webkit-text-fill-color', targetColor, 'important');
+                    
+                    // Also try setting the style attribute directly
+                    const newStyle = style.replace(/#00CC66/g, targetColor);
+                    if (newStyle !== style) {
+                        el.setAttribute('style', newStyle);
+                        console.log('Updated style attribute:', newStyle);
+                    }
+                    count++;
+                }
+            });
+            console.log('Updated', count, 'elements');
+        }, 1000); // Longer delay to ensure MathJax has rendered
+    }
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        macros: {
+          lightgreen: "\\color{#00CC66}",
+        }
+      },
+      startup: {
+        ready: function () {
+          console.log('MathJax ready');
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(function () {
+            console.log('MathJax rendering complete');
+            setTimeout(forceColorUpdate, 500);
+          });
+        }
+      }
+    };
+    </script>
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        macros: {
+          lightgreen: "\\color{#00CC66}",
+        }
+      }
+    };
+    </script>
+    
+    <style>
+    /* Theme-aware color overrides - ultra aggressive */
+    mjx-container *[style*="#00CC66"],
+    mjx-container *[style*="color:#00CC66"],
+    mjx-container *[style*="color: #00CC66"],
+    mjx-container *[color="#00CC66"],
+    mjx-container *[mathcolor="#00CC66"],
+    mjx-container mjx-mstyle[mathcolor="#00CC66"],
+    mjx-container mjx-mstyle[color="#00CC66"],
+    mjx-container mjx-mi[color="#00CC66"],
+    mjx-container mjx-mo[color="#00CC66"],
+    mjx-container mjx-mn[color="#00CC66"],
+    .MathJax *[style*="#00CC66"],
+    .MathJax *[style*="color: #00CC66"],
+    .MathJax *[color="#00CC66"] {
+      color: #008B45 !important; /* Dark green for light mode */
+      fill: #008B45 !important;
+      -webkit-text-fill-color: #008B45 !important;
+    }
+    
+    [data-bs-theme="dark"] mjx-container *[style*="#00CC66"],
+    [data-bs-theme="dark"] mjx-container *[style*="color:#00CC66"],
+    [data-bs-theme="dark"] mjx-container *[style*="color: #00CC66"],
+    [data-bs-theme="dark"] mjx-container *[color="#00CC66"],
+    [data-bs-theme="dark"] mjx-container *[mathcolor="#00CC66"],
+    [data-bs-theme="dark"] mjx-container mjx-mstyle[mathcolor="#00CC66"],
+    [data-bs-theme="dark"] mjx-container mjx-mstyle[color="#00CC66"],
+    [data-bs-theme="dark"] mjx-container mjx-mi[color="#00CC66"],
+    [data-bs-theme="dark"] mjx-container mjx-mo[color="#00CC66"],
+    [data-bs-theme="dark"] mjx-container mjx-mn[color="#00CC66"],
+    [data-bs-theme="dark"] .MathJax *[style*="#00CC66"],
+    [data-bs-theme="dark"] .MathJax *[style*="color: #00CC66"],
+    [data-bs-theme="dark"] .MathJax *[color="#00CC66"] {
+      color: #00CC66 !important; /* Light green for dark mode */
+      fill: #00CC66 !important;
+      -webkit-text-fill-color: #00CC66 !important;
+    }
+    </style>
+</head>
+<body data-bs-theme="light">
+    <div class="container mt-4">
+        <h1>MathJax Color Test</h1>
+        
+        <button id="themeToggle" class="btn btn-primary mb-3">Toggle Theme</button>
+        <p>Current theme: <span id="currentTheme">light</span></p>
+        
+        <h2>Test Equation</h2>
+        <p>This equation should be dark green in light mode, light green in dark mode:</p>
+        
+        <div class="math-display">
+        \[
+        {\lightgreen \sqrt{n} \cdot \frac{\overline{X}-\mu}{\sigma} }
+        \]
+        </div>
+        
+        <p>Direct color test: \({\color{#00CC66} \text{This should change color}}\)</p>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    document.getElementById('themeToggle').addEventListener('click', function() {
+        const currentTheme = document.body.getAttribute('data-bs-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.body.setAttribute('data-bs-theme', newTheme);
+        document.getElementById('currentTheme').textContent = newTheme;
+        
+        // Force color update after theme change
+        setTimeout(() => forceColorUpdate(), 100);
+    });
+    
+    // Initial color update after page load
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(forceColorUpdate, 2000); // Even longer delay for initial load
+    });
+    </script>
+</body>
+</html>

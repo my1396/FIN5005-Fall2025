@@ -76,9 +76,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-c8bc6e7cf8d67b2f29e55f607a88f448.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-2a1b55f2afd4107e5aa1a3b31abc5a4a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-c8bc6e7cf8d67b2f29e55f607a88f448.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-ca3fb4dc5ca5af6c9f6e607a4d80bdce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-e4e23c56c45e84120c62ed15855c5827.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-ca3fb4dc5ca5af6c9f6e607a4d80bdce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -107,185 +107,341 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
  
-<!-- This is what works with Quarto and MathJax 3+ -->
+<!-- MathJax configuration with theme-adaptive color macros -->
 <script>
+/* Theme-adaptive color override for MathJax equations - DEFINED FIRST */
+function forceGreenColorOverride() {
+  setTimeout(() => {
+    console.log('🔧 Running color override...');
+    
+    // PRIORITY 1: Check DOM attributes first (most reliable for current state)
+    const htmlTheme = document.documentElement.getAttribute('data-bs-theme');
+    const bodyTheme = document.body.getAttribute('data-bs-theme');
+    
+    // PRIORITY 2: Check our localStorage setting from toggle button
+    const toggledTheme = localStorage.getItem('quarto-color-scheme');
+    
+    // PRIORITY 3: Check toggle button class directly (for Quarto "alternate" state)
+    const toggleButton = document.querySelector('.quarto-color-scheme-toggle');
+    const toggleClass = toggleButton ? toggleButton.className : '';
+    const hasAlternate = toggleClass.includes('alternate');
+    
+    console.log(`🔍 Theme detection: htmlTheme="${htmlTheme}", bodyTheme="${bodyTheme}", localStorage="${toggledTheme}", toggleClass="${toggleClass}"`);
+    
+    // Determine theme with DOM taking priority, then toggle button class
+    let isDark;
+    if (htmlTheme === 'dark' || bodyTheme === 'dark') {
+      isDark = true;
+      console.log('📋 DOM ATTRIBUTES: Dark mode detected');
+    } else if (htmlTheme === 'light' || bodyTheme === 'light') {
+      isDark = false;
+      console.log('📋 DOM ATTRIBUTES: Light mode detected');
+    } else if (hasAlternate) {
+      // Quarto uses "alternate" class to indicate dark mode
+      isDark = true;
+      console.log('🎚️ TOGGLE CLASS: "alternate" detected → DARK mode');
+    } else if (toggledTheme === 'dark' || toggledTheme === 'alternate') {
+      // Quarto uses "alternate" to mean dark mode
+      isDark = true;
+      console.log('🎚️ TOGGLE OVERRIDE: Using localStorage → DARK mode (alternate)');
+    } else if (toggledTheme === 'light') {
+      isDark = false;
+      console.log('🎚️ TOGGLE OVERRIDE: Using localStorage → LIGHT mode');
+    } else {
+      // Default to light mode
+      isDark = false;
+      console.log('✅ DEFAULT: No theme indicators, using LIGHT mode');
+    }
+    
+    const targetColor = isDark ? '#90EE90' : '#006600'; // Light green for dark, dark green for light
+    console.log(`🎯 FINAL DECISION: ${isDark ? 'DARK' : 'LIGHT'} mode → color: ${targetColor}`);
+    
+    // Apply color override to MathJax elements
+    const selectors = [
+      'mjx-container *[style*="color"]',
+      '.MathJax *[style*="color"]',
+      'mjx-container mjx-mstyle',
+      '.MathJax mjx-mstyle'
+    ];
+    
+    const greenPatterns = [
+      'rgb(0, 204, 102)', 'rgb(0,204,102)', 'rgb(0, 139, 69)', 'rgb(0,139,69)',
+      'rgb(0, 170, 0)', 'rgb(0,170,0)', '#00CC66', '#008B45'
+    ];
+    
+    let processedElements = 0;
+    selectors.forEach(selector => {
+      const elements = document.querySelectorAll(selector);
+      elements.forEach(el => {
+        const currentStyle = el.getAttribute('style') || '';
+        const hasGreen = greenPatterns.some(pattern => currentStyle.includes(pattern));
+        
+        if (hasGreen || currentStyle.includes('color')) {
+          el.style.setProperty('color', targetColor, 'important');
+          processedElements++;
+        }
+      });
+    });
+    
+    console.log(`📊 Processed ${processedElements} MathJax elements with color: ${targetColor}`);
+  }, 50);
+}
+
   MathJax = {
+    loader: {load: ['[tex]/color']},
     tex: {
-      inlineMath: [   // start/end delimiter pairs for in-line math
-          ['$', '$'],
-          ['\\(', '\\)']
-        ],
-      displayMath: [  // start/end delimiter pairs for display math
-        ['$$', '$$'],
-        ['\\[', '\\]']
-      ],
-      processEscapes: true, // use \$ to produce a literal dollar sign
-      tags: 'ams',  // should be 'ams', 'none', or 'all'
-      macros: {  //define TeX macros
-        bold: ["{\\boldsymbol #1}", 1],  // use \bold as a shorthand
+      packages: {'[+]': ['color']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      tags: 'ams',
+      macros: {
+        bold: ["{\\boldsymbol #1}", 1],
         indep: "{\\perp \\!\\!\\! \\perp}",
         vect: ["\\mathbf{#1}", 1],
         mat: ["\\mathbf{#1}", 1], 
 
-        bA: "\\boldsymbol{A}",
-        bB: "\\boldsymbol{B}",
-        bC: "\\boldsymbol{C}",
-        bD: "\\boldsymbol{D}",
-        bE: "\\boldsymbol{E}",
-        bF: "\\boldsymbol{F}",
-        bG: "\\boldsymbol{G}",
-        bH: "\\boldsymbol{H}",
-        bI: "\\boldsymbol{I}",
-        bJ: "\\boldsymbol{J}",
-        bK: "\\boldsymbol{K}",
-        bL: "\\boldsymbol{L}",
-        bM: "\\boldsymbol{M}",
-        bN: "\\boldsymbol{N}",
-        bP: "\\boldsymbol{P}",
-        bQ: "\\boldsymbol{Q}",
-        bR: "\\boldsymbol{R}",
-        bS: "\\boldsymbol{S}",
-        bT: "\\boldsymbol{T}",
-        bU: "\\boldsymbol{U}",
-        bV: "\\boldsymbol{V}",
-        bW: "\\boldsymbol{W}",
-        bX: "\\boldsymbol{X}",
-        bY: "\\boldsymbol{Y}",
+        bA: "\\boldsymbol{A}", bB: "\\boldsymbol{B}", bC: "\\boldsymbol{C}", bD: "\\boldsymbol{D}",
+        bE: "\\boldsymbol{E}", bF: "\\boldsymbol{F}", bG: "\\boldsymbol{G}", bH: "\\boldsymbol{H}",
+        bI: "\\boldsymbol{I}", bJ: "\\boldsymbol{J}", bK: "\\boldsymbol{K}", bL: "\\boldsymbol{L}",
+        bM: "\\boldsymbol{M}", bN: "\\boldsymbol{N}", bP: "\\boldsymbol{P}", bQ: "\\boldsymbol{Q}",
+        bR: "\\boldsymbol{R}", bS: "\\boldsymbol{S}", bT: "\\boldsymbol{T}", bU: "\\boldsymbol{U}",
+        bV: "\\boldsymbol{V}", bW: "\\boldsymbol{W}", bX: "\\boldsymbol{X}", bY: "\\boldsymbol{Y}",
         bZ: "\\boldsymbol{Z}",
-        ba: "\\boldsymbol{a}",
-        bb: "\\boldsymbol{b}",
-        bc: "\\boldsymbol{c}",
-        bd: "\\boldsymbol{d}",
-        be: "\\boldsymbol{e}",
-        bg: "\\boldsymbol{g}",
-        bh: "\\boldsymbol{h}",
-        bi: "\\boldsymbol{i}",
-        bm: "\\boldsymbol{m}",
-        bp: "\\boldsymbol{p}",
-        bq: "\\boldsymbol{q}",
-        br: "\\boldsymbol{r}",
-        bs: "\\boldsymbol{s}",
-        bt: "\\boldsymbol{t}",
-        bu: "\\boldsymbol{u}",
-        bv: "\\boldsymbol{v}",
-        bw: "\\boldsymbol{w}",
-        bx: "\\boldsymbol{x}",
-        by: "\\boldsymbol{y}",
-        bz: "\\boldsymbol{z}",
+        
+        ba: "\\boldsymbol{a}", bb: "\\boldsymbol{b}", bc: "\\boldsymbol{c}", bd: "\\boldsymbol{d}",
+        be: "\\boldsymbol{e}", bg: "\\boldsymbol{g}", bh: "\\boldsymbol{h}", bi: "\\boldsymbol{i}",
+        bm: "\\boldsymbol{m}", bp: "\\boldsymbol{p}", bq: "\\boldsymbol{q}", br: "\\boldsymbol{r}",
+        bs: "\\boldsymbol{s}", bt: "\\boldsymbol{t}", bu: "\\boldsymbol{u}", bv: "\\boldsymbol{v}",
+        bw: "\\boldsymbol{w}", bx: "\\boldsymbol{x}", by: "\\boldsymbol{y}", bz: "\\boldsymbol{z}",
 
-        Acal: "\\mathcal{A}",
-        Bcal: "\\mathcal{B}",
-        Ccal: "\\mathcal{C}",
-        Dcal: "\\mathcal{D}",
-        Ecal: "\\mathcal{E}",
-        Fcal: "\\mathcal{F}",
-        Gcal: "\\mathcal{G}",
-        Hcal: "\\mathcal{H}",
-        Ical: "\\mathcal{I}",
-        Jcal: "\\mathcal{J}",
-        Kcal: "\\mathcal{K}",
-        Lcal: "\\mathcal{L}",
-        Mcal: "\\mathcal{M}",
-        Ncal: "\\mathcal{N}",
-        Ocal: "\\mathcal{O}",
-        Pcal: "\\mathcal{P}",
-        Qcal: "\\mathcal{Q}",
-        Rcal: "\\mathcal{R}",
-        Scal: "\\mathcal{S}",
-        Tcal: "\\mathcal{T}",
-        Ucal: "\\mathcal{U}",
-        Vcal: "\\mathcal{V}",
-        Wcal: "\\mathcal{W}",
-        Xcal: "\\mathcal{X}",
-        Ycal: "\\mathcal{Y}",
-        Zcal: "\\mathcal{Z}",
+        Acal: "\\mathcal{A}", Bcal: "\\mathcal{B}", Ccal: "\\mathcal{C}", Dcal: "\\mathcal{D}",
+        Ecal: "\\mathcal{E}", Fcal: "\\mathcal{F}", Gcal: "\\mathcal{G}", Hcal: "\\mathcal{H}",
+        Ical: "\\mathcal{I}", Jcal: "\\mathcal{J}", Kcal: "\\mathcal{K}", Lcal: "\\mathcal{L}",
+        Mcal: "\\mathcal{M}", Ncal: "\\mathcal{N}", Ocal: "\\mathcal{O}", Pcal: "\\mathcal{P}",
+        Qcal: "\\mathcal{Q}", Rcal: "\\mathcal{R}", Scal: "\\mathcal{S}", Tcal: "\\mathcal{T}",
+        Ucal: "\\mathcal{U}", Vcal: "\\mathcal{V}", Wcal: "\\mathcal{W}", Xcal: "\\mathcal{X}",
+        Ycal: "\\mathcal{Y}", Zcal: "\\mathcal{Z}",
 
-        A: "\\mathbb{A}",
-        B: "\\mathbb{B}",
-        C: "\\mathbb{C}",
-        D: "\\mathbb{D}",
-        E: "\\mathbb{E}",
-        F: "\\mathbb{F}",
-        G: "\\mathbb{G}",
-        H: "\\mathbb{H}",
-        I: "\\mathbb{I}",
-        J: "\\mathbb{J}",
-        K: "\\mathbb{K}",
-        L: "\\mathbb{L}",
-        M: "\\mathbb{M}",
-        N: "\\mathbb{N}",
-        O: "\\mathbb{O}",
-        P: "\\mathbb{P}",
-        Q: "\\mathbb{Q}",
-        R: "\\mathbb{R}",
-        S: "\\mathbb{S}",
-        T: "\\mathbb{T}",
-        U: "\\mathbb{U}",
-        V: "\\mathbb{V}",
-        W: "\\mathbb{W}",
-        X: "\\mathbb{X}",
-        Y: "\\mathbb{Y}",
+        A: "\\mathbb{A}", B: "\\mathbb{B}", C: "\\mathbb{C}", D: "\\mathbb{D}", E: "\\mathbb{E}",
+        F: "\\mathbb{F}", G: "\\mathbb{G}", H: "\\mathbb{H}", I: "\\mathbb{I}", J: "\\mathbb{J}",
+        K: "\\mathbb{K}", L: "\\mathbb{L}", M: "\\mathbb{M}", N: "\\mathbb{N}", O: "\\mathbb{O}",
+        P: "\\mathbb{P}", Q: "\\mathbb{Q}", R: "\\mathbb{R}", S: "\\mathbb{S}", T: "\\mathbb{T}",
+        U: "\\mathbb{U}", V: "\\mathbb{V}", W: "\\mathbb{W}", X: "\\mathbb{X}", Y: "\\mathbb{Y}",
         Z: "\\mathbb{Z}",
 
-        bAlpha: "\\boldsymbol{\\Alpha}",
-        bBeta: "\\boldsymbol{\\beta}",
-        bDelta: "\\boldsymbol{\\delta}",
-        bEta: "\\boldsymbol{\\eta}",
-        bGamma: "\\boldsymbol{\\Gamma}",
-        bLambda: "\\boldsymbol{\\Lambda}",
-        bOmega: "\\boldsymbol{\\Omega}",
-        bPhi: "\\boldsymbol{\\Phi}",
-        bPi: "\\boldsymbol{\\Pi}",
-        bPsi: "\\boldsymbol{\\Psi}",
-        bSigma: "\\boldsymbol{\\Sigma}",
-        bTau: "\\boldsymbol{\\tau}",
+        bAlpha: "\\boldsymbol{\\Alpha}", bBeta: "\\boldsymbol{\\beta}", bDelta: "\\boldsymbol{\\delta}",
+        bEta: "\\boldsymbol{\\eta}", bGamma: "\\boldsymbol{\\Gamma}", bLambda: "\\boldsymbol{\\Lambda}",
+        bOmega: "\\boldsymbol{\\Omega}", bPhi: "\\boldsymbol{\\Phi}", bPi: "\\boldsymbol{\\Pi}",
+        bPsi: "\\boldsymbol{\\Psi}", bSigma: "\\boldsymbol{\\Sigma}", bTau: "\\boldsymbol{\\tau}",
         bXi: "\\boldsymbol{\\Xi}",
-        bLambda: "\\boldsymbol{\\Lambda}",
         
-        balpha: "\\boldsymbol{\\alpha}",
-        bbeta: "\\boldsymbol{\\beta}",
-        bepsilon: "\\boldsymbol{\\epsilon}",
-        bvarepsilon: "\\boldsymbol{\\varepsilon}",
-        bdelta: "\\boldsymbol{\\delta}",
-        blambda: "\\boldsymbol{\\lambda}",
-        bmu: "\\boldsymbol{\\mu}",
-        bphi: "\\boldsymbol{\\phi}",
-        bpi: "\\boldsymbol{\\pi}",
-        bpsi: "\\boldsymbol{\\psi}",
-        brho: "\\boldsymbol{\\rho}",
-        bsigma: "\\boldsymbol{\\sigma}",
-        btau: "\\boldsymbol{\\tau}",
-        bxi: "\\boldsymbol{\\xi}",
-        bEta: "\\boldsymbol{\\eta}",
-        bPhi: "\\boldsymbol{\\Phi}",
-        bPi: "\\boldsymbol{\\Pi}",
-        bPsi: "\\boldsymbol{\\Psi}",
-        bXi: "\\boldsymbol{\\Xi}",
-        blambda: "\\boldsymbol{\\lambda}",
-        bmu: "\\boldsymbol{\\mu}",
-        bphi: "\\boldsymbol{\\phi}",
-        bpi: "\\boldsymbol{\\pi}",
-        bpsi: "\\boldsymbol{\\psi}",
-        brho: "\\boldsymbol{\\rho}",
-        bsigma: "\\boldsymbol{\\sigma}",
+        balpha: "\\boldsymbol{\\alpha}", bbeta: "\\boldsymbol{\\beta}", bepsilon: "\\boldsymbol{\\epsilon}",
+        bvarepsilon: "\\boldsymbol{\\varepsilon}", bdelta: "\\boldsymbol{\\delta}", blambda: "\\boldsymbol{\\lambda}",
+        bmu: "\\boldsymbol{\\mu}", bphi: "\\boldsymbol{\\phi}", bpi: "\\boldsymbol{\\pi}", bpsi: "\\boldsymbol{\\psi}",
+        brho: "\\boldsymbol{\\rho}", bsigma: "\\boldsymbol{\\sigma}", btau: "\\boldsymbol{\\tau}", bxi: "\\boldsymbol{\\xi}",
                    
         curl: ["\\left\\lbrace#1\\right\\rbrace", 1],
         floor: ["\\left\\lfloor#1\\right\\rfloor", 1],
         ceil: ["\\left\\lceil#1\\right\\rceil", 1],
         abs: ["\\left\\lvert#1\\right\\rvert", 1],
         norm: ["\\left\\lVert#1\\right\\rVert", 1],
-
         independent: "\\mathrel{\\perp\\!\\!\\perp}",
-
-        var: "\\mathrm{Var}",
-        cov: "\\mathrm{Cov}",
-        cor: "\\mathrm{Corr}",
-        diag: "\\mathrm{diag}",
-        rank: "\\mathrm{rank}",
-        vecc: "\\mathrm{vec}",
+        var: "\\mathrm{Var}", cov: "\\mathrm{Cov}", cor: "\\mathrm{Corr}",
+        diag: "\\mathrm{diag}", rank: "\\mathrm{rank}", vecc: "\\mathrm{vec}",
+        
+        // Theme-adaptive color macros
+        red: "\\color{rgb(255,0,0)}",
+        lightgreen: "\\color{rgb(0,204,102)}",
+        darkgreen: "\\color{rgb(0,139,69)}",
+        darkblue: "\\color{rgb(0,0,204)}",
+      }
+    },
+    startup: {
+      ready() {
+        MathJax.startup.defaultReady();
+        MathJax.startup.promise.then(() => {
+          setTimeout(forceGreenColorOverride, 100);
+        });
       }
     }
   };
+</script>
+
+<style>
+/* Override MathJax color based on theme - target MJX-MSTYLE elements specifically */
+/* In light mode: change rgb(0,204,102) (lightgreen) to dark green for better contrast */
+mjx-container mjx-mstyle[style*="rgb(0, 204, 102)"],
+mjx-container mjx-mstyle[style*="rgb(0,204,102)"],
+mjx-container mjx-mstyle[style*="color: rgb(0, 204, 102)"],
+mjx-container mjx-mstyle[style*="color:rgb(0,204,102)"],
+mjx-container *[style*="rgb(0, 204, 102)"],
+mjx-container *[style*="rgb(0,204,102)"],
+mjx-container *[style*="color: rgb(0, 204, 102)"],
+mjx-container *[style*="color:rgb(0,204,102)"],
+mjx-container *[style*="rgb(0, 139, 69)"],
+mjx-container *[style*="rgb(0,139,69)"],
+mjx-container *[style*="rgb(0, 170, 0)"],
+mjx-container *[style*="rgb(0,170,0)"],
+.MathJax *[style*="rgb(0, 204, 102)"],
+.MathJax *[style*="rgb(0,204,102)"],
+.MathJax *[style*="rgb(0, 139, 69)"],
+.MathJax *[style*="rgb(0,139,69)"] {
+  color: #006600 !important; /* DARK green for light mode */
+}
+
+/* In dark mode: change to light green for better visibility */
+[data-bs-theme="dark"] mjx-container mjx-mstyle[style*="rgb(0, 204, 102)"],
+[data-bs-theme="dark"] mjx-container mjx-mstyle[style*="rgb(0,204,102)"],
+[data-bs-theme="dark"] mjx-container mjx-mstyle[style*="color: rgb(0, 204, 102)"],
+[data-bs-theme="dark"] mjx-container mjx-mstyle[style*="color:rgb(0,204,102)"],
+[data-bs-theme="dark"] mjx-container *[style*="rgb(0, 204, 102)"],
+[data-bs-theme="dark"] mjx-container *[style*="rgb(0,204,102)"],
+[data-bs-theme="dark"] mjx-container *[style*="color: rgb(0, 204, 102)"],
+[data-bs-theme="dark"] mjx-container *[style*="color:rgb(0,204,102)"],
+[data-bs-theme="dark"] mjx-container *[style*="rgb(0, 139, 69)"],
+[data-bs-theme="dark"] mjx-container *[style*="rgb(0,139,69)"],
+[data-bs-theme="dark"] mjx-container *[style*="rgb(0, 170, 0)"],
+[data-bs-theme="dark"] mjx-container *[style*="rgb(0,170,0)"],
+[data-bs-theme="dark"] .MathJax *[style*="rgb(0, 204, 102)"],
+[data-bs-theme="dark"] .MathJax *[style*="rgb(0,204,102)"],
+[data-bs-theme="dark"] .MathJax *[style*="rgb(0, 139, 69)"],
+[data-bs-theme="dark"] .MathJax *[style*="rgb(0,139,69)"] {
+  color: #90EE90 !important; /* LIGHT green for dark mode */
+}
+</style>
+
+<script>
+// Event listeners for theme changes
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(forceGreenColorOverride, 500);
+  
+  // Find the specific Quarto theme toggle button
+  setTimeout(() => {
+    // Look for Quarto's specific theme toggle selectors
+    const quartoToggleSelectors = [
+      '.quarto-color-scheme-toggle',
+      '[title*="toggle"]',
+      '[aria-label*="toggle"]',
+      'button[onclick*="theme"]',
+      'button[onclick*="color"]',
+      'a[onclick*="theme"]',
+      'a[onclick*="color"]',
+      '.navbar .btn',
+      '.navbar button'
+    ];
+    
+    let toggleButton = null;
+    
+    for (const selector of quartoToggleSelectors) {
+      const elements = document.querySelectorAll(selector);
+      if (elements.length > 0) {
+        console.log(`🎚️ Found ${elements.length} potential toggle(s) with selector: ${selector}`);
+        elements.forEach((btn, idx) => {
+          console.log(`  Button ${idx}: ${btn.tagName} - ${btn.className} - ${btn.title || btn.getAttribute('aria-label')}`);
+        });
+        toggleButton = elements[0]; // Take the first one
+        break;
+      }
+    }
+    
+    if (!toggleButton) {
+      console.log('⚠️ No specific toggle button found, trying generic approach...');
+      // Fallback to any button that might be the toggle
+      const allButtons = document.querySelectorAll('button, .btn, [role="button"]');
+      for (const btn of allButtons) {
+        const text = (btn.textContent || '').toLowerCase();
+        const title = (btn.title || '').toLowerCase();
+        const ariaLabel = (btn.getAttribute('aria-label') || '').toLowerCase();
+        
+        if (text.includes('toggle') || title.includes('toggle') || ariaLabel.includes('toggle') ||
+            text.includes('theme') || title.includes('theme') || ariaLabel.includes('theme') ||
+            text.includes('dark') || title.includes('dark') || ariaLabel.includes('dark')) {
+          toggleButton = btn;
+          console.log(`🎚️ Found potential toggle button: ${btn.tagName} - "${text}" - "${title}" - "${ariaLabel}"`);
+          break;
+        }
+      }
+    }
+    
+    if (toggleButton) {
+      console.log(`✅ Monitoring toggle button: ${toggleButton.tagName}.${toggleButton.className}`);
+      
+      // Get initial theme state from current DOM and toggle button
+      const getCurrentTheme = () => {
+        const htmlTheme = document.documentElement.getAttribute('data-bs-theme');
+        const bodyTheme = document.body.getAttribute('data-bs-theme');
+        const stored = localStorage.getItem('quarto-color-scheme');
+        
+        // Check toggle button class for "alternate" (Quarto's dark mode indicator)
+        const toggleClass = toggleButton ? toggleButton.className : '';
+        const hasAlternate = toggleClass.includes('alternate');
+        
+        // Priority: DOM attributes, then toggle class, then localStorage
+        if (htmlTheme) return htmlTheme;
+        if (bodyTheme) return bodyTheme;
+        if (hasAlternate) return 'dark'; // "alternate" means dark mode in Quarto
+        if (stored && stored !== 'default') return stored;
+        return 'light'; // default
+      };
+      
+      // Check if theme is considered "dark" (includes Quarto's "alternate")
+      const isDarkTheme = (theme) => {
+        return theme === 'dark' || theme === 'alternate';
+      };
+      
+      let currentTheme = getCurrentTheme();
+      console.log(`🎯 Initial theme state: ${currentTheme} (isDark: ${isDarkTheme(currentTheme)})`);
+      
+      toggleButton.addEventListener('click', () => {
+        console.log(`🎚️ TOGGLE BUTTON CLICKED! Current theme was: ${currentTheme}`);
+        
+        // Wait a bit for Quarto to update the DOM, then read the actual state
+        setTimeout(() => {
+          const actualTheme = getCurrentTheme();
+          console.log(`🔍 After click, DOM shows: ${actualTheme} (isDark: ${isDarkTheme(actualTheme)})`);
+          
+          // Update our tracking to match reality
+          currentTheme = actualTheme;
+          
+          console.log(`🎚️ Updated tracking to: ${currentTheme}`);
+          
+          // Store the current state (sync with Quarto)
+          if (currentTheme !== 'default') {
+            localStorage.setItem('quarto-color-scheme', currentTheme);
+          }
+          
+          // Force color override
+          setTimeout(() => {
+            console.log(`🔄 Applying color override for theme: ${currentTheme} (isDark: ${isDarkTheme(currentTheme)})`);
+            forceGreenColorOverride();
+          }, 100);
+        }, 200); // Give Quarto time to update DOM
+      });
+    } else {
+      console.log('❌ No theme toggle button found!');
+    }
+  }, 1000);
+});
+
+// Watch for theme attribute changes with enhanced detection
+new MutationObserver((mutations) => {
+  mutations.forEach(mutation => {
+    if (mutation.type === 'attributes') {
+      const attr = mutation.attributeName;
+      const target = mutation.target;
+      
+      if (attr === 'data-bs-theme' || attr === 'class' || attr === 'data-theme') {
+        console.log(`🔄 Theme change detected: ${attr} changed on ${target.tagName}`);
+        setTimeout(forceGreenColorOverride, 200);
+      }
+    }
+  });
+}).observe(document.documentElement, {
+  attributes: true,
+  attributeOldValue: true,
+  subtree: true
+});
 </script>
 <!-- ===================== Icon Library ====================== -->
 <!-- load Font Awesome 6 icon library -->
@@ -614,11 +770,20 @@ window.Quarto = {
    
   <ul>
   <li><a href="#assumptions-of-linear-regression" id="toc-assumptions-of-linear-regression" class="nav-link active" data-scroll-target="#assumptions-of-linear-regression"><span class="header-section-number">1</span> Assumptions of Linear Regression</a></li>
-  <li><a href="#regression-framework" id="toc-regression-framework" class="nav-link" data-scroll-target="#regression-framework"><span class="header-section-number">2</span> Regression Framework</a></li>
+  <li><a href="#regression-framework-and-ols-estimator" id="toc-regression-framework-and-ols-estimator" class="nav-link" data-scroll-target="#regression-framework-and-ols-estimator"><span class="header-section-number">2</span> Regression Framework and OLS Estimator</a>
+  <ul>
+  <li><a href="#distribution-of-ols-estimator" id="toc-distribution-of-ols-estimator" class="nav-link" data-scroll-target="#distribution-of-ols-estimator"><span class="header-section-number">2.1</span> Distribution of OLS Estimator</a></li>
+  <li><a href="#sampling-distribution-of-ols-estimator" id="toc-sampling-distribution-of-ols-estimator" class="nav-link" data-scroll-target="#sampling-distribution-of-ols-estimator"><span class="header-section-number">2.2</span> Sampling Distribution of OLS Estimator</a></li>
+  <li><a href="#central-limit-theorem-clt" id="toc-central-limit-theorem-clt" class="nav-link" data-scroll-target="#central-limit-theorem-clt"><span class="header-section-number">2.3</span> Central Limit Theorem (CLT)</a></li>
+  <li><a href="#clt-example" id="toc-clt-example" class="nav-link" data-scroll-target="#clt-example"><span class="header-section-number">2.4</span> CLT Example</a></li>
+  </ul></li>
   <li><a href="#measure-of-fit" id="toc-measure-of-fit" class="nav-link" data-scroll-target="#measure-of-fit"><span class="header-section-number">3</span> Measure of Fit</a></li>
   <li><a href="#hypothesis-testing-in-regression" id="toc-hypothesis-testing-in-regression" class="nav-link" data-scroll-target="#hypothesis-testing-in-regression"><span class="header-section-number">4</span> Hypothesis Testing in Regression</a>
   <ul>
-  <li><a href="#t-test-for-single-coefficient" id="toc-t-test-for-single-coefficient" class="nav-link" data-scroll-target="#t-test-for-single-coefficient"><span class="header-section-number">4.1</span> t-test for Single Coefficient</a></li>
+  <li><a href="#t-test-for-single-coefficient" id="toc-t-test-for-single-coefficient" class="nav-link" data-scroll-target="#t-test-for-single-coefficient"><span class="header-section-number">4.1</span> t-test for Single Coefficient</a>
+  <ul class="collapse">
+  <li><a href="#p-value-approach" id="toc-p-value-approach" class="nav-link" data-scroll-target="#p-value-approach">P-value Approach</a></li>
+  </ul></li>
   <li><a href="#confidence-interval-for-single-coefficient" id="toc-confidence-interval-for-single-coefficient" class="nav-link" data-scroll-target="#confidence-interval-for-single-coefficient"><span class="header-section-number">4.2</span> Confidence Interval for Single Coefficient</a></li>
   <li><a href="#f-test-for-significance-of-the-overall-regression" id="toc-f-test-for-significance-of-the-overall-regression" class="nav-link" data-scroll-target="#f-test-for-significance-of-the-overall-regression"><span class="header-section-number">4.3</span> F-test for Significance of the Overall Regression</a></li>
   <li><a href="#homoskedasticity" id="toc-homoskedasticity" class="nav-link" data-scroll-target="#homoskedasticity"><span class="header-section-number">4.4</span> Homoskedasticity</a></li>
@@ -673,14 +838,21 @@ window.Quarto = {
 <p>This assumption is useful for conducting hypothesis tests and constructing confidence intervals.</p></li>
 </ol>
 </section>
-<section id="regression-framework" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="regression-framework"><span class="header-section-number">2</span> Regression Framework</h2>
+<section id="regression-framework-and-ols-estimator" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="regression-framework-and-ols-estimator"><span class="header-section-number">2</span> Regression Framework and OLS Estimator</h2>
 <p>Multiple linear regression models is defined as</p>
 <p><span class="math display">\[
 Y_i = \beta_0 + \beta_1 X_{i1} + \beta_2 X_{i2} + ... + \beta_k X_{ik} + \varepsilon_i
 \]</span></p>
-<p>where <span class="math inline">\(i\)</span> indexes the observations, <span class="math inline">\(Y_i\)</span> is the dependent variable, and <span class="math inline">\(X_{ij}\)</span> represents the <span class="math inline">\(j\)</span>-th independent variable for observation <span class="math inline">\(i\)</span>, with <span class="math inline">\(j = 1, \ldots, k\)</span> and <span class="math inline">\(k\)</span> denoting the total number of independent variables. The coefficients <span class="math inline">\(\beta_j\)</span> are to be estimated, and <span class="math inline">\(\varepsilon_i\)</span> is the error term.</p>
-<p><strong>OLS estimator <span class="math inline">\(\hat{\beta}^{OLS}\)</span> minimizes the sum of squared residuals (SSR)</strong>:</p>
+<p>where</p>
+<ul>
+<li><span class="math inline">\(i=1,\ldots, n\)</span> indexes the observations,</li>
+<li><span class="math inline">\(Y_i\)</span> is the dependent variable, and</li>
+<li><span class="math inline">\(X_{ij}\)</span> represents the <span class="math inline">\(j\)</span>-th independent variable for observation <span class="math inline">\(i\)</span>, with <span class="math inline">\(j = 1, \ldots, k\)</span> and <span class="math inline">\(k\)</span> denoting the total number of independent variables.</li>
+<li>The coefficients <span class="math inline">\(\beta_j\)</span> are to be estimated, and</li>
+<li><span class="math inline">\(\varepsilon_i\)</span> is the error term.</li>
+</ul>
+<p><strong>The OLS estimator <span class="math inline">\(\hat{\beta}^{OLS}\)</span> minimizes the sum of squared residuals (SSR)</strong>:</p>
 <p><span class="math display">\[
 \hat{\beta}^{OLS} = \arg\min_{\beta} \sum_{i=1}^{n} e_i^2
 \]</span></p>
@@ -689,12 +861,181 @@ Y_i = \beta_0 + \beta_1 X_{i1} + \beta_2 X_{i2} + ... + \beta_k X_{ik} + \vareps
 <p><span class="math display">\[
 \hat{\beta}^{OLS} = \arg\min_{\beta} \sum_{i=1}^{n} (Y_i - \beta_0 - \sum_{j=1}^{k} \beta_j X_{ij})^2
 \]</span></p>
+<p><span class="math inline">\(\hat{\beta}^{OLS}\)</span> can be obtained by the first order condition (setting the derivative of SSR with respect to each <span class="math inline">\(\beta_j\)</span> to zero and solving the resulting system of equations).</p>
+<p>Read <a href="https://github.com/my1396/FIN5005-Fall2024/blob/a4ec0c87c6bcbd463b4da1ad78878b1fe329cda4/images/matrix_OLS_NYU_notes.pdf">OLS in Matrix Form</a> for more details. We won’t cover the OLS derivation in this course.</p>
+<p>Here we give the direct formula for the OLS estimator:</p>
+<p><span class="math display">\[
+\hat\beta = \left(\sum_{i=1}^n X_iX_i'\right)^{-1} \left(\sum_{i=1}^n X_iY_i\right)
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+X_i = \begin{pmatrix}1 \\ X_{i1} \\ X_{i2} \\ \vdots \\ X_{ik}\end{pmatrix}
+\]</span></p>
+<p>is a <span class="math inline">\((k+1) \times 1\)</span> vector of independent variables including the intercept for observation <span class="math inline">\(i\)</span>.</p>
 <p><strong>Properties of OLS estimator:</strong></p>
 <ul>
 <li><strong>Unbiasedness</strong>: <span class="math inline">\(E[\hat{\beta}^{OLS}] = \beta\)</span> (if Gauss-Markov assumptions hold)</li>
 <li><strong>Efficiency</strong>: Among all linear unbiased estimators, OLS has the smallest variance</li>
 <li><strong>Consistency</strong>: As sample size <span class="math inline">\(n \to \infty\)</span>, <span class="math inline">\(\hat{\beta}^{OLS} \to \beta\)</span> in probability</li>
 </ul>
+<section id="distribution-of-ols-estimator" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="distribution-of-ols-estimator"><span class="header-section-number">2.1</span> Distribution of OLS Estimator</h3>
+<p>Under the assumption of normally distributed errors, <span class="math inline">\(\boldsymbol{\varepsilon} \vert \boldsymbol{X} \sim N(\boldsymbol{0}, \sigma^2\boldsymbol{I})\)</span>, we have in matrix form</p>
+<p><span id="eq-beta-distribution"><span class="math display">\[
+\hat{\boldsymbol{\beta}} \sim N(\boldsymbol{\beta}, \sigma^2 (\boldsymbol{X}'\boldsymbol{X})^{-1}).
+\tag{1}\]</span></span></p>
+<p>where</p>
+<ul>
+<li><span class="math inline">\(\sigma^2 = \var (\varepsilon_i \mid \bX)\)</span> is the variance of the error term.</li>
+<li><span class="math inline">\(\bX\)</span> is the matrix of independent variables. <span class="math display">\[
+\bX = \begin{pmatrix}
+   X_1' \\ X_2' \\ \vdots \\ X_n'
+\end{pmatrix}_{n \times (k+1)}
+\]</span></li>
+</ul>
+<p><a href="#eq-beta-distribution" class="quarto-xref">Equation&nbsp;1</a> is called the <strong>exact (finite-sample) distribution</strong> of the OLS estimator.</p>
+<p><span class="math inline">\(\var(\hat\bbeta) = \sigma^2 (\boldsymbol{X}'\boldsymbol{X})^{-1}\)</span> is called the <strong>variance-covariance matrix</strong> of the OLS estimator, often denoted as <span class="math inline">\(V_{\hat\beta}.\)</span></p>
+<p>We estimate <span class="math inline">\(\sigma^2\)</span> with <span class="math inline">\(\hat{\sigma}^2:\)</span> <span class="math display">\[
+\hat{\sigma}^2 = \frac{\sum_{i=1}^ne_i^2}{n-k-1}.
+\]</span></p>
+<p>The standard errors of <span class="math inline">\(\hat{\beta}_j\)</span>, <span class="math inline">\(j=1,\ldots,k,\)</span> are given by the square root of the <span class="math inline">\((j,j)\)</span> element of the variance-covariance matrix, <span class="math inline">\(V_{\hat\beta}\)</span>.</p>
+<p>The individual coefficient estimates <span class="math inline">\(\hat{\beta}_j\)</span> are normally distributed:</p>
+<p><span class="math display">\[
+\hat{\beta}_j \sim N(\beta_j, \sigma^2 v_{jj})
+\]</span></p>
+</section>
+<section id="sampling-distribution-of-ols-estimator" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="sampling-distribution-of-ols-estimator"><span class="header-section-number">2.2</span> Sampling Distribution of OLS Estimator</h3>
+<p>Becausethe OLS estimator <span class="math inline">\(\hat\beta_0, \hat\beta_1, \ldots\)</span> are computed from a randomly drawn sample of data, the estimators themselves are random variables with a probability distribution.</p>
+<p>The sampling distribution describes the values they could take over different possible random samples. In small samples, theses sampling distributions are complicated, but in large samples, they are normal because of the Central Limit Theorem (CLT).</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Sampling Distribution vs. Exact Distribution">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Sampling Distribution vs.&nbsp;Exact Distribution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>The distribution depends on the sample data <span class="math inline">\((X_i, Y_i).\)</span></li>
+<li>Based on Central Limit Theorem (CLT), we can establish the sampling distribution of <span class="math inline">\(\hat\bbeta\)</span> when sample size is large, i.e., <span class="math inline">\(n\to\infty\)</span>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="central-limit-theorem-clt" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="central-limit-theorem-clt"><span class="header-section-number">2.3</span> Central Limit Theorem (CLT)</h3>
+<div id="thm-clt" class="theorem" title="Central Limit Theorem (CLT)">
+<p><span class="theorem-title"><strong>Theorem 1</strong></span> Suppose that <span class="math inline">\(X_1, \ldots, X_n\)</span> is an independent and identically distributed (iid) sequence with a finite mean <span class="math inline">\(\mathbb{E}(X_i)=\mu\)</span> and variance <span class="math inline">\(\text{Var}(X_i)=\sigma^2\)</span>, where <span class="math inline">\(0&lt;\sigma^2&lt;\infty\)</span>.</p>
+<p>Define a sample mean: <span class="math inline">\(\overline{X}=\frac{1}{n}\sum_{i=1}^n X_i.\)</span></p>
+<p>The <span class="env-green"><strong>Lindeberg-Lévy CLT</strong></span> states that</p>
+<p><span class="math display">\[
+\frac{\overline{X}-\mathbb{E}[\overline{X}]}{\sqrt{\text{Var}[\overline{X}]}}
+= \frac{\overline{X}-\mu}{\sqrt{\sigma^2/n}}
+= {\color{rgb(0,204,102)} \sqrt{n} \cdot \frac{\overline{X}-\mu}{\sigma} }
+\xrightarrow{d} N(0,1)
+\]</span></p>
+</div>
+<p>Q: What does CLT mean?</p>
+<p>A:</p>
+<ul>
+<li><p>The central limit theorem implies that if <span class="math inline">\(N\)</span> is large <strong>enough</strong>, we can <strong>approximate</strong> the distribution of <span class="math inline">\(\overline{X}\)</span> by the standard normal distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2 / N\)</span> <strong>regardless of the underlying distribution of <span class="math inline">\(X\)</span>.</strong></p></li>
+<li><p>This property is called <strong>asymptotic normality</strong>.</p></li>
+</ul>
+</section>
+<section id="clt-example" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="clt-example"><span class="header-section-number">2.4</span> CLT Example</h3>
+<p>The amount of time customers spend in a grocery store is a random variable with mean <span class="math inline">\(\mu = 40\)</span> minutes and standard deviation <span class="math inline">\(\sigma = 15\)</span> minutes.</p>
+<p><span class="math display">\[
+\mathbb{E}[X] = \mu = 40, \quad \text{and} \quad \text{SD}(X) = \sigma = 15
+\]</span></p>
+<p>Consider the following probabilities:</p>
+<div id="exm-clt1" class="example theorem">
+<p><span class="theorem-title"><strong>Example 1</strong></span> Assuming <span class="math inline">\(X\)</span> is normally distributed, what is the probability that a randomly selected customer spends more than 42 minutes in the store, i.e., compute <span class="math inline">\(P(X &gt; 42)\)</span>?</p>
+</div>
+<button class="solution-btn" onclick="myFunction('clt1')">
+Solution
+</button>
+<div id="clt1" class="solution-answer env-green">
+<p><strong>Individual Customer</strong></p>
+<p>We define the standard normal variable <span class="math inline">\(Z\)</span> as:</p>
+<p><span class="math display">\[
+Z = \frac{X - \mu}{\sigma} \sim N(0,1)
+\]</span></p>
+<p>where <span class="math inline">\(\mu = 40\)</span> and <span class="math inline">\(\sigma = 15\)</span>.</p>
+<p>To compute <span class="math inline">\(P(X &gt; 42)\)</span>, we convert to the standard normal:</p>
+<p><span class="math display">\[
+P(X &gt; 42) = P(\frac{X-40}{15} &gt; \frac{42-40}{15}) =  P(Z &gt; 0.1333)
+\]</span></p>
+<p>By looking up the standard normal distribution table, we find:</p>
+<p><span class="math display">\[
+\Phi(-0.1333) = 0.4483
+\]</span></p>
+<p>By symmetry of the normal distribution:</p>
+<p><span class="math display">\[P(Z &gt; 0.1333) = P(Z &lt; -0.1333) = 0.4483\]</span></p>
+<p>There is approximately a <strong>44.83%</strong> probability that a randomly selected customer will spend more than 42 minutes in the store.</p>
+<p>Note that the <strong>specific distribution</strong> for ( X ), i.e., normality here, is <strong>required</strong> to compute the probability for a single customer.</p>
+</div>
+<div id="exm-clt2" class="example theorem">
+<p><span class="theorem-title"><strong>Example 2</strong></span> Given a random sample of <span class="math inline">\(n=64\)</span> customers, what is the probability of the average time spent by the 64 customers exceeds 42 minutes, i.e., compute <span class="math inline">\(P(\overline{X}_{64} &gt; 42)\)</span>?</p>
+<p>Hint: apply CLT and justify why CLT can be applied here.</p>
+</div>
+<button class="solution-btn" onclick="myFunction('clt2')">
+Solution
+</button>
+<div id="clt2" class="solution-answer env-green">
+<p><strong>Sample Mean for (n = 64)</strong></p>
+<p>By the Central Limit Theorem, for <strong>large ( n ) with finite mean and variance</strong>, the sampling distribution of the sample mean ( _{64} ) is approximately normal (regardless the distribution of <span class="math inline">\(X\)</span>):</p>
+<p><span class="math display">\[
+\overline{X}_{64} \sim N (\mu, \frac{\sigma^2}{n})
+\]</span></p>
+<p>Plug in <span class="math inline">\(\mu = 40\)</span> and <span class="math inline">\(\sigma = 15\)</span>:</p>
+<p><span class="math display">\[
+\sigma_{\overline{X}_{64}} = \frac{\sigma}{\sqrt{n}} = \frac{15}{\sqrt{64}} = 1.875
+\]</span></p>
+<p>According to CLT <span class="math inline">\(\overline{X}_{64}\)</span> is normally distributed:</p>
+<p><span class="math display">\[
+\overline{X}_{64} \sim N\left(40, 1.875^2\right)
+\]</span></p>
+<p>We standardize using the standard normal variable ( Z ), defined as:</p>
+<p><span class="math display">\[
+Z = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} = \frac{42 - 40}{1.875} \approx 1.067
+\]</span></p>
+<p>Using the standard normal distribution table:</p>
+<p><span class="math display">\[
+P(\overline{X} &gt; 42) = P(Z &gt; 1.067) \approx 0.1436
+\]</span></p>
+<p>There is a <strong>14.35%</strong> probability that the average time spent by a random sample of 64 customers exceeds 42 minutes.</p>
+</div>
+<div id="exm-clt3" class="example theorem">
+<p><span class="theorem-title"><strong>Example 3</strong></span> &nbsp;</p>
+<ul>
+<li>Given a random sample of <span class="math inline">\(n=81\)</span> customers, what is the probability of the average time spent by the 81 customers exceeds 42 minutes, i.e., compute <span class="math inline">\(P(\overline{X}_{81} &gt; 42)\)</span>?</li>
+</ul>
+</div>
+<button class="solution-btn" onclick="myFunction('clt3')">
+Solution
+</button>
+<div id="clt3" class="solution-answer env-green">
+<p><strong>Sample Mean for (n = 81)</strong></p>
+<p><span class="math display">\[
+\sigma_{\overline{X}_{81}} = \frac{\sigma}{\sqrt{n}} = \frac{15}{\sqrt{81}} = \frac{15}{9} = 1.667
+\]</span></p>
+<p>According to CLIT <span class="math inline">\(\overline{X}_{81}\)</span> is normally distributed:</p>
+<p><span class="math display">\[
+\overline{X}_{81} \sim N(\mu= 40, \sigma_{\overline{X}_{81}} = 1.667^2)
+\]</span></p>
+<p><span class="math display">\[
+Z = \frac{42 - 40}{3.75} = 0.533
+\]</span></p>
+<p><span class="math display">\[
+P(\overline{X} &gt; 42) = P(Z &gt; 0.533) \approx 0.2970
+\]</span> A random sample of 16 customers has a <strong>29.70%</strong> chance of yielding an average time above 42 minutes.</p>
+</div>
+<p>Discussion: Compare your results in the three probabilities. Provide a brief interpretation of how the probabilities differ and why.</p>
+</section>
 </section>
 <section id="measure-of-fit" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="measure-of-fit"><span class="header-section-number">3</span> Measure of Fit</h2>
@@ -720,6 +1061,7 @@ R^2 = 1 - \frac{SSR}{SST} = \frac{SST - SSR}{SST} = \frac{SSE}{SST}
 <h2 data-number="4" class="anchored" data-anchor-id="hypothesis-testing-in-regression"><span class="header-section-number">4</span> Hypothesis Testing in Regression</h2>
 <p>We have been using t-statistics and p-values to for testing hypotheses such as whether a correlation coefficient is significantly different from zero or if a regression coefficient is significantly different from zero.</p>
 <p>In the following section, we will introduce the procedure of hypothesis testing formally.</p>
+<p>Note that we will focus on two-sided hypothesis tests in this course as they are most commonly used in practice.</p>
 <div class="callout callout-style-default callout-important callout-titled" title="Study objectives for hypothesis testing">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -732,7 +1074,7 @@ Study objectives for hypothesis testing
 <div class="callout-body-container callout-body">
 <p>The goal is be able to conduct hypothesis test manually given necessary information.</p>
 <p>For example, in case of testing if a regression coefficient is significantly different from zero, you should be able to</p>
-<div class="step-list" style="font-size: 1.2em;">
+<div class="step-list" style="font-size: 1.1rem;">
 <ol type="1">
 <li><p>Establish null and alternative hypotheses.</p></li>
 <li><p>Calculate the t-statistic given the coefficient estimate, standard error.</p></li>
@@ -768,19 +1110,28 @@ F-statistic: 15.87 on 1 and 418 DF,  p-value: 7.989e-05</code></pre>
 <p>Here is the hypothesis test step by step for the expenditure coefficient in the simple linear regression of California school test scores.</p>
 <div class="step-list">
 <ol type="1">
-<li><p>Hypotheses</p>
+<li><p>State Hypotheses</p>
 <ul>
 <li><span class="math inline">\(H_0:\ \beta_{\text{exp}} = 0\)</span> (expenditure has no effect on test scores)</li>
 <li><span class="math inline">\(H_1:\ \beta_{\text{exp}} \neq 0\)</span> (two-sided)</li>
 </ul></li>
-<li><p>Test statistic</p>
-<p>Estimate <span class="math inline">\(= 0.005749\)</span>, standard error <span class="math inline">\(= 0.001443\)</span>.</p>
+<li><p>Calculate test statistic</p>
 <p><span class="math display">\[
-t=\frac{\hat\beta}{\text{SE}}=\frac{0.005749}{0.001443}=3.984
+t=\frac{\hat\beta - \beta}{\text{SE}(\hat\beta)} \sim t_{df}
 \]</span></p>
-<p>The <strong>degrees of freedom (df)</strong> <span class="math inline">\(= n - k - 1,\)</span> where <span class="math inline">\(n=420\)</span> (number of observations) and <span class="math inline">\(k=1\)</span> (number of predictors), so <span class="math inline">\(df=420-1-1=418\)</span>.</p></li>
-<li><p>Critical value at 5%</p>
-<p>Two-sided <span class="math inline">\(t_{0.975,418}\approx 1.96\)</span>.</p>
+<p>where the test statistic follows a <span class="math inline">\(t\)</span>-distribution with <strong>degrees of freedom (df)</strong> <span class="math inline">\(= n - k - 1.\)</span> <span class="math inline">\(k\)</span> is the number of predictors (<span class="env-orange">excluding the intercept</span>).</p>
+<p>Coming back to the regression output, we have estimate <span class="math inline">\(= 0.005749,\)</span> value to test against with <span class="math inline">\(= 0,\)</span> standard error <span class="math inline">\(= 0.001443.\)</span></p>
+<p>That is, <span class="math inline">\(\hat\beta = 0.005749,\)</span> <span class="math inline">\(\beta = 0,\)</span> and <span class="math inline">\(\text{SE}(\hat\beta) = 0.001443,\)</span></p>
+<p><span class="math display">\[
+t=\frac{\hat\beta - \beta}{\text{SE}(\hat\beta)}=\frac{0.005749 - 0}{0.001443}=3.984
+\]</span></p>
+<p>where <span class="math inline">\(n=420\)</span> (number of observations) and <span class="math inline">\(k=1\)</span> (number of predictors), so <span class="math inline">\(df=420-1-1=418\)</span>.</p></li>
+<li><p>Find critical value, <span class="math inline">\(C_{\alpha/2}.\)</span></p>
+<p>For significance level at 5%, i.e., <span class="math inline">\(\alpha=0.05\)</span>, the critical value is given by</p>
+<p><span class="math display">\[
+C_{\alpha/2} = t_{0.975, df}
+\]</span></p>
+<p>Referring to the <a href="https://drive.google.com/file/d/1Iwec44x4N5AItbpFugbUOKHBIE10cMOw/view?usp=drive_link" title="distribution tables all-in-one"><span class="math inline">\(t\)</span>-distribution table</a>, <span class="math inline">\(t_{0.975,418}\approx 1.96\)</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Finding critical value">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -802,9 +1153,61 @@ Finding critical value
 </ul>
 <p>Since <span class="math inline">\(3.984&gt;1.97\)</span>, reject <span class="math inline">\(H_0\)</span>.</p></li>
 <li><p>Interpretation in context</p>
-<p>Expenditure has a statistically significant positive association with test scores at the 5% level. The point estimate implies that a \$1,000 increase in per-student expenditure is associated with about <span class="math inline">\(0.005749\times 1000=5.75\)</span> points higher test scores.</p></li>
+<p>Expenditure has a statistically significant positive association with test scores at the 5% level. The point estimate implies that a $1,000 increase in per-student expenditure is associated with about <span class="math inline">\(0.005749\times 1000=5.75\)</span> points higher test scores.</p></li>
 </ol>
 </div>
+<hr>
+<section id="p-value-approach" class="level4">
+<h4 class="anchored" data-anchor-id="p-value-approach">P-value Approach</h4>
+<p>Statistical software often reports the p-value, which is the smallest significance level at which you would reject the null hypothesis.</p>
+<ul>
+<li>If the p-value <span class="math inline">\(&lt; \alpha\)</span>, reject <span class="math inline">\(H_0\)</span>.</li>
+<li>If the p-value <span class="math inline">\(\geq \alpha\)</span>, fail to reject <span class="math inline">\(H_0\)</span>.</li>
+<li>Common significance levels are 1%, 5%, and 10%.</li>
+</ul>
+<p>Q: How to find the p-value given test statistic?<br>
+A: For two-sided test, the p-value is given by</p>
+<p><span class="math display">\[
+p\text{-value} = 2\;\P(T &gt; |t|)
+\]</span></p>
+<div id="exm-1" class="example theorem" title="Finding p-value from t-statistic">
+<p><span class="theorem-title"><strong>Example 4</strong></span> A marketing manager wants to understand whether the number of social media posts influences monthly customer engagement for an online store. She runs a regression analysis and finds a t-statistic of <span class="math inline">\(t = 2.457\)</span> for the coefficient on the number of posts, with <span class="math inline">\(df = 30\)</span>.</p>
+<ul>
+<li>Compute the two-sided p-value.</li>
+<li>Based on a 5% significance level, would you reject the null hypothesis that the number of posts has no effect on customer engagement?</li>
+</ul>
+</div>
+<button class="solution-btn" onclick="myFunction('solution1')">
+Solution
+</button>
+<div id="solution1" class="solution-answer env-green">
+<p>The p-value is obtained by: <span class="math display">\[p\text{-value} = 2\;\P(T &gt; |t|) = 2 \times 0.01 = 0.02\]</span> The p-value is 0.02, which is less than the common significance level of 0.05. Therefore, we reject the null hypothesis and conclude that the regression coefficient is statistically significant at the 5% level.</p>
+<p><strong>Interpretation:</strong> There is statistically significant evidence that the number of social media posts affects customer engagement for the online store.</p>
+</div>
+<div id="exm-2" class="example theorem">
+<p><span class="theorem-title"><strong>Example 5</strong></span> A financial analyst is studying the relationship between advertising expenditure and sales revenue for a chain of retail stores. She runs a regression and obtains an estimated coefficient for advertising spend. To test whether advertising has a statistically significant effect on sales, she computes a t-statistic of <span class="math inline">\(t = 2.15\)</span> with <span class="math inline">\(df = 25\)</span>.</p>
+<p>At the 5% significance level, should she reject the null hypothesis that advertising has no effect on sales?</p>
+</div>
+<button class="solution-btn" onclick="myFunction('solution2')">
+Solution
+</button>
+<div id="solution2" class="solution-answer env-green">
+<p>The critical value at 5% significance level is <span class="math inline">\(t_{0.975,25}=2.060\)</span>. Since <span class="math inline">\(2.15 &gt; 2.060\)</span>, we reject the null hypothesis at the 5% significance level.</p>
+<p><strong>Interpretation:</strong> There is statistically significant evidence that advertising expenditure affects sales revenue for the retail chain.</p>
+</div>
+<div id="exm-3" class="example theorem">
+<p><span class="theorem-title"><strong>Example 6</strong></span> A store manager wants to investigate whether the amount spent on in-store promotions affects weekly sales. She runs a regression and obtains a t-statistic of <span class="math inline">\(t = 0.82\)</span> for the coefficient on promotion spending, with <span class="math inline">\(df = 28\)</span>.</p>
+<p>At the 5% significance level, would you reject the null hypothesis that promotion spending has no effect on weekly sales?</p>
+</div>
+<button class="solution-btn" onclick="myFunction('solution3')">
+Solution
+</button>
+<div id="solution3" class="solution-answer env-green">
+<p>The critical value at 5% significance level is <span class="math inline">\(t_{0.975,28}=2.048\)</span>. Since <span class="math inline">\(0.82 &lt; 2.048\)</span>, we <strong>fail to reject</strong> the null hypothesis at the 5% significance level.</p>
+<p><strong>Interpretation:</strong></p>
+<p>There is no statistically significant evidence that the amount spent on in-store promotions affects weekly sales.</p>
+</div>
+</section>
 </section>
 <section id="confidence-interval-for-single-coefficient" class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="confidence-interval-for-single-coefficient"><span class="header-section-number">4.2</span> Confidence Interval for Single Coefficient</h3>
@@ -838,7 +1241,7 @@ Finding critical value
 \]</span></p>
 <p>that is, the variance of the error term varies with the level of the independent variable(s).</p>
 <p>If the error has heteroskedasticity, the standard error under homoskedasticity assumption will be underestimated, leading to invalid t statistics, affecting hypothesis tests and confidence intervals.</p>
-<p>A quick fix is to use heteroskedasticity-robust standard errors, which are valid even when the homoskedasticity assumption is violated.</p>
+<p>A quick fix is to use <span class="env-green">heteroskedasticity-robust standard errors</span>, which are valid even when the homoskedasticity assumption is violated.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sandwich) <span class="co"># for robust standard errors</span></span>
