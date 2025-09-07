@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Seting Up Your Environment – FIN5005 Fall 2025</title>
+<title>Hypothesis Testing and Confidence Intervals – FIN5005 Fall 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -260,6 +260,35 @@ ul.task-list li input[type="checkbox"] {
 <!-- ============== js for show/hide solutions ================ -->
 <script language="JavaScript" src="themes/my_jxscript.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -471,7 +500,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00_environment_setup.html">Environment Setup</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_introduction.html">Basics</a></li><li class="breadcrumb-item"><a href="./05_Hypothesis_Testing.html">Hypothesis Testing and Confidence Intervals</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -493,7 +522,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00_environment_setup.html" class="sidebar-item-text sidebar-link active">
+  <a href="./00_environment_setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Environment Setup</span></a>
   </div>
 </li>
@@ -538,7 +567,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_Hypothesis_Testing.html" class="sidebar-item-text sidebar-link">
+  <a href="./05_Hypothesis_Testing.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Hypothesis Testing and Confidence Intervals</span></a>
   </div>
 </li>
@@ -554,14 +583,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#cloud-solution" id="toc-cloud-solution" class="nav-link active" data-scroll-target="#cloud-solution"><span class="header-section-number">1</span> Cloud Solution</a>
+  <li><a href="#t-test-for-single-coefficient" id="toc-t-test-for-single-coefficient" class="nav-link active" data-scroll-target="#t-test-for-single-coefficient"><span class="header-section-number">1</span> t-test for Single Coefficient</a>
   <ul>
-  <li><a href="#rstudio-cloud" id="toc-rstudio-cloud" class="nav-link" data-scroll-target="#rstudio-cloud"><span class="header-section-number">1.1</span> RStudio Cloud</a></li>
+  <li><a href="#p-value-approach" id="toc-p-value-approach" class="nav-link" data-scroll-target="#p-value-approach"><span class="header-section-number">1.1</span> P-value Approach</a></li>
   </ul></li>
-  <li><a href="#local-solution" id="toc-local-solution" class="nav-link" data-scroll-target="#local-solution"><span class="header-section-number">2</span> Local Solution</a>
-  <ul>
-  <li><a href="#RStudio-Desktop" id="toc-RStudio-Desktop" class="nav-link" data-scroll-target="#RStudio-Desktop"><span class="header-section-number">2.1</span> RStudio Desktop</a></li>
-  </ul></li>
+  <li><a href="#confidence-interval-for-single-coefficient" id="toc-confidence-interval-for-single-coefficient" class="nav-link" data-scroll-target="#confidence-interval-for-single-coefficient"><span class="header-section-number">2</span> Confidence Interval for Single Coefficient</a></li>
   </ul>
 </nav>
     </div>
@@ -569,9 +595,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_introduction.html">Basics</a></li><li class="breadcrumb-item"><a href="./05_Hypothesis_Testing.html">Hypothesis Testing and Confidence Intervals</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Seting Up Your Environment</h1>
+<h1 class="title">Hypothesis Testing and Confidence Intervals</h1>
 </div>
 
 
@@ -588,81 +614,174 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
+<p>We have been using t-statistics and p-values to for testing hypotheses such as whether a correlation coefficient is significantly different from zero or if a regression coefficient is significantly different from zero.</p>
+<p>In the following section, we will introduce the procedure of hypothesis testing formally.</p>
+<p>Note that we will mainly focus on two-sided hypothesis tests when testing for the significance of a single coefficient as they are most commonly used in practice.</p>
+<p>We will use one-sided tests when introducing F-tests for the overall significance of a regression model and for model comparison.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled" title="Study objectives for hypothesis testing">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-body-container">
-<p>This guide will help you set up your coding environment for FIN5005, with both cloud-based and local options available (you may choose either).</p>
-<ul>
-<li><p>You will learn how to use <strong>RStudio Cloud</strong> for quick, browser-based access and <strong>RStudio Desktop</strong> for the full set of features on your computer.</p></li>
-<li><p><strong>It is strongly recommended to install the local version (<a href="#RStudio-Desktop">RStudio Desktop</a>) on your computer.</strong></p></li>
-</ul>
-<p>Follow the instructions below to get started.</p>
-<p><strong>Estimated reading time: 6 minutes</strong></p>
+<div class="callout-title-container flex-fill">
+Study objectives for hypothesis testing
 </div>
 </div>
-</div>
-<section id="cloud-solution" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="cloud-solution"><span class="header-section-number">1</span> Cloud Solution</h2>
-<p>Cloud solution means that you don’t need to install anything on your computer. You can run R code directly in your web browser. This is the easiest way to get started without worrying about installation issues.</p>
-<p>But soon enough, you will realize that the cloud-based solution is <strong>limited</strong> in:</p>
-<ul>
-<li><p>compute power: 1 CPU core, 1 GB RAM</p></li>
-<li><p>execution hours: 25 hours per month;</p></li>
-<li><p>slow performance</p></li>
-<li><p><span class="env-green"><strong>AI integration</strong></span> is better in local environment</p>
-<p><strong>GitHub Copilot</strong> is a powerful AI tool that offers autocomplete-style suggestions as you code. The tool can give you suggestions based on the code you want to use or by simply inquiring about what you want the code to do.</p>
-<p>It is developed by GitHub in partnership with OpenAI, and it is designated to best assist developers in writing code more efficiently.</p>
-<p>Some of its highlight features include:</p>
-<ul>
-<li><strong>Code autocompletion</strong>: generating suggestions while typing the code.</li>
-<li><strong>Code generation</strong>: Copilot will use the context of the active document to generate suggestions for code that might be useful.</li>
-<li><strong>Answering questions</strong>: it can also be used to ask simple questions while you are coding (e.g., “What is the definition of mean?”).</li>
-<li><strong>Language support</strong>: supports multiple programming languages, including R, Python, SQL, HTML, and JavaScript.</li>
-</ul>
-<p><strong>To enable Copilot in RStudio</strong>: click on Tools → Global Options → Copilot → tick the box saying “Enable GitHub Copilot” → sign in to your GitHub account, and there you go; you are ready to start!</p>
-<p>GiHub Copilot free plan has limited usage: 2000 code autocompletions per month, 30 code generations per month, and 30 question answers per month.</p>
-<p>Soon enough, you will realize that you need more than that. Because every character you type counts as usage, regless of whether you accept the suggestion or not.</p>
-<p>🎈 The good news is: You can use <strong>Copilot Pro for free</strong> if you are a student!</p>
-<p>See <a href="https://docs.github.com/en/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-students/apply-to-github-education-as-a-student">Apply to GitHub Education as a student</a>.</p>
-<p>If you wonder anything, look up in <a href="https://docs.github.com/en/copilot">GitHub Copilot Documentation</a>.</p></li>
-</ul>
-<hr>
-<p><strong>Nonetheless, here are two popular cloud solutions:</strong></p>
-<ul>
-<li><p><a href="https://colab.research.google.com/">Google Colab</a>: good support for Jupyter Notebooks <code>.ipynb</code>.</p>
-<p>We will use Jupyter Notebooks in this course.</p></li>
-<li><p><a href="https://rstudio.cloud/">RStudio Cloud</a>: basic emulator for RStudio IDE in the cloud.</p></li>
-</ul>
-<section id="rstudio-cloud" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="rstudio-cloud"><span class="header-section-number">1.1</span> RStudio Cloud</h3>
-<p>Once in the dashboard, you can click on the <em>New Project</em> - <em>New RStudio Project</em> to get started:</p>
-<p><img src="https://webflow-prod-assets.s3.amazonaws.com/6525256482c9e9a06c7a9d3c%2F65b01f0848b83fcd2e55d022_new-project-in-rstudio-cloud.webp" alt="New Project in RStudio Cloud" style="display: block; margin: 0 auto; width: 60vw;"></p>
-<p>Once the new project is created, you will see the RStudio IDE interface, which is similar to the one you would find in RStudio Desktop. You can write and execute R code, create scripts, and manage your projects directly in the cloud.</p>
-<p><img src="https://webflow-prod-assets.s3.amazonaws.com/6525256482c9e9a06c7a9d3c%2F65b01f0a0a2ba062e1ba336f_rstudio-cloud-interface.webp" alt="RStudio Cloud Interface" style="display: block; margin-right: auto; margin-left: auto; width: 60vw;"></p>
-</section>
-</section>
-<section id="local-solution" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="local-solution"><span class="header-section-number">2</span> Local Solution</h2>
-<section id="RStudio-Desktop" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="RStudio-Desktop"><span class="header-section-number">2.1</span> RStudio Desktop</h3>
-<p><a href="https://posit.co/download/rstudio-desktop/">RStudio Desktop</a> is a free and open-source integrated development environment (IDE) for R. It provides a user-friendly interface for writing and executing R code, making it easier to work with R scripts, data analysis, visualization.</p>
-<p>To install RStudio Desktop, follow these steps:</p>
+<div class="callout-body-container callout-body">
+<p>The goal is be able to conduct hypothesis test manually given necessary information.</p>
+<p>For example, in case of testing if a regression coefficient is significantly different from zero, you should be able to</p>
+<div class="step-list" style="font-size: 1.1rem;">
 <ol type="1">
-<li>Install R</li>
-<li>Install RStudio Desktop</li>
+<li><p>Establish null and alternative hypotheses.</p></li>
+<li><p>Calculate the test statistic given the coefficient estimate, standard error.</p></li>
+<li><p>Find the critical value of your test statistic given the significance level, 5% is commonly used.</p>
+<p>You need to be familiar with the distribution table to find the critical value. The tables can be found <a href="https://drive.google.com/file/d/1Iwec44x4N5AItbpFugbUOKHBIE10cMOw/view?usp=drive_link" title="distribution tables all-in-one">HERE</a>.</p></li>
+<li><p>Decision rule.</p>
+<p>Compare the test statistic with the critical value to make decision on rejecting or not rejecting the null hypothesis.</p></li>
+<li><p>Interpret the result in context. What it means in reality?</p></li>
 </ol>
-<p>Go to <a href="https://posit.co/download/rstudio-desktop/">RStudio Desktop Download</a> and download the installer for your operating system (Windows, macOS, or Linux).</p>
-<hr>
-<p>ref:</p>
+</div>
+</div>
+</div>
+<section id="t-test-for-single-coefficient" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="t-test-for-single-coefficient"><span class="header-section-number">1</span> t-test for Single Coefficient</h2>
+<p>Using the simple linear regression model of California School Test Scores in the previous session as an example, test whether expenditure has a significant effect on test scores at the 5% significance level.</p>
+<pre><code>Call:
+lm(formula = TestScore ~ expenditure, data = cas)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-50.146 -14.206   0.689  13.513  50.127 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 6.236e+02  7.720e+00  80.783  &lt; 2e-16 ***
+expenditure 5.749e-03  1.443e-03   3.984 7.99e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 18.72 on 418 degrees of freedom
+Multiple R-squared:  0.03659,   Adjusted R-squared:  0.03428 
+F-statistic: 15.87 on 1 and 418 DF,  p-value: 7.989e-05</code></pre>
+<p>Here is the hypothesis test step by step for the expenditure coefficient in the simple linear regression of California school test scores.</p>
+<div class="step-list">
+<ol type="1">
+<li><p>State Hypotheses</p>
 <ul>
-<li><a href="https://www.appsilon.com/post/r-studio-cloud">RStudio Cloud - How to Get Started For Free</a></li>
+<li><span class="math inline">\(H_0:\ \beta_{\text{exp}} = 0\)</span> (expenditure has no effect on test scores)</li>
+<li><span class="math inline">\(H_1:\ \beta_{\text{exp}} \neq 0\)</span> (two-sided)</li>
+</ul></li>
+<li><p>Calculate test statistic</p>
+<p><span class="math display">\[
+t=\frac{\hat\beta - \beta}{\text{SE}(\hat\beta)} \sim t_{df}
+\]</span></p>
+<p>where the test statistic follows a <span class="math inline">\(t\)</span>-distribution with <strong>degrees of freedom (df)</strong> <span class="math inline">\(= n - k - 1.\)</span> <span class="math inline">\(k\)</span> is the number of predictors (<span class="env-orange">excluding the intercept</span>).</p>
+<p>Coming back to the regression output, we have estimate <span class="math inline">\(= 0.005749,\)</span> value to test against with <span class="math inline">\(= 0,\)</span> standard error <span class="math inline">\(= 0.001443.\)</span></p>
+<p>That is, <span class="math inline">\(\hat\beta = 0.005749,\)</span> <span class="math inline">\(\beta = 0,\)</span> and <span class="math inline">\(\text{SE}(\hat\beta) = 0.001443,\)</span></p>
+<p><span class="math display">\[
+t=\frac{\hat\beta - \beta}{\text{SE}(\hat\beta)}=\frac{0.005749 - 0}{0.001443}=3.984
+\]</span></p>
+<p>where <span class="math inline">\(n=420\)</span> (number of observations) and <span class="math inline">\(k=1\)</span> (number of predictors), so <span class="math inline">\(df=420-1-1=418\)</span>.</p></li>
+<li><p>Find critical value, <span class="math inline">\(C_{\alpha/2}.\)</span></p>
+<p>For significance level at 5%, i.e., <span class="math inline">\(\alpha=0.05\)</span>, the critical value is given by</p>
+<p><span class="math display">\[
+C_{\alpha/2} = t_{0.975, df}
+\]</span></p>
+<p>Referring to the <a href="https://drive.google.com/file/d/1Iwec44x4N5AItbpFugbUOKHBIE10cMOw/view?usp=drive_link" title="distribution tables all-in-one"><span class="math inline">\(t\)</span>-distribution table</a>, <span class="math inline">\(t_{0.975,418}\approx 1.96\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Finding critical value">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Finding critical value
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Notice that when df is large, the critical value approaches that of the standard normal distribution, <span class="math inline">\(z_{0.975}=1.96\)</span>.</p>
+<p>The rule-of-thumb is that when <span class="math inline">\(df &gt; 30\)</span>, you can use the standard normal critical values.</p>
+</div>
+</div></li>
+<li><p>Decision rule</p>
+<ul>
+<li>Reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(|t|&gt;1.96\)</span>.</li>
+<li>Fail to reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(|t|\leq 1.96\)</span>.</li>
 </ul>
-
-
+<p>Since <span class="math inline">\(3.984&gt;1.97\)</span>, reject <span class="math inline">\(H_0\)</span>.</p></li>
+<li><p>Interpretation in context</p>
+<p>Expenditure has a statistically significant positive association with test scores at the 5% level. The point estimate implies that a $1,000 increase in per-student expenditure is associated with about <span class="math inline">\(0.005749\times 1000=5.75\)</span> points higher test scores.</p></li>
+</ol>
+</div>
+<hr>
+<section id="p-value-approach" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="p-value-approach"><span class="header-section-number">1.1</span> P-value Approach</h3>
+<p>Statistical software often reports the p-value, which is the smallest significance level at which you would reject the null hypothesis.</p>
+<ul>
+<li>If the p-value <span class="math inline">\(&lt; \alpha\)</span>, reject <span class="math inline">\(H_0\)</span>.</li>
+<li>If the p-value <span class="math inline">\(\geq \alpha\)</span>, fail to reject <span class="math inline">\(H_0\)</span>.</li>
+<li>Common significance levels are 1%, 5%, and 10%.</li>
+<li><strong>Interpretation:</strong> The probability of rejecting the null hypothesis when the null hypothesis is true.</li>
+</ul>
+<p>Q: How to find the p-value given test statistic?<br>
+A: For two-sided test, the p-value is given by</p>
+<p><span class="math display">\[
+p\text{-value} = 2\;\P(T &gt; |t|)
+\]</span></p>
+<div id="exm-1" class="example theorem" title="Finding p-value from t-statistic">
+<p><span class="theorem-title"><strong>Example 1</strong></span> A marketing manager wants to understand whether the number of social media posts influences monthly customer engagement for an online store. She runs a regression analysis and finds a t-statistic of <span class="math inline">\(t = 2.457\)</span> for the coefficient on the number of posts, with <span class="math inline">\(df = 30\)</span>.</p>
+<ul>
+<li>Compute the two-sided p-value.</li>
+<li>Based on a 5% significance level, would you reject the null hypothesis that the number of posts has no effect on customer engagement?</li>
+</ul>
+</div>
+<button class="solution-btn" onclick="myFunction('solution1')">
+Solution
+</button>
+<div id="solution1" class="solution-answer env-green">
+<p>The p-value is obtained by: <span class="math display">\[p\text{-value} = 2\;\P(T &gt; |t|) = 2 \times 0.01 = 0.02\]</span> The p-value is 0.02, which is less than the common significance level of 0.05. Therefore, we reject the null hypothesis and conclude that the regression coefficient is statistically significant at the 5% level.</p>
+<p><strong>Interpretation:</strong> There is statistically significant evidence that the number of social media posts affects customer engagement for the online store.</p>
+</div>
+<div id="exm-2" class="example theorem">
+<p><span class="theorem-title"><strong>Example 2</strong></span> A financial analyst is studying the relationship between advertising expenditure and sales revenue for a chain of retail stores. She runs a regression and obtains an estimated coefficient for advertising spend. To test whether advertising has a statistically significant effect on sales, she computes a t-statistic of <span class="math inline">\(t = 2.15\)</span> with <span class="math inline">\(df = 25\)</span>.</p>
+<p>At the 5% significance level, should she reject the null hypothesis that advertising has no effect on sales?</p>
+</div>
+<button class="solution-btn" onclick="myFunction('solution2')">
+Solution
+</button>
+<div id="solution2" class="solution-answer env-green">
+<p>The critical value at 5% significance level is <span class="math inline">\(t_{0.975,25}=2.060\)</span>. Since <span class="math inline">\(2.15 &gt; 2.060\)</span>, we reject the null hypothesis at the 5% significance level.</p>
+<p><strong>Interpretation:</strong> There is statistically significant evidence that advertising expenditure affects sales revenue for the retail chain.</p>
+</div>
+<div id="exm-3" class="example theorem">
+<p><span class="theorem-title"><strong>Example 3</strong></span> A store manager wants to investigate whether the amount spent on in-store promotions affects weekly sales. She runs a regression and obtains a t-statistic of <span class="math inline">\(t = 0.82\)</span> for the coefficient on promotion spending, with <span class="math inline">\(df = 28\)</span>.</p>
+<p>At the 5% significance level, would you reject the null hypothesis that promotion spending has no effect on weekly sales?</p>
+</div>
+<button class="solution-btn" onclick="myFunction('solution3')">
+Solution
+</button>
+<div id="solution3" class="solution-answer env-green">
+<p>The critical value at 5% significance level is <span class="math inline">\(t_{0.975,28}=2.048\)</span>. Since <span class="math inline">\(0.82 &lt; 2.048\)</span>, we <strong>fail to reject</strong> the null hypothesis at the 5% significance level.</p>
+<p><strong>Interpretation:</strong></p>
+<p>There is no statistically significant evidence that the amount spent on in-store promotions affects weekly sales.</p>
+</div>
 </section>
+</section>
+<section id="confidence-interval-for-single-coefficient" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="confidence-interval-for-single-coefficient"><span class="header-section-number">2</span> Confidence Interval for Single Coefficient</h2>
+<p>A 95 percent confidence interval for the slope is given by</p>
+<p><span class="math display">\[
+\left(\hat{\beta}-C_{\alpha/2}\times SE(\hat{\beta}),\; \hat{\beta}+C_{\alpha/2}\times SE(\hat{\beta})\right)
+\]</span></p>
+<p>where <span class="math inline">\(C_{\alpha/2}\)</span> is the critical value for a two-sided test at significance level <span class="math inline">\(\alpha\)</span>.</p>
+<p>For the expenditure coefficient in the simple linear regression of California school test scores, <span class="math inline">\(\hat{\beta}=0.005749\)</span>, <span class="math inline">\(SE(\hat{\beta})=0.001443\)</span>, and <span class="math inline">\(C_{0.025}=1.96\)</span>.</p>
+<p>A 95% confidence interval is therefore</p>
+<p><span class="math display">\[
+0.005749 \pm 1.97\times 0.001443 \approx [0.0029,\ 0.0086],
+\]</span></p>
+<p>which corresponds to roughly 2.9 to 8.6 points per $1,000.</p>
+<p>The effect is statistically significant but modest in size, and the low <span class="math inline">\(R^2\)</span> indicates that many other factors also influence test scores.</p>
+
+
 </section>
 
 </main> <!-- /main -->

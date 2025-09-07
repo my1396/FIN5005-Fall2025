@@ -1,4 +1,6 @@
-# Seting Up Your Environment
+---
+title: "Seting Up Your Environment"
+---
 
 ::: {.callout-note appearance="simple" icon=false}
 This guide will help you set up your coding environment for FIN5005, with both cloud-based and local options available (you may choose either).

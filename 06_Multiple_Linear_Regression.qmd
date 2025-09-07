@@ -1,0 +1,43 @@
+---
+title: "Multiple Linear Regression"
+---
+
+## F-test for Significance of the Overall Regression
+
+F-test is also known as the one-way analysis of variance (ANOVA) test. It tests whether the regression model as a whole is statistically significant.
+
+F-test for that all $k$ of the slope coefficients in a linear model are equal to zero, i.e., to test the exclusion of all explanatory variables except the intercept, $\beta_0$. 
+Formally speaking.
+$$
+\begin{aligned}
+&\text{H}_0: \beta_1 = \beta_2 = \cdots = \beta_K=0 \\
+&\text{H}_1: \text{At least one of the } \beta_1, \beta_2,\ldots, \beta_K,\text{is not zero.}
+\end{aligned}
+$$
+This is referred to as the <span class="env-green">F-test</span> for <span class="env-green">one-way ANOVA</span>.
+
+The test statistic is given by:
+$$
+F = \left(\frac{n-K}{K-1}\right) \left(\frac{R^2}{1-R^2}\right) \sim F(k, n-k-1) .
+$$
+
+where $F$ is $F$-distributed with $k$ and $n-k-1$ degrees of freedom.
+
+We reject $\text{H}_0$ if $F>F_{\alpha}(k, n-k-1)$. 
+
+- $F_{\alpha}(k,n-k-1)$ is the $(1-\alpha)$ percentile in the $F(k, n-k-1)$ distribution, corresponding to the level of significance, $\alpha$.
+
+
+<img src="https://drive.google.com/thumbnail?id=1LSF9a8en1SvwZDL76SHeZ0BpDYhHbLz-&sz=w1000" alt="F distribution" style="display: block; margin-right: auto; margin-left: auto; zoom:80%;" />
+
+The $p$-value is found by:
+$$
+\text{P-value} = \mathbb{P}(F>F_{\text{obs}}) ,
+$$
+where $F_{\text{obs}}$ is your calculated/observed test statistic based on your data sample.
+
+- Large values of $F$ give evidence against the validity of the null hypothesis. Note that a large $F$ is induced by a large value of $R^2$.
+
+- The logic of the test is that the $F$ statistic is a measure of the loss of fit (namely, all of $R^2$) that results when we impose the restriction that all the slopes are zero. If $F$ is large, then the hypothesis is rejected.
+
+

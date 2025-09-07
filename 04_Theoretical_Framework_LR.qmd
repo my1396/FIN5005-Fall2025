@@ -2,6 +2,25 @@
 title: "Theoretical Framework of Linear Regression"
 ---
 
+::: {.callout-note appearance="simple" icon=false}
+**Study Objectives**
+
+- Understand the key assumptions underlying the linear regression model.
+- Understand the theoretical framework of linear regression, including the OLS estimator, its properties, and its distribution.
+- Central Limit Theorem (CLT) 
+  - Apply the CLT to approximate the distribution of sample mean and calculating probabilities using distribution table.
+  - Understand the implications of CLT for the sampling distribution of the OLS estimator.
+- Distinguish the difference between exact distribution and sampling distribution of the OLS estimator.
+- Understand R squared and adjusted R squared as measures of fit.
+- Be able to identify violations of the linear regression assumptions using diagnostic plots.
+- Understand how to address heteroskedasticity.
+:::
+
+```{r setup}
+#| child: "_chunk-opt.qmd"
+#| include: false
+```
+
 In this section, we will discuss the theoretical framework of linear regression, including the assumptions underlying the linear regression model and essential hypothesis tests.
 
 Q: Why the assumptions matter?
@@ -20,7 +39,7 @@ A: The **Gauss-Markov Assumptions** ensure that the Ordinary Least Squares (OLS)
 2. **No perfect multicollinearity**: The independent variables are NOT <span class="env-orange">perfectly correlated.</span>
 3. **Error has zero conditional mean**
 4. **Error is homoskedastic**
-   - Homoscedasticity: The variance of the error term is constant across all levels of the independent variable(s).
+   - Homoskedasticity: The variance of the error term is constant across all levels of the independent variable(s).
    
    <span style="color: #888888;">In time series settings (we won't cover in this course), we also assume:</span>
    
@@ -29,6 +48,14 @@ A: The **Gauss-Markov Assumptions** ensure that the Ordinary Least Squares (OLS)
 5. **Residuals are normally distributed**
    
    This assumption is useful for conducting hypothesis tests and constructing confidence intervals. 
+
+6. **Large outliers are unlikely**
+
+   This assumption requires that observations with values of $X_i$, $Y_i$, or both that are far outside the usual range of the data are unlikely.
+
+   Large outliers can make OLS regression results misleading as OLS are sensitive to outliers.
+
+   Mathematically, this assumption can be stated as: $X$ and $Y$ have **finite kurtosis**.
 
 ## Regression Framework and OLS Estimator
 
@@ -87,7 +114,7 @@ is a $(k+1) \times 1$ vector of independent variables including the intercept fo
 - **Consistency**: As sample size $n \to \infty$, $\hat{\beta}^{OLS} \to \beta$ in probability
 
 
-### Distribution of OLS Estimator
+### Exact Distribution of OLS Estimator
 
 Under the assumption of normally distributed errors, $\boldsymbol{\varepsilon} \vert \boldsymbol{X} \sim N(\boldsymbol{0}, \sigma^2\boldsymbol{I})$, we have in matrix form
 
@@ -124,7 +151,7 @@ $$
 \hat{\beta}_j \sim N(\beta_j, \sigma^2 v_{jj})
 $$
 
-### Sampling Distribution of OLS Estimator
+## Sampling Distribution of OLS Estimator
 
 Becausethe OLS estimator $\hat\beta_0, \hat\beta_1, \ldots$ are computed from a randomly drawn sample of data, the estimators themselves are random variables with a probability distribution.
 
@@ -148,24 +175,47 @@ The <span class="env-green">**Lindeberg-Lévy CLT**</span> states that
 $$
 \frac{\overline{X}-\mathbb{E}[\overline{X}]}{\sqrt{\text{Var}[\overline{X}]}}
 = \frac{\overline{X}-\mu}{\sqrt{\sigma^2/n}}
-= {\color{rgb(0,204,102)} \sqrt{n} \cdot \frac{\overline{X}-\mu}{\sigma} }
+= {\color{#00CC66} \sqrt{n} \cdot \frac{\overline{X}-\mu}{\sigma} }
 \xrightarrow{d} N(0,1)
+$$
+where $\xrightarrow{d}$ denotes convergence in distribution.
+
+Alternative expressions of CLT:
+$$
+\begin{split}
+\sqrt{n} (\overline{X}-\mu)  & \xrightarrow{d} N(0,\sigma^2) \\
+{\color{red}\overline{X}} & {\color{red}\xrightarrow{d} N(\mu, \frac{\sigma^2}{n})}
+\end{split}
 $$
 :::
 
 
-Q: What does CLT mean? 
+Q: Why does CLT matter? 
 
 A:
 
-- The central limit theorem implies that if $N$ is large **enough**, we can **approximate** the distribution of $\overline{X}$ by the standard normal distribution with mean $\mu$ and variance $\sigma^2 / N$ **regardless of the underlying distribution of $X$.**  
+- The central limit theorem implies that if $N$ is large **enough**, we can **approximate** the distribution of $\overline{X}$ by the <span class="env-green">**standard normal distribution**</span> with mean $\mu$ and variance $\sigma^2 / N$ **regardless of the underlying distribution of $X$.**  
 
-- This property is called **asymptotic normality**.
+- The scaling by <span class="env-green">$n$</span> is crucial. 
+  $$
+  \sigma_{\overline{X}}^2 = \text{Var}[\overline{X}] = \frac{\sigma^2}{n}
+  $$
+  This means as sample size increases, the sample variance shrinks at the rate of $1/n$.
+
+  ::: {.callout-tip}
+  **Interpretation:** As the sample size $n$ increases,the mean becomes more concentrated around the true population mean $\mu$.
+  :::
+
+- How large must $n$ be for the distribution of $\overline{X}$ to be approximately normal? 
+
+  There is no definitive answer, but a common rule of thumb is that $n \geq 30$ is often sufficient for the CLT to provide a good approximation.
+
+  Because the distribution of $\overline{X}$ approaches the normal distribution as $n$ increases, $\overline{X}$ is said to have an <span class="env-green">**asymptotic normal distribution**</span>.
 
 
 ### CLT Example
 
-The amount of time customers spend in a grocery store is a random variable with mean $\mu = 40$ minutes and standard deviation $\sigma = 15$ minutes. 
+The amount of time customers spend in a grocery store is a random variable with mean $\mu = 40$ minutes and standard deviation $\sigma = 15$ minutes. Assume each customer's time in the store is independent of others.
 
 $$
 \mathbb{E}[X] = \mu = 40, \quad \text{and} \quad \text{SD}(X) = \sigma = 15
@@ -195,18 +245,14 @@ $$
 P(X > 42) = P(\frac{X-40}{15} > \frac{42-40}{15}) =  P(Z > 0.1333)
 $$
 
-By looking up the standard normal distribution table, we find:
-
-$$
-\Phi(-0.1333) = 0.4483
-$$
 
 By symmetry of the normal distribution:
 
-$$P(Z > 0.1333) = P(Z < -0.1333) = 0.4483$$
+$$P(Z > 0.1333) = P(Z < -0.1333) = \Phi(-0.1333) = 0.4483$$
 
+where $\Phi(\cdot)$ denotes the cumulative distribution function (CDF) of the standard normal distribution.
 
-There is approximately a **44.83%** probability that a randomly selected customer will spend more than 42 minutes in the store.
+**Interpretation:** There is approximately a **44.83%** probability that a randomly selected customer will spend more than 42 minutes in the store.
 
 Note that the **specific distribution** for \( X \), i.e., normality here, is **required** to compute the probability for a single customer.
 :::
@@ -241,24 +287,32 @@ $$
 \overline{X}_{64} \sim N\left(40, 1.875^2\right)
 $$
 
-We standardize using the standard normal variable \( Z \), defined as:
+To calculate $P(\overline{X} > 42)$, we standardize the sample average to the standard normal variable \( Z \), defined as:
 
 $$
-Z = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} = \frac{42 - 40}{1.875} \approx 1.067
+Z = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} = \frac{\overline{X} - 40}{1.875}
+$$
+
+We can rewrite the probability in terms of \( Z \):
+
+$$
+P(\overline{X} > 42) = P(\frac{\overline{X} - \mu}{\sigma/\sqrt{n}} > \frac{\overline{X} - 40}{1.875}) = P(Z > 1.067)
 $$
 
 Using the standard normal distribution table:
 
 $$
-P(\overline{X} > 42) = P(Z > 1.067) \approx 0.1436
+P(Z > 1.067) = P(Z < -1.067)
 $$
 
-There is a **14.35%** probability that the average time spent by a random sample of 64 customers exceeds 42 minutes.
+Since the standard normal distribution table is rounded at two decimal places, we look up \( P(Z < -1.07) = 0.1423\):
+
+**Interpretation:** There is a **14.23%** probability that the average time spent by a random sample of 64 customers exceeds 42 minutes.
 :::
 
 
 ::: {.example #exm-clt3}
-- Given a random sample of $n=81$ customers, what is the probability of the average time spent by the 81 customers exceeds 42 minutes, i.e., compute $P(\overline{X}_{81} > 42)$?
+Given a random sample of $n=81$ customers, what is the probability of the average time spent by the 81 customers exceeds 42 minutes, i.e., compute $P(\overline{X}_{81} > 42)$?
 :::
 
 <button class="solution-btn" onclick="myFunction('clt3')">Solution</button>
@@ -275,28 +329,86 @@ $$
 \overline{X}_{81} \sim N(\mu= 40, \sigma_{\overline{X}_{81}} = 1.667^2)
 $$
 
+Standardize the sample average
+
 $$
-Z = \frac{42 - 40}{3.75} = 0.533
+P(\overline{X} > 42) = P(\frac{\overline{X}-\mu}{\sigma_{\overline{X}_{81}}} > \frac{42-40}{1.667})
+$$
+
+Rewrite the probability in terms of \( Z \):
+
+$$
+z = \frac{42 - 40}{1.667} = 1.20
 $$
 
 $$
-P(\overline{X} > 42) = P(Z > 0.533) \approx 0.2970
+P(\overline{X} > 42) = P(Z > 1.20) 
 $$
-A random sample of 16 customers has a **29.70%** chance of yielding an average time above 42 minutes.
+
+Look up the normal table
+$$
+P(Z > 1.20) = P(Z<-1.2) \approx 0.1151
+$$
+
+**Interpretation:** A random sample of 16 customers has a **11.51%** chance of yielding an average time above 42 minutes.
 :::
 
 
 
-
-
+::: {.example #exm-clt4}
 Discussion: Compare your results in the three probabilities. Provide a brief interpretation of how the probabilities differ and why.
+:::
 
+<button class="solution-btn" onclick="myFunction('clt4')">Solution</button>
+::: {#clt4 .solution-answer .env-green}
+* For **a single customer**, there is a **44.83%** chance of spending more than 42 minutes.
+* For the **average of 64 customers**, the probability drops to **14.23%**.
+* For the **average of 81 customers**, it drops further to **11.51%**.
+* **Why?** As sample size increases, the variability (standard deviation) of the sample mean decreases, making it less likely to observe extreme values like an average over 42 minutes. This demonstrates the Central Limit Theorem and the stabilizing effect of larger samples. (See @fig-clt for a graphical illustration.)
+
+  * The individual distribution is wider (larger standard deviation), so the chance of extreme values is higher.
+  * As sample size increases, the standard error decreases, so the distribution of the sample mean becomes narrower.
+  * This means it becomes less likely to observe a sample mean far from the population mean.
+
+```{r #fig-clt, echo=FALSE}
+knitr::include_graphics("images/CLT.png")
+```
+:::
+
+::: {.callout-tip title="Key Takeaways from CLT"}
+Generally, as the sample size increases, the **sampling distribution of the sample mean** becomes more concentrated around the population mean. 
+
+This reflects a reduction in variability: **larger samples yield more precise estimates of the population mean**. 
+
+Conversely, smaller sample sizes result in a wider sampling distribution, indicating greater variability in the sample mean.
+:::
+
+
+### Large Sample Distribution of OLS Estimator
+
+Now we can establish the large sample distribution of the OLS estimator $\hat\bbeta$ based on CLT.
+
+Under the Gauss-Markov assumptions, as $n\to\infty$,
+$$
+\sqrt{n} (\hat\bbeta - \bbeta) \xrightarrow{d} N(0, \sigma^2 E(\bX_i\bX_i')^{-1})
+$$
+
+
+- Again, note the scaling by $\sqrt{n}.$ It shows how fast the estimator $\hat\bbeta$ converges to the true parameter $\bbeta$ as sample size $n$ increases.
+- Note the difference of the variance between the exact distribution and the large sample distribution. 
+  - The exact distribution depends on the **sample data** $\bX'\bX$
+  - The large sample distribution depends on the **population moment** $E(\bX_i\bX_i')$.
+- It suggests that $\hat\bbeta$ is **asymptotically normal** and **consistent**.
+  
+  "Consistency" means that as the sample size $n$ increases, the estimator $\hat\bbeta$ converges in probability to the true parameter $\bbeta$.
 
 ## Measure of Fit
 
 We often use $R^2$ to measure the goodness of fit of a regression model. 
 
+- $R^2$ is called “the coefficient of determination.”
 - It represents the proportion of variance in the dependent variable that is predictable by the regression model.
+- $0\le R^2\le 1$
 
 $R^2$ is defined as:
 
@@ -311,215 +423,19 @@ where
 - $SSE = \sum_{i=1}^{n} (\hat{Y}_i - \bar{Y})^2$ is the explained sum of squares (explained variation)
 - $\bar{Y}= \frac{1}{n}\sum_{i=1}^n Y_i$ is the mean of the dependent variable
 
-Note that adding variables always increases $R^2$, even if the new variables are not statistically significant. To address this, we use the **adjusted $R^2$**.
+Note that adding variables always increases $R^2$, even if the new variables are not statistically significant. → To address this, we use the **adjusted $R^2$**.
 
 In a regression model with multiple explanatory variables, we often use **adjusted** $R^2$ that adjusts the number of explanatory variables.
 
-
-## Hypothesis Testing in Regression
-
-We have been using t-statistics and p-values to for testing hypotheses such as whether a correlation coefficient is significantly different from zero or if a regression coefficient is significantly different from zero.
-
-In the following section, we will introduce the procedure of hypothesis testing formally. 
-
-Note that we will focus on two-sided hypothesis tests in this course as they are most commonly used in practice.
-
-:::{.callout-important title="Study objectives for hypothesis testing"}
-The goal is be able to conduct hypothesis test manually given necessary information.
-
-For example, in case of testing if a regression coefficient is significantly different from zero, you should be able to 
-
-::: {.step-list style="font-size: 1.1rem;"}
-1. Establish null and alternative hypotheses.
-2. Calculate the t-statistic given the coefficient estimate, standard error.
-3. Find the critical value of your test statistic given the significance level, 5% is commonly used.
-   
-   You need to be familiar with the distribution table to find the critical value. The tables can be found in the formula sheet on Canvas under the "Past Exam" module.
-4. Decision rule. 
-   
-   Compare the t-stat with the critical value to make decision on rejecting or not rejecting the null hypothesis.
-5. Interpret the result in context. What it means in reality?
-:::
-
-:::
-
-### t-test for Single Coefficient
-
-Using the simple linear regression model of California School Test Scores in the previous session as an example, test whether expenditure has a significant effect on test scores at the 5% significance level.
-
-```
-Call:
-lm(formula = TestScore ~ expenditure, data = cas)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--50.146 -14.206   0.689  13.513  50.127 
-
-Coefficients:
-             Estimate Std. Error t value Pr(>|t|)    
-(Intercept) 6.236e+02  7.720e+00  80.783  < 2e-16 ***
-expenditure 5.749e-03  1.443e-03   3.984 7.99e-05 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-Residual standard error: 18.72 on 418 degrees of freedom
-Multiple R-squared:  0.03659,   Adjusted R-squared:  0.03428 
-F-statistic: 15.87 on 1 and 418 DF,  p-value: 7.989e-05
-```
-
-Here is the hypothesis test step by step for the expenditure coefficient in the simple linear regression of California school test scores.
-
-::: {.step-list}
-1. State Hypotheses
-
-   * $H_0:\ \beta_{\text{exp}} = 0$  (expenditure has no effect on test scores)
-   * $H_1:\ \beta_{\text{exp}} \neq 0$  (two-sided)
-
-2. Calculate test statistic
-   
-   $$
-   t=\frac{\hat\beta - \beta}{\text{SE}(\hat\beta)} \sim t_{df}
-   $$
-
-   where the test statistic follows a $t$-distribution with **degrees of freedom (df)** $= n - k - 1.$ $k$ is the number of predictors (<span class="env-orange">excluding the intercept</span>).
-
-   Coming back to the regression output, we have estimate $= 0.005749,$ value to test against with $= 0,$ standard error $= 0.001443.$
-
-   That is, $\hat\beta = 0.005749,$ $\beta = 0,$ and $\text{SE}(\hat\beta) = 0.001443,$ 
-
-   $$
-   t=\frac{\hat\beta - \beta}{\text{SE}(\hat\beta)}=\frac{0.005749 - 0}{0.001443}=3.984
-   $$
-
-   where $n=420$ (number of observations) and $k=1$ (number of predictors), so $df=420-1-1=418$.
-
-3. Find critical value, $C_{\alpha/2}.$
-   
-   For significance level at 5%, i.e., $\alpha=0.05$, the critical value is given by
-
-   $$
-   C_{\alpha/2} = t_{0.975, df}
-   $$
-   
-   Referring to the [$t$-distribution table][distribution-table], $t_{0.975,418}\approx 1.96$.
-
-   [distribution-table]: https://drive.google.com/file/d/1Iwec44x4N5AItbpFugbUOKHBIE10cMOw/view?usp=drive_link "distribution tables all-in-one"
-
-   :::{.callout-tip title="Finding critical value"}
-   Notice that when df is large, the critical value approaches that of the standard normal distribution, $z_{0.975}=1.96$.
-
-   The rule-of-thumb is that when $df > 30$, you can use the standard normal critical values.
-   :::
-
-4. Decision rule
-   
-   - Reject $H_0$ if $|t|>1.96$. 
-   - Fail to reject $H_0$ if $|t|\leq 1.96$.
-   
-   Since $3.984>1.97$, reject $H_0$.
-
-5. Interpretation in context
-   
-   Expenditure has a statistically significant positive association with test scores at the 5% level. The point estimate implies that a \$1,000 increase in per-student expenditure is associated with about $0.005749\times 1000=5.75$ points higher test scores. 
-:::
-
---------------------------------------------------------------------------------
-
-#### P-value Approach
-
-Statistical software often reports the p-value, which is the smallest significance level at which you would reject the null hypothesis.
-
-- If the p-value $< \alpha$, reject $H_0$.
-- If the p-value $\geq \alpha$, fail to reject $H_0$.
-- Common significance levels are 1%, 5%, and 10%.
-
-Q: How to find the p-value given test statistic? \
-A: For two-sided test, the p-value is given by
-
+"adjusted $R^2$” or “R-bar-squared”, defined by
 $$
-p\text{-value} = 2\;\P(T > |t|)
+\overline{R}^2 = 1- \frac{n-1}{n-k}(1-R^2) ,
 $$
-
-
-::: {.example #exm-1 title="Finding p-value from t-statistic"}
-A marketing manager wants to understand whether the number of social media posts influences monthly customer engagement for an online store. She runs a regression analysis and finds a t-statistic of $t = 2.457$ for the coefficient on the number of posts, with $df = 30$.
-
-* Compute the two-sided p-value.
-* Based on a 5% significance level, would you reject the null hypothesis that the number of posts has no effect on customer engagement?
-:::
-
-<button class="solution-btn" onclick="myFunction('solution1')">Solution</button>
-::: {#solution1 .solution-answer .env-green}
-The p-value is obtained by:
-$$p\text{-value} = 2\;\P(T > |t|) = 2 \times 0.01 = 0.02$$
-The p-value is 0.02, which is less than the common significance level of 0.05. Therefore, we reject the null hypothesis and conclude that the regression coefficient is statistically significant at the 5% level.
-
-**Interpretation:** There is statistically significant evidence that the number of social media posts affects customer engagement for the online store.
-:::
-
-
-::: {.example #exm-2}
-A financial analyst is studying the relationship between advertising expenditure and sales revenue for a chain of retail stores. She runs a regression and obtains an estimated coefficient for advertising spend. To test whether advertising has a statistically significant effect on sales, she computes a t-statistic of $t = 2.15$ with $df = 25$.
-
-At the 5% significance level, should she reject the null hypothesis that advertising has no effect on sales?
-:::
-
-<button class="solution-btn" onclick="myFunction('solution2')">Solution</button>
-::: {#solution2 .solution-answer .env-green}
-The critical value at 5% significance level is $t_{0.975,25}=2.060$. Since $2.15 > 2.060$, we reject the null hypothesis at the 5% significance level. 
-
-**Interpretation:** There is statistically significant evidence that advertising expenditure affects sales revenue for the retail chain.
-:::
-
-
-::: {.example #exm-3}
-A store manager wants to investigate whether the amount spent on in-store promotions affects weekly sales. She runs a regression and obtains a t-statistic of $t = 0.82$ for the coefficient on promotion spending, with $df = 28$.
-
-At the 5% significance level, would you reject the null hypothesis that promotion spending has no effect on weekly sales?
-:::
-
-<button class="solution-btn" onclick="myFunction('solution3')">Solution</button>
-::: {#solution3 .solution-answer .env-green}
-The critical value at 5% significance level is $t_{0.975,28}=2.048$. Since $0.82 < 2.048$, we **fail to reject** the null hypothesis at the 5% significance level.
-
-**Interpretation:**
-
-There is no statistically significant evidence that the amount spent on in-store promotions affects weekly sales.
-:::
-
-### Confidence Interval for Single Coefficient
-
-A 95 percent confidence interval for the slope is given by
-
-$$
-\left(\hat{\beta}-C_{\alpha/2}\times SE(\hat{\beta}),\; \hat{\beta}+C_{\alpha/2}\times SE(\hat{\beta})\right)
-$$
-
-where $C_{\alpha/2}$ is the critical value for a two-sided test at significance level $\alpha$.
-
-For the expenditure coefficient in the simple linear regression of California school test scores, $\hat{\beta}=0.005749$, $SE(\hat{\beta})=0.001443$, and $C_{0.025}=1.96$.
+which imposes a penalty as $k$ increases in a given sample size $n$.
 
 
 
-A 95% confidence interval is therefore
-
-$$
-0.005749 \pm 1.97\times 0.001443 \approx [0.0029,\ 0.0086],
-$$
-
-which corresponds to roughly 2.9 to 8.6 points per \$1,000. 
-
-The effect is statistically significant but modest in size, and the low $R^2$ indicates that many other factors also influence test scores.
-
-### F-test for Significance of the Overall Regression
-
-F-test is also known as the one-way analysis of variance (ANOVA) test. It tests whether the regression model as a whole is statistically significant.
-
-[To be finished...]
-
-
-
-### Homoskedasticity 
+## Homoskedasticity 
 
 Homoskedasticity assumption requires constant variance of the error term across all levels of the independent variable(s).
 
@@ -537,10 +453,44 @@ that is, the variance of the error term varies with the level of the independent
 
 If the error has heteroskedasticity, the standard error under homoskedasticity assumption will be underestimated, leading to invalid t statistics, affecting hypothesis tests and confidence intervals.
 
+
+### Detection of Heteroskedasticity
+
+### Graphical Method
+
+A common graphical method to detect heteroskedasticity is to plot the residuals against the fitted values or one of the independent variables.
+
+Recall the CASchools example, we regress TestScore on expenditure.
+
+```{r echo=FALSE}
+library(tidyverse)
+f_name <- "https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"
+cas <- read_csv(f_name,
+    col_types = cols(
+        county = col_factor(), # read as factor
+        grades = col_factor()
+    )
+)
+# compute TestScore and append it to CASchools
+cas <- cas %>%
+  mutate(TestScore = (read + math) / 2)
+model <- lm(TestScore ~ expenditure, data = cas)
+# plot residuals vs fitted values
+plot(model, which = c(1))
+```
+
+We recap the figure summary below:
+
+- The residuals appear reasonably balanced around zero, though the spread suggests substantial unexplained variation.
+
+- The spread of residuals seems to **increase slightly with fitted values**, indicating potential heteroskedasticity (non-constant variance of errors). This suggests that the assumption of homoskedasticity may be violated, which could affect the reliability of our coefficient estimates and standard errors.
+
+
+### Fix Heteroskedasticity
+
 A quick fix is to use <span class="env-green">heteroskedasticity-robust standard errors</span>, which are valid even when the homoskedasticity assumption is violated.
 
 ```{r message=FALSE, warning=FALSE}
-library(tidyverse)
 library(sandwich) # for robust standard errors
 library(lmtest)   # for coeftest()
 f_name <- "https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"
@@ -568,4 +518,4 @@ coeftest(model, vcov = vcovHC(model, type = "HC1"))
 
 **Interpretation**
 
-The heteroskedasticity-robust results suggest that the OLS standard errors may have been too optimistic (underestimated variability). While the statistical significance of the expenditure effect is slightly reduced, it remains highly significant, indicating a robust positive relationship between expenditure and test scores.
+The heteroskedasticity-robust results suggest that the OLS standard errors may have been <span class="env-green">**too optimistic (underestimated variability)**</span>. While the statistical significance of the expenditure effect is slightly reduced, it remains highly significant, indicating a robust positive relationship between expenditure and test scores.

@@ -41,9 +41,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ca3fb4dc5ca5af6c9f6e607a4d80bdce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-e4e23c56c45e84120c62ed15855c5827.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-ca3fb4dc5ca5af6c9f6e607a4d80bdce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8f5b83f28fbf69cd88366b2f42ddfb5a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-594be18d36c011f136d2cc6cd7bee3da.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-8f5b83f28fbf69cd88366b2f42ddfb5a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,342 +71,185 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
- 
-<!-- MathJax configuration with theme-adaptive color macros -->
+<!-- This is what works with Quarto and MathJax 3+ -->
 <script>
-/* Theme-adaptive color override for MathJax equations - DEFINED FIRST */
-function forceGreenColorOverride() {
-  setTimeout(() => {
-    console.log('🔧 Running color override...');
-    
-    // PRIORITY 1: Check DOM attributes first (most reliable for current state)
-    const htmlTheme = document.documentElement.getAttribute('data-bs-theme');
-    const bodyTheme = document.body.getAttribute('data-bs-theme');
-    
-    // PRIORITY 2: Check our localStorage setting from toggle button
-    const toggledTheme = localStorage.getItem('quarto-color-scheme');
-    
-    // PRIORITY 3: Check toggle button class directly (for Quarto "alternate" state)
-    const toggleButton = document.querySelector('.quarto-color-scheme-toggle');
-    const toggleClass = toggleButton ? toggleButton.className : '';
-    const hasAlternate = toggleClass.includes('alternate');
-    
-    console.log(`🔍 Theme detection: htmlTheme="${htmlTheme}", bodyTheme="${bodyTheme}", localStorage="${toggledTheme}", toggleClass="${toggleClass}"`);
-    
-    // Determine theme with DOM taking priority, then toggle button class
-    let isDark;
-    if (htmlTheme === 'dark' || bodyTheme === 'dark') {
-      isDark = true;
-      console.log('📋 DOM ATTRIBUTES: Dark mode detected');
-    } else if (htmlTheme === 'light' || bodyTheme === 'light') {
-      isDark = false;
-      console.log('📋 DOM ATTRIBUTES: Light mode detected');
-    } else if (hasAlternate) {
-      // Quarto uses "alternate" class to indicate dark mode
-      isDark = true;
-      console.log('🎚️ TOGGLE CLASS: "alternate" detected → DARK mode');
-    } else if (toggledTheme === 'dark' || toggledTheme === 'alternate') {
-      // Quarto uses "alternate" to mean dark mode
-      isDark = true;
-      console.log('🎚️ TOGGLE OVERRIDE: Using localStorage → DARK mode (alternate)');
-    } else if (toggledTheme === 'light') {
-      isDark = false;
-      console.log('🎚️ TOGGLE OVERRIDE: Using localStorage → LIGHT mode');
-    } else {
-      // Default to light mode
-      isDark = false;
-      console.log('✅ DEFAULT: No theme indicators, using LIGHT mode');
-    }
-    
-    const targetColor = isDark ? '#90EE90' : '#006600'; // Light green for dark, dark green for light
-    console.log(`🎯 FINAL DECISION: ${isDark ? 'DARK' : 'LIGHT'} mode → color: ${targetColor}`);
-    
-    // Apply color override to MathJax elements
-    const selectors = [
-      'mjx-container *[style*="color"]',
-      '.MathJax *[style*="color"]',
-      'mjx-container mjx-mstyle',
-      '.MathJax mjx-mstyle'
-    ];
-    
-    const greenPatterns = [
-      'rgb(0, 204, 102)', 'rgb(0,204,102)', 'rgb(0, 139, 69)', 'rgb(0,139,69)',
-      'rgb(0, 170, 0)', 'rgb(0,170,0)', '#00CC66', '#008B45'
-    ];
-    
-    let processedElements = 0;
-    selectors.forEach(selector => {
-      const elements = document.querySelectorAll(selector);
-      elements.forEach(el => {
-        const currentStyle = el.getAttribute('style') || '';
-        const hasGreen = greenPatterns.some(pattern => currentStyle.includes(pattern));
-        
-        if (hasGreen || currentStyle.includes('color')) {
-          el.style.setProperty('color', targetColor, 'important');
-          processedElements++;
-        }
-      });
-    });
-    
-    console.log(`📊 Processed ${processedElements} MathJax elements with color: ${targetColor}`);
-  }, 50);
-}
-
   MathJax = {
-    loader: {load: ['[tex]/color']},
     tex: {
-      packages: {'[+]': ['color']},
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true,
-      tags: 'ams',
-      macros: {
-        bold: ["{\\boldsymbol #1}", 1],
+      inlineMath: [   // start/end delimiter pairs for in-line math
+        ['$', '$'],
+        ['\\(', '\\)']
+      ],
+      displayMath: [  // start/end delimiter pairs for display math
+        ['$$', '$$'],
+        ['\\[', '\\]']
+      ],
+      processEscapes: true, // use \$ to produce a literal dollar sign
+      tags: 'ams',  // should be 'ams', 'none', or 'all'
+      macros: {  //define TeX macros
+        bold: ["{\\boldsymbol #1}", 1],  // use \bold as a shorthand
         indep: "{\\perp \\!\\!\\! \\perp}",
         vect: ["\\mathbf{#1}", 1],
-        mat: ["\\mathbf{#1}", 1], 
+        mat: ["\\mathbf{#1}", 1],
 
-        bA: "\\boldsymbol{A}", bB: "\\boldsymbol{B}", bC: "\\boldsymbol{C}", bD: "\\boldsymbol{D}",
-        bE: "\\boldsymbol{E}", bF: "\\boldsymbol{F}", bG: "\\boldsymbol{G}", bH: "\\boldsymbol{H}",
-        bI: "\\boldsymbol{I}", bJ: "\\boldsymbol{J}", bK: "\\boldsymbol{K}", bL: "\\boldsymbol{L}",
-        bM: "\\boldsymbol{M}", bN: "\\boldsymbol{N}", bP: "\\boldsymbol{P}", bQ: "\\boldsymbol{Q}",
-        bR: "\\boldsymbol{R}", bS: "\\boldsymbol{S}", bT: "\\boldsymbol{T}", bU: "\\boldsymbol{U}",
-        bV: "\\boldsymbol{V}", bW: "\\boldsymbol{W}", bX: "\\boldsymbol{X}", bY: "\\boldsymbol{Y}",
+        bA: "\\boldsymbol{A}",
+        bB: "\\boldsymbol{B}",
+        bC: "\\boldsymbol{C}",
+        bD: "\\boldsymbol{D}",
+        bE: "\\boldsymbol{E}",
+        bF: "\\boldsymbol{F}",
+        bG: "\\boldsymbol{G}",
+        bH: "\\boldsymbol{H}",
+        bI: "\\boldsymbol{I}",
+        bJ: "\\boldsymbol{J}",
+        bK: "\\boldsymbol{K}",
+        bL: "\\boldsymbol{L}",
+        bM: "\\boldsymbol{M}",
+        bN: "\\boldsymbol{N}",
+        bP: "\\boldsymbol{P}",
+        bQ: "\\boldsymbol{Q}",
+        bR: "\\boldsymbol{R}",
+        bS: "\\boldsymbol{S}",
+        bT: "\\boldsymbol{T}",
+        bU: "\\boldsymbol{U}",
+        bV: "\\boldsymbol{V}",
+        bW: "\\boldsymbol{W}",
+        bX: "\\boldsymbol{X}",
+        bY: "\\boldsymbol{Y}",
         bZ: "\\boldsymbol{Z}",
-        
-        ba: "\\boldsymbol{a}", bb: "\\boldsymbol{b}", bc: "\\boldsymbol{c}", bd: "\\boldsymbol{d}",
-        be: "\\boldsymbol{e}", bg: "\\boldsymbol{g}", bh: "\\boldsymbol{h}", bi: "\\boldsymbol{i}",
-        bm: "\\boldsymbol{m}", bp: "\\boldsymbol{p}", bq: "\\boldsymbol{q}", br: "\\boldsymbol{r}",
-        bs: "\\boldsymbol{s}", bt: "\\boldsymbol{t}", bu: "\\boldsymbol{u}", bv: "\\boldsymbol{v}",
-        bw: "\\boldsymbol{w}", bx: "\\boldsymbol{x}", by: "\\boldsymbol{y}", bz: "\\boldsymbol{z}",
+        ba: "\\boldsymbol{a}",
+        bb: "\\boldsymbol{b}",
+        bc: "\\boldsymbol{c}",
+        bd: "\\boldsymbol{d}",
+        be: "\\boldsymbol{e}",
+        bg: "\\boldsymbol{g}",
+        bh: "\\boldsymbol{h}",
+        bi: "\\boldsymbol{i}",
+        bm: "\\boldsymbol{m}",
+        bp: "\\boldsymbol{p}",
+        bq: "\\boldsymbol{q}",
+        br: "\\boldsymbol{r}",
+        bs: "\\boldsymbol{s}",
+        bt: "\\boldsymbol{t}",
+        bu: "\\boldsymbol{u}",
+        bv: "\\boldsymbol{v}",
+        bw: "\\boldsymbol{w}",
+        bx: "\\boldsymbol{x}",
+        by: "\\boldsymbol{y}",
+        bz: "\\boldsymbol{z}",
 
-        Acal: "\\mathcal{A}", Bcal: "\\mathcal{B}", Ccal: "\\mathcal{C}", Dcal: "\\mathcal{D}",
-        Ecal: "\\mathcal{E}", Fcal: "\\mathcal{F}", Gcal: "\\mathcal{G}", Hcal: "\\mathcal{H}",
-        Ical: "\\mathcal{I}", Jcal: "\\mathcal{J}", Kcal: "\\mathcal{K}", Lcal: "\\mathcal{L}",
-        Mcal: "\\mathcal{M}", Ncal: "\\mathcal{N}", Ocal: "\\mathcal{O}", Pcal: "\\mathcal{P}",
-        Qcal: "\\mathcal{Q}", Rcal: "\\mathcal{R}", Scal: "\\mathcal{S}", Tcal: "\\mathcal{T}",
-        Ucal: "\\mathcal{U}", Vcal: "\\mathcal{V}", Wcal: "\\mathcal{W}", Xcal: "\\mathcal{X}",
-        Ycal: "\\mathcal{Y}", Zcal: "\\mathcal{Z}",
+        Acal: "\\mathcal{A}",
+        Bcal: "\\mathcal{B}",
+        Ccal: "\\mathcal{C}",
+        Dcal: "\\mathcal{D}",
+        Ecal: "\\mathcal{E}",
+        Fcal: "\\mathcal{F}",
+        Gcal: "\\mathcal{G}",
+        Hcal: "\\mathcal{H}",
+        Ical: "\\mathcal{I}",
+        Jcal: "\\mathcal{J}",
+        Kcal: "\\mathcal{K}",
+        Lcal: "\\mathcal{L}",
+        Mcal: "\\mathcal{M}",
+        Ncal: "\\mathcal{N}",
+        Ocal: "\\mathcal{O}",
+        Pcal: "\\mathcal{P}",
+        Qcal: "\\mathcal{Q}",
+        Rcal: "\\mathcal{R}",
+        Scal: "\\mathcal{S}",
+        Tcal: "\\mathcal{T}",
+        Ucal: "\\mathcal{U}",
+        Vcal: "\\mathcal{V}",
+        Wcal: "\\mathcal{W}",
+        Xcal: "\\mathcal{X}",
+        Ycal: "\\mathcal{Y}",
+        Zcal: "\\mathcal{Z}",
 
-        A: "\\mathbb{A}", B: "\\mathbb{B}", C: "\\mathbb{C}", D: "\\mathbb{D}", E: "\\mathbb{E}",
-        F: "\\mathbb{F}", G: "\\mathbb{G}", H: "\\mathbb{H}", I: "\\mathbb{I}", J: "\\mathbb{J}",
-        K: "\\mathbb{K}", L: "\\mathbb{L}", M: "\\mathbb{M}", N: "\\mathbb{N}", O: "\\mathbb{O}",
-        P: "\\mathbb{P}", Q: "\\mathbb{Q}", R: "\\mathbb{R}", S: "\\mathbb{S}", T: "\\mathbb{T}",
-        U: "\\mathbb{U}", V: "\\mathbb{V}", W: "\\mathbb{W}", X: "\\mathbb{X}", Y: "\\mathbb{Y}",
+        A: "\\mathbb{A}",
+        B: "\\mathbb{B}",
+        C: "\\mathbb{C}",
+        D: "\\mathbb{D}",
+        E: "\\mathbb{E}",
+        F: "\\mathbb{F}",
+        G: "\\mathbb{G}",
+        H: "\\mathbb{H}",
+        I: "\\mathbb{I}",
+        J: "\\mathbb{J}",
+        K: "\\mathbb{K}",
+        L: "\\mathbb{L}",
+        M: "\\mathbb{M}",
+        N: "\\mathbb{N}",
+        O: "\\mathbb{O}",
+        P: "\\mathbb{P}",
+        Q: "\\mathbb{Q}",
+        R: "\\mathbb{R}",
+        S: "\\mathbb{S}",
+        T: "\\mathbb{T}",
+        U: "\\mathbb{U}",
+        V: "\\mathbb{V}",
+        W: "\\mathbb{W}",
+        X: "\\mathbb{X}",
+        Y: "\\mathbb{Y}",
         Z: "\\mathbb{Z}",
 
-        bAlpha: "\\boldsymbol{\\Alpha}", bBeta: "\\boldsymbol{\\beta}", bDelta: "\\boldsymbol{\\delta}",
-        bEta: "\\boldsymbol{\\eta}", bGamma: "\\boldsymbol{\\Gamma}", bLambda: "\\boldsymbol{\\Lambda}",
-        bOmega: "\\boldsymbol{\\Omega}", bPhi: "\\boldsymbol{\\Phi}", bPi: "\\boldsymbol{\\Pi}",
-        bPsi: "\\boldsymbol{\\Psi}", bSigma: "\\boldsymbol{\\Sigma}", bTau: "\\boldsymbol{\\tau}",
+        bAlpha: "\\boldsymbol{\\Alpha}",
+        bBeta: "\\boldsymbol{\\beta}",
+        bDelta: "\\boldsymbol{\\delta}",
+        bEta: "\\boldsymbol{\\eta}",
+        bGamma: "\\boldsymbol{\\Gamma}",
+        bLambda: "\\boldsymbol{\\Lambda}",
+        bOmega: "\\boldsymbol{\\Omega}",
+        bPhi: "\\boldsymbol{\\Phi}",
+        bPi: "\\boldsymbol{\\Pi}",
+        bPsi: "\\boldsymbol{\\Psi}",
+        bSigma: "\\boldsymbol{\\Sigma}",
+        bTau: "\\boldsymbol{\\tau}",
         bXi: "\\boldsymbol{\\Xi}",
-        
-        balpha: "\\boldsymbol{\\alpha}", bbeta: "\\boldsymbol{\\beta}", bepsilon: "\\boldsymbol{\\epsilon}",
-        bvarepsilon: "\\boldsymbol{\\varepsilon}", bdelta: "\\boldsymbol{\\delta}", blambda: "\\boldsymbol{\\lambda}",
-        bmu: "\\boldsymbol{\\mu}", bphi: "\\boldsymbol{\\phi}", bpi: "\\boldsymbol{\\pi}", bpsi: "\\boldsymbol{\\psi}",
-        brho: "\\boldsymbol{\\rho}", bsigma: "\\boldsymbol{\\sigma}", btau: "\\boldsymbol{\\tau}", bxi: "\\boldsymbol{\\xi}",
-                   
+        bLambda: "\\boldsymbol{\\Lambda}",
+
+        balpha: "\\boldsymbol{\\alpha}",
+        bbeta: "\\boldsymbol{\\beta}",
+        bepsilon: "\\boldsymbol{\\epsilon}",
+        bvarepsilon: "\\boldsymbol{\\varepsilon}",
+        bdelta: "\\boldsymbol{\\delta}",
+        blambda: "\\boldsymbol{\\lambda}",
+        bmu: "\\boldsymbol{\\mu}",
+        bphi: "\\boldsymbol{\\phi}",
+        bpi: "\\boldsymbol{\\pi}",
+        bpsi: "\\boldsymbol{\\psi}",
+        brho: "\\boldsymbol{\\rho}",
+        bsigma: "\\boldsymbol{\\sigma}",
+        btau: "\\boldsymbol{\\tau}",
+        bxi: "\\boldsymbol{\\xi}",
+        bEta: "\\boldsymbol{\\eta}",
+        bPhi: "\\boldsymbol{\\Phi}",
+        bPi: "\\boldsymbol{\\Pi}",
+        bPsi: "\\boldsymbol{\\Psi}",
+        bXi: "\\boldsymbol{\\Xi}",
+        blambda: "\\boldsymbol{\\lambda}",
+        bmu: "\\boldsymbol{\\mu}",
+        bphi: "\\boldsymbol{\\phi}",
+        bpi: "\\boldsymbol{\\pi}",
+        bpsi: "\\boldsymbol{\\psi}",
+        brho: "\\boldsymbol{\\rho}",
+        bsigma: "\\boldsymbol{\\sigma}",
+
         curl: ["\\left\\lbrace#1\\right\\rbrace", 1],
         floor: ["\\left\\lfloor#1\\right\\rfloor", 1],
         ceil: ["\\left\\lceil#1\\right\\rceil", 1],
         abs: ["\\left\\lvert#1\\right\\rvert", 1],
         norm: ["\\left\\lVert#1\\right\\rVert", 1],
+
         independent: "\\mathrel{\\perp\\!\\!\\perp}",
-        var: "\\mathrm{Var}", cov: "\\mathrm{Cov}", cor: "\\mathrm{Corr}",
-        diag: "\\mathrm{diag}", rank: "\\mathrm{rank}", vecc: "\\mathrm{vec}",
-        
-        // Theme-adaptive color macros
-        red: "\\color{rgb(255,0,0)}",
-        lightgreen: "\\color{rgb(0,204,102)}",
-        darkgreen: "\\color{rgb(0,139,69)}",
-        darkblue: "\\color{rgb(0,0,204)}",
-      }
-    },
-    startup: {
-      ready() {
-        MathJax.startup.defaultReady();
-        MathJax.startup.promise.then(() => {
-          setTimeout(forceGreenColorOverride, 100);
-        });
+
+        var: "\\mathrm{Var}",
+        cov: "\\mathrm{Cov}",
+        cor: "\\mathrm{Corr}",
+        diag: "\\mathrm{diag}",
+        rank: "\\mathrm{rank}",
+        vecc: "\\mathrm{vec}",
       }
     }
   };
-</script>
-
-<style>
-/* Override MathJax color based on theme - target MJX-MSTYLE elements specifically */
-/* In light mode: change rgb(0,204,102) (lightgreen) to dark green for better contrast */
-mjx-container mjx-mstyle[style*="rgb(0, 204, 102)"],
-mjx-container mjx-mstyle[style*="rgb(0,204,102)"],
-mjx-container mjx-mstyle[style*="color: rgb(0, 204, 102)"],
-mjx-container mjx-mstyle[style*="color:rgb(0,204,102)"],
-mjx-container *[style*="rgb(0, 204, 102)"],
-mjx-container *[style*="rgb(0,204,102)"],
-mjx-container *[style*="color: rgb(0, 204, 102)"],
-mjx-container *[style*="color:rgb(0,204,102)"],
-mjx-container *[style*="rgb(0, 139, 69)"],
-mjx-container *[style*="rgb(0,139,69)"],
-mjx-container *[style*="rgb(0, 170, 0)"],
-mjx-container *[style*="rgb(0,170,0)"],
-.MathJax *[style*="rgb(0, 204, 102)"],
-.MathJax *[style*="rgb(0,204,102)"],
-.MathJax *[style*="rgb(0, 139, 69)"],
-.MathJax *[style*="rgb(0,139,69)"] {
-  color: #006600 !important; /* DARK green for light mode */
-}
-
-/* In dark mode: change to light green for better visibility */
-[data-bs-theme="dark"] mjx-container mjx-mstyle[style*="rgb(0, 204, 102)"],
-[data-bs-theme="dark"] mjx-container mjx-mstyle[style*="rgb(0,204,102)"],
-[data-bs-theme="dark"] mjx-container mjx-mstyle[style*="color: rgb(0, 204, 102)"],
-[data-bs-theme="dark"] mjx-container mjx-mstyle[style*="color:rgb(0,204,102)"],
-[data-bs-theme="dark"] mjx-container *[style*="rgb(0, 204, 102)"],
-[data-bs-theme="dark"] mjx-container *[style*="rgb(0,204,102)"],
-[data-bs-theme="dark"] mjx-container *[style*="color: rgb(0, 204, 102)"],
-[data-bs-theme="dark"] mjx-container *[style*="color:rgb(0,204,102)"],
-[data-bs-theme="dark"] mjx-container *[style*="rgb(0, 139, 69)"],
-[data-bs-theme="dark"] mjx-container *[style*="rgb(0,139,69)"],
-[data-bs-theme="dark"] mjx-container *[style*="rgb(0, 170, 0)"],
-[data-bs-theme="dark"] mjx-container *[style*="rgb(0,170,0)"],
-[data-bs-theme="dark"] .MathJax *[style*="rgb(0, 204, 102)"],
-[data-bs-theme="dark"] .MathJax *[style*="rgb(0,204,102)"],
-[data-bs-theme="dark"] .MathJax *[style*="rgb(0, 139, 69)"],
-[data-bs-theme="dark"] .MathJax *[style*="rgb(0,139,69)"] {
-  color: #90EE90 !important; /* LIGHT green for dark mode */
-}
-</style>
-
-<script>
-// Event listeners for theme changes
-document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(forceGreenColorOverride, 500);
-  
-  // Find the specific Quarto theme toggle button
-  setTimeout(() => {
-    // Look for Quarto's specific theme toggle selectors
-    const quartoToggleSelectors = [
-      '.quarto-color-scheme-toggle',
-      '[title*="toggle"]',
-      '[aria-label*="toggle"]',
-      'button[onclick*="theme"]',
-      'button[onclick*="color"]',
-      'a[onclick*="theme"]',
-      'a[onclick*="color"]',
-      '.navbar .btn',
-      '.navbar button'
-    ];
-    
-    let toggleButton = null;
-    
-    for (const selector of quartoToggleSelectors) {
-      const elements = document.querySelectorAll(selector);
-      if (elements.length > 0) {
-        console.log(`🎚️ Found ${elements.length} potential toggle(s) with selector: ${selector}`);
-        elements.forEach((btn, idx) => {
-          console.log(`  Button ${idx}: ${btn.tagName} - ${btn.className} - ${btn.title || btn.getAttribute('aria-label')}`);
-        });
-        toggleButton = elements[0]; // Take the first one
-        break;
-      }
-    }
-    
-    if (!toggleButton) {
-      console.log('⚠️ No specific toggle button found, trying generic approach...');
-      // Fallback to any button that might be the toggle
-      const allButtons = document.querySelectorAll('button, .btn, [role="button"]');
-      for (const btn of allButtons) {
-        const text = (btn.textContent || '').toLowerCase();
-        const title = (btn.title || '').toLowerCase();
-        const ariaLabel = (btn.getAttribute('aria-label') || '').toLowerCase();
-        
-        if (text.includes('toggle') || title.includes('toggle') || ariaLabel.includes('toggle') ||
-            text.includes('theme') || title.includes('theme') || ariaLabel.includes('theme') ||
-            text.includes('dark') || title.includes('dark') || ariaLabel.includes('dark')) {
-          toggleButton = btn;
-          console.log(`🎚️ Found potential toggle button: ${btn.tagName} - "${text}" - "${title}" - "${ariaLabel}"`);
-          break;
-        }
-      }
-    }
-    
-    if (toggleButton) {
-      console.log(`✅ Monitoring toggle button: ${toggleButton.tagName}.${toggleButton.className}`);
-      
-      // Get initial theme state from current DOM and toggle button
-      const getCurrentTheme = () => {
-        const htmlTheme = document.documentElement.getAttribute('data-bs-theme');
-        const bodyTheme = document.body.getAttribute('data-bs-theme');
-        const stored = localStorage.getItem('quarto-color-scheme');
-        
-        // Check toggle button class for "alternate" (Quarto's dark mode indicator)
-        const toggleClass = toggleButton ? toggleButton.className : '';
-        const hasAlternate = toggleClass.includes('alternate');
-        
-        // Priority: DOM attributes, then toggle class, then localStorage
-        if (htmlTheme) return htmlTheme;
-        if (bodyTheme) return bodyTheme;
-        if (hasAlternate) return 'dark'; // "alternate" means dark mode in Quarto
-        if (stored && stored !== 'default') return stored;
-        return 'light'; // default
-      };
-      
-      // Check if theme is considered "dark" (includes Quarto's "alternate")
-      const isDarkTheme = (theme) => {
-        return theme === 'dark' || theme === 'alternate';
-      };
-      
-      let currentTheme = getCurrentTheme();
-      console.log(`🎯 Initial theme state: ${currentTheme} (isDark: ${isDarkTheme(currentTheme)})`);
-      
-      toggleButton.addEventListener('click', () => {
-        console.log(`🎚️ TOGGLE BUTTON CLICKED! Current theme was: ${currentTheme}`);
-        
-        // Wait a bit for Quarto to update the DOM, then read the actual state
-        setTimeout(() => {
-          const actualTheme = getCurrentTheme();
-          console.log(`🔍 After click, DOM shows: ${actualTheme} (isDark: ${isDarkTheme(actualTheme)})`);
-          
-          // Update our tracking to match reality
-          currentTheme = actualTheme;
-          
-          console.log(`🎚️ Updated tracking to: ${currentTheme}`);
-          
-          // Store the current state (sync with Quarto)
-          if (currentTheme !== 'default') {
-            localStorage.setItem('quarto-color-scheme', currentTheme);
-          }
-          
-          // Force color override
-          setTimeout(() => {
-            console.log(`🔄 Applying color override for theme: ${currentTheme} (isDark: ${isDarkTheme(currentTheme)})`);
-            forceGreenColorOverride();
-          }, 100);
-        }, 200); // Give Quarto time to update DOM
-      });
-    } else {
-      console.log('❌ No theme toggle button found!');
-    }
-  }, 1000);
-});
-
-// Watch for theme attribute changes with enhanced detection
-new MutationObserver((mutations) => {
-  mutations.forEach(mutation => {
-    if (mutation.type === 'attributes') {
-      const attr = mutation.attributeName;
-      const target = mutation.target;
-      
-      if (attr === 'data-bs-theme' || attr === 'class' || attr === 'data-theme') {
-        console.log(`🔄 Theme change detected: ${attr} changed on ${target.tagName}`);
-        setTimeout(forceGreenColorOverride, 200);
-      }
-    }
-  });
-}).observe(document.documentElement, {
-  attributes: true,
-  attributeOldValue: true,
-  subtree: true
-});
 </script>
 <!-- ===================== Icon Library ====================== -->
 <!-- load Font Awesome 6 icon library -->
@@ -720,6 +563,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./04_Theoretical_Framework_LR.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Theoretical Framework of Linear Regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_Hypothesis_Testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hypothesis Testing and Confidence Intervals</span></a>
   </div>
 </li>
       </ul>

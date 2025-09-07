@@ -25,6 +25,7 @@ website:
           - 02_Data_Visualization.qmd
           - 03_Linear_Regression.qmd
           - 04_Theoretical_Framework_LR.qmd
+          - 05_Hypothesis_Testing.qmd
 
 format:
   html:
@@ -39,6 +40,7 @@ format:
     toc-depth: 4
     number-sections: true
     number-depth: 3
+    from: markdown+tex_math_single_backslash
 
 
 

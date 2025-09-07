@@ -239,7 +239,7 @@ plot(model, which = c(1,2))
   
   The residuals appear reasonably balanced around zero, though the spread suggests substantial unexplained variation.
 
-  The spread of residuals seems to **increase slightly with fitted values**, indicating potential heteroscedasticity (non-constant variance of errors). This suggests that the assumption of homoscedasticity may be violated, which could affect the reliability of our coefficient estimates and standard errors.
+  The spread of residuals seems to **increase slightly with fitted values**, indicating potential heteroskedasticity (non-constant variance of errors). This suggests that the assumption of homoskedasticity may be violated, which could affect the reliability of our coefficient estimates and standard errors.
 
 * The second plot is the **normal Q-Q plot**, which assesses whether the residuals are normally distributed. 
 

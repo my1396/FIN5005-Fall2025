@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Seting Up Your Environment – FIN5005 Fall 2025</title>
+<title>Multiple Linear Regression – FIN5005 Fall 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -260,6 +260,35 @@ ul.task-list li input[type="checkbox"] {
 <!-- ============== js for show/hide solutions ================ -->
 <script language="JavaScript" src="themes/my_jxscript.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -471,7 +500,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00_environment_setup.html">Environment Setup</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Multiple Linear Regression</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -493,7 +522,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00_environment_setup.html" class="sidebar-item-text sidebar-link active">
+  <a href="./00_environment_setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Environment Setup</span></a>
   </div>
 </li>
@@ -554,14 +583,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#cloud-solution" id="toc-cloud-solution" class="nav-link active" data-scroll-target="#cloud-solution"><span class="header-section-number">1</span> Cloud Solution</a>
-  <ul>
-  <li><a href="#rstudio-cloud" id="toc-rstudio-cloud" class="nav-link" data-scroll-target="#rstudio-cloud"><span class="header-section-number">1.1</span> RStudio Cloud</a></li>
-  </ul></li>
-  <li><a href="#local-solution" id="toc-local-solution" class="nav-link" data-scroll-target="#local-solution"><span class="header-section-number">2</span> Local Solution</a>
-  <ul>
-  <li><a href="#RStudio-Desktop" id="toc-RStudio-Desktop" class="nav-link" data-scroll-target="#RStudio-Desktop"><span class="header-section-number">2.1</span> RStudio Desktop</a></li>
-  </ul></li>
+  <li><a href="#f-test-for-significance-of-the-overall-regression" id="toc-f-test-for-significance-of-the-overall-regression" class="nav-link active" data-scroll-target="#f-test-for-significance-of-the-overall-regression"><span class="header-section-number">1</span> F-test for Significance of the Overall Regression</a></li>
   </ul>
 </nav>
     </div>
@@ -571,7 +593,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Seting Up Your Environment</h1>
+<h1 class="title">Multiple Linear Regression</h1>
 </div>
 
 
@@ -588,81 +610,33 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>This guide will help you set up your coding environment for FIN5005, with both cloud-based and local options available (you may choose either).</p>
+<section id="f-test-for-significance-of-the-overall-regression" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="f-test-for-significance-of-the-overall-regression"><span class="header-section-number">1</span> F-test for Significance of the Overall Regression</h2>
+<p>F-test is also known as the one-way analysis of variance (ANOVA) test. It tests whether the regression model as a whole is statistically significant.</p>
+<p>F-test for that all <span class="math inline">\(k\)</span> of the slope coefficients in a linear model are equal to zero, i.e., to test the exclusion of all explanatory variables except the intercept, <span class="math inline">\(\beta_0\)</span>. Formally speaking. <span class="math display">\[
+\begin{aligned}
+&amp;\text{H}_0: \beta_1 = \beta_2 = \cdots = \beta_K=0 \\
+&amp;\text{H}_1: \text{At least one of the } \beta_1, \beta_2,\ldots, \beta_K,\text{is not zero.}
+\end{aligned}
+\]</span> This is referred to as the <span class="env-green">F-test</span> for <span class="env-green">one-way ANOVA</span>.</p>
+<p>The test statistic is given by: <span class="math display">\[
+F = \left(\frac{n-K}{K-1}\right) \left(\frac{R^2}{1-R^2}\right) \sim F(k, n-k-1) .
+\]</span></p>
+<p>where <span class="math inline">\(F\)</span> is <span class="math inline">\(F\)</span>-distributed with <span class="math inline">\(k\)</span> and <span class="math inline">\(n-k-1\)</span> degrees of freedom.</p>
+<p>We reject <span class="math inline">\(\text{H}_0\)</span> if <span class="math inline">\(F&gt;F_{\alpha}(k, n-k-1)\)</span>.</p>
 <ul>
-<li><p>You will learn how to use <strong>RStudio Cloud</strong> for quick, browser-based access and <strong>RStudio Desktop</strong> for the full set of features on your computer.</p></li>
-<li><p><strong>It is strongly recommended to install the local version (<a href="#RStudio-Desktop">RStudio Desktop</a>) on your computer.</strong></p></li>
+<li><span class="math inline">\(F_{\alpha}(k,n-k-1)\)</span> is the <span class="math inline">\((1-\alpha)\)</span> percentile in the <span class="math inline">\(F(k, n-k-1)\)</span> distribution, corresponding to the level of significance, <span class="math inline">\(\alpha\)</span>.</li>
 </ul>
-<p>Follow the instructions below to get started.</p>
-<p><strong>Estimated reading time: 6 minutes</strong></p>
-</div>
-</div>
-</div>
-<section id="cloud-solution" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="cloud-solution"><span class="header-section-number">1</span> Cloud Solution</h2>
-<p>Cloud solution means that you don’t need to install anything on your computer. You can run R code directly in your web browser. This is the easiest way to get started without worrying about installation issues.</p>
-<p>But soon enough, you will realize that the cloud-based solution is <strong>limited</strong> in:</p>
+<p><img src="https://drive.google.com/thumbnail?id=1LSF9a8en1SvwZDL76SHeZ0BpDYhHbLz-&amp;sz=w1000" alt="F distribution" style="display: block; margin-right: auto; margin-left: auto; zoom:80%;"></p>
+<p>The <span class="math inline">\(p\)</span>-value is found by: <span class="math display">\[
+\text{P-value} = \mathbb{P}(F&gt;F_{\text{obs}}) ,
+\]</span> where <span class="math inline">\(F_{\text{obs}}\)</span> is your calculated/observed test statistic based on your data sample.</p>
 <ul>
-<li><p>compute power: 1 CPU core, 1 GB RAM</p></li>
-<li><p>execution hours: 25 hours per month;</p></li>
-<li><p>slow performance</p></li>
-<li><p><span class="env-green"><strong>AI integration</strong></span> is better in local environment</p>
-<p><strong>GitHub Copilot</strong> is a powerful AI tool that offers autocomplete-style suggestions as you code. The tool can give you suggestions based on the code you want to use or by simply inquiring about what you want the code to do.</p>
-<p>It is developed by GitHub in partnership with OpenAI, and it is designated to best assist developers in writing code more efficiently.</p>
-<p>Some of its highlight features include:</p>
-<ul>
-<li><strong>Code autocompletion</strong>: generating suggestions while typing the code.</li>
-<li><strong>Code generation</strong>: Copilot will use the context of the active document to generate suggestions for code that might be useful.</li>
-<li><strong>Answering questions</strong>: it can also be used to ask simple questions while you are coding (e.g., “What is the definition of mean?”).</li>
-<li><strong>Language support</strong>: supports multiple programming languages, including R, Python, SQL, HTML, and JavaScript.</li>
-</ul>
-<p><strong>To enable Copilot in RStudio</strong>: click on Tools → Global Options → Copilot → tick the box saying “Enable GitHub Copilot” → sign in to your GitHub account, and there you go; you are ready to start!</p>
-<p>GiHub Copilot free plan has limited usage: 2000 code autocompletions per month, 30 code generations per month, and 30 question answers per month.</p>
-<p>Soon enough, you will realize that you need more than that. Because every character you type counts as usage, regless of whether you accept the suggestion or not.</p>
-<p>🎈 The good news is: You can use <strong>Copilot Pro for free</strong> if you are a student!</p>
-<p>See <a href="https://docs.github.com/en/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-students/apply-to-github-education-as-a-student">Apply to GitHub Education as a student</a>.</p>
-<p>If you wonder anything, look up in <a href="https://docs.github.com/en/copilot">GitHub Copilot Documentation</a>.</p></li>
-</ul>
-<hr>
-<p><strong>Nonetheless, here are two popular cloud solutions:</strong></p>
-<ul>
-<li><p><a href="https://colab.research.google.com/">Google Colab</a>: good support for Jupyter Notebooks <code>.ipynb</code>.</p>
-<p>We will use Jupyter Notebooks in this course.</p></li>
-<li><p><a href="https://rstudio.cloud/">RStudio Cloud</a>: basic emulator for RStudio IDE in the cloud.</p></li>
-</ul>
-<section id="rstudio-cloud" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="rstudio-cloud"><span class="header-section-number">1.1</span> RStudio Cloud</h3>
-<p>Once in the dashboard, you can click on the <em>New Project</em> - <em>New RStudio Project</em> to get started:</p>
-<p><img src="https://webflow-prod-assets.s3.amazonaws.com/6525256482c9e9a06c7a9d3c%2F65b01f0848b83fcd2e55d022_new-project-in-rstudio-cloud.webp" alt="New Project in RStudio Cloud" style="display: block; margin: 0 auto; width: 60vw;"></p>
-<p>Once the new project is created, you will see the RStudio IDE interface, which is similar to the one you would find in RStudio Desktop. You can write and execute R code, create scripts, and manage your projects directly in the cloud.</p>
-<p><img src="https://webflow-prod-assets.s3.amazonaws.com/6525256482c9e9a06c7a9d3c%2F65b01f0a0a2ba062e1ba336f_rstudio-cloud-interface.webp" alt="RStudio Cloud Interface" style="display: block; margin-right: auto; margin-left: auto; width: 60vw;"></p>
-</section>
-</section>
-<section id="local-solution" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="local-solution"><span class="header-section-number">2</span> Local Solution</h2>
-<section id="RStudio-Desktop" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="RStudio-Desktop"><span class="header-section-number">2.1</span> RStudio Desktop</h3>
-<p><a href="https://posit.co/download/rstudio-desktop/">RStudio Desktop</a> is a free and open-source integrated development environment (IDE) for R. It provides a user-friendly interface for writing and executing R code, making it easier to work with R scripts, data analysis, visualization.</p>
-<p>To install RStudio Desktop, follow these steps:</p>
-<ol type="1">
-<li>Install R</li>
-<li>Install RStudio Desktop</li>
-</ol>
-<p>Go to <a href="https://posit.co/download/rstudio-desktop/">RStudio Desktop Download</a> and download the installer for your operating system (Windows, macOS, or Linux).</p>
-<hr>
-<p>ref:</p>
-<ul>
-<li><a href="https://www.appsilon.com/post/r-studio-cloud">RStudio Cloud - How to Get Started For Free</a></li>
+<li><p>Large values of <span class="math inline">\(F\)</span> give evidence against the validity of the null hypothesis. Note that a large <span class="math inline">\(F\)</span> is induced by a large value of <span class="math inline">\(R^2\)</span>.</p></li>
+<li><p>The logic of the test is that the <span class="math inline">\(F\)</span> statistic is a measure of the loss of fit (namely, all of <span class="math inline">\(R^2\)</span>) that results when we impose the restriction that all the slopes are zero. If <span class="math inline">\(F\)</span> is large, then the hypothesis is rejected.</p></li>
 </ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
