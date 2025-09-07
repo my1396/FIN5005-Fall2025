@@ -491,6 +491,7 @@ We recap the figure summary below:
 A quick fix is to use <span class="env-green">heteroskedasticity-robust standard errors</span>, which are valid even when the homoskedasticity assumption is violated.
 
 ```{r message=FALSE, warning=FALSE}
+library(tidyverse)
 library(sandwich) # for robust standard errors
 library(lmtest)   # for coeftest()
 f_name <- "https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"
