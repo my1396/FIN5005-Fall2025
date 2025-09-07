@@ -369,11 +369,11 @@ Discussion: Compare your results in the three probabilities. Provide a brief int
   * The individual distribution is wider (larger standard deviation), so the chance of extreme values is higher.
   * As sample size increases, the standard error decreases, so the distribution of the sample mean becomes narrower.
   * This means it becomes less likely to observe a sample mean far from the population mean.
+:::
 
 ```{r #fig-clt, echo=FALSE}
 knitr::include_graphics("images/CLT.png")
 ```
-:::
 
 ::: {.callout-tip title="Key Takeaways from CLT"}
 Generally, as the sample size increases, the **sampling distribution of the sample mean** becomes more concentrated around the population mean. 
