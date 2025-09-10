@@ -109,7 +109,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- This is what works with Quarto and MathJax 3+ -->
 <script>
   MathJax = {
+    loader: { 
+      load: ['[tex]/colorV2'] 
+    },
     tex: {
+      packages: { '[+]': ['color'] }, // load the colorV2 package
       inlineMath: [   // start/end delimiter pairs for in-line math
         ['$', '$'],
         ['\\(', '\\)']
@@ -282,6 +286,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         diag: "\\mathrm{diag}",
         rank: "\\mathrm{rank}",
         vecc: "\\mathrm{vec}",
+        
+        // define colors
+        red: ["{\\color[RGB]{246, 87, 55}{#1}}", 1],
+        green: ["{\\color[RGB]{0, 204, 102}{#1}}", 1],
       }
     }
   };
@@ -818,14 +826,14 @@ Sampling Distribution vs.&nbsp;Exact Distribution
 <p>Alternative expressions of CLT: <span class="math display">\[
 \begin{split}
 \sqrt{n} (\overline{X}-\mu)  &amp; \xrightarrow{d} N(0,\sigma^2) \\
-{\color{red}\overline{X}} &amp; {\color{red}\xrightarrow{d} N(\mu, \frac{\sigma^2}{n})}
+\red{\overline{X}} &amp; \red{\xrightarrow{d} N(\mu, \frac{\sigma^2}{n})}
 \end{split}
 \]</span></p>
 </div>
 <p>Q: Why does CLT matter?</p>
 <p>A:</p>
 <ul>
-<li><p>The central limit theorem implies that if <span class="math inline">\(N\)</span> is large <strong>enough</strong>, we can <strong>approximate</strong> the distribution of <span class="math inline">\(\overline{X}\)</span> by the <span class="env-green"><strong>standard normal distribution</strong></span> with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2 / N\)</span> <strong>regardless of the underlying distribution of <span class="math inline">\(X\)</span>.</strong></p></li>
+<li><p>The central limit theorem implies that if <span class="math inline">\(N\)</span> is large <strong>enough</strong>, we can <strong>approximate</strong> the distribution of <span class="math inline">\(\overline{X}\)</span> by the <span class="env-green"><strong>standard normal distribution</strong></span> with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2 / N\)</span> <strong>regardless of the underlying distribution of <span class="math inline">\(X.\)</span></strong></p></li>
 <li><p>The scaling by <span class="env-green"><span class="math inline">\(n\)</span></span> is crucial. <span class="math display">\[
 \sigma_{\overline{X}}^2 = \text{Var}[\overline{X}] = \frac{\sigma^2}{n}
 \]</span> This means as sample size increases, the sample variance shrinks at the rate of <span class="math inline">\(1/n\)</span>.</p>
@@ -904,7 +912,7 @@ Z = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} = \frac{\overline{X} - 40}{1.875}
 \]</span></p>
 <p>We can rewrite the probability in terms of <span class="math inline">\(Z\)</span>:</p>
 <p><span class="math display">\[
-P(\overline{X} &gt; 42) = P(\frac{\overline{X} - \mu}{\sigma/\sqrt{n}} &gt; \frac{\overline{X} - 40}{1.875}) = P(Z &gt; 1.067)
+P(\overline{X} &gt; 42) = P(\frac{\overline{X} - \mu}{\sigma/\sqrt{n}} &gt; \frac{42 - 40}{1.875}) = P(Z &gt; 1.067)
 \]</span></p>
 <p>Using the standard normal distribution table:</p>
 <p><span class="math display">\[
@@ -924,7 +932,7 @@ Solution
 <p><span class="math display">\[
 \sigma_{\overline{X}_{81}} = \frac{\sigma}{\sqrt{n}} = \frac{15}{\sqrt{81}} = \frac{15}{9} = 1.667
 \]</span></p>
-<p>According to CLIT <span class="math inline">\(\overline{X}_{81}\)</span> is normally distributed:</p>
+<p>According to CLT <span class="math inline">\(\overline{X}_{81}\)</span> is normally distributed:</p>
 <p><span class="math display">\[
 \overline{X}_{81} \sim N(\mu= 40, \sigma_{\overline{X}_{81}} = 1.667^2)
 \]</span></p>
@@ -939,7 +947,7 @@ z = \frac{42 - 40}{1.667} = 1.20
 <p><span class="math display">\[
 P(\overline{X} &gt; 42) = P(Z &gt; 1.20)
 \]</span></p>
-<p>Look up the normal table <span class="math display">\[
+<p>Look up the normal distribution table <span class="math display">\[
 P(Z &gt; 1.20) = P(Z&lt;-1.2) \approx 0.1151
 \]</span></p>
 <p><strong>Interpretation:</strong> A random sample of 16 customers has a <strong>11.51%</strong> chance of yielding an average time above 42 minutes.</p>
@@ -965,7 +973,7 @@ Solution
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-clt" class="quarto-float quarto-figure quarto-figure-center anchored" width="990" data-fig-pos="H" data-fig-align="center">
+<div id="fig-clt" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" width="990" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-clt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/CLT.png" id="fig-clt" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" data-fig-pos="H" width="990">
@@ -1047,7 +1055,7 @@ R^2 = 1 - \frac{SSR}{SST} = \frac{SST - SSR}{SST} = \frac{SSE}{SST}
 \var(\varepsilon_i | X) = \sigma^2_i
 \]</span></p>
 <p>that is, the variance of the error term varies with the level of the independent variable(s).</p>
-<p>If the error has heteroskedasticity, the standard error under homoskedasticity assumption will be underestimated, leading to invalid t statistics, affecting hypothesis tests and confidence intervals.</p>
+<p>If the error has heteroskedasticity, <span class="env-green">the standard error under homoskedasticity assumption will be underestimated</span>, leading to invalid t statistics, affecting hypothesis tests and confidence intervals.</p>
 <section id="detection-of-heteroskedasticity" class="level3" data-number="5.1">
 <h3 data-number="5.1" class="anchored" data-anchor-id="detection-of-heteroskedasticity"><span class="header-section-number">5.1</span> Detection of Heteroskedasticity</h3>
 </section>
@@ -1067,7 +1075,7 @@ R^2 = 1 - \frac{SSR}{SST} = \frac{SST - SSR}{SST} = \frac{SSE}{SST}
 <p>We recap the figure summary below:</p>
 <ul>
 <li><p>The residuals appear reasonably balanced around zero, though the spread suggests substantial unexplained variation.</p></li>
-<li><p>The spread of residuals seems to <strong>increase slightly with fitted values</strong>, indicating potential heteroskedasticity (non-constant variance of errors). This suggests that the assumption of homoskedasticity may be violated, which could affect the reliability of our coefficient estimates and standard errors.</p></li>
+<li><p>The spread of residuals seems to <strong>increase slightly with fitted values</strong>, indicating potential heteroskedasticity (non-constant variance of errors). This suggests that the assumption of homoskedasticity may be violated, which could affect the reliability of our coefficient estimates standard errors.</p></li>
 </ul>
 </section>
 <section id="fix-heteroskedasticity" class="level3" data-number="5.3">
@@ -1076,30 +1084,57 @@ R^2 = 1 - \frac{SSR}{SST} = \frac{SST - SSR}{SST} = \frac{SSE}{SST}
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sandwich) <span class="co"># for robust standard errors</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmtest)   <span class="co"># for coeftest()</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>f_name <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>cas <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(f_name,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_types =</span> <span class="fu">cols</span>(</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">county =</span> <span class="fu">col_factor</span>(), <span class="co"># read as factor</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">grades =</span> <span class="fu">col_factor</span>()</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>cas <span class="ot">&lt;-</span> cas <span class="sc">%&gt;%</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">TestScore =</span> (read <span class="sc">+</span> math) <span class="sc">/</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmtest) <span class="co"># for coeftest()</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>f_name <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>cas <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(f_name,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_types =</span> <span class="fu">cols</span>(</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">county =</span> <span class="fu">col_factor</span>(), <span class="co"># read as factor</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">grades =</span> <span class="fu">col_factor</span>()</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>cas <span class="ot">&lt;-</span> cas <span class="sc">%&gt;%</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">TestScore =</span> (read <span class="sc">+</span> math) <span class="sc">/</span> <span class="dv">2</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(TestScore <span class="sc">~</span> expenditure, <span class="at">data =</span> cas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(TestScore <span class="sc">~</span> expenditure, <span class="at">data =</span> cas)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># heteroskedasticity-robust standard errors</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">coeftest</span>(model, <span class="at">vcov =</span> <span class="fu">vcovHC</span>(model, <span class="at">type =</span> <span class="st">"HC1"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># OLS standard errors</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>se_ols <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">diag</span>(<span class="fu">vcov</span>(model)))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># HC1 heteroskedasticity-robust standard errors</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>se_hc1 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">diag</span>(<span class="fu">vcovHC</span>(model, <span class="at">type =</span> <span class="st">"HC1"</span>)))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Stargazer output: same model, different SEs</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(model, model,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">se =</span> <span class="fu">list</span>(se_ols, se_hc1),</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">digits =</span> <span class="dv">4</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">"OLS SE"</span>, <span class="st">"Robust SE"</span>),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">"text"</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>          )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-t test of coefficients:
-
-              Estimate Std. Error t value  Pr(&gt;|t|)    
-(Intercept) 6.2362e+02 8.4664e+00  73.657 &lt; 2.2e-16 ***
-expenditure 5.7488e-03 1.6203e-03   3.548 0.0004322 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+===========================================================
+                                   Dependent variable:     
+                               ----------------------------
+                                        TestScore          
+                                   OLS SE       Robust SE  
+                                    (1)            (2)     
+-----------------------------------------------------------
+expenditure                      0.0057***      0.0057***  
+                                  (0.0014)      (0.0016)   
+                                                           
+Constant                        623.6165***    623.6165*** 
+                                  (7.7197)      (8.4664)   
+                                                           
+-----------------------------------------------------------
+Observations                        420            420     
+R2                                 0.0366        0.0366    
+Adjusted R2                        0.0343        0.0343    
+Residual Std. Error (df = 418)    18.7239        18.7239   
+F Statistic (df = 1; 418)        15.8734***    15.8734***  
+===========================================================
+Note:                           *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
 </div>
 </div>
 <p><strong>Under the heteroskedasticity-robust standard errors:</strong></p>
