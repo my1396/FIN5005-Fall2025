@@ -225,6 +225,8 @@ Consider the following probabilities:
 
 ::: {.example #exm-clt1}
 Assuming $X$ is normally distributed, what is the probability that a randomly selected customer spends more than 42 minutes in the store, i.e., compute $P(X > 42)$?
+
+Use the <a href="https://drive.google.com/file/d/1Iwec44x4N5AItbpFugbUOKHBIE10cMOw/view?usp=drive_link" target="_blank">normal distribution table</a> to look up the probabilities.
 :::
 
 <button class="solution-btn" onclick="myFunction('clt1')">Solution</button>
