@@ -527,8 +527,8 @@ stargazer(model, model,
 
 **Under the heteroskedasticity-robust standard errors:**
 
-- no effects on the coefficient estimates
-- the Std. Error is slightly larger (0.001620 vs. 0.001443). The coefficient remains statistically significant at the 5% level.
+- No effects on the coefficient estimates.
+- The Std. Error is slightly larger (0.001620 vs. 0.001443). The coefficient remains statistically significant at the 5% level.
 
 **Interpretation**
 
