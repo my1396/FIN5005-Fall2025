@@ -725,38 +725,6 @@ window.Quarto = {
 
 <span class="ansi-cyan-fg">ℹ</span> Use the conflicted package (<span style="font-style:italic" class="ansi-blue-fg">&lt;http://conflicted.r-lib.org/&gt;</span>) to force all conflicts to become errors
 
-── <span class="ansi-bold">Conflicts</span> ────────────────────────────────────────── tidyverse_conflicts() ──
-
-<span class="ansi-red-fg">✖</span> <span class="ansi-blue-fg">dplyr</span>::<span class="ansi-green-fg">filter()</span> masks <span class="ansi-blue-fg">stats</span>::filter()
-
-<span class="ansi-red-fg">✖</span> <span class="ansi-blue-fg">dplyr</span>::<span class="ansi-green-fg">lag()</span>    masks <span class="ansi-blue-fg">stats</span>::lag()
-
-<span class="ansi-cyan-fg">ℹ</span> Use the conflicted package (<span style="font-style:italic" class="ansi-blue-fg">&lt;http://conflicted.r-lib.org/&gt;</span>) to force all conflicts to become errors
-
-
-
-Attaching package: ‘kableExtra’
-
-
-
-
-
-The following object is masked from ‘package:dplyr’:
-
-
-
-    group_rows
-
-
-
-
-
-
-
- Setup complete (packages loaded: tidyverse, ggsci, moments, knitr, kableExtra).
-
-
-
 
 
 Attaching package: ‘kableExtra’
@@ -1115,7 +1083,7 @@ Table: Descriptive Statistics of Asset Returns
 <section id="correlated-asset-returns" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="correlated-asset-returns"><span class="header-section-number">6</span> Correlated Asset Returns</h2>
 <p>We will simulate repeated samples of two (correlated) asset return series and compare the sampling distributions of their sample means and the distribution of the portfolio mean (equal weights).</p>
-<div id="6e243cba" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="10">
+<div id="6e243cba" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Load Correlated Asset Returns Data ----</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>X_demo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/correlated_asset_returns.csv"</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(X_demo) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Asset_A"</span>, <span class="st">"Asset_B"</span>)  <span class="co"># Rename columns for clarity</span></span>
@@ -1162,15 +1130,46 @@ Table: Descriptive Statistics of Asset Returns
 </table>
 </div>
 </div>
-<div id="44d63c33" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}">
+<div id="44d63c33" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>emp_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(X_demo)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>emp_cor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>A matrix: 2 × 2 of type dbl</caption>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th" scope="col">Asset_A</th>
+<th data-quarto-table-cell-role="th" scope="col">Asset_B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">Asset_A</td>
+<td>1.0000000</td>
+<td>0.9040318</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">Asset_B</td>
+<td>0.9040318</td>
+<td>1.0000000</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <p>Plot the scatter plot of the two asset returns to visualize their relationship.</p>
-<div id="68d62995" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}">
+<div id="68d62995" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width =</span> <span class="dv">8</span>, <span class="at">repr.plot.height =</span> <span class="dv">7</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(X_demo, <span class="fu">aes</span>(Asset_A, Asset_B)) <span class="sc">+</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.35</span>, <span class="at">color =</span> <span class="st">'#1b7837'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="01_Lab-1_files/figure-html/cell-14-output-1.png" width="480" height="420" class="figure-img"></p>
+</figure>
+</div>
+</div>
 </div>
 <hr>
 <p>💡<strong>Q: What is the correlation between the two asset returns? How do their prices move together?</strong></p>
