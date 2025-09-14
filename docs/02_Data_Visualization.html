@@ -76,9 +76,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8f5b83f28fbf69cd88366b2f42ddfb5a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-594be18d36c011f136d2cc6cd7bee3da.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-8f5b83f28fbf69cd88366b2f42ddfb5a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b1eab047c83979204f5fc89f48c6bdb2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-f904b3a17f9ba91b23ca1e8d6d4821c4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b1eab047c83979204f5fc89f48c6bdb2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -289,7 +289,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         
         // define colors
         red: ["{\\color[RGB]{246, 87, 55}{#1}}", 1],
-        green: ["{\\color[RGB]{0, 204, 102}{#1}}", 1],
+        green: ["{\\color[RGB]{0, 204, 102}{#1}}", 1], // #00CC66
       }
     }
   };
@@ -612,6 +612,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./05_Hypothesis_Testing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hypothesis Testing and Confidence Intervals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_Multiple_Linear_Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multiple Linear Regression</span></a>
   </div>
 </li>
       </ul>
@@ -1249,8 +1255,8 @@ sample estimates:
 <p>Summary statistics:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>      n   min mean median max sd skewness kurtosis
-1 10000 -1.82 0.01  -0.16 5.6  1     0.89     3.66</code></pre>
+<pre><code>      n   min  mean median  max   sd skewness kurtosis
+1 10000 -1.99 -0.01   -0.2 5.27 1.01     0.93     3.79</code></pre>
 </div>
 </div>
 <p>💡 Note that for a positive skewed distribution, <strong>the mean is larger than the median</strong> because the long right tail pulls the mean above the median.</p>
@@ -1288,7 +1294,7 @@ sample estimates:
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>      n   min mean median  max   sd skewness kurtosis
-1 10000 -5.88    0   0.18 1.92 1.01    -0.91     3.78</code></pre>
+1 10000 -4.94    0   0.17 1.84 0.99    -0.89     3.67</code></pre>
 </div>
 </div>
 <p>💡 Note that for a negatively skewed distribution, <strong>the mean is smaller than the median</strong> because the long left tail pulls the mean above the median.</p>
@@ -1333,8 +1339,8 @@ sample estimates:
 <p>Summary statistics:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>     n    min mean median  max   sd skewness kurtosis
-1 1000 -19.96 0.02   0.05 8.14 1.71    -1.93    27.82</code></pre>
+<pre><code>     n   min  mean median  max   sd skewness kurtosis
+1 1000 -11.1 -0.09  -0.03 5.75 1.48    -0.51     8.15</code></pre>
 </div>
 </div>
 <p><strong>Understanding Fat Tails (High Kurtosis):</strong></p>
@@ -1375,8 +1381,8 @@ sample estimates:
 <p>Summary statistics:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>     n   min  mean median  max   sd skewness kurtosis
-1 1000 -1.22 -0.02  -0.03 1.23 0.58     0.02     1.93</code></pre>
+<pre><code>     n   min mean median  max   sd skewness kurtosis
+1 1000 -1.19 0.04   0.05 1.15 0.59    -0.06      1.8</code></pre>
 </div>
 </div>
 <p><strong>Understanding Thin Tails (Low Kurtosis):</strong></p>

@@ -2,8 +2,8 @@ project:
   type: website
   output-dir: docs
 
-# execute: 
-  # freeze: auto
+execute: 
+  freeze: auto
 
 website:
   title: "FIN5005 Fall 2025"
@@ -26,6 +26,7 @@ website:
           - 03_Linear_Regression.qmd
           - 04_Theoretical_Framework_LR.qmd
           - 05_Hypothesis_Testing.qmd
+          - 06_Multiple_Linear_Regression.qmd
 
 format:
   html:

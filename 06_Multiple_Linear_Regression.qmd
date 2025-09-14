@@ -2,11 +2,186 @@
 title: "Multiple Linear Regression"
 ---
 
-## F-test for Significance of the Overall Regression
+```{r setup}
+#| child: "_chunk-opt.qmd"
+#| include: false
+```
+
+The multiple regression model extends the basic concept of the simple regression model to include multiple explanatory variables. This allows us to analyze the relationship between a dependent variable and several independent variables simultaneously.
+
+A multiple regression model enables us to estimate the effect on $Y_i$ of changing a regressor $X_{1i}$ if the remaining regressors $X_{2i}, X_{3i}, \ldots, X_{ki}$ are held constant.
+
+Just like in the simple regression model, we assume the true relationship between $Y_i$ and $X_{1i}, X_{2i}, X_{3i}, \ldots, X_{ki}$ to be linear. The relation is given by the population regression function:
+
+$$
+Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 X_{3i} + \ldots + \beta_k X_{ki} + \varepsilon_i .
+$$
+
+
+Now we go back to the example of test scores of students in California schools. Recall in the simple regression model, we regression test score on expenditure per student and found statistically significant positive effect. 
+However, the R-squared (3.7%) was rather low and residuals plot shows substantial noise, indicating that there are other factors affecting test scores.
+
+💡 We can improve the model by including more explanatory variables.
+
+We expect that smaller class sizes lead to better test scores, as teachers can give more individual attention to each student.
+Therefore, we introduce class size (number of students per teacher) as an additional regressor. 
+
+
+The multiple regression model is then given by:
+
+$$
+\text{TestScore}_i = \beta_0 + \beta_1 \times \text{expenditure}_i + \beta_2 \times \text{STR} + \varepsilon_i
+$$ 
+
+where STR is the student-teacher ratio (class size).
+
+# Descriptive Analysis
+
+## Summary Statistics
+
+```{r}
+# Data Preparation
+library(tidyverse)
+
+f_name <- "https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"
+cas <- read_csv(f_name,
+    col_types = cols(
+        county = col_factor(), # read as factor
+        grades = col_factor()
+    )
+)
+cas <- cas %>%
+    mutate(
+        TestScore = (read + math) / 2,
+        STR = students / teachers
+    )
+# summary statistics
+cas %>%
+    select(TestScore, expenditure, STR) %>%
+    summary()
+```
+
+
+## Scatter Plot
+
+Scatter plot of TestScore against expenditure and STR:
+
+```{r #fig-scatter-1, fig.asp=0.4, fig.cap="Scatter plots of TestScore vs expenditure and STR", fig.width=12, echo=FALSE}
+long_format <- cas %>%
+    select(TestScore, expenditure, STR) %>%
+    pivot_longer(
+        cols = c(expenditure, STR),
+        names_to = "variable",
+        values_to = "value"
+    )
+ggplot(long_format, aes(x = value, y = TestScore)) +
+    geom_point(alpha = 0.5, color = "#1976d2") +
+    geom_smooth(method = "lm", color = "#d32f2f", se = FALSE) +
+    facet_wrap(~variable, scales = "free_x") +
+    labs(y = "Test Score") +
+    theme_bw(base_size = 14) +
+    theme(
+        axis.title.x = element_blank(),
+        strip.text = element_text(size = 16, face = "bold") # increase facet title size
+    )
+```
+
+There seems to be a negative correlation between class size (STR) and test scores, as expected. 
+
+Use `cor()` to compute the correlation matrix.
+
+```{r}
+cor(cas %>% select(TestScore, expenditure, STR)) %>% round(2)
+```
+
+
+# Run Multiple Regression
+
+We estimate the model using OLS (`lm()` function) and obtain the following results:
+
+```{r}
+model_multiple <- lm(TestScore ~ expenditure + STR, data = cas)
+summary(model_multiple)
+```
+
+## Interpretation of the Coefficients
+
+The estimated model is
+
+$$
+\widehat{\text{TestScore}} = 675.58 + 0.0025 \cdot \text{expenditure} - 1.76 \cdot \text{STR}.
+$$
+
+* **STR (–1.76):** **Holding expenditure constant**, an additional student per teacher lowers the test score on average by 1.76 points. This effect is statistically significant at the 1% level.
+* **Expenditure (0.0025):** **Holding STR constant**, a one-unit increase in expenditure is associated with an increase of 0.0025 points in the test score. This effect is very small and statistically insignificant (p-value = 0.17).
+
+
+## Compare with Simple Regression
+
+```{r model-simple, results='asis'}
+library(stargazer)
+model_simple <- lm(TestScore ~ expenditure, data = cas)
+stargazer(model_simple, model_multiple,
+    digits = 4,
+    type = "html",
+    dep.var.labels = "Test Score",
+    covariate.labels = c("Expenditure", "STR"),
+    notes = "<span>&#42;</span>: p<0.1; <span>&#42;&#42;</span>: <strong>p<0.05</strong>; <span>&#42;&#42;&#42;</span>: p<0.01 <br> Standard errors in parentheses.",
+    notes.append = F
+)
+```
+
+In the simple regression of TestScore on expenditure:
+
+$$
+\widehat{\text{TestScore}} = 623.6 + 0.0057 \times \text{expenditure},
+$$
+
+* Expenditure had a positive and statistically significant effect (p < 0.001).
+* The effect size (0.0057 vs. 0.0025) was larger than in the multiple regression.
+* The overall explanatory power was improved (Adjusted $R^2$ ≈ 0.0343 in the SLR vs. $R^2$ ≈ 0.0509 in the MLR).
+
+Thus, once STR is included, the apparent effect of expenditure becomes much smaller and loses statistical significance.
+
+___
+
+Q: Why does the effect of expenditure change when STR is included?
+
+A: Expenditure is no longer significant in the multiple regression because expenditure and STR are **correlated**. Districts that spend more on education often also have smaller class sizes ($\rho = -0.62$).
+
+In the simple regression, the positive effect of expenditure partly reflected the fact that higher spending was associated with lower STR, which itself improves test scores. Once STR is explicitly controlled for, the “true” partial effect of expenditure (holding class size constant) is close to zero.
+
+This illustrates the importance of multiple regression: it separates the effect of each regressor while holding others fixed, and it reveals that the real driver of test scores here is class size, not expenditure.
+
+
+## Regression diagnostics
+
+* **Residual Standard Error (RSE):**
+
+  * SLR: 18.72 (df = 418) → MLR: 18.56 (df = 417)
+  * The MLR has a slightly smaller RSE, meaning it predicts test scores a bit more accurately.
+
+* **Multiple $R^2$:**
+
+  * SLR: 0.037 → MLR: 0.055
+  * Adding STR increases the proportion of variation explained, though the overall fit remains modest.
+
+* **Adjusted $R^2$:**
+
+  * SLR: 0.034 → MLR: 0.051
+  * The adjusted $R^2$ also improves, showing STR provides genuine explanatory power beyond expenditure.
+
+* **F-statistic (overall significance):**
+
+  * SLR: 15.87, p < 0.001 →  MLR: 12.24, p < 0.001
+  * Both models are statistically significant overall. The MLR has a smaller F-statistic because it includes more regressors, but still clearly improves explanatory power.
+
+
+# F-test for Significance of the Overall Regression
 
 F-test is also known as the one-way analysis of variance (ANOVA) test. It tests whether the regression model as a whole is statistically significant.
 
-F-test for that all $k$ of the slope coefficients in a linear model are equal to zero, i.e., to test the exclusion of all explanatory variables except the intercept, $\beta_0$. 
+F-test for that all $k$ of the slope coefficients in a linear model are equal to zero, i.e., to test the exclusion of all explanatory variables <span class="env-orange">except the intercept</span>, $\beta_0$. 
 Formally speaking.
 $$
 \begin{aligned}
@@ -18,10 +193,27 @@ This is referred to as the <span class="env-green">F-test</span> for <span class
 
 The test statistic is given by:
 $$
-F = \left(\frac{n-K}{K-1}\right) \left(\frac{R^2}{1-R^2}\right) \sim F(k, n-k-1) .
+F = \left(\frac{n-k-1}{k}\right) \left(\frac{R^2}{1-R^2}\right) \sim F(k, n-k-1) .
 $$
 
 where $F$ is $F$-distributed with $k$ and $n-k-1$ degrees of freedom.
+
+The $F$-statistic can be rewritten as:
+
+$$
+\begin{split}
+F &= \frac{R^2/k}{(1-R^2)/(n-k-1)} = \frac{SSE/k}{SSR/(n-k-1)} \\
+&= \frac{\text{MSE}}{\text{MSR}} \\
+& = \frac{\text{\green{Explained} Variation per degree of freedom}}{\text{\green{Residual} Variation per degree of freedom}} ,
+\end{split}
+$$
+
+where
+
+- $SSE$ is the explained sum of squares (variation explained by the regression model).
+  - $MSE = SSE/k$ is the mean square due to explained variation.
+- $SSR$ is the residual sum of squares (variation not explained by the regression model).
+  - $MSR = SSR/(n-k-1)$ is the mean square due to residual variation.
 
 We reject $\text{H}_0$ if $F>F_{\alpha}(k, n-k-1)$. 
 
@@ -41,3 +233,162 @@ where $F_{\text{obs}}$ is your calculated/observed test statistic based on your 
 - The logic of the test is that the $F$ statistic is a measure of the loss of fit (namely, all of $R^2$) that results when we impose the restriction that all the slopes are zero. If $F$ is large, then the hypothesis is rejected.
 
 
+## Example: F-test for the Multiple Regression Model
+
+::: {.step-list}
+1. Null and alternative hypotheses
+    $$
+    \begin{aligned}
+    &\text{H}_0: \beta_1 = \beta_2 = 0 \\
+    &\text{H}_1: \text{At least one of the } \beta_1, \beta_2,\text{is not zero.}
+    \end{aligned}
+    $$
+    In plain language,
+    - $\text{H}_0$: Expenditure and STR have no effect on test scores.
+    - $\text{H}_1$: At least one of expenditure and STR has an effect on test scores.
+
+2. Calculate the test statistic
+   $$
+   F=\frac{(R^{2}/k)}{(1-R^{2})/(n-k-1)}
+   $$
+
+   where $k$ is the number of regressors (not counting the intercept) and $n$ is the sample size.
+
+   From the regression output, we have
+
+   - $R^{2}/k = 0.05545/2 = 0.027725.$
+   - $(1-R^{2})/(n-k-1) = (1-0.05545)/417 \approx 0.00226511$
+   
+   Hence, the $F$ statistic is
+   $$
+   F = \frac{0.027725}{0.00226511} \approx 12.24 .
+   $$
+
+3. Critical value at $\alpha=5\%$
+   
+   Degrees of freedom for the $F$ distribution are $(df_{1}, df_{2})=(k, n-k-1)=(2, 417)$. 
+
+   Referring to the [$F$-distribution table][distribution-table] to find the critical value.
+   
+   According to the $F$ table, there is no exact value for $df_2=417$, we use the value for $df_2=\infty$ as an approximation.
+
+   We use the The critical value $F_{0.95}(2, \infty) = 3.00$. The exact value is $F_{0.95}(2, 417)$ is expected to be slightly larger than $3.00$. But since our calculated $F$ statistic is much larger than $3.00$, we can safely reject the null hypothesis. It does not matter if the exact critical value is $3.01$ or $3.06$.
+
+4. Decision rule and conclusion
+   
+   Decision rule at 5 percent significance level: reject $H_{0}$ if $F>F_{\text{crit}}.$ 
+
+   Since $F_{\text{obs}}=12.24>F_{\text{crit}}=3.00$, we reject $H_{0}$ and conclude that at least one of expenditure and STR has a statistically significant effect on test scores.
+
+5. Interpretation in context
+   
+   Statistically the regression is significant overall. That means at least one of the regressors, expenditure or STR, is linearly related to test scores. From the coefficient t tests in your summary we know STR is the significant predictor while expenditure is not significant once STR is included. In plain language this suggests that class size is driving the overall significance of the model rather than expenditure.
+:::
+
+
+[distribution-table]: https://drive.google.com/file/d/1Iwec44x4N5AItbpFugbUOKHBIE10cMOw/view?usp=drive_link "distribution tables all-in-one"
+
+
+# More Alternative Model Specifications
+
+We now consider student demographics as additional regressors. We include the following variables:
+
+- `eng`: percentage of students who are English learners.
+- `lunch`: percentage of students who are eligible for free lunch.
+- `calworks`: percentage of students whose families receive aid from the California Work Opportunity and Responsibility to Kids (CalWORKs) program.
+
+Note
+
+- Students eligible for CalWorks live in families with a total income below the threshold for the subsidized lunch program so both variables are indicators for the share of **economically disadvantaged children**. 
+
+
+We consider the following models:
+
+$$
+\begin{align*}
+  (I) \quad TestScore=& \, \beta_0 + \beta_1 \times STR + u, \\
+  (II) \quad TestScore=& \, \beta_0 + \beta_1 \times STR + \beta_2 \times english + u, \\
+  (III) \quad TestScore=& \, \beta_0 + \beta_1 \times STR + \beta_2 \times english + \beta_3 \times lunch + u, \\
+  (IV) \quad TestScore=& \, \beta_0 + \beta_1 \times STR + \beta_2 \times english + \beta_4 \times calworks + u, \\
+  (V) \quad TestScore=& \, \beta_0 + \beta_1 \times STR + \beta_2 \times english + \beta_3 \times lunch + \beta_4 \times calworks + u.
+\end{align*}
+$$
+
+
+```{r alterative-models, results='asis'}
+library(sandwich) # for robust standard errors
+
+# estimate different model specifications
+spec1 <- lm(TestScore ~ STR, data = cas)
+spec2 <- lm(TestScore ~ STR + english, data = cas)
+spec3 <- lm(TestScore ~ STR + english + lunch, data = cas)
+spec4 <- lm(TestScore ~ STR + english + calworks, data = cas)
+spec5 <- lm(TestScore ~ STR + english + lunch + calworks, data = cas)
+
+# gather robust standard errors in a list
+rob_se <- list(
+    sqrt(diag(vcovHC(spec1, type = "HC1"))),
+    sqrt(diag(vcovHC(spec2, type = "HC1"))),
+    sqrt(diag(vcovHC(spec3, type = "HC1"))),
+    sqrt(diag(vcovHC(spec4, type = "HC1"))),
+    sqrt(diag(vcovHC(spec5, type = "HC1")))
+)
+
+# generate a summarizing table using stargazer
+stargazer(spec1, spec2, spec3, spec4, spec5,
+    type = "html",
+    se = rob_se,
+    digits = 3,
+    header = F,
+    notes = "<span>&#42;</span>: p<0.1; <span>&#42;&#42;</span>: <strong>p<0.05</strong>; <span>&#42;&#42;&#42;</span>: p<0.01 <br> Standard errors in parentheses.",
+    notes.append = F
+)
+```
+
+
+<span class="env-green">**Interpretations:**</span>
+
+- Adding control variables roughly halves the coefficient on **STR**.  
+- The estimate is sensitive to the set of control variables used.  
+- Conclusion: decreasing the student–teacher ratio <span class="env-green">*ceteris paribus*</span> by one unit leads to an estimated average increase in test scores of about **1 point**.  
+  
+  "Ceteris Paribus" means "all other things being equal", i.e., holding all other regressors constant.
+
+---
+
+- Adding student characteristics as controls increases  
+  - $R^{2}$ and $\bar{R}^{2}$ from **0.049 (spec (1))** up to **0.773 (spec (3) and spec (5))**.  
+  - These variables can therefore be considered suitable predictors of test scores.  
+
+---
+
+- `calworks` is not statistically significant in all models.  
+  - Example: in **spec (5)**, the coefficient on `calworks` is not significantly different from zero at the 5% level since
+    $$
+    \left|\frac{-0.048}{0.059}\right| = 0.81 < 1.64.
+    $$  
+- The effect of adding `calworks` to the base specification (spec (3)) on the coefficient of **size** and its standard error is negligible. 
+- We can therefore consider `calworks` as a **superfluous control variable**, given the inclusion of `lunch` in this model. 
+  
+  The two variables are highly correlated ($\rho = 0.74$). See @fig-scatter-2 for a scatter plot.
+  ```{r}
+  cor(cas %>% select(lunch, calworks)) %>% round(2)
+  ```
+
+
+  ```{r #fig-scatter-2, fig.cap="Scatter plots of lunch vs calworks", echo=FALSE}
+  # scatter plots, lunch vs calworks
+  cas %>%
+      ggplot(aes(x = lunch, y = calworks)) +
+      geom_point(alpha = 0.5, color = "#1976d2") +
+      geom_smooth(method = "lm", color = "#d32f2f", se = FALSE) +
+      labs(x = "lunch", y = "calworks") +
+      scale_y_continuous(limits = c(0, 50)) +
+      theme_bw(base_size = 14)
+  ```
+
+___
+
+**Ref:**
+
+- Section 7.6 Analysis of the Test Score Data Set, *Introduction to Econometrics with R*, <https://www.econometrics-with-r.org/7-6-analysis-of-the-test-score-data-set.html>
