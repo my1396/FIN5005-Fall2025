@@ -2,6 +2,18 @@
 title: "Multiple Linear Regression"
 ---
 
+
+::: {.callout-note appearance="simple" icon=false}
+**Study Objectives**
+
+- Understand the concept of multiple linear regression (MLR) and how it extends simple linear regression (SLR).
+- Perform multiple regression analysis using R and interpret the results.
+- Learn how to interpret the coefficients in a multiple regression model.
+- Understand the importance of controlling for confounding variables in regression analysis.
+- Conduct and interpret F-tests for the overall significance of a regression model.
+- Explore alternative model specifications and their implications on regression results.
+:::
+
 ```{r setup}
 #| child: "_chunk-opt.qmd"
 #| include: false
