@@ -33,7 +33,7 @@ $$
 \text{TestScore}_i = \beta_0 + \beta_1 \times \text{expenditure}_i + \beta_2 \times \text{STR} + \varepsilon_i
 $$ 
 
-where STR is the student-teacher ratio (class size).
+where $\text{STR}$ is the <span class="env-green">student-teacher ratio</span> (representing class size).
 
 # Descriptive Analysis
 
@@ -66,7 +66,7 @@ cas %>%
 
 Scatter plot of TestScore against expenditure and STR:
 
-```{r #fig-scatter-1, fig.asp=0.4, fig.cap="Scatter plots of TestScore vs expenditure and STR", fig.width=12, echo=FALSE}
+```{r #fig-scatter-1, fig.asp=0.4, fig.cap="Scatter plots of TestScore vs expenditure and STR. STR stands for students-teach ratio, proxying class size.", fig.width=12, echo=FALSE}
 long_format <- cas %>%
     select(TestScore, expenditure, STR) %>%
     pivot_longer(
@@ -210,9 +210,9 @@ $$
 
 where
 
-- $SSE$ is the explained sum of squares (variation explained by the regression model).
+- $SSE$ is the explained sum of squares (variation **explained** by the regression model).
   - $MSE = SSE/k$ is the mean square due to explained variation.
-- $SSR$ is the residual sum of squares (variation not explained by the regression model).
+- $SSR$ is the residual sum of squares (variation **not explained** by the regression model).
   - $MSR = SSR/(n-k-1)$ is the mean square due to residual variation.
 
 We reject $\text{H}_0$ if $F>F_{\alpha}(k, n-k-1)$. 
@@ -221,6 +221,7 @@ We reject $\text{H}_0$ if $F>F_{\alpha}(k, n-k-1)$.
 
 
 <img src="https://drive.google.com/thumbnail?id=1LSF9a8en1SvwZDL76SHeZ0BpDYhHbLz-&sz=w1000" alt="F distribution" style="display: block; margin-right: auto; margin-left: auto; zoom:80%;" />
+
 
 The $p$-value is found by:
 $$
@@ -236,7 +237,7 @@ where $F_{\text{obs}}$ is your calculated/observed test statistic based on your 
 ## Example: F-test for the Multiple Regression Model
 
 ::: {.step-list}
-1. Null and alternative hypotheses
+1. **Null and alternative hypotheses**
     $$
     \begin{aligned}
     &\text{H}_0: \beta_1 = \beta_2 = 0 \\
@@ -247,7 +248,7 @@ where $F_{\text{obs}}$ is your calculated/observed test statistic based on your 
     - $\text{H}_0$: Expenditure and STR have no effect on test scores.
     - $\text{H}_1$: At least one of expenditure and STR has an effect on test scores.
 
-2. Calculate the test statistic
+2. **Calculate the test statistic**
    $$
    F=\frac{(R^{2}/k)}{(1-R^{2})/(n-k-1)}
    $$
@@ -264,7 +265,7 @@ where $F_{\text{obs}}$ is your calculated/observed test statistic based on your 
    F = \frac{0.027725}{0.00226511} \approx 12.24 .
    $$
 
-3. Critical value at $\alpha=5\%$
+3. **Critical value at $\alpha=5\%$**
    
    Degrees of freedom for the $F$ distribution are $(df_{1}, df_{2})=(k, n-k-1)=(2, 417)$. 
 
@@ -274,13 +275,13 @@ where $F_{\text{obs}}$ is your calculated/observed test statistic based on your 
 
    We use the The critical value $F_{0.95}(2, \infty) = 3.00$. The exact value is $F_{0.95}(2, 417)$ is expected to be slightly larger than $3.00$. But since our calculated $F$ statistic is much larger than $3.00$, we can safely reject the null hypothesis. It does not matter if the exact critical value is $3.01$ or $3.06$.
 
-4. Decision rule and conclusion
+4. **Decision rule and conclusion**
    
    Decision rule at 5 percent significance level: reject $H_{0}$ if $F>F_{\text{crit}}.$ 
 
    Since $F_{\text{obs}}=12.24>F_{\text{crit}}=3.00$, we reject $H_{0}$ and conclude that at least one of expenditure and STR has a statistically significant effect on test scores.
 
-5. Interpretation in context
+5. **Interpretation in context**
    
    Statistically the regression is significant overall. That means at least one of the regressors, expenditure or STR, is linearly related to test scores. From the coefficient t tests in your summary we know STR is the significant predictor while expenditure is not significant once STR is included. In plain language this suggests that class size is driving the overall significance of the model rather than expenditure.
 :::
@@ -340,13 +341,15 @@ stargazer(spec1, spec2, spec3, spec4, spec5,
     se = rob_se,
     digits = 3,
     header = F,
+    column.labels = c("(I)", "(II)", "(III)", "(IV)", "(V)"),
+    model.numbers = FALSE,
     notes = "<span>&#42;</span>: p<0.1; <span>&#42;&#42;</span>: <strong>p<0.05</strong>; <span>&#42;&#42;&#42;</span>: p<0.01 <br> Standard errors in parentheses.",
     notes.append = F
 )
 ```
 
 
-<span class="env-green">**Interpretations:**</span>
+## <span class="env-green">**Interpretations**</span>
 
 - Adding control variables roughly halves the coefficient on **STR**.  
 - The estimate is sensitive to the set of control variables used.  
@@ -366,17 +369,24 @@ stargazer(spec1, spec2, spec3, spec4, spec5,
   - Example: in **spec (5)**, the coefficient on `calworks` is not significantly different from zero at the 5% level since
     $$
     \left|\frac{-0.048}{0.059}\right| = 0.81 < 1.64.
-    $$  
+    $$
+    For $df = 415$, we can safely use the normal distribution table to find the critical value for a two-sided t-test at the 5% significance level as the sample size is large ($df>30$).
+
+    Commonly used critical values under normal distribution: 
+      - <span class="env-green">1.96 for 5% significance level;</span>
+      - 1.64 for 10% significance level; and
+      - 2.58 for 1% significance level.
 - The effect of adding `calworks` to the base specification (spec (3)) on the coefficient of **size** and its standard error is negligible. 
 - We can therefore consider `calworks` as a **superfluous control variable**, given the inclusion of `lunch` in this model. 
   
   The two variables are highly correlated ($\rho = 0.74$). See @fig-scatter-2 for a scatter plot.
-  ```{r}
+  ```{r results='hold'}
+  cat("Correlation between lunch and calworks: \n\n")
   cor(cas %>% select(lunch, calworks)) %>% round(2)
   ```
 
 
-  ```{r #fig-scatter-2, fig.cap="Scatter plots of lunch vs calworks", echo=FALSE}
+  ```{r #fig-scatter-2, fig.cap="Scatter plots of `lunch` vs. `calworks`. Positive linear relationship between the two variables.", echo=FALSE}
   # scatter plots, lunch vs calworks
   cas %>%
       ggplot(aes(x = lunch, y = calworks)) +

@@ -647,7 +647,10 @@ window.Quarto = {
   <ul>
   <li><a href="#example-f-test-for-the-multiple-regression-model" id="toc-example-f-test-for-the-multiple-regression-model" class="nav-link" data-scroll-target="#example-f-test-for-the-multiple-regression-model"><span class="header-section-number">3.1</span> Example: F-test for the Multiple Regression Model</a></li>
   </ul></li>
-  <li><a href="#more-alternative-model-specifications" id="toc-more-alternative-model-specifications" class="nav-link" data-scroll-target="#more-alternative-model-specifications"><span class="header-section-number">4</span> More Alternative Model Specifications</a></li>
+  <li><a href="#more-alternative-model-specifications" id="toc-more-alternative-model-specifications" class="nav-link" data-scroll-target="#more-alternative-model-specifications"><span class="header-section-number">4</span> More Alternative Model Specifications</a>
+  <ul>
+  <li><a href="#interpretations" id="toc-interpretations" class="nav-link" data-scroll-target="#interpretations"><span class="header-section-number">4.1</span> <span class="env-green"><strong>Interpretations</strong></span></a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -690,7 +693,7 @@ Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 X_{3i} + \ldots + \bet
 <p><span class="math display">\[
 \text{TestScore}_i = \beta_0 + \beta_1 \times \text{expenditure}_i + \beta_2 \times \text{STR} + \varepsilon_i
 \]</span></p>
-<p>where STR is the student-teacher ratio (class size).</p>
+<p>where <span class="math inline">\(\text{STR}\)</span> is the <span class="env-green">student-teacher ratio</span> (representing class size).</p>
 <section id="descriptive-analysis" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Descriptive Analysis</h1>
 <section id="summary-statistics" class="level2" data-number="1.1">
@@ -737,7 +740,7 @@ Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 X_{3i} + \ldots + \bet
 <img src="06_Multiple_Linear_Regression_files/figure-html/fig-scatter-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="1152">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scatter-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Scatter plots of TestScore vs expenditure and STR
+Figure&nbsp;1: Scatter plots of TestScore vs expenditure and STR. STR stands for students-teach ratio, proxying class size.
 </figcaption>
 </figure>
 </div>
@@ -1070,11 +1073,11 @@ F &amp;= \frac{R^2/k}{(1-R^2)/(n-k-1)} = \frac{SSE/k}{SSR/(n-k-1)} \\
 \]</span></p>
 <p>where</p>
 <ul>
-<li><span class="math inline">\(SSE\)</span> is the explained sum of squares (variation explained by the regression model).
+<li><span class="math inline">\(SSE\)</span> is the explained sum of squares (variation <strong>explained</strong> by the regression model).
 <ul>
 <li><span class="math inline">\(MSE = SSE/k\)</span> is the mean square due to explained variation.</li>
 </ul></li>
-<li><span class="math inline">\(SSR\)</span> is the residual sum of squares (variation not explained by the regression model).
+<li><span class="math inline">\(SSR\)</span> is the residual sum of squares (variation <strong>not explained</strong> by the regression model).
 <ul>
 <li><span class="math inline">\(MSR = SSR/(n-k-1)\)</span> is the mean square due to residual variation.</li>
 </ul></li>
@@ -1095,7 +1098,7 @@ F &amp;= \frac{R^2/k}{(1-R^2)/(n-k-1)} = \frac{SSE/k}{SSR/(n-k-1)} \\
 <h2 data-number="3.1" class="anchored" data-anchor-id="example-f-test-for-the-multiple-regression-model"><span class="header-section-number">3.1</span> Example: F-test for the Multiple Regression Model</h2>
 <div class="step-list">
 <ol type="1">
-<li><p>Null and alternative hypotheses <span class="math display">\[
+<li><p><strong>Null and alternative hypotheses</strong> <span class="math display">\[
 \begin{aligned}
 &amp;\text{H}_0: \beta_1 = \beta_2 = 0 \\
 &amp;\text{H}_1: \text{At least one of the } \beta_1, \beta_2,\text{is not zero.}
@@ -1105,7 +1108,7 @@ F &amp;= \frac{R^2/k}{(1-R^2)/(n-k-1)} = \frac{SSE/k}{SSR/(n-k-1)} \\
 <li><span class="math inline">\(\text{H}_0\)</span>: Expenditure and STR have no effect on test scores.</li>
 <li><span class="math inline">\(\text{H}_1\)</span>: At least one of expenditure and STR has an effect on test scores.</li>
 </ul></li>
-<li><p>Calculate the test statistic <span class="math display">\[
+<li><p><strong>Calculate the test statistic</strong> <span class="math display">\[
 F=\frac{(R^{2}/k)}{(1-R^{2})/(n-k-1)}
 \]</span></p>
 <p>where <span class="math inline">\(k\)</span> is the number of regressors (not counting the intercept) and <span class="math inline">\(n\)</span> is the sample size.</p>
@@ -1117,15 +1120,15 @@ F=\frac{(R^{2}/k)}{(1-R^{2})/(n-k-1)}
 <p>Hence, the <span class="math inline">\(F\)</span> statistic is <span class="math display">\[
 F = \frac{0.027725}{0.00226511} \approx 12.24 .
 \]</span></p></li>
-<li><p>Critical value at <span class="math inline">\(\alpha=5\%\)</span></p>
+<li><p><strong>Critical value at <span class="math inline">\(\alpha=5\%\)</span></strong></p>
 <p>Degrees of freedom for the <span class="math inline">\(F\)</span> distribution are <span class="math inline">\((df_{1}, df_{2})=(k, n-k-1)=(2, 417)\)</span>.</p>
 <p>Referring to the <a href="https://drive.google.com/file/d/1Iwec44x4N5AItbpFugbUOKHBIE10cMOw/view?usp=drive_link" title="distribution tables all-in-one"><span class="math inline">\(F\)</span>-distribution table</a> to find the critical value.</p>
 <p>According to the <span class="math inline">\(F\)</span> table, there is no exact value for <span class="math inline">\(df_2=417\)</span>, we use the value for <span class="math inline">\(df_2=\infty\)</span> as an approximation.</p>
 <p>We use the The critical value <span class="math inline">\(F_{0.95}(2, \infty) = 3.00\)</span>. The exact value is <span class="math inline">\(F_{0.95}(2, 417)\)</span> is expected to be slightly larger than <span class="math inline">\(3.00\)</span>. But since our calculated <span class="math inline">\(F\)</span> statistic is much larger than <span class="math inline">\(3.00\)</span>, we can safely reject the null hypothesis. It does not matter if the exact critical value is <span class="math inline">\(3.01\)</span> or <span class="math inline">\(3.06\)</span>.</p></li>
-<li><p>Decision rule and conclusion</p>
+<li><p><strong>Decision rule and conclusion</strong></p>
 <p>Decision rule at 5 percent significance level: reject <span class="math inline">\(H_{0}\)</span> if <span class="math inline">\(F&gt;F_{\text{crit}}.\)</span></p>
 <p>Since <span class="math inline">\(F_{\text{obs}}=12.24&gt;F_{\text{crit}}=3.00\)</span>, we reject <span class="math inline">\(H_{0}\)</span> and conclude that at least one of expenditure and STR has a statistically significant effect on test scores.</p></li>
-<li><p>Interpretation in context</p>
+<li><p><strong>Interpretation in context</strong></p>
 <p>Statistically the regression is significant overall. That means at least one of the regressors, expenditure or STR, is linearly related to test scores. From the coefficient t tests in your summary we know STR is the significant predictor while expenditure is not significant once STR is included. In plain language this suggests that class size is driving the overall significance of the model rather than expenditure.</p></li>
 </ol>
 </div>
@@ -1178,9 +1181,11 @@ F = \frac{0.027725}{0.00226511} \approx 12.24 .
 <span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">se =</span> rob_se,</span>
 <span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">digits =</span> <span class="dv">3</span>,</span>
 <span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">header =</span> F,</span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">notes =</span> <span class="st">"&lt;span&gt;&amp;#42;&lt;/span&gt;: p&lt;0.1; &lt;span&gt;&amp;#42;&amp;#42;&lt;/span&gt;: &lt;strong&gt;p&lt;0.05&lt;/strong&gt;; &lt;span&gt;&amp;#42;&amp;#42;&amp;#42;&lt;/span&gt;: p&lt;0.01 &lt;br&gt; Standard errors in parentheses."</span>,</span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">notes.append =</span> F</span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">"(I)"</span>, <span class="st">"(II)"</span>, <span class="st">"(III)"</span>, <span class="st">"(IV)"</span>, <span class="st">"(V)"</span>),</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">model.numbers =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">notes =</span> <span class="st">"&lt;span&gt;&amp;#42;&lt;/span&gt;: p&lt;0.1; &lt;span&gt;&amp;#42;&amp;#42;&lt;/span&gt;: &lt;strong&gt;p&lt;0.05&lt;/strong&gt;; &lt;span&gt;&amp;#42;&amp;#42;&amp;#42;&lt;/span&gt;: p&lt;0.01 &lt;br&gt; Standard errors in parentheses."</span>,</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">notes.append =</span> F</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <table style="text-align:center">
 <tbody><tr>
 <td colspan="6" style="border-bottom: 1px solid black">
@@ -1210,19 +1215,19 @@ TestScore
 <td style="text-align:left">
 </td>
 <td>
-(1)
+(I)
 </td>
 <td>
-(2)
+(II)
 </td>
 <td>
-(3)
+(III)
 </td>
 <td>
-(4)
+(IV)
 </td>
 <td>
-(5)
+(V)
 </td>
 </tr>
 <tr>
@@ -1598,7 +1603,8 @@ F Statistic
 </tr>
 </tbody></table>
 </div>
-<p><span class="env-green"><strong>Interpretations:</strong></span></p>
+<section id="interpretations" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="interpretations"><span class="header-section-number">4.1</span> <span class="env-green"><strong>Interpretations</strong></span></h2>
 <ul>
 <li><p>Adding control variables roughly halves the coefficient on <strong>STR</strong>.<br>
 </p></li>
@@ -1620,18 +1626,26 @@ F Statistic
 <ul>
 <li><p><code>calworks</code> is not statistically significant in all models.</p>
 <ul>
-<li>Example: in <strong>spec (5)</strong>, the coefficient on <code>calworks</code> is not significantly different from zero at the 5% level since <span class="math display">\[
+<li><p>Example: in <strong>spec (5)</strong>, the coefficient on <code>calworks</code> is not significantly different from zero at the 5% level since <span class="math display">\[
 \left|\frac{-0.048}{0.059}\right| = 0.81 &lt; 1.64.
-\]</span><br>
-</li>
+\]</span> For <span class="math inline">\(df = 415\)</span>, we can safely use the normal distribution table to find the critical value for a two-sided t-test at the 5% significance level as the sample size is large (<span class="math inline">\(df&gt;30\)</span>).</p>
+<p>Commonly used critical values under normal distribution:</p>
+<ul>
+<li><span class="env-green">1.96 for 5% significance level;</span></li>
+<li>1.64 for 10% significance level; and</li>
+<li>2.58 for 1% significance level.</li>
+</ul></li>
 </ul></li>
 <li><p>The effect of adding <code>calworks</code> to the base specification (spec (3)) on the coefficient of <strong>size</strong> and its standard error is negligible.</p></li>
 <li><p>We can therefore consider <code>calworks</code> as a <strong>superfluous control variable</strong>, given the inclusion of <code>lunch</code> in this model.</p>
 <p>The two variables are highly correlated (<span class="math inline">\(\rho = 0.74\)</span>). See <a href="#fig-scatter-2" class="quarto-xref">Figure&nbsp;2</a> for a scatter plot.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(cas <span class="sc">%&gt;%</span> <span class="fu">select</span>(lunch, calworks)) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Correlation between lunch and calworks: </span><span class="sc">\n\n</span><span class="st">"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(cas <span class="sc">%&gt;%</span> <span class="fu">select</span>(lunch, calworks)) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>         lunch calworks
+<pre><code>Correlation between lunch and calworks: 
+
+         lunch calworks
 lunch     1.00     0.74
 calworks  0.74     1.00</code></pre>
 </div>
@@ -1644,7 +1658,7 @@ calworks  0.74     1.00</code></pre>
 <img src="06_Multiple_Linear_Regression_files/figure-html/fig-scatter-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scatter-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Scatter plots of lunch vs calworks
+Figure&nbsp;2: Scatter plots of <code>lunch</code> vs.&nbsp;<code>calworks</code>. Positive linear relationship between the two variables.
 </figcaption>
 </figure>
 </div>
@@ -1658,6 +1672,7 @@ Figure&nbsp;2: Scatter plots of lunch vs calworks
 </ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
