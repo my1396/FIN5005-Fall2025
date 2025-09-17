@@ -825,10 +825,11 @@ F-statistic: 12.24 on 2 and 417 DF,  p-value: 6.824e-06</code></pre>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">digits =</span> <span class="dv">4</span>,</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">type =</span> <span class="st">"html"</span>,</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">dep.var.labels =</span> <span class="st">"Test Score"</span>,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">covariate.labels =</span> <span class="fu">c</span>(<span class="st">"Expenditure"</span>, <span class="st">"STR"</span>),</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">notes =</span> <span class="st">"&lt;span&gt;&amp;#42;&lt;/span&gt;: p&lt;0.1; &lt;span&gt;&amp;#42;&amp;#42;&lt;/span&gt;: &lt;strong&gt;p&lt;0.05&lt;/strong&gt;; &lt;span&gt;&amp;#42;&amp;#42;&amp;#42;&lt;/span&gt;: p&lt;0.01 &lt;br&gt; Standard errors in parentheses."</span>,</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">notes.append =</span> F</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">"SLR"</span>, <span class="st">"MLR"</span>),</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">covariate.labels =</span> <span class="fu">c</span>(<span class="st">"Expenditure"</span>, <span class="st">"STR"</span>),</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">notes =</span> <span class="st">"&lt;span&gt;&amp;#42;&lt;/span&gt;: p&lt;0.1; &lt;span&gt;&amp;#42;&amp;#42;&lt;/span&gt;: &lt;strong&gt;p&lt;0.05&lt;/strong&gt;; &lt;span&gt;&amp;#42;&amp;#42;&amp;#42;&lt;/span&gt;: p&lt;0.01 &lt;br&gt; Standard errors in parentheses."</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">notes.append =</span> F</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <table style="text-align:center">
 <tbody><tr>
 <td colspan="3" style="border-bottom: 1px solid black">
@@ -852,6 +853,16 @@ F-statistic: 12.24 on 2 and 417 DF,  p-value: 6.824e-06</code></pre>
 </td>
 <td colspan="2">
 Test Score
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+SLR
+</td>
+<td>
+MLR
 </td>
 </tr>
 <tr>
@@ -1147,7 +1158,8 @@ F = \frac{0.027725}{0.00226511} \approx 12.24 .
 <p>Decision rule at 5 percent significance level: reject <span class="math inline">\(H_{0}\)</span> if <span class="math inline">\(F&gt;F_{\text{crit}}.\)</span></p>
 <p>Since <span class="math inline">\(F_{\text{obs}}=12.24&gt;F_{\text{crit}}=3.00\)</span>, we reject <span class="math inline">\(H_{0}\)</span> and conclude that at least one of expenditure and STR has a statistically significant effect on test scores.</p></li>
 <li><p><strong>Interpretation in context</strong></p>
-<p>Statistically the regression is significant overall. That means at least one of the regressors, expenditure or STR, is linearly related to test scores. From the coefficient t tests in your summary we know STR is the significant predictor while expenditure is not significant once STR is included. In plain language this suggests that class size is driving the overall significance of the model rather than expenditure.</p></li>
+<p>Statistically the regression is significant overall. That means at least one of the regressors, expenditure or STR, is linearly related to test scores.</p>
+<p>From the coefficient t tests in your summary we know STR is the significant predictor while expenditure is not significant once STR is included. In plain language this suggests that class size is driving the overall significance of the model rather than expenditure.</p></li>
 </ol>
 </div>
 </section>

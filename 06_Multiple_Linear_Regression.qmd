@@ -137,6 +137,7 @@ stargazer(model_simple, model_multiple,
     digits = 4,
     type = "html",
     dep.var.labels = "Test Score",
+    column.labels = c("SLR", "MLR"),
     covariate.labels = c("Expenditure", "STR"),
     notes = "<span>&#42;</span>: p<0.1; <span>&#42;&#42;</span>: <strong>p<0.05</strong>; <span>&#42;&#42;&#42;</span>: p<0.01 <br> Standard errors in parentheses.",
     notes.append = F
@@ -295,7 +296,9 @@ where $F_{\text{obs}}$ is your calculated/observed test statistic based on your 
 
 5. **Interpretation in context**
    
-   Statistically the regression is significant overall. That means at least one of the regressors, expenditure or STR, is linearly related to test scores. From the coefficient t tests in your summary we know STR is the significant predictor while expenditure is not significant once STR is included. In plain language this suggests that class size is driving the overall significance of the model rather than expenditure.
+   Statistically the regression is significant overall. That means at least one of the regressors, expenditure or STR, is linearly related to test scores. 
+
+   From the coefficient t tests in your summary we know STR is the significant predictor while expenditure is not significant once STR is included. In plain language this suggests that class size is driving the overall significance of the model rather than expenditure.
 :::
 
 
