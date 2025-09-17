@@ -383,7 +383,7 @@ stargazer(spec1, spec2, spec3, spec4, spec5,
 - `calworks` is not statistically significant in all models.  
   - Example: in **spec (5)**, the coefficient on `calworks` is not significantly different from zero at the 5% level since
     $$
-    \left|\frac{-0.048}{0.059}\right| = 0.81 < 1.64.
+    \left|\frac{-0.048}{0.059}\right| = 0.81 < 1.96.
     $$
     For $df = 415$, we can safely use the normal distribution table to find the critical value for a two-sided t-test at the 5% significance level as the sample size is large ($df>30$).
 
