@@ -3,6 +3,7 @@
 .Rhistory
 .RData
 .Ruserdata
+*.pdf
 
 # ignore output
 /.quarto/
@@ -14,6 +15,7 @@
 /_quiz/
 /_lab/
 /latex/
+/data/cps09mar.csv
 
 # auto generated system files
 .DS_Store

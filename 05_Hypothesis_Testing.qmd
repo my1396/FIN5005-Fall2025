@@ -102,7 +102,7 @@ Here is the hypothesis test step by step for the expenditure coefficient in the 
    - Reject $H_0$ if $|t|>1.96$. 
    - Fail to reject $H_0$ if $|t|\leq 1.96$.
    
-   Since $3.984>1.97$, reject $H_0$.
+   Since $3.984>1.96$, we reject $H_0$ and conclude that $\beta_{\text{exp}}$ is statistically significantly different from zero.
 
 5. Interpretation in context
    
