@@ -33,6 +33,7 @@ format:
     include-in-header: 
       - file: themes/mathjax.html       # MathJax for LaTeX custom macro support
       - file: themes/common-header.html # load js scripts and external css (e.g., font-awesome) for all pages
+    from: markdown+tex_math_single_backslash
     respect-user-color-scheme: true
     theme:
       light: [cosmo, themes/custom-light.scss]
@@ -41,7 +42,6 @@ format:
     toc-depth: 4
     number-sections: true
     number-depth: 3
-    from: markdown+tex_math_single_backslash
 
 
 
