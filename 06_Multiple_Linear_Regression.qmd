@@ -4,7 +4,7 @@ title: "Multiple Linear Regression"
 
 
 ::: {.callout-note appearance="simple" icon=false}
-**Study Objectives**
+🎯 **Study Objectives**
 
 - Understand the concept of multiple linear regression (MLR) and how it extends simple linear regression (SLR).
 - Perform multiple regression analysis using R and interpret the results.

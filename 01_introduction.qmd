@@ -3,7 +3,7 @@ title: "Probability and Data in Business Analytics"
 ---
 
 ::: {.callout-note appearance="simple" icon=false}
-**Study Objectives**
+🎯 **Study Objectives**
 
 - Apply probability rules to real business events.
 - Distinguish clearly between population parameters and sample estimators.

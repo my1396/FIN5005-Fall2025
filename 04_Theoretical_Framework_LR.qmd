@@ -3,7 +3,7 @@ title: "Theoretical Framework of Linear Regression"
 ---
 
 ::: {.callout-note appearance="simple" icon=false}
-**Study Objectives**
+🎯 **Study Objectives**
 
 - Understand the key assumptions underlying the linear regression model.
 - Understand the theoretical framework of linear regression, including the OLS estimator, its properties, and its distribution.

@@ -3,7 +3,7 @@ title: "Data Visualization"
 ---
 
 ::: {.callout-note appearance="simple" icon=false}
-**Study Objectives**
+🎯 **Study Objectives**
 
 - Loads and prepares the California school dataset (CASchools) for analysis.
   - Demonstrates how to visualize data using scatter plots, line charts, histograms, box plots.
