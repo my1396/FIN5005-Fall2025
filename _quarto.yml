@@ -27,7 +27,10 @@ website:
           - 04_Theoretical_Framework_LR.qmd
           - 05_Hypothesis_Testing.qmd
           - 06_Multiple_Linear_Regression.qmd
-          - 07_Lab-2_MLR.ipynb
+          - 07_Lab-2_dummy-variable.ipynb
+
+filters:
+  - filters/color-text.lua
 
 format:
   html:
