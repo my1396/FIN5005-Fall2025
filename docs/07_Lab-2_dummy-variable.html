@@ -693,13 +693,13 @@ window.Quarto = {
 <section id="instructions" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">1</span> Instructions</h2>
 <p>Copy and paste <strong>ALL code</strong> in this page into a new R script file in RStudio. Save the file as <code>lab2_binary_variables.R</code> (we call it a script). Then, run the code step by step, answering the questions.</p>
+<p>Alternatively, use <a href="https://colab.research.google.com/drive/1EcWkJfhHJOhDEHXaZgu3_f66pnlEum5R?usp=share_link">Google Colab</a>.</p>
 <div id="8cf1cd7a" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages and dataset</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"moments"</span>, <span class="st">"data.table"</span>, <span class="st">"ggsci"</span>, <span class="st">"stargazer"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>missing <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(pkgs, <span class="fu">rownames</span>(<span class="fu">installed.packages</span>()))</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(missing) <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="fu">install.packages</span>(missing)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">lapply</span>(pkgs, <span class="cf">function</span>(pkg) <span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(pkg, <span class="at">character.only =</span> <span class="cn">TRUE</span>))))</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">knitr.kable.NA =</span> <span class="st">""</span>) <span class="co"># to avoid printing NA in kable</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">lapply</span>(pkgs, <span class="cf">function</span>(pkg) <span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(pkg, <span class="at">character.only =</span> <span class="cn">TRUE</span>))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="load-data-into-working-directory" class="level2" data-number="2">
@@ -854,7 +854,7 @@ TestScore_i = \beta_0 + \beta_1 D_i + u_i.
 <li><span class="math inline">\(E(Y_i | D_i = 1) = \beta_0 + \beta_1\)</span>, or <span class="math inline">\(\beta_1 = E(Y_i | D_i = 1) - E(Y_i | D_i = 0).\)</span> Thus, <span class="math inline">\(\beta_1\)</span> is the difference in group-specific expectations, i.e., the difference in expected test score between districts with <span class="math inline">\(STR&lt;20\)</span> and those with <span class="math inline">\(STR \geq 20.\)</span></li>
 </ul>
 <p>We now estimate the dummary regression model as defined by Equations (<a href="#eq-binary-regression" class="quarto-xref">1</a>) and (<a href="#eq-dummy-variable" class="quarto-xref">2</a>).</p>
-<div id="d4b324d5" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-results="hide" data-execution_count="24">
+<div id="d4b324d5" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;r&quot;}}" data-results="hide">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dummy_model_slr <span class="ot">&lt;-</span> <span class="fu">lm</span>(TestScore <span class="sc">~</span> D, <span class="at">data =</span> cas)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(dummy_model_slr, <span class="at">type =</span> <span class="st">"text"</span>, <span class="at">title =</span> <span class="st">"Dummy Variable Regression Results"</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
