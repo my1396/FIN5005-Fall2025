@@ -93,7 +93,7 @@ If you want to learn in-depth, you can refer to the following textbooks and reso
 
 **Compud Assessment**
 
-❗️ In case of any discrepancies between the dates listed on the course website and StudentWeb, <span class="env-green">**use the dates on StudentWeb as the reference.**</span>
+❗️ In case of any discrepancies between the dates listed on the course website and StudentWeb, <span class="env-green">**use the dates on <u>StudentWeb</u> as the reference.**</span>
 
 - Oppgave (home assignment): 40%
   
