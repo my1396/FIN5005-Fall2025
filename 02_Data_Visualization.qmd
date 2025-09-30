@@ -490,7 +490,7 @@ Kurtosis measures the "tailedness" of a distribution compared to a normal distri
 
 This plot shows a t-distribution with $3$ degrees of freedom, which has heavier tails than a normal distribution.
 ```{r echo = FALSE}
-sim_data <-  rt(n=1000, df=3)
+sim_data <- rt(n=1000, df=3)
 ```
 
 ```{r echo = FALSE, message=FALSE, warning=FALSE}
@@ -539,7 +539,7 @@ quick_summary(sim_data) %>% round(2)
 This example shows a distribution with lighter tails than normal.
 
 ```{r  echo = FALSE}
-sim_data <-  rnorm(n=1000, mean=0, sd=0.1) + runif(1000, -1, 1)
+sim_data <- rnorm(n=1000, mean=0, sd=0.1) + runif(1000, -1, 1)
 ```
 
 ```{r echo = FALSE, message=FALSE}
