@@ -29,9 +29,6 @@ website:
           - 06_Multiple_Linear_Regression.qmd
           - 07_Lab-2_dummy-variable.ipynb
 
-filters:
-  - filters/color-text.lua
-
 format:
   html:
     include-in-header: 
@@ -47,8 +44,5 @@ format:
     number-sections: true
     number-depth: 3
 
-knitr:
-  opts_chunk: 
-    R.options:
-      knitr.kable.NA = ''
+
 
