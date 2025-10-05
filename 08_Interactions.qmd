@@ -1,12 +1,22 @@
 ---
-title: "Interactions"
+title: "Interactions of Binary Variables"
 ---
+
+::: {.callout-note appearance="simple" icon=false}
+🎯 **Study Objectives**
+
+- Interpret interaction terms of two binary variables in regression models.
+- Understand the importance of controlling for changes in interacting variables when interpreting coefficients.
+- Conduct and interpret a two-way ANOVA to compare nested regression models.
+- Interpret interaction terms between a binary variable and a continuous variable in regression models.
+- Visualize interaction effects using regression lines.
+:::
 
 For the course of this section, you will work with `Boston`, the Boston Housing data set which contains 506 observations on housing values in suburbs of Boston.
 
 ```{r}
 # load packages and dataset
-pkgs <- c("tidyverse", "MASS", "data.table", "stargazer")
+pkgs <- c("tidyverse", "MASS", "data.table", "stargazer", "cowplot")
 missing <- setdiff(pkgs, rownames(installed.packages()))
 if (length(missing) > 0) install.packages(missing)
 invisible(lapply(pkgs, function(pkg) suppressPackageStartupMessages(library(pkg, character.only = TRUE))))
@@ -21,16 +31,18 @@ Here are some variables in the dataset which we are going to use in this session
 | --------- | ------------------------------------------------------------ |
 | `medv`    | median value of owner-occupied homes in \$1000s.             |
 | `lstat`   | the percentage of individuals with low socioeconomic status  |
-| `indus`   | proportion of non-retail business acres per town.            |
+| `indus`   | proportion of non-retail business acres per town; industrial, office, or commercial land not directly serving consumers.            |
 | `age`     | proportion of owner-occupied units built prior to 1940.      |
 | `crim`    | per capita crime rate by town.                               |
 | `chas`    | A dummy variable. Takes the value 1 if the Charles River (a short river in the proximity of Boston) passes through the suburb and is 0 otherwise. |
+
+## Interactions of Two Binary Variables
 
 Consider the following regression model
 
 $$
 medv_i = \beta_0 + \beta_1\, chas_i + \beta_2\, old_i + \beta_3\, (chas_i \times old_i) + u_i
-$$
+$$ {#eq-binary-interaction}
 
 where $chas_i$ and $old_i$ are dummy variables defined as follows:
 
@@ -57,8 +69,8 @@ where $agi_i$ being the proportion of owner-occupied units built prior to 1940.
 
 ```{r}
 Boston <- Boston %>%
-  mutate(old = ifelse(age >= 95, 1, 0))
-mod_bb <- lm(medv ~ chas * old, data = Boston)
+    mutate(old = ifelse(age >= 95, 1, 0))
+mod_bb <- lm(medv ~ chas*old, data = Boston)
 summary(mod_bb)
 ```
 
@@ -74,45 +86,220 @@ We start with listing all possible combinations of the binary variables $chas_i$
 
 | Scenario | $chas_i$ | $old_i$ | Interpretation                                      |
 | --- | -------- | ------- | --------------------------------------------------- |
-| 1 | 0        | 0       | Suburb not next to Charles River and new |
-| 2 | 0        | 1       | Suburb not next to Charles River and old |
-| 3 | 1        | 0       | Suburb next to Charles River and new     |
-| 4 | 1        | 1       | Suburb next to Charles River and old     |
+| **1** | 0        | 0       | Suburb not next to Charles River and new |
+| **2** | 0        | 1       | Suburb not next to Charles River and old |
+| **3** | 1        | 0       | Suburb next to Charles River and new     |
+| **4** | 1        | 1       | Suburb next to Charles River and old     |
 
 
 Based on the estimated regression model, we can compute the expected value of `medv` for each of the four groups.
 
 | Scenario | $chas_i$ | $old_i$ | $chas_i \times old_i$ | Expected value of `medv`                                                                 |
 |:--------:|:--------:|:-------:|:---------------------:|:-----------------------------------------------------------------------------------------|
-|    1     |    0     |    0    |          0            | $\hat{\beta}_0 = 23.70$                                                                  |
-|    2     |    0     |    1    |          0            | $\hat{\beta}_0 + \hat{\beta}_2 = 23.70 - 7.13 = 16.57$                                   |
-|    3     |    1     |    0    |          0            | $\hat{\beta}_0 + \hat{\beta}_1 = 23.70 + 4.06 = 27.76$                                   |
-|    4     |    1     |    1    |          1            | $\hat{\beta}_0 + \hat{\beta}_1 + \hat{\beta}_2 + \hat{\beta}_3 = 23.70 + 4.06 - 7.13 - 10.55 = 10.08$ |
+|  **1**   |    0     |    0    |          0            | $\color{#0099FF}{\hat{\beta}_0} = 23.70$                                                                  |
+|  **2**   |    0     |    1    |          0            | ${\color{#0099FF}\hat{\beta}_0} + {\color{#00CC66}\hat{\beta}_2} = {\color{#0099FF}23.70} + {\color{#00CC66}(- 7.13)} = 16.57$                |
+|  **3**   |    1     |    0    |          0            | ${\color{#0099FF}\hat{\beta}_0} + {\color{#fb5b89}\hat{\beta}_1} = {\color{#0099FF}23.70} + {\color{#fb5b89}4.06} = 27.76$                  |
+|  **4**   |    1     |    1    |          1            | ${\color{#0099FF}\hat{\beta}_0} + {\color{#fb5b89}\hat{\beta}_1} + {\color{#00CC66}\hat{\beta}_2} + {\color{orange}\hat{\beta}_3} = {\color{#0099FF}23.70} + {\color{#fb5b89}4.06} + {\color{#00CC66}(-7.13)} + {\color{orange}(-10.55)} = 10.08$ |
 
 
 From the table above, we can interpret the coefficients as follows:
 
-- $\hat{\beta}_0 = 23.70$ is the expected value of `medv` for suburbs that are not next to the Charles River and are new (i.e., `old = 0`).
+- $\color{#0099FF}{\hat{\beta}_0} = 23.70$ is the expected value of `medv` for suburbs that are not next to the Charles River and are new (i.e., `old = 0`).
 
-- Comparing scenario 2 with 1: $\hat{\beta}_2 = -7.13$ is the difference in expected value of `medv` between new and old suburbs that are **NOT next to the Charles River**. 
+- Comparing scenario 2 with 1: $\color{#00CC66}{\hat{\beta}_2} = -7.13$ is the difference in expected value of `medv` between new and old suburbs that are **NOT next to the Charles River**. 
   
   In other words, old suburbs that are not next to the Charles River have an expected `medv` that is 7.13 lower than new suburbs that are **NOT next to the Charles River**.
 
-- Comparing scenario 3 with 1: $\hat{\beta}_1 = 4.06$ is the difference in expected value of `medv` between suburbs that are next to the Charles River and those that are not, among **new** suburbs (i.e., `old = 0`). 
+- Comparing scenario 3 with 1: $\color{#fb5b89}{\hat{\beta}_1} = 4.06$ is the difference in expected value of `medv` between suburbs that are next to the Charles River and those that are not, among **new** suburbs (i.e., `old = 0`). 
   
   In other words, **new** suburbs that are next to the Charles River have an expected `medv` that is 4.06 higher than new suburbs that are not next to the Charles River.
 
-- $\hat{\beta}_3 = -10.55$ has two interpretations:
-  - If we compare scenario 4 with scenario 2, the difference in expected value of `medv` is given by $\hat{\beta}_1 + \hat{\beta}_3 = 4.06 - 10.55 = -6.49.$ 
+- $\color{orange}{\hat{\beta}_3} = -10.55$ has two interpretations:
+  - If we compare scenario 4 with scenario 2, the difference in expected value of `medv` is given by ${\color{#fb5b89}\hat{\beta}_1} + {\color{orange}\hat{\beta}_3} = 4.06 - 10.55 = -6.49.$ 
     
     This means that **old** suburbs that are next to the Charles River have an expected `medv` that is 6.49 lower than **old** suburbs that are not next to the Charles River. 
 
-    → $\beta_3$ can be interpreted as the difference in the effect of being next to the Charles River between old and new suburbs.
+    → $\color{orange}{\hat{\beta}_3}$ can be interpreted as the difference in the effect of being next to the Charles River between old and new suburbs.
 
-  - If we compare scenario 4 with scenario 3, the difference in expected value of `medv` is given by $\hat{\beta}_2 + \hat{\beta}_3 = -7.13 - 10.55 = -17.68.$
+  - If we compare scenario 4 with scenario 3, the difference in expected value of `medv` is given by ${\color{#00CC66}\hat{\beta}_2} + {\color{orange}\hat{\beta}_3} = -7.13 - 10.55 = -17.68.$
     
     This means that old suburbs that are **next to the Charles River** have an expected `medv` that is 17.68 lower than new suburbs that are **next to the Charles River**.
 
-    → $\beta_3$ can be interpreted as the difference in the effect of being old between suburbs that are next to the Charles River and those that are not.
+    → $\color{orange}{\hat{\beta}_3}$ can be interpreted as the difference in the effect of being old between suburbs that are next to the Charles River and those that are not.
 
 
+:::{.callout-tip}
+<span class="env-green">**Controlling for changes in the interacting variables**</span> is essential when interpreting the coefficient of interaction terms. 
+
+A common approach is to substitute specific values for the interacting variables and compute the expected value of the dependent variable under different scenarios. This allows for a clearer interpretation of the coefficients by comparing how the expected value of the dependent variable varies across these scenarios.
+:::
+
+### Add More Controls Variables
+
+We can also add more control variables to @eq-binary-interaction to improve the model fit (Adjusted $R^2 = 12\%$ as of now). For example, we can add `lstat` and `crim` as additional control variables.
+
+$$
+medv_i = \beta_0 + \beta_1\, chas_i + \beta_2\, old_i + \beta_3\, (chas_i \times old_i) + \beta_4\, lstat_i + \beta_5\, crim_i + u_i
+$$ {#eq-binary-interaction-more-controls}
+
+We estimate the above regression model as follows.
+
+```{r}
+mod_bb2 <- lm(medv ~ chas*old + lstat + crim, data = Boston)
+stargazer(mod_bb, mod_bb2, type="text", 
+    column.labels = c("Restricted", "Unrestricted"))
+```
+
+
+**Comparing the two models:**
+
+- The coefficient of `old` reversed signs, from negative ($-7.13$) to positive ($1.75$), suggesting that after accounting for crime and low socioeconomic status, older suburbs have slightly higher values.
+- Negative coefficients for `lstat` ($-0.95$) and `crim` ($-0.079$) indicate that higher poverty and crime reduce house values.
+
+
+Plot `lstat` and `crim` group by `old` to see how the distribution of these two variables differ between new and old suburbs.
+
+```{r}
+p1 <- ggplot(Boston, aes(x = factor(old), y = lstat)) +
+    geom_boxplot(fill = "lightblue")
+p2 <- ggplot(Boston, aes(x = factor(old), y = crim)) +
+    geom_boxplot(fill = "lightblue")
+plot_grid(p1, p2, labels = c("A", "B"), ncol = 2)
+```
+
+We see that old suburbs tend to have higher `lstat` and `crim` values compared to new suburbs. This suggests that controlling for these variables is important when examining the relationship between `medv`, `chas`, and `old`.
+
+### Two-Way ANOVA Mathematical Formulation
+
+We now conduct a two-way ANOVA to formally compare the two models `mod_bb` and `mod_bb2`.
+
+```{r}
+anova(mod_bb, mod_bb2)
+```
+
+::: {.step-list}
+1. State the null and alternative hypotheses.
+   $$
+   \begin{aligned}
+   H_0 &: \beta_4 = 0 \text{ and } \beta_5 = 0 \\
+   H_1 &: \beta_4 = 0 \text{ or } \beta_5 = 0
+   \end{aligned}
+   $$
+   
+   In plain language:
+   - $H_0$: The additional variables `lstat` and `crim` do not improve the model fit.
+   - $H_a$: At least one of the additional variables `lstat` or `crim` improves the model fit.
+
+2. Calculate the F-statistic.
+   
+   The F-statistic is based on the $R^2$ of the two regressions:
+   $$
+   F = \left(\frac{n - k_U -1}{p}\right) \left(\frac{R_U^2-R_R^2}{1-R_U^2}\right) \sim F(p, n-k_U-1) .
+   $$
+   
+   where
+   - $n = 506$ is the number of observations;
+   - $k_U = 5$ is the number of predictors in the unrestricted model (where $H_1$ is allowed to be true), excluding the intercept;
+   - $p = 2$ is the number of restrictions (i.e., the number of additional variables in the unrestricted model);
+   - $R_U^2 = 0.574$ is the $R^2$ of the unrestricted model;
+   - $R_R^2 = 0.130$ is the $R^2$ of the restricted model.
+
+   Plug in the numbers, we get
+   $$
+   F = \left(\frac{506-5-1}{2}\right) \left(\frac{0.574-0.130}{1-0.574}\right) = 260.56
+   $$
+
+3. Find the critical value
+   
+   The F-statistic follows an $F(2, 502)$ distribution under the null hypothesis. At 5% significance level, we use the the critical value $F_{2,\infty}=3.00.$
+
+4. Decision rule.
+   
+   Since the calculated F-statistic ($260.56$) is much larger than the critical value ($3.00$), we reject the null hypothesis.
+   
+   This suggests that at least one of `lstat` and `crim` significantly improves the model fit.
+5. Conclusion.
+   
+   We conclude that model (2) with additional control variables `lstat` and `crim` provides a significantly better fit to the data compared to model (1) without these controls.
+:::
+
+
+
+
+## Interactions of a Binary Variable and a Continuous Variable
+
+An interaction between a binary variable and a continuous variable shows how the effect of the continuous variable changes depending on the group. This helps us see differences that a simple line wouldn’t capture. For example, the effect of business area on house prices might be different in new versus old suburbs.
+
+Now consider the regression model
+
+$$
+medv_i = \beta_0 + \beta_1 \times indus_i + \beta_2 \times old_i + \beta_3 \times (indus_i\cdot old_i) + u_i
+$$
+
+where $indus_i$ being the proportion of non-retail business acres in suburb $i$; $old_i$ is the same binary variable as defined above, indicating if the suburb is new.
+
+**Instructions:**
+
+- Estimate the above regression model and assign the result to `mod_bc`.
+- What is the relationship between `medv` and `indus` for new suburbs? What about old suburbs?
+- Is the effect of `indus` on `medv` statistically different between new and old suburbs? 
+- Plot `medv` against `indus` and add the regression lines for both states of the binary variable `old`.
+
+```{r}
+mod_bc <- lm(medv ~ indus * old, data = Boston)
+summary(mod_bc)
+```
+
+The estimated regression model is given by
+
+$$
+\widehat{medv}_i = 30.06 - 0.66 \times indus_i - 7.48 \times old_i + 0.37 \times (indus_i \cdot old_i)
+$$
+
+<span class="env-green">**Interpretation of the coefficients**</span>
+
+- For new suburbs (i.e., `old = 0`), the relationship between `medv` and `indus` is given by
+
+  $$
+  E(medv_i | old_i = 0) = \hat{\beta}_0 + \hat{\beta}_1 \times indus_i = 30.06 - 0.66 \times indus_i
+  $$
+
+  Thus, for new suburbs, a one-unit increase in `indus` is associated with a decrease in the expected value of `medv` by 0.66.
+
+- For old suburbs (i.e., `old = 1`), the relationship between `medv` and `indus` is given by
+  
+  $$
+  \begin{split}
+  E(medv_i | old_i = 1) &= (\hat{\beta}_0 + \hat{\beta}_2) + (\hat{\beta}_1 + \hat{\beta}_3) \times indus_i \\
+  &= (30.06 - 7.48) + (-0.66 + 0.37) \times indus_i \\
+  &= 22.58 - 0.29 \times indus_i
+  \end{split}
+  $$
+
+  Thus, for old suburbs, a one-unit increase in `indus` is associated with a decrease in the expected value of `medv` by 0.29. The negative effect is smaller in old suburbs due to the positive interaction term ($\hat{\beta}_3 = 0.37$).
+
+- The effect of `indus` on `medv` is statistically different between new and old suburbs at 5% significance level given that the coefficient of the interaction term ($\hat{\beta}_3$) is statistically significant.
+
+**Visualization**
+
+Now we plot `medv` against `indus` with regression lines for both states of the binary variable `old`.
+
+```{r}
+ggplot(Boston, aes(x = indus, y = medv, color = factor(old))) +
+    geom_point(alpha = 0.6) +
+    geom_smooth(method = "lm", formula = y ~ x, se = FALSE) +
+    labs(
+        x = "Proportion of Non-Retail Business Acres (indus)",
+        y = "Median Home Value (medv)",
+        color = "Old Suburb (old)"
+    ) +
+    scale_color_manual(values = c("0" = "blue", "1" = "red"), labels = c("New Suburb", "Old Suburb")) +
+    theme_minimal(base_size = 14) +
+    theme(
+        legend.title = element_blank(),
+        legend.text = element_text(size = 14),
+        legend.position = c(0.8, 0.9)
+    )
+```
+
+We see that the slope of the regression line for new suburbs (blue) is steeper than that for old suburbs (red), indicating a stronger negative relationship between `medv` and `indus` in new suburbs compared to old suburbs. This visual representation aligns with our earlier interpretation of the regression coefficients.

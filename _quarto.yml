@@ -28,6 +28,7 @@ website:
           - 05_Hypothesis_Testing.qmd
           - 06_Multiple_Linear_Regression.qmd
           - 07_Lab-2_dummy-variable.ipynb
+          - 08_Interactions.qmd
 
 filters:
   - filters/color-text.lua

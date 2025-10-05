@@ -628,6 +628,12 @@ window.Quarto = {
  <span class="menu-text">Lab 2: Regression with Dummy Variables</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08_Interactions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interactions of Binary Variables</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -1264,7 +1270,7 @@ sample estimates:
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>      n   min mean median  max sd skewness kurtosis
-1 10000 -2.03 0.01  -0.17 4.51  1     0.84     3.51</code></pre>
+1 10000 -1.89    0   -0.2 5.34  1     0.89     3.63</code></pre>
 </div>
 </div>
 <p>💡 Note that for a positive skewed distribution, <strong>the mean is larger than the median</strong> because the long right tail pulls the mean above the median.</p>
@@ -1301,8 +1307,8 @@ sample estimates:
 <p>Summary statistics:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>      n   min mean median  max   sd skewness kurtosis
-1 10000 -4.93    0   0.17 1.87 0.99    -0.86     3.56</code></pre>
+<pre><code>      n   min  mean median  max   sd skewness kurtosis
+1 10000 -5.16 -0.03   0.16 1.98 1.02    -0.85     3.47</code></pre>
 </div>
 </div>
 <p>💡 Note that for a negatively skewed distribution, <strong>the mean is smaller than the median</strong> because the long left tail pulls the mean above the median.</p>
@@ -1347,8 +1353,8 @@ sample estimates:
 <p>Summary statistics:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>     n    min mean median   max   sd skewness kurtosis
-1 1000 -10.03 0.02   0.01 15.81 1.69     1.23    17.36</code></pre>
+<pre><code>     n   min  mean median  max   sd skewness kurtosis
+1 1000 -6.17 -0.02  -0.01 8.61 1.44     0.13     6.33</code></pre>
 </div>
 </div>
 <p><strong>Understanding Fat Tails (High Kurtosis):</strong></p>
@@ -1389,8 +1395,8 @@ sample estimates:
 <p>Summary statistics:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>     n  min  mean median  max   sd skewness kurtosis
-1 1000 -1.2 -0.02  -0.01 1.17 0.58     0.02     1.88</code></pre>
+<pre><code>     n   min  mean median  max   sd skewness kurtosis
+1 1000 -1.17 -0.01      0 1.09 0.58    -0.02      1.8</code></pre>
 </div>
 </div>
 <p><strong>Understanding Thin Tails (Low Kurtosis):</strong></p>

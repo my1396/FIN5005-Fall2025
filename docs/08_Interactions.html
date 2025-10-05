@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Interactions – FIN5005 Fall 2025</title>
+<title>Interactions of Binary Variables – FIN5005 Fall 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -545,7 +545,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Interactions</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_introduction.html">Basics</a></li><li class="breadcrumb-item"><a href="./08_Interactions.html">Interactions of Binary Variables</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -628,6 +628,12 @@ window.Quarto = {
  <span class="menu-text">Lab 2: Regression with Dummy Variables</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08_Interactions.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Interactions of Binary Variables</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -635,16 +641,27 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#interactions-of-two-binary-variables" id="toc-interactions-of-two-binary-variables" class="nav-link active" data-scroll-target="#interactions-of-two-binary-variables"><span class="header-section-number">1</span> Interactions of Two Binary Variables</a>
+  <ul>
+  <li><a href="#add-more-controls-variables" id="toc-add-more-controls-variables" class="nav-link" data-scroll-target="#add-more-controls-variables"><span class="header-section-number">1.1</span> Add More Controls Variables</a></li>
+  <li><a href="#two-way-anova-mathematical-formulation" id="toc-two-way-anova-mathematical-formulation" class="nav-link" data-scroll-target="#two-way-anova-mathematical-formulation"><span class="header-section-number">1.2</span> Two-Way ANOVA Mathematical Formulation</a></li>
+  </ul></li>
+  <li><a href="#interactions-of-a-binary-variable-and-a-continuous-variable" id="toc-interactions-of-a-binary-variable-and-a-continuous-variable" class="nav-link" data-scroll-target="#interactions-of-a-binary-variable-and-a-continuous-variable"><span class="header-section-number">2</span> Interactions of a Binary Variable and a Continuous Variable</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_introduction.html">Basics</a></li><li class="breadcrumb-item"><a href="./08_Interactions.html">Interactions of Binary Variables</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Interactions</h1>
+<h1 class="title">Interactions of Binary Variables</h1>
 </div>
 
 
@@ -661,10 +678,27 @@ window.Quarto = {
 </header>
 
 
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>🎯 <strong>Study Objectives</strong></p>
+<ul>
+<li>Interpret interaction terms of two binary variables in regression models.</li>
+<li>Understand the importance of controlling for changes in interacting variables when interpreting coefficients.</li>
+<li>Conduct and interpret a two-way ANOVA to compare nested regression models.</li>
+<li>Interpret interaction terms between a binary variable and a continuous variable in regression models.</li>
+<li>Visualize interaction effects using regression lines.</li>
+</ul>
+</div>
+</div>
+</div>
 <p>For the course of this section, you will work with&nbsp;<code>Boston</code>, the Boston Housing data set which contains 506 observations on housing values in suburbs of Boston.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages and dataset</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"MASS"</span>, <span class="st">"data.table"</span>, <span class="st">"stargazer"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"MASS"</span>, <span class="st">"data.table"</span>, <span class="st">"stargazer"</span>, <span class="st">"cowplot"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>missing <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(pkgs, <span class="fu">rownames</span>(<span class="fu">installed.packages</span>()))</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(missing) <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="fu">install.packages</span>(missing)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">lapply</span>(pkgs, <span class="cf">function</span>(pkg) <span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(pkg, <span class="at">character.only =</span> <span class="cn">TRUE</span>))))</span>
@@ -694,7 +728,7 @@ window.Quarto = {
 </tr>
 <tr class="odd">
 <td><code>indus</code></td>
-<td>proportion of non-retail business acres per town.</td>
+<td>proportion of non-retail business acres per town; industrial, office, or commercial land not directly serving consumers.</td>
 </tr>
 <tr class="even">
 <td><code>age</code></td>
@@ -710,10 +744,12 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+<section id="interactions-of-two-binary-variables" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="interactions-of-two-binary-variables"><span class="header-section-number">1</span> Interactions of Two Binary Variables</h2>
 <p>Consider the following regression model</p>
-<p><span class="math display">\[
+<p><span id="eq-binary-interaction"><span class="math display">\[
 medv_i = \beta_0 + \beta_1\, chas_i + \beta_2\, old_i + \beta_3\, (chas_i \times old_i) + u_i
-\]</span></p>
+\tag{1}\]</span></span></p>
 <p>where <span class="math inline">\(chas_i\)</span> and <span class="math inline">\(old_i\)</span> are dummy variables defined as follows:</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -736,8 +772,8 @@ old_i &amp;= \begin{cases}
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Boston <span class="ot">&lt;-</span> Boston <span class="sc">%&gt;%</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">old =</span> <span class="fu">ifelse</span>(age <span class="sc">&gt;=</span> <span class="dv">95</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>mod_bb <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> chas <span class="sc">*</span> old, <span class="at">data =</span> Boston)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">old =</span> <span class="fu">ifelse</span>(age <span class="sc">&gt;=</span> <span class="dv">95</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>mod_bb <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> chas<span class="sc">*</span>old, <span class="at">data =</span> Boston)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_bb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -785,25 +821,25 @@ F-statistic: 25.02 on 3 and 502 DF,  p-value: 4.244e-15</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td>1</td>
+<td><strong>1</strong></td>
 <td>0</td>
 <td>0</td>
 <td>Suburb not next to Charles River and new</td>
 </tr>
 <tr class="even">
-<td>2</td>
+<td><strong>2</strong></td>
 <td>0</td>
 <td>1</td>
 <td>Suburb not next to Charles River and old</td>
 </tr>
 <tr class="odd">
-<td>3</td>
+<td><strong>3</strong></td>
 <td>1</td>
 <td>0</td>
 <td>Suburb next to Charles River and new</td>
 </tr>
 <tr class="even">
-<td>4</td>
+<td><strong>4</strong></td>
 <td>1</td>
 <td>1</td>
 <td>Suburb next to Charles River and old</td>
@@ -830,54 +866,285 @@ F-statistic: 25.02 on 3 and 502 DF,  p-value: 4.244e-15</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
-<td style="text-align: left;"><span class="math inline">\(\hat{\beta}_0 = 23.70\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\color{#0099FF}{\hat{\beta}_0} = 23.70\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">2</td>
+<td style="text-align: center;"><strong>2</strong></td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">0</td>
-<td style="text-align: left;"><span class="math inline">\(\hat{\beta}_0 + \hat{\beta}_2 = 23.70 - 7.13 = 16.57\)</span></td>
+<td style="text-align: left;"><span class="math inline">\({\color{#0099FF}\hat{\beta}_0} + {\color{#00CC66}\hat{\beta}_2} = {\color{#0099FF}23.70} + {\color{#00CC66}(- 7.13)} = 16.57\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">3</td>
+<td style="text-align: center;"><strong>3</strong></td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
-<td style="text-align: left;"><span class="math inline">\(\hat{\beta}_0 + \hat{\beta}_1 = 23.70 + 4.06 = 27.76\)</span></td>
+<td style="text-align: left;"><span class="math inline">\({\color{#0099FF}\hat{\beta}_0} + {\color{#fb5b89}\hat{\beta}_1} = {\color{#0099FF}23.70} + {\color{#fb5b89}4.06} = 27.76\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">4</td>
+<td style="text-align: center;"><strong>4</strong></td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">1</td>
-<td style="text-align: left;"><span class="math inline">\(\hat{\beta}_0 + \hat{\beta}_1 + \hat{\beta}_2 + \hat{\beta}_3 = 23.70 + 4.06 - 7.13 - 10.55 = 10.08\)</span></td>
+<td style="text-align: left;"><span class="math inline">\({\color{#0099FF}\hat{\beta}_0} + {\color{#fb5b89}\hat{\beta}_1} + {\color{#00CC66}\hat{\beta}_2} + {\color{orange}\hat{\beta}_3} = {\color{#0099FF}23.70} + {\color{#fb5b89}4.06} + {\color{#00CC66}(-7.13)} + {\color{orange}(-10.55)} = 10.08\)</span></td>
 </tr>
 </tbody>
 </table>
 <p>From the table above, we can interpret the coefficients as follows:</p>
 <ul>
-<li><p><span class="math inline">\(\hat{\beta}_0 = 23.70\)</span> is the expected value of <code>medv</code> for suburbs that are not next to the Charles River and are new (i.e., <code>old = 0</code>).</p></li>
-<li><p>Comparing scenario 2 with 1: <span class="math inline">\(\hat{\beta}_2 = -7.13\)</span> is the difference in expected value of <code>medv</code> between new and old suburbs that are <strong>NOT next to the Charles River</strong>.</p>
+<li><p><span class="math inline">\(\color{#0099FF}{\hat{\beta}_0} = 23.70\)</span> is the expected value of <code>medv</code> for suburbs that are not next to the Charles River and are new (i.e., <code>old = 0</code>).</p></li>
+<li><p>Comparing scenario 2 with 1: <span class="math inline">\(\color{#00CC66}{\hat{\beta}_2} = -7.13\)</span> is the difference in expected value of <code>medv</code> between new and old suburbs that are <strong>NOT next to the Charles River</strong>.</p>
 <p>In other words, old suburbs that are not next to the Charles River have an expected <code>medv</code> that is 7.13 lower than new suburbs that are <strong>NOT next to the Charles River</strong>.</p></li>
-<li><p>Comparing scenario 3 with 1: <span class="math inline">\(\hat{\beta}_1 = 4.06\)</span> is the difference in expected value of <code>medv</code> between suburbs that are next to the Charles River and those that are not, among <strong>new</strong> suburbs (i.e., <code>old = 0</code>).</p>
+<li><p>Comparing scenario 3 with 1: <span class="math inline">\(\color{#fb5b89}{\hat{\beta}_1} = 4.06\)</span> is the difference in expected value of <code>medv</code> between suburbs that are next to the Charles River and those that are not, among <strong>new</strong> suburbs (i.e., <code>old = 0</code>).</p>
 <p>In other words, <strong>new</strong> suburbs that are next to the Charles River have an expected <code>medv</code> that is 4.06 higher than new suburbs that are not next to the Charles River.</p></li>
-<li><p><span class="math inline">\(\hat{\beta}_3 = -10.55\)</span> has two interpretations:</p>
+<li><p><span class="math inline">\(\color{orange}{\hat{\beta}_3} = -10.55\)</span> has two interpretations:</p>
 <ul>
-<li><p>If we compare scenario 4 with scenario 2, the difference in expected value of <code>medv</code> is given by <span class="math inline">\(\hat{\beta}_1 + \hat{\beta}_3 = 4.06 - 10.55 = -6.49.\)</span></p>
+<li><p>If we compare scenario 4 with scenario 2, the difference in expected value of <code>medv</code> is given by <span class="math inline">\({\color{#fb5b89}\hat{\beta}_1} + {\color{orange}\hat{\beta}_3} = 4.06 - 10.55 = -6.49.\)</span></p>
 <p>This means that <strong>old</strong> suburbs that are next to the Charles River have an expected <code>medv</code> that is 6.49 lower than <strong>old</strong> suburbs that are not next to the Charles River.</p>
-<p>→ <span class="math inline">\(\beta_3\)</span> can be interpreted as the difference in the effect of being next to the Charles River between old and new suburbs.</p></li>
-<li><p>If we compare scenario 4 with scenario 3, the difference in expected value of <code>medv</code> is given by <span class="math inline">\(\hat{\beta}_2 + \hat{\beta}_3 = -7.13 - 10.55 = -17.68.\)</span></p>
+<p>→ <span class="math inline">\(\color{orange}{\hat{\beta}_3}\)</span> can be interpreted as the difference in the effect of being next to the Charles River between old and new suburbs.</p></li>
+<li><p>If we compare scenario 4 with scenario 3, the difference in expected value of <code>medv</code> is given by <span class="math inline">\({\color{#00CC66}\hat{\beta}_2} + {\color{orange}\hat{\beta}_3} = -7.13 - 10.55 = -17.68.\)</span></p>
 <p>This means that old suburbs that are <strong>next to the Charles River</strong> have an expected <code>medv</code> that is 17.68 lower than new suburbs that are <strong>next to the Charles River</strong>.</p>
-<p>→ <span class="math inline">\(\beta_3\)</span> can be interpreted as the difference in the effect of being old between suburbs that are next to the Charles River and those that are not.</p></li>
+<p>→ <span class="math inline">\(\color{orange}{\hat{\beta}_3}\)</span> can be interpreted as the difference in the effect of being old between suburbs that are next to the Charles River and those that are not.</p></li>
 </ul></li>
 </ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="env-green"><strong>Controlling for changes in the interacting variables</strong></span> is essential when interpreting the coefficient of interaction terms.</p>
+<p>A common approach is to substitute specific values for the interacting variables and compute the expected value of the dependent variable under different scenarios. This allows for a clearer interpretation of the coefficients by comparing how the expected value of the dependent variable varies across these scenarios.</p>
+</div>
+</div>
+<section id="add-more-controls-variables" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="add-more-controls-variables"><span class="header-section-number">1.1</span> Add More Controls Variables</h3>
+<p>We can also add more control variables to <a href="#eq-binary-interaction" class="quarto-xref">Equation&nbsp;1</a> to improve the model fit (Adjusted <span class="math inline">\(R^2 = 12\%\)</span> as of now). For example, we can add <code>lstat</code> and <code>crim</code> as additional control variables.</p>
+<p><span id="eq-binary-interaction-more-controls"><span class="math display">\[
+medv_i = \beta_0 + \beta_1\, chas_i + \beta_2\, old_i + \beta_3\, (chas_i \times old_i) + \beta_4\, lstat_i + \beta_5\, crim_i + u_i
+\tag{2}\]</span></span></p>
+<p>We estimate the above regression model as follows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mod_bb2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> chas<span class="sc">*</span>old <span class="sc">+</span> lstat <span class="sc">+</span> crim, <span class="at">data =</span> Boston)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(mod_bb, mod_bb2, <span class="at">type=</span><span class="st">"text"</span>, </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">"Restricted"</span>, <span class="st">"Unrestricted"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+====================================================================
+                                  Dependent variable:               
+                    ------------------------------------------------
+                                          medv                      
+                          Restricted              Unrestricted      
+                              (1)                     (2)           
+--------------------------------------------------------------------
+chas                        4.058**                 4.000***        
+                            (1.687)                 (1.183)         
+                                                                    
+old                        -7.132***                1.748**         
+                            (0.949)                 (0.776)         
+                                                                    
+lstat                                              -0.949***        
+                                                    (0.046)         
+                                                                    
+crim                                                -0.079**        
+                                                    (0.036)         
+                                                                    
+chas:old                   10.546***                 4.008          
+                            (3.758)                 (2.651)         
+                                                                    
+Constant                   23.699***               34.106***        
+                            (0.450)                 (0.573)         
+                                                                    
+--------------------------------------------------------------------
+Observations                  506                     506           
+R2                           0.130                   0.574          
+Adjusted R2                  0.125                   0.570          
+Residual Std. Error    8.604 (df = 502)         6.033 (df = 500)    
+F Statistic         25.017*** (df = 3; 502) 134.705*** (df = 5; 500)
+====================================================================
+Note:                                    *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+</div>
+</div>
+<p><strong>Comparing the two models:</strong></p>
+<ul>
+<li>The coefficient of <code>old</code> reversed signs, from negative (<span class="math inline">\(-7.13\)</span>) to positive (<span class="math inline">\(1.75\)</span>), suggesting that after accounting for crime and low socioeconomic status, older suburbs have slightly higher values.</li>
+<li>Negative coefficients for <code>lstat</code> (<span class="math inline">\(-0.95\)</span>) and <code>crim</code> (<span class="math inline">\(-0.079\)</span>) indicate that higher poverty and crime reduce house values.</li>
+</ul>
+<p>Plot <code>lstat</code> and <code>crim</code> group by <code>old</code> to see how the distribution of these two variables differ between new and old suburbs.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(Boston, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(old), <span class="at">y =</span> lstat)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(Boston, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(old), <span class="at">y =</span> crim)) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_grid</span>(p1, p2, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>), <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08_Interactions_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We see that old suburbs tend to have higher <code>lstat</code> and <code>crim</code> values compared to new suburbs. This suggests that controlling for these variables is important when examining the relationship between <code>medv</code>, <code>chas</code>, and <code>old</code>.</p>
+</section>
+<section id="two-way-anova-mathematical-formulation" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="two-way-anova-mathematical-formulation"><span class="header-section-number">1.2</span> Two-Way ANOVA Mathematical Formulation</h3>
+<p>We now conduct a two-way ANOVA to formally compare the two models <code>mod_bb</code> and <code>mod_bb2</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(mod_bb, mod_bb2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: medv ~ chas * old
+Model 2: medv ~ chas * old + lstat + crim
+  Res.Df   RSS Df Sum of Sq      F    Pr(&gt;F)    
+1    502 37161                                  
+2    500 18200  2     18961 260.45 &lt; 2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<div class="step-list">
+<ol type="1">
+<li><p>State the null and alternative hypotheses. <span class="math display">\[
+\begin{aligned}
+H_0 &amp;: \beta_4 = 0 \text{ and } \beta_5 = 0 \\
+H_1 &amp;: \beta_4 = 0 \text{ or } \beta_5 = 0
+\end{aligned}
+\]</span></p>
+<p>In plain language:</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: The additional variables <code>lstat</code> and <code>crim</code> do not improve the model fit.</li>
+<li><span class="math inline">\(H_a\)</span>: At least one of the additional variables <code>lstat</code> or <code>crim</code> improves the model fit.</li>
+</ul></li>
+<li><p>Calculate the F-statistic.</p>
+<p>The F-statistic is based on the <span class="math inline">\(R^2\)</span> of the two regressions: <span class="math display">\[
+F = \left(\frac{n - k_U -1}{p}\right) \left(\frac{R_U^2-R_R^2}{1-R_U^2}\right) \sim F(p, n-k_U-1) .
+\]</span></p>
+<p>where</p>
+<ul>
+<li><span class="math inline">\(n = 506\)</span> is the number of observations;</li>
+<li><span class="math inline">\(k_U = 5\)</span> is the number of predictors in the unrestricted model (where <span class="math inline">\(H_1\)</span> is allowed to be true), excluding the intercept;</li>
+<li><span class="math inline">\(p = 2\)</span> is the number of restrictions (i.e., the number of additional variables in the unrestricted model);</li>
+<li><span class="math inline">\(R_U^2 = 0.574\)</span> is the <span class="math inline">\(R^2\)</span> of the unrestricted model;</li>
+<li><span class="math inline">\(R_R^2 = 0.130\)</span> is the <span class="math inline">\(R^2\)</span> of the restricted model.</li>
+</ul>
+<p>Plug in the numbers, we get <span class="math display">\[
+F = \left(\frac{506-5-1}{2}\right) \left(\frac{0.574-0.130}{1-0.574}\right) = 260.56
+\]</span></p></li>
+<li><p>Find the critical value</p>
+<p>The F-statistic follows an <span class="math inline">\(F(2, 502)\)</span> distribution under the null hypothesis. At 5% significance level, we use the the critical value <span class="math inline">\(F_{2,\infty}=3.00.\)</span></p></li>
+<li><p>Decision rule.</p>
+<p>Since the calculated F-statistic (<span class="math inline">\(260.56\)</span>) is much larger than the critical value (<span class="math inline">\(3.00\)</span>), we reject the null hypothesis.</p>
+<p>This suggests that at least one of <code>lstat</code> and <code>crim</code> significantly improves the model fit.</p></li>
+<li><p>Conclusion.</p>
+<p>We conclude that model (2) with additional control variables <code>lstat</code> and <code>crim</code> provides a significantly better fit to the data compared to model (1) without these controls.</p></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="interactions-of-a-binary-variable-and-a-continuous-variable" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="interactions-of-a-binary-variable-and-a-continuous-variable"><span class="header-section-number">2</span> Interactions of a Binary Variable and a Continuous Variable</h2>
+<p>An interaction between a binary variable and a continuous variable shows how the effect of the continuous variable changes depending on the group. This helps us see differences that a simple line wouldn’t capture. For example, the effect of business area on house prices might be different in new versus old suburbs.</p>
+<p>Now consider the regression model</p>
+<p><span class="math display">\[
+medv_i = \beta_0 + \beta_1 \times indus_i + \beta_2 \times old_i + \beta_3 \times (indus_i\cdot old_i) + u_i
+\]</span></p>
+<p>where <span class="math inline">\(indus_i\)</span> being the proportion of non-retail business acres in suburb <span class="math inline">\(i\)</span>; <span class="math inline">\(old_i\)</span> is the same binary variable as defined above, indicating if the suburb is new.</p>
+<p><strong>Instructions:</strong></p>
+<ul>
+<li>Estimate the above regression model and assign the result to <code>mod_bc</code>.</li>
+<li>What is the relationship between <code>medv</code> and <code>indus</code> for new suburbs? What about old suburbs?</li>
+<li>Is the effect of <code>indus</code> on <code>medv</code> statistically different between new and old suburbs?</li>
+<li>Plot <code>medv</code> against <code>indus</code> and add the regression lines for both states of the binary variable <code>old</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mod_bc <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> indus <span class="sc">*</span> old, <span class="at">data =</span> Boston)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_bc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = medv ~ indus * old, data = Boston)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-12.379  -5.066  -1.588   3.015  33.046 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 30.06350    0.72882  41.250   &lt;2e-16 ***
+indus       -0.65844    0.06569 -10.024   &lt;2e-16 ***
+old         -7.48438    3.07918  -2.431   0.0154 *  
+indus:old    0.37115    0.17558   2.114   0.0350 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 8.024 on 502 degrees of freedom
+Multiple R-squared:  0.2434,    Adjusted R-squared:  0.2389 
+F-statistic: 53.83 on 3 and 502 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>The estimated regression model is given by</p>
+<p><span class="math display">\[
+\widehat{medv}_i = 30.06 - 0.66 \times indus_i - 7.48 \times old_i + 0.37 \times (indus_i \cdot old_i)
+\]</span></p>
+<p><span class="env-green"><strong>Interpretation of the coefficients</strong></span></p>
+<ul>
+<li><p>For new suburbs (i.e., <code>old = 0</code>), the relationship between <code>medv</code> and <code>indus</code> is given by</p>
+<p><span class="math display">\[
+E(medv_i | old_i = 0) = \hat{\beta}_0 + \hat{\beta}_1 \times indus_i = 30.06 - 0.66 \times indus_i
+\]</span></p>
+<p>Thus, for new suburbs, a one-unit increase in <code>indus</code> is associated with a decrease in the expected value of <code>medv</code> by 0.66.</p></li>
+<li><p>For old suburbs (i.e., <code>old = 1</code>), the relationship between <code>medv</code> and <code>indus</code> is given by</p>
+<p><span class="math display">\[
+\begin{split}
+E(medv_i | old_i = 1) &amp;= (\hat{\beta}_0 + \hat{\beta}_2) + (\hat{\beta}_1 + \hat{\beta}_3) \times indus_i \\
+&amp;= (30.06 - 7.48) + (-0.66 + 0.37) \times indus_i \\
+&amp;= 22.58 - 0.29 \times indus_i
+\end{split}
+\]</span></p>
+<p>Thus, for old suburbs, a one-unit increase in <code>indus</code> is associated with a decrease in the expected value of <code>medv</code> by 0.29. The negative effect is smaller in old suburbs due to the positive interaction term (<span class="math inline">\(\hat{\beta}_3 = 0.37\)</span>).</p></li>
+<li><p>The effect of <code>indus</code> on <code>medv</code> is statistically different between new and old suburbs at 5% significance level given that the coefficient of the interaction term (<span class="math inline">\(\hat{\beta}_3\)</span>) is statistically significant.</p></li>
+</ul>
+<p><strong>Visualization</strong></p>
+<p>Now we plot <code>medv</code> against <code>indus</code> with regression lines for both states of the binary variable <code>old</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Boston, <span class="fu">aes</span>(<span class="at">x =</span> indus, <span class="at">y =</span> medv, <span class="at">color =</span> <span class="fu">factor</span>(old))) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"Proportion of Non-Retail Business Acres (indus)"</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">"Median Home Value (medv)"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">"Old Suburb (old)"</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"blue"</span>, <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"red"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"New Suburb"</span>, <span class="st">"Old Suburb"</span>)) <span class="sc">+</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.8</span>, <span class="fl">0.9</span>)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08_Interactions_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We see that the slope of the regression line for new suburbs (blue) is steeper than that for old suburbs (red), indicating a stronger negative relationship between <code>medv</code> and <code>indus</code> in new suburbs compared to old suburbs. This visual representation aligns with our earlier interpretation of the regression coefficients.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
