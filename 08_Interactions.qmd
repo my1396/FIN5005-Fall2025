@@ -12,7 +12,9 @@ title: "Interactions of Binary Variables"
 - Visualize interaction effects using regression lines.
 :::
 
-For the course of this section, you will work with `Boston`, the Boston Housing data set which contains 506 observations on housing values in suburbs of Boston.
+For this section of the course, we will be working with the `Boston` dataset, which contains 506 observations on housing values in various suburbs of Boston. This dataset provides detailed information on factors such as crime rates, property age, locations (proximity to the Charles River), and other socioeconomic variables. 
+
+We will use this data to **explore and analyze the determinants of housing prices**, applying regression techniques to understand how different factors influence the value of homes.
 
 ```{r}
 # load packages and dataset
