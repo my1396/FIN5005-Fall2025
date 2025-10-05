@@ -13,14 +13,12 @@
 # ignore user folders you don't want to share
 /Rscripts/
 /_quiz/
-/_quiz/**/*
-/_quiz/_extensions/
 /_lab/
 /latex/
 /data/cps09mar.csv
 CASchools_test_score.csv
+/.vscode/
 
 # auto generated system files
 .DS_Store
 ~*
-.vscode/

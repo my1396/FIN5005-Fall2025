@@ -1,0 +1,118 @@
+---
+title: "Interactions"
+---
+
+For the course of this section, you will work with `Boston`, the Boston Housing data set which contains 506 observations on housing values in suburbs of Boston.
+
+```{r}
+# load packages and dataset
+pkgs <- c("tidyverse", "MASS", "data.table", "stargazer")
+missing <- setdiff(pkgs, rownames(installed.packages()))
+if (length(missing) > 0) install.packages(missing)
+invisible(lapply(pkgs, function(pkg) suppressPackageStartupMessages(library(pkg, character.only = TRUE))))
+data(Boston) # Boston housing data
+```
+
+Use `?Boston` to see the description of the dataset.
+
+Here are some variables in the dataset which we are going to use in this session.
+
+| Variables | Definitions                                                  |
+| --------- | ------------------------------------------------------------ |
+| `medv`    | median value of owner-occupied homes in \$1000s.             |
+| `lstat`   | the percentage of individuals with low socioeconomic status  |
+| `indus`   | proportion of non-retail business acres per town.            |
+| `age`     | proportion of owner-occupied units built prior to 1940.      |
+| `crim`    | per capita crime rate by town.                               |
+| `chas`    | A dummy variable. Takes the value 1 if the Charles River (a short river in the proximity of Boston) passes through the suburb and is 0 otherwise. |
+
+Consider the following regression model
+
+$$
+medv_i = \beta_0 + \beta_1\, chas_i + \beta_2\, old_i + \beta_3\, (chas_i \times old_i) + u_i
+$$
+
+where $chas_i$ and $old_i$ are dummy variables defined as follows:
+
+$$
+\begin{aligned}
+chas_i &= \begin{cases}
+1 & \text{if the suburb is next to the Charles River} \\
+0 & \text{otherwise}
+\end{cases} \\
+old_i &= \begin{cases}
+1 & \text{if } age_i \ge 95 \\
+0 & \text{otherwise}
+\end{cases}
+\end{aligned}
+$$
+
+where $agi_i$ being the proportion of owner-occupied units built prior to 1940.
+
+**Instructions:**
+
+- Generate and append the binary variable $old$ to the dataset Boston.
+- Conduct the regression stated above and assign the result to `mod_bb`.
+- Obtain a robust coefficient summary of the model. How do you interpret the results?
+
+```{r}
+Boston <- Boston %>%
+  mutate(old = ifelse(age >= 95, 1, 0))
+mod_bb <- lm(medv ~ chas * old, data = Boston)
+summary(mod_bb)
+```
+
+The estimated regression model is given by
+
+$$
+\widehat{medv}_i = 23.70 + 4.06\, chas_i - 7.13\, old_i - 10.55\, (chas_i \times old_i)
+$$
+
+<span class="env-green">**Interpretation of the coefficients**</span>
+
+We start with listing all possible combinations of the binary variables $chas_i$ and $old_i$.
+
+| Scenario | $chas_i$ | $old_i$ | Interpretation                                      |
+| --- | -------- | ------- | --------------------------------------------------- |
+| 1 | 0        | 0       | Suburb not next to Charles River and new |
+| 2 | 0        | 1       | Suburb not next to Charles River and old |
+| 3 | 1        | 0       | Suburb next to Charles River and new     |
+| 4 | 1        | 1       | Suburb next to Charles River and old     |
+
+
+Based on the estimated regression model, we can compute the expected value of `medv` for each of the four groups.
+
+| Scenario | $chas_i$ | $old_i$ | $chas_i \times old_i$ | Expected value of `medv`                                                                 |
+|:--------:|:--------:|:-------:|:---------------------:|:-----------------------------------------------------------------------------------------|
+|    1     |    0     |    0    |          0            | $\hat{\beta}_0 = 23.70$                                                                  |
+|    2     |    0     |    1    |          0            | $\hat{\beta}_0 + \hat{\beta}_2 = 23.70 - 7.13 = 16.57$                                   |
+|    3     |    1     |    0    |          0            | $\hat{\beta}_0 + \hat{\beta}_1 = 23.70 + 4.06 = 27.76$                                   |
+|    4     |    1     |    1    |          1            | $\hat{\beta}_0 + \hat{\beta}_1 + \hat{\beta}_2 + \hat{\beta}_3 = 23.70 + 4.06 - 7.13 - 10.55 = 10.08$ |
+
+
+From the table above, we can interpret the coefficients as follows:
+
+- $\hat{\beta}_0 = 23.70$ is the expected value of `medv` for suburbs that are not next to the Charles River and are new (i.e., `old = 0`).
+
+- Comparing scenario 2 with 1: $\hat{\beta}_2 = -7.13$ is the difference in expected value of `medv` between new and old suburbs that are **NOT next to the Charles River**. 
+  
+  In other words, old suburbs that are not next to the Charles River have an expected `medv` that is 7.13 lower than new suburbs that are **NOT next to the Charles River**.
+
+- Comparing scenario 3 with 1: $\hat{\beta}_1 = 4.06$ is the difference in expected value of `medv` between suburbs that are next to the Charles River and those that are not, among **new** suburbs (i.e., `old = 0`). 
+  
+  In other words, **new** suburbs that are next to the Charles River have an expected `medv` that is 4.06 higher than new suburbs that are not next to the Charles River.
+
+- $\hat{\beta}_3 = -10.55$ has two interpretations:
+  - If we compare scenario 4 with scenario 2, the difference in expected value of `medv` is given by $\hat{\beta}_1 + \hat{\beta}_3 = 4.06 - 10.55 = -6.49.$ 
+    
+    This means that **old** suburbs that are next to the Charles River have an expected `medv` that is 6.49 lower than **old** suburbs that are not next to the Charles River. 
+
+    → $\beta_3$ can be interpreted as the difference in the effect of being next to the Charles River between old and new suburbs.
+
+  - If we compare scenario 4 with scenario 3, the difference in expected value of `medv` is given by $\hat{\beta}_2 + \hat{\beta}_3 = -7.13 - 10.55 = -17.68.$
+    
+    This means that old suburbs that are **next to the Charles River** have an expected `medv` that is 17.68 lower than new suburbs that are **next to the Charles River**.
+
+    → $\beta_3$ can be interpreted as the difference in the effect of being old between suburbs that are next to the Charles River and those that are not.
+
+
