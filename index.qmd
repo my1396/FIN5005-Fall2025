@@ -27,8 +27,8 @@ Outline of models and applications we will cover in this course:<sup>1</sup>
 | **Category**     | **Topics**                               | **Applications in Business**                                                                         |
 | ---------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | **Descriptive**  | Data Visualization, Descriptive Analysis | Asset return → **Finance**                                                                           |
-| **Predictive**   | Linear regression                        | Asset return prediction → **Finance**<br>Demand prediction → **Economics**                           |
-|                  | Hypothesis testing                       | Effectiveness of advertisements → **Marketing**                                                      |
+| **Predictive**   | Linear regression                        | Asset return prediction → **Finance**<br>Test Score Determinants → **Sociology**                           |
+|                  | Hypothesis testing                       | Test Score Determinants → **Sociology**                                                      |
 |                  | Classification, logistic regression      | Asset return increasing/decreasing prediction → **Finance**<br>Employee satisfaction → **Operation** |
 | **Prescriptive** | Optimization models                      | Pricing optimization → **Operation**<br>Sensitivity analysis, Scenario analysis → **Accounting**     |
 
@@ -149,6 +149,5 @@ If you want to learn in-depth, you can refer to the following textbooks and reso
   </tr>
   <tr><td colspan="2">&nbsp;</td></tr>
 </table>
-
 
 
