@@ -184,7 +184,7 @@ anova(mod_bb, mod_bb2)
    $$
    \begin{aligned}
    H_0 &: \beta_4 = 0 \text{ and } \beta_5 = 0 \\
-   H_1 &: \beta_4 = 0 \text{ or } \beta_5 = 0
+   H_1 &: \beta_4 \ne 0 \text{ or } \beta_5 \ne 0
    \end{aligned}
    $$
    
@@ -235,7 +235,7 @@ An interaction between a binary variable and a continuous variable shows how the
 Now consider the regression model
 
 $$
-medv_i = \beta_0 + \beta_1 \times indus_i + \beta_2 \times old_i + \beta_3 \times (indus_i\cdot old_i) + u_i
+medv_i = \beta_0 + \beta_1 \times indus_i + \beta_2 \times old_i + \beta_3 \times (indus_i\times old_i) + u_i
 $$
 
 where $indus_i$ being the proportion of non-retail business acres in suburb $i$; $old_i$ is the same binary variable as defined above, indicating if the suburb is new.
