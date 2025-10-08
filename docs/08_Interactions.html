@@ -801,7 +801,7 @@ F-statistic: 25.02 on 3 and 502 DF,  p-value: 4.244e-15</code></pre>
 </div>
 <p>The estimated regression model is given by</p>
 <p><span class="math display">\[
-\widehat{medv}_i = 23.70 + 4.06\, chas_i - 7.13\, old_i - 10.55\, (chas_i \times old_i)
+\widehat{medv}_i = 23.70 + 4.06\, chas_i - 7.13\, old_i + 10.55\, (chas_i \times old_i)
 \]</span></p>
 <p><span class="env-green"><strong>Interpretation of the coefficients</strong></span></p>
 <p>We start with listing all possible combinations of the binary variables <span class="math inline">\(chas_i\)</span> and <span class="math inline">\(old_i\)</span>.</p>
@@ -892,7 +892,7 @@ F-statistic: 25.02 on 3 and 502 DF,  p-value: 4.244e-15</code></pre>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">1</td>
-<td style="text-align: left;"><span class="math inline">\({\color{#0099FF}\hat{\beta}_0} + {\color{#fb5b89}\hat{\beta}_1} + {\color{#00CC66}\hat{\beta}_2} + {\color{orange}\hat{\beta}_3} = {\color{#0099FF}23.70} + {\color{#fb5b89}4.06} + {\color{#00CC66}(-7.13)} + {\color{orange}(-10.55)} = 10.08\)</span></td>
+<td style="text-align: left;"><span class="math inline">\({\color{#0099FF}\hat{\beta}_0} + {\color{#fb5b89}\hat{\beta}_1} + {\color{#00CC66}\hat{\beta}_2} + {\color{orange}\hat{\beta}_3} = {\color{#0099FF}23.70} + {\color{#fb5b89}4.06} + {\color{#00CC66}(-7.13)} + {\color{orange}(10.55)} = 31.18\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -903,13 +903,13 @@ F-statistic: 25.02 on 3 and 502 DF,  p-value: 4.244e-15</code></pre>
 <p>In other words, old suburbs that are not next to the Charles River have an expected <code>medv</code> that is 7.13 lower than new suburbs that are <strong>NOT next to the Charles River</strong>.</p></li>
 <li><p>Comparing scenario 3 with 1: <span class="math inline">\(\color{#fb5b89}{\hat{\beta}_1} = 4.06\)</span> is the difference in expected value of <code>medv</code> between suburbs that are next to the Charles River and those that are not, among <strong>new</strong> suburbs (i.e., <code>old = 0</code>).</p>
 <p>In other words, <strong>new</strong> suburbs that are next to the Charles River have an expected <code>medv</code> that is 4.06 higher than new suburbs that are not next to the Charles River.</p></li>
-<li><p><span class="math inline">\(\color{orange}{\hat{\beta}_3} = -10.55\)</span> has two interpretations:</p>
+<li><p><span class="math inline">\(\color{orange}{\hat{\beta}_3} = 10.55\)</span> has two interpretations:</p>
 <ul>
-<li><p>If we compare scenario 4 with scenario 2, the difference in expected value of <code>medv</code> is given by <span class="math inline">\({\color{#fb5b89}\hat{\beta}_1} + {\color{orange}\hat{\beta}_3} = 4.06 - 10.55 = -6.49.\)</span></p>
-<p>This means that <strong>old</strong> suburbs that are next to the Charles River have an expected <code>medv</code> that is 6.49 lower than <strong>old</strong> suburbs that are not next to the Charles River.</p>
+<li><p>If we compare scenario 4 with scenario 2, the difference in expected value of <code>medv</code> is given by <span class="math inline">\({\color{#fb5b89}\hat{\beta}_1} + {\color{orange}\hat{\beta}_3} = 4.06 + 10.55 = 14.61.\)</span></p>
+<p>This means that <strong>old</strong> suburbs that are next to the Charles River have an expected <code>medv</code> that is 14.61 higher than <strong>old</strong> suburbs that are not next to the Charles River.</p>
 <p>→ <span class="math inline">\(\color{orange}{\hat{\beta}_3}\)</span> can be interpreted as the difference in the effect of being next to the Charles River between old and new suburbs.</p></li>
-<li><p>If we compare scenario 4 with scenario 3, the difference in expected value of <code>medv</code> is given by <span class="math inline">\({\color{#00CC66}\hat{\beta}_2} + {\color{orange}\hat{\beta}_3} = -7.13 - 10.55 = -17.68.\)</span></p>
-<p>This means that old suburbs that are <strong>next to the Charles River</strong> have an expected <code>medv</code> that is 17.68 lower than new suburbs that are <strong>next to the Charles River</strong>.</p>
+<li><p>If we compare scenario 4 with scenario 3, the difference in expected value of <code>medv</code> is given by <span class="math inline">\({\color{#00CC66}\hat{\beta}_2} + {\color{orange}\hat{\beta}_3} = -7.13 + 10.55 = 3.42.\)</span></p>
+<p>This means that old suburbs that are <strong>next to the Charles River</strong> have an expected <code>medv</code> that is 3.42 higher than new suburbs that are <strong>next to the Charles River</strong>.</p>
 <p>→ <span class="math inline">\(\color{orange}{\hat{\beta}_3}\)</span> can be interpreted as the difference in the effect of being old between suburbs that are next to the Charles River and those that are not.</p></li>
 </ul></li>
 </ul>

@@ -79,7 +79,7 @@ summary(mod_bb)
 The estimated regression model is given by
 
 $$
-\widehat{medv}_i = 23.70 + 4.06\, chas_i - 7.13\, old_i - 10.55\, (chas_i \times old_i)
+\widehat{medv}_i = 23.70 + 4.06\, chas_i - 7.13\, old_i + 10.55\, (chas_i \times old_i)
 $$
 
 <span class="env-green">**Interpretation of the coefficients**</span>
@@ -101,7 +101,7 @@ Based on the estimated regression model, we can compute the expected value of `m
 |  **1**   |    0     |    0    |          0            | $\color{#0099FF}{\hat{\beta}_0} = 23.70$                                                                  |
 |  **2**   |    0     |    1    |          0            | ${\color{#0099FF}\hat{\beta}_0} + {\color{#00CC66}\hat{\beta}_2} = {\color{#0099FF}23.70} + {\color{#00CC66}(- 7.13)} = 16.57$                |
 |  **3**   |    1     |    0    |          0            | ${\color{#0099FF}\hat{\beta}_0} + {\color{#fb5b89}\hat{\beta}_1} = {\color{#0099FF}23.70} + {\color{#fb5b89}4.06} = 27.76$                  |
-|  **4**   |    1     |    1    |          1            | ${\color{#0099FF}\hat{\beta}_0} + {\color{#fb5b89}\hat{\beta}_1} + {\color{#00CC66}\hat{\beta}_2} + {\color{orange}\hat{\beta}_3} = {\color{#0099FF}23.70} + {\color{#fb5b89}4.06} + {\color{#00CC66}(-7.13)} + {\color{orange}(-10.55)} = 10.08$ |
+|  **4**   |    1     |    1    |          1            | ${\color{#0099FF}\hat{\beta}_0} + {\color{#fb5b89}\hat{\beta}_1} + {\color{#00CC66}\hat{\beta}_2} + {\color{orange}\hat{\beta}_3} = {\color{#0099FF}23.70} + {\color{#fb5b89}4.06} + {\color{#00CC66}(-7.13)} + {\color{orange}(10.55)} = 31.18$ |
 
 
 From the table above, we can interpret the coefficients as follows:
@@ -116,16 +116,16 @@ From the table above, we can interpret the coefficients as follows:
   
   In other words, **new** suburbs that are next to the Charles River have an expected `medv` that is 4.06 higher than new suburbs that are not next to the Charles River.
 
-- $\color{orange}{\hat{\beta}_3} = -10.55$ has two interpretations:
-  - If we compare scenario 4 with scenario 2, the difference in expected value of `medv` is given by ${\color{#fb5b89}\hat{\beta}_1} + {\color{orange}\hat{\beta}_3} = 4.06 - 10.55 = -6.49.$ 
+- $\color{orange}{\hat{\beta}_3} = 10.55$ has two interpretations:
+  - If we compare scenario 4 with scenario 2, the difference in expected value of `medv` is given by ${\color{#fb5b89}\hat{\beta}_1} + {\color{orange}\hat{\beta}_3} = 4.06 + 10.55 = 14.61.$ 
     
-    This means that **old** suburbs that are next to the Charles River have an expected `medv` that is 6.49 lower than **old** suburbs that are not next to the Charles River. 
+    This means that **old** suburbs that are next to the Charles River have an expected `medv` that is 14.61 higher than **old** suburbs that are not next to the Charles River. 
 
     → $\color{orange}{\hat{\beta}_3}$ can be interpreted as the difference in the effect of being next to the Charles River between old and new suburbs.
 
-  - If we compare scenario 4 with scenario 3, the difference in expected value of `medv` is given by ${\color{#00CC66}\hat{\beta}_2} + {\color{orange}\hat{\beta}_3} = -7.13 - 10.55 = -17.68.$
+  - If we compare scenario 4 with scenario 3, the difference in expected value of `medv` is given by ${\color{#00CC66}\hat{\beta}_2} + {\color{orange}\hat{\beta}_3} = -7.13 + 10.55 = 3.42.$
     
-    This means that old suburbs that are **next to the Charles River** have an expected `medv` that is 17.68 lower than new suburbs that are **next to the Charles River**.
+    This means that old suburbs that are **next to the Charles River** have an expected `medv` that is 3.42 higher than new suburbs that are **next to the Charles River**.
 
     → $\color{orange}{\hat{\beta}_3}$ can be interpreted as the difference in the effect of being old between suburbs that are next to the Charles River and those that are not.
 
