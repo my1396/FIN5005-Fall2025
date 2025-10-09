@@ -907,10 +907,10 @@ F-statistic: 25.02 on 3 and 502 DF,  p-value: 4.244e-15</code></pre>
 <ul>
 <li><p>If we compare scenario 4 with scenario 2, the difference in expected value of <code>medv</code> is given by <span class="math inline">\({\color{#fb5b89}\hat{\beta}_1} + {\color{orange}\hat{\beta}_3} = 4.06 + 10.55 = 14.61.\)</span></p>
 <p>This means that <strong>old</strong> suburbs that are next to the Charles River have an expected <code>medv</code> that is 14.61 higher than <strong>old</strong> suburbs that are not next to the Charles River.</p>
-<p>→ <span class="math inline">\(\color{orange}{\hat{\beta}_3}\)</span> can be interpreted as the difference in the effect of being next to the Charles River between old and new suburbs.</p></li>
+<p>→ <span class="math inline">\(\color{orange}{\hat{\beta}_3}\)</span> can be interpreted as the difference in the effect of being next to the Charles River <u>between old and new suburbs</u>.</p></li>
 <li><p>If we compare scenario 4 with scenario 3, the difference in expected value of <code>medv</code> is given by <span class="math inline">\({\color{#00CC66}\hat{\beta}_2} + {\color{orange}\hat{\beta}_3} = -7.13 + 10.55 = 3.42.\)</span></p>
 <p>This means that old suburbs that are <strong>next to the Charles River</strong> have an expected <code>medv</code> that is 3.42 higher than new suburbs that are <strong>next to the Charles River</strong>.</p>
-<p>→ <span class="math inline">\(\color{orange}{\hat{\beta}_3}\)</span> can be interpreted as the difference in the effect of being old between suburbs that are next to the Charles River and those that are not.</p></li>
+<p>→ <span class="math inline">\(\color{orange}{\hat{\beta}_3}\)</span> can be interpreted as the difference in the effect of being old <u>between suburbs that are next to the Charles River and those that are not</u>.</p></li>
 </ul></li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -935,9 +935,14 @@ medv_i = \beta_0 + \beta_1\, chas_i + \beta_2\, old_i + \beta_3\, (chas_i \times
 \tag{2}\]</span></span></p>
 <p>We estimate the above regression model as follows.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mod_bb2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> chas<span class="sc">*</span>old <span class="sc">+</span> lstat <span class="sc">+</span> crim, <span class="at">data =</span> Boston)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(mod_bb, mod_bb2, <span class="at">type=</span><span class="st">"text"</span>, </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">"Restricted"</span>, <span class="st">"Unrestricted"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mod_bb2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> chas <span class="sc">*</span> old <span class="sc">+</span> lstat <span class="sc">+</span> crim, <span class="at">data =</span> Boston)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># reorder the variables for stargazer output</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>vars.order <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"chas"</span>, <span class="st">"old"</span>, <span class="st">"chas:old"</span>, <span class="st">"lstat"</span>, <span class="st">"crim"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(mod_bb, mod_bb2,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">type =</span> <span class="st">"text"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">"Restricted"</span>, <span class="st">"Unrestricted"</span>),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">order =</span> <span class="fu">paste0</span>(<span class="st">"^"</span>, vars.order, <span class="st">"$"</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 ====================================================================
@@ -953,14 +958,14 @@ chas                        4.058**                 4.000***
 old                        -7.132***                1.748**         
                             (0.949)                 (0.776)         
                                                                     
+chas:old                   10.546***                 4.008          
+                            (3.758)                 (2.651)         
+                                                                    
 lstat                                              -0.949***        
                                                     (0.046)         
                                                                     
 crim                                                -0.079**        
                                                     (0.036)         
-                                                                    
-chas:old                   10.546***                 4.008          
-                            (3.758)                 (2.651)         
                                                                     
 Constant                   23.699***               34.106***        
                             (0.450)                 (0.573)         

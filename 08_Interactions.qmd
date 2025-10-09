@@ -121,13 +121,13 @@ From the table above, we can interpret the coefficients as follows:
     
     This means that **old** suburbs that are next to the Charles River have an expected `medv` that is 14.61 higher than **old** suburbs that are not next to the Charles River. 
 
-    → $\color{orange}{\hat{\beta}_3}$ can be interpreted as the difference in the effect of being next to the Charles River between old and new suburbs.
+    → $\color{orange}{\hat{\beta}_3}$ can be interpreted as the difference in the effect of being next to the Charles River <u>between old and new suburbs</u>.
 
   - If we compare scenario 4 with scenario 3, the difference in expected value of `medv` is given by ${\color{#00CC66}\hat{\beta}_2} + {\color{orange}\hat{\beta}_3} = -7.13 + 10.55 = 3.42.$
     
     This means that old suburbs that are **next to the Charles River** have an expected `medv` that is 3.42 higher than new suburbs that are **next to the Charles River**.
 
-    → $\color{orange}{\hat{\beta}_3}$ can be interpreted as the difference in the effect of being old between suburbs that are next to the Charles River and those that are not.
+    → $\color{orange}{\hat{\beta}_3}$ can be interpreted as the difference in the effect of being old <u>between suburbs that are next to the Charles River and those that are not</u>.
 
 
 :::{.callout-tip}
@@ -147,9 +147,14 @@ $$ {#eq-binary-interaction-more-controls}
 We estimate the above regression model as follows.
 
 ```{r}
-mod_bb2 <- lm(medv ~ chas*old + lstat + crim, data = Boston)
-stargazer(mod_bb, mod_bb2, type="text", 
-    column.labels = c("Restricted", "Unrestricted"))
+mod_bb2 <- lm(medv ~ chas * old + lstat + crim, data = Boston)
+# reorder the variables for stargazer output
+vars.order <- c("chas", "old", "chas:old", "lstat", "crim")
+stargazer(mod_bb, mod_bb2,
+    type = "text",
+    column.labels = c("Restricted", "Unrestricted"),
+    order = paste0("^", vars.order, "$")
+)
 ```
 
 
