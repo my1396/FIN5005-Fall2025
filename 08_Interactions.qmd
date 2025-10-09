@@ -195,7 +195,7 @@ anova(mod_bb, mod_bb2)
    
    In plain language:
    - $H_0$: The additional variables `lstat` and `crim` do not improve the model fit.
-   - $H_a$: At least one of the additional variables `lstat` or `crim` improves the model fit.
+   - $H_1$: At least one of the additional variables `lstat` or `crim` improves the model fit.
 
 2. Calculate the F-statistic.
    
