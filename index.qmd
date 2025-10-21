@@ -29,7 +29,7 @@ Outline of models and applications we will cover in this course:<sup>1</sup>
 | **Descriptive**  | Data Visualization, Descriptive Analysis | Asset return → **Finance**                                                                           |
 | **Predictive**   | Linear regression                        | Asset return prediction → **Finance**<br>Test Score Determinants → **Sociology**                           |
 |                  | Hypothesis testing                       | Test Score Determinants → **Sociology**                                                      |
-|                  | Classification, logistic regression      | Asset return increasing/decreasing prediction → **Finance**<br>Employee satisfaction → **Operation** |
+|                  | Classification, logistic regression      | Mortgage denial prediction → **Finance**<br> |
 | **Prescriptive** | Optimization models                      | Pricing optimization → **Operation**<br>Sensitivity analysis, Scenario analysis → **Accounting**     |
 
 <sup>[1]<sub> This is a preliminary plan. Topics and applications are subject to change as the course moves forward.</sub></sup>

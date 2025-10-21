@@ -75,6 +75,8 @@ data.table(HMDA)
 
 The key variables in the HMDA dataset are:
 
+- We will mainly use `deny`, `pirat`, and `afam` in our analysis.
+
 | Variable | Definition |
 |----------|------------|
 | <span class="env-green">`deny`</span> | Was the mortgage application denied? (yes/no) — **dependent variable** |
