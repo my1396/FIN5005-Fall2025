@@ -1,0 +1,796 @@
+---
+title: "Regression with a Binary Dependent Variable"
+---
+
+::: {.callout-note appearance="simple" icon=false}
+🎯 **Study Objectives**
+
+- Understand why linear regression is inappropriate for binary dependent variables.
+- Learn the logit and probit models for analyzing binary outcomes.
+- Interpret coefficients in logistic regressions.
+- Apply logit/probit models using real-world data (HMDA mortgage application dataset).
+- Understand the concept of predicted probabilities.
+- Compare linear probability model (LPM), logit, and probit approaches.
+:::
+
+## Why Binary Dependent Variables Require Special Treatment
+
+In many economic and financial applications, the dependent variable is **binary** (takes only two values: 0 or 1). Examples include:
+
+- **Mortgage approval**: Did the bank approve the mortgage application? (Yes = 1, No = 0)
+- **Labor force participation**: Is the individual employed? (Yes = 1, No = 0)
+- **Default risk**: Did the borrower default on the loan? (Yes = 1, No = 0)
+- **Market entry**: Does the firm enter the market? (Yes = 1, No = 0)
+- **Product choice**: Does the consumer purchase the product? (Yes = 1, No = 0)
+
+### Why Linear Regression Fails
+
+If we try to use ordinary linear regression (OLS) with a binary dependent variable $Y_i \in \{0,1\}$:
+
+$$
+Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \cdots + \beta_k X_{ki} + u_i
+$$
+
+This approach is called the **Linear Probability Model (LPM)** because it estimates the probability that $Y_i = 1$ as a linear function of the predictors.
+
+**Problems with LPM:**
+
+1. **Predicted probabilities outside [0,1]**: OLS can produce fitted values $\hat{Y}_i < 0$ or $\hat{Y}_i > 1$, which makes no sense for probabilities.
+
+2. **Heteroskedasticity**: The error term variance depends on $X$, violating the homoskedasticity assumption. This means standard errors are incorrect.
+
+3. **Nonlinear relationship**: The effect of $X$ on the probability of $Y=1$ is unlikely to be constant across all values of $X$. For example, increasing income from \$20,000 to \$30,000 likely has a different effect on mortgage approval than increasing from \$200,000 to \$210,000.
+
+### The Solution: Logit and Probit Models
+
+To address these problems, we use **nonlinear models** that ensure predicted probabilities stay within [0,1]:
+
+- **Logit model**: Uses the logistic cumulative distribution function (CDF)
+- **Probit model**: Uses the standard normal cumulative distribution function (CDF)
+
+
+## The HMDA Dataset: Mortgage Lending Discrimination
+
+We will use data from the **Federal Reserve Bank of Boston** collected under the **Home Mortgage Disclosure Act (HMDA)**. The dataset contains information on mortgage applications in the Boston area in 1990. The dataset contains 2380 observations with 14 variables.
+
+**Research Question:** Do banks discriminate against minority applicants when making mortgage lending decisions, after controlling for economic factors?
+
+### Load the Data
+
+```{r}
+# Load required packages
+pkgs <- c("AER", "tidyverse", "stargazer", "margins", "data.table")
+missing <- setdiff(pkgs, rownames(installed.packages()))
+if (length(missing) > 0) install.packages(missing)
+invisible(lapply(pkgs, function(pkg) suppressPackageStartupMessages(library(pkg, character.only = TRUE))))
+
+# Load HMDA data
+data("HMDA")
+
+# Preview the data
+data.table(HMDA)
+```
+
+### Variable Definitions
+
+The key variables in the HMDA dataset are:
+
+| Variable | Definition |
+|----------|------------|
+| <span class="env-green">`deny`</span> | Was the mortgage application denied? (yes/no) — **dependent variable** |
+| <span class="env-green">`pirat`</span> | Payments-to-income ratio (monthly loan payments / monthly income) |
+| <span class="env-green">`afam`</span> | Is the applicant African American? (yes/no) |
+| `hirat` | Housing expense-to-income ratio (monthly housing expenses / monthly income) |
+| `lvrat` | Loan-to-value ratio (loan amount / assessed property value) |
+| `chist` | Credit history: consumer credit score |
+| `mhist` | Mortgage history: mortgage credit score |
+| `phist` | Public record history: coded as "no" or "yes" (any bankruptcies, tax liens, etc.) |
+| `insurance` | Was mortgage insurance denied? (yes/no) |
+| `selfemp` | Is the applicant self-employed? (yes/no) |
+| `single` | Is the applicant single? (yes/no) |
+| `hschool` | Does the applicant have high school education? (yes/no) |
+| `unemp` | 1989 Massachusetts unemployment rate in applicant's industry (%). |
+| `condominium` | Is the property a condominium? (yes/no) |
+
+
+### Data Exploration
+
+#### Frequency Tables and Contingency Tables
+
+**Let's examine the denial rates overall and by race.**
+
+We first look at the overall denial counts and rates.
+
+```{r results='hold'}
+# Overall denial counts
+cat("Overall Denial Counts:\n")
+with(HMDA, table(deny))
+
+# Overall denial rate
+cat("===========================\n")
+cat("Overall Denial Rate:\n")
+with(HMDA, prop.table(table(deny))) %>% round(3)
+```
+
+
+The table shows that about 12% of mortgage applications were denied overall. The majority of applications (88%) were approved.
+
+Next, we examine denial counts and rates by race.
+
+
+A <span class="env-green">**contingency table**</span> is an effective method to see the association between two categorical variables. It counts the number of observations in each of the four possible scenarios.
+When dealing with just one categorical variable, this is referred to as a **frequency table**, which count the number of observations for each category.
+
+The following gives a 2x2 contingency table for mortgage denial by African-American or not.
+
+```{r results='hold'}
+# Denial rate by race
+cat("Denail counts by race:\n")
+with(HMDA, table(deny, afam))
+cat("===========================\n")
+cat("Denial rate by race:\n")
+with(HMDA, prop.table(table(deny, afam), margin = 2)) %>% round(3)
+```
+
+
+Some observations from the table:
+
+- The majority of applicants are non-African American.
+- African American applicants have a higher denial rate (about 28%) compared to non-African American applicants (about 9%).
+
+:::{.callout-note appearance="simple" icon=false}
+This descriptive evidence suggests that *the likelihood of denial may be systematically higher for African American applicants*. However, these simple proportions do not control for other relevant factors such as income, credit history, or loan-to-value ratio. 
+Logistic regression will allow us to model this relationship more rigorously while accounting for these additional variables.
+:::
+
+#### Summary Statistics
+
+```{r}
+summary(HMDA)
+```
+
+Summary statistics by race.
+
+```{r}
+# Summary statistics by race
+HMDA %>%
+    group_by(afam) %>%
+    summarise(
+        n = n(),
+        denial_rate = mean(deny == "yes"),
+        mean_pirat = mean(pirat),
+        mean_lvrat = mean(lvrat)
+    )
+```
+
+### Visualizing the Contingency Table
+
+We can visualize the contingency table using a **Stacked Bar Plot**.
+
+```{r echo=FALSE}
+# Create contingency table
+contingency_data <- HMDA %>%
+    select(deny, afam) %>%
+    mutate(
+        afam = factor(afam, levels = c("no", "yes"), labels = c("Non-African American", "African American")),
+        deny = factor(deny, levels = c("no", "yes"), labels = c("Approved", "Denied"))
+    )
+
+contingency_table <- with(contingency_data, table(deny, afam))
+
+# Stacked bar plot
+contingency_table %>%
+    as_tibble() %>%
+    mutate(deny = factor(deny, levels = c("Approved", "Denied"))) %>%
+    ggplot(aes(x = afam, y = n, fill = deny)) +
+    geom_bar(position = "stack", stat = "identity", color = "black", linewidth = 0.3) +
+    scale_fill_manual(values = c("Approved" = "#88CCEE", "Denied" = "#CC6677")) +
+    labs(
+        x = "",
+        y = "Frequency",
+        fill = "Application Status",
+        title = "Mortgage Application Outcomes by Race"
+    ) +
+    theme_minimal(base_size = 14) +
+    theme(
+        legend.position = "bottom",
+        legend.text = element_text(size = 12),
+        legend.title = element_text(size = 12),
+        axis.text = element_text(size = 12),
+        plot.title = element_text(hjust = 0.5)
+    )
+```
+
+The stacked bar graph shows:
+
+- The sample sizes of African American and non-African American applicants
+- The distribution of approved vs. denied applications within each racial group
+- African American applicants appear to have a higher proportion of denials
+
+
+Issue: When the groups have very different sizes, it can be hard to compare proportions using absolute frequencies.
+
+Remedy: Use a **mosaic plot** to visualize **relative frequencies**.
+
+#### Mosaic Plot
+
+A mosaic plot replaces absolute frequencies with relative frequencies, making it easier to compare proportions across groups.
+
+```{r echo=FALSE}
+# Mosaic plot
+mosaicplot(contingency_table %>% t(),
+    xlab = "Race", ylab = "Application Status",
+    main = "Mosaic Plot: Race × Mortgage Denial",
+    color = c("#88CCEE", "#CC6677"),
+    cex.axis = 1
+)
+```
+
+**Interpretation:**
+
+- The widths of the boxes are proportional to the percentage of each racial group in the sample.
+- The heights represent the denial rates within each group.
+- We can see that the "Denied" box for African American applicants is taller than for non-African American applicants, indicating a higher denial rate.
+
+### Measures of Risk and Association for Binary Outcomes
+
+To quantify the difference in mortgage denial rates between racial groups, we can calculate several measures of risk and association.
+
+```{r}
+# Calculate risk (denial rate) for each group
+risk_table <- contingency_table %>%
+    prop.table(margin = 2) %>%
+    as.data.frame.matrix()
+risk_table %>% round(3)
+```
+
+```{r results='hold'}
+# Extract probabilities
+p_non_afam <- risk_table["Denied", "Non-African American"]  # P(deny=1 | afam=0)
+p_afam <- risk_table["Denied", "African American"]          # P(deny=1 | afam=1)
+
+cat("Risk (Denial Rate) by Race:\n")
+cat("===========================\n")
+cat(sprintf("Non-African American: %.4f (%.2f%%)\n", p_non_afam, p_non_afam * 100))
+cat(sprintf("African American:     %.4f (%.2f%%)\n", p_afam, p_afam * 100))
+```
+
+1. **Risk Difference (Excess Risk)**
+
+   The **risk difference** or **excess risk** (ER) is the difference in denial rates between the two groups:
+
+   $$
+   ER = P(\text{deny}=1|\text{afam}=1) - P(\text{deny}=1|\text{afam}=0)
+   $$
+
+   ```{r results='hold'}
+   ER <- p_afam - p_non_afam
+   cat("\nRisk Difference (Excess Risk):\n")
+   cat("==============================\n")
+   cat(sprintf("ER = %.4f - %.4f = %.4f (%.2f percentage points)\n", p_afam, p_non_afam, ER, ER * 100))
+   ```
+
+   **Interpretation:** African American applicants have a denial rate that is `r round(ER*100, 2)` percentage points higher than non-African American applicants.
+
+   - If $ER = 0$: no difference in risk between groups
+   - If $ER > 0$: higher risk for the <span class="env-green">treatment group</span> (African Americans, `afam=1`)
+     
+     By contrast, the <span class="env-green">control group</span> is non-African Americans (`afam=0`).
+   - If $ER < 0$: lower risk for the treatment group
+
+2. **Risk Ratio (Relative Risk)**
+
+   The **risk ratio** or **relative risk** (RR) is the ratio of denial rates:
+
+   $$
+   RR = \frac{P(\text{deny}=1|\text{afam}=1)}{P(\text{deny}=1|\text{afam}=0)}
+   $$
+
+   ```{r results='hold'}
+   RR <- p_afam / p_non_afam
+   cat("\nRisk Ratio (Relative Risk):\n")
+   cat("===========================\n")
+   cat(sprintf("RR = %.4f / %.4f = %.4f\n", p_afam, p_non_afam, RR))
+   ```
+
+   **Interpretation:** African American applicants have a denial rate that is `r round(RR, 2)` times higher than non-African American applicants.
+
+   - If $RR = 1$: no difference in risk
+   - If $RR > 1$: higher risk for the treatment group (African Americans, `afam=1`)
+   - If $RR < 1$: lower risk for the treatment group
+
+3. **Odds Ratio**
+
+   The **odds ratio** (OR) compares the odds of denial between the two groups.
+
+   First, calculate the odds for each group:
+
+   $$
+   \text{odds} = \frac{P(\text{deny}=1)}{P(\text{deny}=0)} = \frac{P(\text{deny}=1)}{1 - P(\text{deny}=1)}
+   $$
+
+   ```{r results='hold'}
+   # Calculate odds for each group
+   odds_non_afam <- p_non_afam / (1 - p_non_afam)
+   odds_afam <- p_afam / (1 - p_afam)
+
+   cat("\nOdds by Race:\n")
+   cat("=============\n")
+   cat(sprintf("Non-African American: %.4f\n", odds_non_afam))
+   cat(sprintf("African American:     %.4f\n", odds_afam))
+   ```
+   
+   This means that the odds of being denied a mortgage are approximately **0.10 for non--African American applicants** and **0.40 for African American applicants**.
+   
+   The odds ratio is:
+
+   $$
+   OR = \frac{\text{odds}(\text{afam}=1)}{\text{odds}(\text{afam}=0)} = \frac{P(\text{deny}=1|\text{afam}=1)/[1-P(\text{deny}=1|\text{afam}=1)]}{P(\text{deny}=1|\text{afam}=0)/[1-P(\text{deny}=1|\text{afam}=0)]}
+   $$
+
+   ```{r results='hold'}
+   OR <- odds_afam / odds_non_afam
+   cat("\nOdds Ratio:\n")
+   cat("===========\n")
+   cat(sprintf("OR = %.4f/%.4f = %.4f\n", odds_afam, odds_non_afam, OR))
+   ```
+
+   **Interpretation:** The odds of mortgage denial for African American applicants are `r round(OR, 2)` times higher than the odds for non-African American applicants.
+
+   - If $OR = 1$: no difference in odds
+   - If $OR > 1$: higher odds for the treatment group (African Americans, `afam=1`)
+   - If $OR < 1$: lower odds for the treatment group
+
+:::{.callout-note}
+## Important Distinction
+
+- **Risk difference** measures the absolute difference in probabilities (additive scale)
+- **Risk ratio** and **odds ratio** measure relative differences (multiplicative scale)
+- The odds ratio is particularly useful because <span class="env-green">it directly relates to the coefficient in logistic regression</span>: 
+  
+  When we estimate a logistic model with `afam` as the predictor, $e^{\beta_{\text{afam}}}$ will equal the odds ratio we calculated here.
+:::
+
+## Model Specification: The Boston Mortgage Example
+
+We want to model the probability that a mortgage application is denied as a function of applicant characteristics.
+
+### Preparing the Data
+
+First, we create a binary numeric variable for denial (1 = denied, 0 = approved) and recode some factors:
+
+```{r results='hold'}
+# Create binary dependent variable
+HMDA$deny_binary <- ifelse(HMDA$deny == "yes", 1, 0)
+
+# Create binary variable for African American
+HMDA$afam_binary <- ifelse(HMDA$afam == "yes", 1, 0)
+
+# Check the variables
+head(HMDA[, c("deny", "deny_binary", "pirat", "afam", "afam_binary")])
+```
+
+### Model 1: Linear Probability Model
+
+Let's start with a simple linear regression to see its limitations.
+
+The OLS regression of the binary dependent variable, $deny$ against the payment-to-income ratio (`pirat`), is estimated as:
+
+$$
+deny = \beta_0 + \beta_1 \cdot pirat + \varepsilon
+$$
+
+```{r}
+lpm_simple <- lm(deny_binary ~ pirat, data = HMDA)
+coeftest(lpm_simple, vcov. = vcovHC, type = "HC1")
+```
+
+$$
+\widehat{deny} = -0.080 + 0.604 \cdot pirat
+$$
+
+The estimated coefficient on P/I ratio is positive, and the population coefficient is statistically significantly different from 0 at the 1% level (the t-statistic is 6.12). 
+If P/I ratio increases by 0.1, the probability of denial increases by approximately $0.604\times 0.1 \approx 0.060,$ that is, by 6 percentage points.
+Thus applicants with higher debt payments as a fraction of income are more likely to have their application denied.
+
+Now we plot the data and the regression line to visualize the model.
+
+```{r #fig-linear, echo=FALSE}
+# plot the data
+plot(
+    x = HMDA$pirat,
+    y = HMDA$deny_binary,
+    main = "Linear Model of Mortgage Application Denial, Given the Payment-to-Income Ratio",
+    xlab = "P/I ratio",
+    ylab = "Deny",
+    pch = 20,
+    ylim = c(-0.4, 1.4),
+    cex.main = 0.8
+)
+
+# add horizontal dashed lines and text
+abline(h = 1, lty = 2, col = "darkred")
+abline(h = 0, lty = 2, col = "darkred")
+text(2.5, 0.9, cex = 0.8, "Mortgage denied")
+text(2.5, -0.1, cex = 0.8, "Mortgage approved")
+
+# add the estimated regression line
+abline(lpm_simple,
+    lwd = 1.8,
+    col = "steelblue"
+)
+```
+
+::: {.callout-warning title="Shortcomings with the linear probability model" icon="false"}
+
+1. The linear probability model can predict probabilities outside the $[0,1]$ range. For example, for high values of P/I ratio (`pirat`), the predicted probability exceeds 1. However, probabilities must lie between 0 and 1.
+2. The relationship between P/I ratio and the probability of denial may NOT be linear in reality. 
+   
+   It is reasonable to expect the marginal effects of P/I ratio on denial probability to diminish as P/I ratio  increases. Although a change in P/I ratio from 0.4 to 0.4 might have a large effect on the probability of denial, once the P/I ratio is already very high (e.g., 0.9 to 1.0), increasing P/I ratio further will have litte effect.
+3. The error term in the linear probability model is *heteroskedastic*, violating OLS assumptions. 
+   
+   This means that standard errors and hypothesis tests based on OLS are invalid. → This issue can be addressed using heteroskedasticity robust standard errors.
+:::
+
+### Model 2: Logit Regression with a single predictor
+
+The estimated model is 
+$$
+\mathrm P(deny_i = 1 | pirat_i) = F(\beta_0 + \beta_1 \cdot pirat_i) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 \cdot pirat_i)}} ,
+$$
+
+where $F$ is the logistic distribution function.
+
+Note that the left-hand side is the probability that the $i$-th mortgage application is denied ($deny_i = 1$), given the payment-to-income ratio ($pirat_i$).
+
+The strength of the logit model is that <span class="env-green">it ensures predicted probabilities are always between 0 and 1</span>.
+
+```{r}
+# Estimate logit model
+logit_simple <- glm(deny_binary ~ pirat,
+    family = binomial(link = "logit"),
+    data = HMDA
+)
+coeftest(logit_simple, vcov. = vcovHC, type = "HC1")
+```
+
+$$
+\widehat{\mathrm P}(deny_i = 1 | pirat_i) = F(-4.02 + 5.88 \cdot pirat_i)= \frac{1}{1 + e^{-(-4.02 + 5.88 \cdot pirat_i)}}
+$$
+
+Visualizing the logit model:
+
+```{r #fig-logit, echo=FALSE, fig.cap="The logit model uses the logistic distribution function to model the probability of denial as a function of the payment-to-income ratio. Unlike the linear probability model, the logit model ensures predicted probabilities remain within the [0,1] range."}
+# plot data
+plot(
+    x = HMDA$pirat,
+    y = HMDA$deny_binary,
+    main = "Logit Model of the Probability of Denial, Given the Payment-to-Income Ratio",
+    xlab = "P/I ratio",
+    ylab = "Deny",
+    pch = 20,
+    ylim = c(-0.4, 1.4),
+    cex.main = 0.85
+)
+
+# add horizontal dashed lines and text
+abline(h = 1, lty = 2, col = "darkred")
+abline(h = 0, lty = 2, col = "darkred")
+text(2.5, 0.9, cex = 0.8, "Mortgage denied")
+text(2.5, -0.1, cex = 0.8, "Mortgage approved")
+
+# add estimated regression line
+x <- seq(0, 3, 0.01)
+y <- predict(logit_simple, list(pirat = x), type = "response")
+
+lines(x, y, lwd = 1.5, col = "steelblue")
+```
+
+The estimated probit regression function has a stretched “S” shape: It is nearly 0 and flat for small values of P/I ratio, it turns and increases for intermediate values, and it flattens out again and is nearly 1 for large values. 
+
+::: {.example #exm-1}
+**Predicted probability.**
+
+What is the probability of denial given a P/I ratio of 0.3? What about for P/I ratio being 0.4 and 0.5?
+:::
+
+<button class="solution-btn" onclick="myFunction('sol-1')">Solution</button>
+<div id="sol-1" class="solution-answer env-green">
+For P/I ratio of 0.3, the estimated probability of denial based on the estimated logit model is:
+$$
+\widehat{P}(deny = 1 | pirat = 0.3) = \frac{1}{1 + e^{-(-4.02 + 5.88 \cdot 0.3)}} \approx 9.4\%
+$$
+That is, the probability of denial is approximately 9.4%.
+
+For P/I ratio of 0.4:
+$$
+\widehat{P}(deny = 1 | pirat = 0.4) = \frac{1}{1 + e^{-(-4.02 + 5.88 \cdot 0.4)}} \approx 15.7\%
+$$
+That is, the probability of denial is approximately 15.7%.
+
+For P/I ratio of 0.5:
+$$
+\widehat{P}(deny = 1 | pirat = 0.5) = \frac{1}{1 + e^{-(-4.02 + 5.88 \cdot 0.5)}} \approx 25.2\%
+$$
+
+**Main takeaway:** As P/I ratio increases, the probability of denial increases, but not linearly.
+</div>
+
+
+<span class="env-green">**Interpretation on the logit coefficients:**</span>
+
+The estimated model is
+
+$$
+\widehat{P}(deny_i = 1 \mid pirat_i) = \frac{1}{1 + e^{-(-4.02 + 5.88 \cdot pirat_i)}}
+$$
+
+which can be written in **log-odds form** as
+
+$$
+\log\left(\frac{P(deny_i = 1)}{1 - P(deny_i = 1)}\right) = -4.02 + 5.88 \cdot pirat_i
+$$
+
+1. **Interpreting coefficients (log-odds scale):**
+   
+   The slope coefficient, $\hat{\beta}_1 = 5.88$, means that a **one-unit increase** in `pirat` increases the **log-odds** of mortgage denial by **5.88**, holding all else constant. 
+
+2. **Interpreting odds ratios (exponentiating coefficients):**
+
+   To obtain a more intuitive interpretation, we exponentiate the coefficient:
+   $$
+   e^{\hat{\beta}_1} = e^{5.88} \approx 357.7
+   $$
+   This means that for a **one-unit increase** in the payment-to-income ratio, the **odds** of mortgage denial are about **357.7 times larger**.
+   
+   - Because a one-unit increase in `pirat` is very large in practice, it is often more meaningful to interpret smaller changes.
+ 
+   For example, for a **0.1 increase** in `pirat`:
+   $$
+   e^{5.88 \times 0.1} \approx 1.80
+   $$
+   This means that a 0.1 increase in the payment-to-income ratio increases the **odds of denial by about 80%**.
+
+**Hypothesis Testing:**
+
+Using the normal distribution of parameter estimates, we can use the standard normal table rather than the $t$ table for critical points to test hypotheses about the coefficients.
+
+The $z$-statistic for testing $H_0: \beta_1 = 0$ is:
+
+$$
+z = \frac{\hat{\beta}_1 - 0}{SE(\hat{\beta}_1)} = \frac{5.88 - 0}{1} \approx 5.88
+$$
+
+Since $z > 1.96$, we reject the null hypothesis at the 5% significance level and conclude that there is a statistically significant positive relationship between payment-to-income ratio and the probability of mortgage denial.
+
+### Model 3: Linear Probability Model with Multiple Predictors
+$$
+deny_i = \beta_0 + \beta_1 \cdot pirat_i + \beta_2 \cdot afam_i
+$$
+
+```{r}
+# Estimate LPM
+lpm_multi <- lm(deny_binary ~ pirat + afam_binary, data = HMDA)
+summary(lpm_multi)
+```
+
+**Interpretation:**
+
+- $\hat{\beta}_1$: A one-unit increase in the payment-to-income ratio increases the probability of denial by approximately $\hat{\beta}_1$.
+- $\hat{\beta}_2$: African American applicants have a probability of denial that is $\hat{\beta}_2$ percentage points higher than non-African American applicants, holding `pirat` constant.
+
+### Model 4: Logit Model with Multiple Predictors
+
+Now we estimate a logit model including both P/I ratio (`pirat`) and African-American binary (`afam_binary`) as predictors:
+
+$$
+P(deny_i = 1 | pirat_i, afam_i) = F(\beta_0 + \beta_1 \cdot pirat_i + \beta_2 \cdot afam_i) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 \cdot pirat_i + \beta_2 \cdot afam_i)}} .
+$$
+
+
+```{r}
+# Estimate logit model
+logit_multi <- glm(deny_binary ~ pirat + afam_binary,
+    family = binomial(link = "logit"),
+    data = HMDA
+)
+coeftest(logit_multi, vcov. = vcovHC, type = "HC1")
+```
+
+
+The estimated logit model is:
+$$
+\begin{split}
+\widehat{P}(deny_i = 1 | pirat_i, afam_i) &= F(-4.13 + 5.37 \cdot pirat_i + 1.27 \cdot afam_i) \\
+&= \frac{1}{1 + e^{-(-4.13 + 5.37 \cdot pirat_i + 1.27 \cdot afam_i)}}
+\end{split}
+$$
+
+<span class="env-green">**Interpretation of Logit Coefficients**</span>
+
+The coefficients in a logit model represent the change in the **log-odds** of denial:
+
+$$
+\log\left(\frac{P(deny = 1)}{1 - P(deny = 1)}\right) = -4.13 + 5.37 \cdot pirat_i + 1.27 \cdot afam_i
+$$
+
+**1. Interpreting coefficients (log-odds scale):**
+
+- $\hat{\beta}_1 > 0$: A one-unit increase in `pirat` increases the log-odds of denial by $\hat{\beta}_1$, holding other variables constant.
+- $\hat{\beta}_2 > 0$: Being African American increases the log-odds of denial by $\hat{\beta}_2$ compared to non-African Americans, holding other variables constant.
+
+**2. Interpreting odds ratios (exponentiating coefficients):**
+
+Alternatively, we can interpret the **odds ratio** by taking the exponential of the coefficients:
+
+```{r include=FALSE}
+# Calculate odds ratios
+exp(coef(logit_multi)) %>% round(3)
+```
+
+- **For `pirat`**: $e^{\hat{\beta}_1}$ represents the **multiplicative change in odds** for a one-unit increase in the payment-to-income ratio. 
+  
+  For example, if the P/I ratio increases by 0.2, then $e^{5.37\times 0.2} = 2.93$, that is, the odds of mortgage denial are approximately 2.94 times higher, holding `afam` constant.
+
+- **For `afam`**: $e^{\hat{\beta}_2}$ is the **odds ratio comparing African American applicants to non-African American applicants**.
+  
+  Based on the estimates, $e^{1.2} = 3.56$, that is, African American applicants have odds of denial that are 3.56 times higher than non-African American applicants, holding `pirat` constant.
+
+::: {.example #exm-2}
+
+Suppose we have:
+
+- Odds of denial for a non-African American applicant with `pirat = 0.3` is 0.15
+- The odds ratio for African Americans compared to non-African American is $e^{\hat{\beta}_2} = 3.56$
+
+Calculate the expected odds for an African American applicant with the same `pirat = 0.3`.
+:::
+
+<button class="solution-btn" onclick="myFunction('sol-2')">Solution</button>
+::: {#sol-2 .solution-answer .env-green}
+$$
+\text{odds}(\text{afam}=1) = \text{odds}(\text{afam}=0) \times e^{\hat{\beta}_2} = 0.15 \times 3.56 = 0.534
+$$
+The expected odds of denial for an African American applicant with `pirat = 0.3` is 0.534.
+:::
+
+
+### Model 5: Probit Model
+
+In contrast to the logit model, which uses the logistic CDF, the probit model uses the <span class="env-green">standard normal</span> distribution function to model the probability of denial.
+$$
+P(deny_i = 1 | X_i) = \Phi(\beta_0 + \beta_1 \cdot pirat_i + \beta_2 \cdot afam_i)
+$$
+
+where $\Phi(\cdot)$ is the standard normal CDF.
+
+```{r}
+# Estimate probit model
+probit_multi <- glm(deny_binary ~ pirat + afam_binary,
+    family = binomial(link = "probit"),
+    data = HMDA
+)
+coeftest(probit_multi, vcov. = vcovHC, type = "HC1")
+```
+
+### Comparison: Logit, and Probit
+```{r echo=FALSE}
+# plot data
+plot(
+    x = HMDA$pirat,
+    y = HMDA$deny,
+    main = "Probit and Logit Models Model of the Probability of Denial, Given P/I Ratio",
+    xlab = "P/I ratio",
+    ylab = "Deny",
+    pch = 20,
+    ylim = c(-0.4, 1.4),
+    cex.main = 0.9
+)
+
+# add horizontal dashed lines and text
+abline(h = 1, lty = 2, col = "darkred")
+abline(h = 0, lty = 2, col = "darkred")
+text(2.5, 0.9, cex = 0.8, "Mortgage denied")
+text(2.5, -0.1, cex = 0.8, "Mortgage approved")
+
+# add estimated regression line of Probit and Logit models
+x <- seq(0, 3, 0.01)
+y_probit <- predict(probit_multi, list(pirat = x, afam_binary = rep(0, 301)), type = "response")
+y_logit <- predict(logit_multi, list(pirat = x, afam_binary = rep(0, 301)), type = "response")
+
+lines(x, y_probit, lwd = 1.5, col = "steelblue")
+lines(x, y_logit, lwd = 1.5, col = "black", lty = 2)
+
+# add a legend
+legend("topleft",
+    horiz = TRUE,
+    legend = c("Probit", "Logit"),
+    col = c("steelblue", "black"),
+    lty = c(1, 2)
+)
+```
+
+**Practical Recommendation:**
+
+- Logit and probit typically give very similar results.
+- Logit is more common in economics and finance due to the convenient odds ratio interpretation.
+
+### Predicted Probabilities
+
+To compare effects across models, we calculate **predicted probabilities** at specific values of the predictors.
+
+::: {.example #exm-3}
+For the three multivariate models (models 3–5), what is the predicted probability of denial for:
+
+- An African American applicant with `pirat = 0.3`?
+- A non-African American applicant with `pirat = 0.3`?
+:::
+
+<button class="solution-btn" onclick="myFunction('sol-3')">Solution</button>
+::: {#sol-3 .solution-answer .env-green}
+For linear probability model (LPM):
+- African American applicant (`afam_binary = 1`):
+  $$
+  \widehat{deny} = -0.09 + 0.56 \times 0.3 + 0.18 \times 1 = 0.258 
+  $$
+- Non-African American applicant (`afam_binary = 0`):
+  $$
+  \widehat{deny} = -0.09 + 0.56 \times 0.3 + 0.18 \times 0 = 0.078
+  $$
+
+For logit model:
+- African American applicant:
+  $$
+  \widehat{P}(deny = 1 | pirat = 0.3, afam = 1) = \frac{1}{1 + e^{-(-4.13 + 5.37 \times 0.3 + 1.27 \times 1)}} \approx 0.22
+  $$
+- Non-African American applicant:
+  $$
+  \widehat{P}(deny = 1 | pirat = 0.3, afam = 1) = \frac{1}{1 + e^{-(-4.13 + 5.37 \times 0.3 + 1.27 \times 0)}} \approx 0.07
+  $$
+
+For probit model:
+- African American applicant:
+  $$
+  \widehat{P}(deny = 1 | pirat = 0.3, afam = 1) = \Phi(-2.26 + 2.74 \times 0.3 + 0.71 \times 1) \approx 0.23
+  $$
+- Non-African American applicant:
+  $$
+  \widehat{P}(deny = 1 | pirat = 0.3, afam = 0) = \Phi(-2.26 + 2.74 \times 0.3 + 0.71 \times 0) \approx 0.08
+  $$
+:::
+
+```{r validate, include=FALSE}
+# Create prediction data
+newdata <- data.frame(
+    pirat = c(0.3, 0.3),
+    afam_binary = c(1, 0)
+)
+
+# Predictions from each model
+pred_lpm <- predict(lpm_multi, newdata = newdata, type = "response")
+pred_logit <- predict(logit_multi, newdata = newdata, type = "response")
+pred_probit <- predict(probit_multi, newdata = newdata, type = "response")
+
+# Compare predictions
+data.frame(
+    Applicant = c("African American", "Non-African American"),
+    LPM = pred_lpm,
+    Logit = pred_logit,
+    Probit = pred_probit
+)
+```
+
+
+
+## Summary: Logit vs. Probit vs. LPM
+
+|  | Linear | Logit | Probit |
+|---------|-----|-------|--------|
+| **Function** | Linear | Logistic CDF | Normal CDF |
+| **Predicted probabilities** | Can be outside [0,1] | Always in [0,1] | Always in [0,1] |
+| **Interpretation** | Direct (probability) | Log-odds / Odds ratio | Z-score |
+| **Heteroskedasticity** | Always present | Accounted for | Accounted for |
+| **When to use** | Quick approximation | Preferred for most applications | Similar to logit; standard in some fields |
+
+
+

@@ -1,6 +1,12 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - "*.qmd"
+    - "*.ipynb"
+    - "!Rscripts/"
+    - "!_lab/"
+    - "!_quiz/"
 
 execute:
   freeze: auto
@@ -29,6 +35,7 @@ website:
           - 06_Multiple_Linear_Regression.qmd
           - 07_Lab-2_dummy-variable.ipynb
           - 08_Interactions.qmd
+          - 09_Logistic_Regression.qmd
 
 filters:
   - filters/color-text.lua
