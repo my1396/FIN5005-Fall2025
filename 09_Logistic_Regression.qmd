@@ -326,7 +326,7 @@ cat(sprintf("African American:     %.4f (%.2f%%)\n", p_afam, p_afam * 100))
    
    This means that the odds of being denied a mortgage are approximately **0.10 for non--African American applicants** and **0.40 for African American applicants**.
    
-   The odds ratio is:
+   The <span class="env-green">**odds ratio**</span> is:
 
    $$
    OR = \frac{\text{odds}(\text{afam}=1)}{\text{odds}(\text{afam}=0)} = \frac{P(\text{deny}=1|\text{afam}=1)/[1-P(\text{deny}=1|\text{afam}=1)]}{P(\text{deny}=1|\text{afam}=0)/[1-P(\text{deny}=1|\text{afam}=0)]}
