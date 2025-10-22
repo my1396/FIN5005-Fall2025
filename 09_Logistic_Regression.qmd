@@ -352,7 +352,7 @@ cat(sprintf("African American:     %.4f (%.2f%%)\n", p_afam, p_afam * 100))
 - **Risk ratio** and **odds ratio** measure relative differences (multiplicative scale)
 - The odds ratio is particularly useful because <span class="env-green">it directly relates to the coefficient in logistic regression</span>: 
   
-  When we estimate a logistic model with `afam` as the predictor, $e^{\beta_{\text{afam}}}$ will equal the odds ratio we calculated here.
+  When we estimate a logistic model with `afam` as the predictor, $e^{\beta_{\text{afam}}}$ will approximately equal the odds ratio we calculated here.
 :::
 
 ## Model Specification: The Boston Mortgage Example
