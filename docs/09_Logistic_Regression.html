@@ -749,7 +749,7 @@ Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \cdots + \beta_k X_{ki} + u_i
 <ol type="1">
 <li><p><strong>Predicted probabilities outside [0,1]</strong>: OLS can produce fitted values <span class="math inline">\(\hat{Y}_i &lt; 0\)</span> or <span class="math inline">\(\hat{Y}_i &gt; 1\)</span>, which makes no sense for probabilities.</p></li>
 <li><p><strong>Heteroskedasticity</strong>: The error term variance depends on <span class="math inline">\(X\)</span>, violating the homoskedasticity assumption. This means standard errors are incorrect.</p></li>
-<li><p><strong>Nonlinear relationship</strong>: The effect of <span class="math inline">\(X\)</span> on the probability of <span class="math inline">\(Y=1\)</span> is unlikely to be constant across all values of <span class="math inline">\(X\)</span>. For example, increasing income from $20,000 to $30,000 likely has a different effect on mortgage approval than increasing from $200,000 to $210,000.</p></li>
+<li><p><strong>Nonlinear relationship</strong>: The effect of <span class="math inline">\(X\)</span> on the probability of <span class="math inline">\(Y=1\)</span> is unlikely to be constant across all values of <span class="math inline">\(X\)</span>. For example, increasing income from \$20,000 to \$30,000 likely has a different effect on mortgage approval than increasing from \$200,000 to \$210,000.</p></li>
 </ol>
 </section>
 <section id="the-solution-logit-and-probit-models" class="level3" data-number="1.2">
@@ -1051,24 +1051,21 @@ deny     no   yes
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>risk_table <span class="ot">&lt;-</span> contingency_table <span class="sc">%&gt;%</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop.table</span>(<span class="at">margin =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.data.frame.matrix</span>()</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>risk_table <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>risk_table <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">3</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract probabilities</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>p_non_afam <span class="ot">&lt;-</span> risk_table[<span class="st">"Denied"</span>, <span class="st">"Non-African American"</span>] <span class="co"># P(deny=1 | afam=0)</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>p_afam <span class="ot">&lt;-</span> risk_table[<span class="st">"Denied"</span>, <span class="st">"African American"</span>] <span class="co"># P(deny=1 | afam=1)</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Risk (Denial Rate) by Race:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"===========================</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Non-African American: %.4f (%.2f%%)</span><span class="sc">\n</span><span class="st">"</span>, p_non_afam, p_non_afam <span class="sc">*</span> <span class="dv">100</span>))</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"African American:     %.4f (%.2f%%)</span><span class="sc">\n</span><span class="st">"</span>, p_afam, p_afam <span class="sc">*</span> <span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         Non-African American African American
 Approved                0.907            0.717
-Denied                  0.093            0.283</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract probabilities</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>p_non_afam <span class="ot">&lt;-</span> risk_table[<span class="st">"Denied"</span>, <span class="st">"Non-African American"</span>]  <span class="co"># P(deny=1 | afam=0)</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>p_afam <span class="ot">&lt;-</span> risk_table[<span class="st">"Denied"</span>, <span class="st">"African American"</span>]          <span class="co"># P(deny=1 | afam=1)</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Risk (Denial Rate) by Race:</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"===========================</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Non-African American: %.4f (%.2f%%)</span><span class="sc">\n</span><span class="st">"</span>, p_non_afam, p_non_afam <span class="sc">*</span> <span class="dv">100</span>))</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"African American:     %.4f (%.2f%%)</span><span class="sc">\n</span><span class="st">"</span>, p_afam, p_afam <span class="sc">*</span> <span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Risk (Denial Rate) by Race:
+Denied                  0.093            0.283
+
+Risk (Denial Rate) by Race:
 ===========================
 Non-African American: 0.0926 (9.26%)
 African American:     0.2832 (28.32%)</code></pre>
@@ -1081,10 +1078,10 @@ African American:     0.2832 (28.32%)</code></pre>
 ER = P(\text{deny}=1|\text{afam}=1) - P(\text{deny}=1|\text{afam}=0)
 \]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>ER <span class="ot">&lt;-</span> p_afam <span class="sc">-</span> p_non_afam</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Risk Difference (Excess Risk):</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"==============================</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"ER = %.4f - %.4f = %.4f (%.2f percentage points)</span><span class="sc">\n</span><span class="st">"</span>, p_afam, p_non_afam, ER, ER <span class="sc">*</span> <span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ER <span class="ot">&lt;-</span> p_afam <span class="sc">-</span> p_non_afam</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Risk Difference (Excess Risk):</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"==============================</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"ER = %.4f - %.4f = %.4f (%.2f percentage points)</span><span class="sc">\n</span><span class="st">"</span>, p_afam, p_non_afam, ER, ER <span class="sc">*</span> <span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Risk Difference (Excess Risk):
@@ -1105,10 +1102,10 @@ ER = 0.2832 - 0.0926 = 0.1906 (19.06 percentage points)</code></pre>
 RR = \frac{P(\text{deny}=1|\text{afam}=1)}{P(\text{deny}=1|\text{afam}=0)}
 \]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>RR <span class="ot">&lt;-</span> p_afam <span class="sc">/</span> p_non_afam</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Risk Ratio (Relative Risk):</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"===========================</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"RR = %.4f / %.4f = %.4f</span><span class="sc">\n</span><span class="st">"</span>, p_afam, p_non_afam, RR))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>RR <span class="ot">&lt;-</span> p_afam <span class="sc">/</span> p_non_afam</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Risk Ratio (Relative Risk):</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"===========================</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"RR = %.4f / %.4f = %.4f</span><span class="sc">\n</span><span class="st">"</span>, p_afam, p_non_afam, RR))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Risk Ratio (Relative Risk):
@@ -1129,14 +1126,14 @@ RR = 0.2832 / 0.0926 = 3.0581</code></pre>
 \text{odds} = \frac{P(\text{deny}=1)}{P(\text{deny}=0)} = \frac{P(\text{deny}=1)}{1 - P(\text{deny}=1)}
 \]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate odds for each group</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>odds_non_afam <span class="ot">&lt;-</span> p_non_afam <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> p_non_afam)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>odds_afam <span class="ot">&lt;-</span> p_afam <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> p_afam)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Odds by Race:</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"=============</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Non-African American: %.4f</span><span class="sc">\n</span><span class="st">"</span>, odds_non_afam))</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"African American:     %.4f</span><span class="sc">\n</span><span class="st">"</span>, odds_afam))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate odds for each group</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>odds_non_afam <span class="ot">&lt;-</span> p_non_afam <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> p_non_afam)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>odds_afam <span class="ot">&lt;-</span> p_afam <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> p_afam)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Odds by Race:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"=============</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Non-African American: %.4f</span><span class="sc">\n</span><span class="st">"</span>, odds_non_afam))</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"African American:     %.4f</span><span class="sc">\n</span><span class="st">"</span>, odds_afam))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Odds by Race:
@@ -1151,10 +1148,10 @@ African American:     0.3951</code></pre>
 OR = \frac{\text{odds}(\text{afam}=1)}{\text{odds}(\text{afam}=0)} = \frac{P(\text{deny}=1|\text{afam}=1)/[1-P(\text{deny}=1|\text{afam}=1)]}{P(\text{deny}=1|\text{afam}=0)/[1-P(\text{deny}=1|\text{afam}=0)]}
 \]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>OR <span class="ot">&lt;-</span> odds_afam <span class="sc">/</span> odds_non_afam</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Odds Ratio:</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"===========</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"OR = %.4f/%.4f = %.4f</span><span class="sc">\n</span><span class="st">"</span>, odds_afam, odds_non_afam, OR))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>OR <span class="ot">&lt;-</span> odds_afam <span class="sc">/</span> odds_non_afam</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Odds Ratio:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"===========</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"OR = %.4f/%.4f = %.4f</span><span class="sc">\n</span><span class="st">"</span>, odds_afam, odds_non_afam, OR))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Odds Ratio:
@@ -1196,14 +1193,14 @@ Important Distinction
 <h3 data-number="3.1" class="anchored" data-anchor-id="preparing-the-data"><span class="header-section-number">3.1</span> Preparing the Data</h3>
 <p>First, we create a binary numeric variable for denial (1 = denied, 0 = approved) and recode some factors:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create binary dependent variable</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>HMDA<span class="sc">$</span>deny_binary <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(HMDA<span class="sc">$</span>deny <span class="sc">==</span> <span class="st">"yes"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create binary variable for African American</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>HMDA<span class="sc">$</span>afam_binary <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(HMDA<span class="sc">$</span>afam <span class="sc">==</span> <span class="st">"yes"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the variables</span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(HMDA[, <span class="fu">c</span>(<span class="st">"deny"</span>, <span class="st">"deny_binary"</span>, <span class="st">"pirat"</span>, <span class="st">"afam"</span>, <span class="st">"afam_binary"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create binary dependent variable</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>HMDA<span class="sc">$</span>deny_binary <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(HMDA<span class="sc">$</span>deny <span class="sc">==</span> <span class="st">"yes"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create binary variable for African American</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>HMDA<span class="sc">$</span>afam_binary <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(HMDA<span class="sc">$</span>afam <span class="sc">==</span> <span class="st">"yes"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the variables</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(HMDA[, <span class="fu">c</span>(<span class="st">"deny"</span>, <span class="st">"deny_binary"</span>, <span class="st">"pirat"</span>, <span class="st">"afam"</span>, <span class="st">"afam_binary"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  deny deny_binary pirat afam afam_binary
 1   no           0 0.221   no           0
@@ -1223,8 +1220,8 @@ Important Distinction
 deny = \beta_0 + \beta_1 \cdot pirat + \varepsilon
 \]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>lpm_simple <span class="ot">&lt;-</span> <span class="fu">lm</span>(deny_binary <span class="sc">~</span> pirat, <span class="at">data =</span> HMDA)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coeftest</span>(lpm_simple, <span class="at">vcov. =</span> vcovHC, <span class="at">type =</span> <span class="st">"HC1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>lpm_simple <span class="ot">&lt;-</span> <span class="fu">lm</span>(deny_binary <span class="sc">~</span> pirat, <span class="at">data =</span> HMDA)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coeftest</span>(lpm_simple, <span class="at">vcov. =</span> vcovHC, <span class="at">type =</span> <span class="st">"HC1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 t test of coefficients:
@@ -1268,7 +1265,8 @@ Shortcomings with the linear probability model
 <ol type="1">
 <li><p>The linear probability model can predict probabilities outside the <span class="math inline">\([0,1]\)</span> range. For example, for high values of P/I ratio (<code>pirat</code>), the predicted probability exceeds 1. However, probabilities must lie between 0 and 1.</p></li>
 <li><p>The relationship between P/I ratio and the probability of denial may NOT be linear in reality.</p>
-<p>It is reasonable to expect the marginal effects of P/I ratio on denial probability to diminish as P/I ratio increases. Although a change in P/I ratio from 0.4 to 0.4 might have a large effect on the probability of denial, once the P/I ratio is already very high (e.g., 0.9 to 1.0), increasing P/I ratio further will have litte effect.</p></li>
+<p>It is reasonable to expect the marginal effects of P/I ratio on denial probability to diminish as P/I ratio increases.</p>
+<p>Although a change in P/I ratio from 0.3 to 0.4 might have a large effect on the probability of denial, once the P/I ratio is already very high (e.g., 0.9 to 1.0), increasing P/I ratio further will have litte effect.</p></li>
 <li><p>The error term in the linear probability model is <em>heteroskedastic</em>, violating OLS assumptions.</p>
 <p>This means that standard errors and hypothesis tests based on OLS are invalid. → This issue can be addressed using heteroskedasticity robust standard errors.</p></li>
 </ol>
@@ -1284,12 +1282,12 @@ Shortcomings with the linear probability model
 <p>Note that the left-hand side is the probability that the <span class="math inline">\(i\)</span>-th mortgage application is denied (<span class="math inline">\(deny_i = 1\)</span>), given the payment-to-income ratio (<span class="math inline">\(pirat_i\)</span>).</p>
 <p>The strength of the logit model is that <span class="env-green">it ensures predicted probabilities are always between 0 and 1</span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate logit model</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>logit_simple <span class="ot">&lt;-</span> <span class="fu">glm</span>(deny_binary <span class="sc">~</span> pirat,</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>),</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> HMDA</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">coeftest</span>(logit_simple, <span class="at">vcov. =</span> vcovHC, <span class="at">type =</span> <span class="st">"HC1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate logit model</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>logit_simple <span class="ot">&lt;-</span> <span class="fu">glm</span>(deny_binary <span class="sc">~</span> pirat,</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>),</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> HMDA</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="fu">coeftest</span>(logit_simple, <span class="at">vcov. =</span> vcovHC, <span class="at">type =</span> <span class="st">"HC1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 z test of coefficients:
@@ -1319,7 +1317,7 @@ Figure&nbsp;2: The logit model uses the logistic distribution function to model 
 </div>
 </div>
 </div>
-<p>The estimated probit regression function has a stretched “S” shape: It is nearly 0 and flat for small values of P/I ratio, it turns and increases for intermediate values, and it flattens out again and is nearly 1 for large values.</p>
+<p>The estimated logit regression function has a stretched “S” shape: It is nearly 0 and flat for small values of P/I ratio, it turns and increases for intermediate values, and it flattens out again and is nearly 1 for large values.</p>
 <div id="exm-1" class="example theorem">
 <p><span class="theorem-title"><strong>Example 1</strong></span> <strong>Predicted probability.</strong></p>
 <p>What is the probability of denial given a P/I ratio of 0.3? What about for P/I ratio being 0.4 and 0.5?</p>
@@ -1376,9 +1374,9 @@ z = \frac{\hat{\beta}_1 - 0}{SE(\hat{\beta}_1)} = \frac{5.88 - 0}{1} \approx 5.8
 deny_i = \beta_0 + \beta_1 \cdot pirat_i + \beta_2 \cdot afam_i
 \]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate LPM</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>lpm_multi <span class="ot">&lt;-</span> <span class="fu">lm</span>(deny_binary <span class="sc">~</span> pirat <span class="sc">+</span> afam_binary, <span class="at">data =</span> HMDA)</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lpm_multi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate LPM</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>lpm_multi <span class="ot">&lt;-</span> <span class="fu">lm</span>(deny_binary <span class="sc">~</span> pirat <span class="sc">+</span> afam_binary, <span class="at">data =</span> HMDA)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lpm_multi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1414,12 +1412,12 @@ F-statistic: 97.76 on 2 and 2377 DF,  p-value: &lt; 2.2e-16</code></pre>
 P(deny_i = 1 | pirat_i, afam_i) = F(\beta_0 + \beta_1 \cdot pirat_i + \beta_2 \cdot afam_i) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 \cdot pirat_i + \beta_2 \cdot afam_i)}} .
 \]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate logit model</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>logit_multi <span class="ot">&lt;-</span> <span class="fu">glm</span>(deny_binary <span class="sc">~</span> pirat <span class="sc">+</span> afam_binary,</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>),</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> HMDA</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="fu">coeftest</span>(logit_multi, <span class="at">vcov. =</span> vcovHC, <span class="at">type =</span> <span class="st">"HC1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate logit model</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>logit_multi <span class="ot">&lt;-</span> <span class="fu">glm</span>(deny_binary <span class="sc">~</span> pirat <span class="sc">+</span> afam_binary,</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>),</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> HMDA</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="fu">coeftest</span>(logit_multi, <span class="at">vcov. =</span> vcovHC, <span class="at">type =</span> <span class="st">"HC1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 z test of coefficients:
@@ -1480,12 +1478,12 @@ P(deny_i = 1 | X_i) = \Phi(\beta_0 + \beta_1 \cdot pirat_i + \beta_2 \cdot afam_
 \]</span></p>
 <p>where <span class="math inline">\(\Phi(\cdot)\)</span> is the standard normal CDF.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate probit model</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>probit_multi <span class="ot">&lt;-</span> <span class="fu">glm</span>(deny_binary <span class="sc">~</span> pirat <span class="sc">+</span> afam_binary,</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>),</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> HMDA</span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="fu">coeftest</span>(probit_multi, <span class="at">vcov. =</span> vcovHC, <span class="at">type =</span> <span class="st">"HC1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate probit model</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>probit_multi <span class="ot">&lt;-</span> <span class="fu">glm</span>(deny_binary <span class="sc">~</span> pirat <span class="sc">+</span> afam_binary,</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>),</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> HMDA</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="fu">coeftest</span>(probit_multi, <span class="at">vcov. =</span> vcovHC, <span class="at">type =</span> <span class="st">"HC1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 z test of coefficients:
@@ -1505,7 +1503,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="09_Logistic_Regression_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="09_Logistic_Regression_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1530,21 +1528,34 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 Solution
 </button>
 <div id="sol-3" class="solution-answer env-green proof solution">
-<p><span class="proof-title"><em>Solution 3</em>. </span>For linear probability model (LPM): - African American applicant (<code>afam_binary = 1</code>): <span class="math display">\[
-  \widehat{deny} = -0.09 + 0.56 \times 0.3 + 0.18 \times 1 = 0.258
-  \]</span> - Non-African American applicant (<code>afam_binary = 0</code>): <span class="math display">\[
-  \widehat{deny} = -0.09 + 0.56 \times 0.3 + 0.18 \times 0 = 0.078
-  \]</span></p>
-<p>For logit model: - African American applicant: <span class="math display">\[
-  \widehat{P}(deny = 1 | pirat = 0.3, afam = 1) = \frac{1}{1 + e^{-(-4.13 + 5.37 \times 0.3 + 1.27 \times 1)}} \approx 0.22
-  \]</span> - Non-African American applicant: <span class="math display">\[
-  \widehat{P}(deny = 1 | pirat = 0.3, afam = 1) = \frac{1}{1 + e^{-(-4.13 + 5.37 \times 0.3 + 1.27 \times 0)}} \approx 0.07
-  \]</span></p>
-<p>For probit model: - African American applicant: <span class="math display">\[
-  \widehat{P}(deny = 1 | pirat = 0.3, afam = 1) = \Phi(-2.26 + 2.74 \times 0.3 + 0.71 \times 1) \approx 0.23
-  \]</span> - Non-African American applicant: <span class="math display">\[
-  \widehat{P}(deny = 1 | pirat = 0.3, afam = 0) = \Phi(-2.26 + 2.74 \times 0.3 + 0.71 \times 0) \approx 0.08
-  \]</span></p>
+<p><span class="proof-title"><em>Solution 3</em>. </span>&nbsp;</p>
+<p><strong>For linear probability model (LPM):</strong></p>
+<ul>
+<li>African American applicant (<code>afam_binary = 1</code>): <span class="math display">\[
+\widehat{deny} = -0.09 + 0.56 \times 0.3 + 0.18 \times 1 = 0.258
+\]</span></li>
+<li>Non-African American applicant (<code>afam_binary = 0</code>): <span class="math display">\[
+\widehat{deny} = -0.09 + 0.56 \times 0.3 + 0.18 \times 0 = 0.078
+\]</span></li>
+</ul>
+<p><strong>For logit model:</strong></p>
+<ul>
+<li>African American applicant: <span class="math display">\[
+\widehat{P}(deny = 1 | pirat = 0.3, afam = 1) = \frac{1}{1 + e^{-(-4.13 + 5.37 \times 0.3 + 1.27 \times 1)}} \approx 0.22
+\]</span></li>
+<li>Non-African American applicant: <span class="math display">\[
+\widehat{P}(deny = 1 | pirat = 0.3, afam = 1) = \frac{1}{1 + e^{-(-4.13 + 5.37 \times 0.3 + 1.27 \times 0)}} \approx 0.07
+\]</span></li>
+</ul>
+<p><strong>For probit model:</strong></p>
+<ul>
+<li>African American applicant: <span class="math display">\[
+\widehat{P}(deny = 1 | pirat = 0.3, afam = 1) = \Phi(-2.26 + 2.74 \times 0.3 + 0.71 \times 1) = \Phi(-0.728)
+\]</span> Refer to the standard normal table for <span class="math inline">\(\Phi(-0.728) \approx 0.23\)</span>.</li>
+<li>Non-African American applicant: <span class="math display">\[
+\widehat{P}(deny = 1 | pirat = 0.3, afam = 0) = \Phi(-2.26 + 2.74 \times 0.3 + 0.71 \times 0) \approx 0.075
+\]</span> Refer to the standard normal table for <span class="math inline">\(\Phi(-1.438) \approx 0.075\)</span>.</li>
+</ul>
 </div>
 </section>
 </section>
