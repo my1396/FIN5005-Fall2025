@@ -684,7 +684,7 @@ coeftest(probit_multi, vcov. = vcovHC, type = "HC1")
 # plot data
 plot(
     x = HMDA$pirat,
-    y = HMDA$deny,
+    y = HMDA$deny_binary,
     main = "Probit and Logit Models Model of the Probability of Denial, Given P/I Ratio",
     xlab = "P/I ratio",
     ylab = "Deny",
