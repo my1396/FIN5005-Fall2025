@@ -649,7 +649,7 @@ Suppose we have:
 - Odds of denial for a non-African American applicant with `pirat = 0.3` is 0.15
 - The odds ratio for African Americans compared to non-African American is $e^{\hat{\beta}_2} = 3.56$
 
-Calculate the expected odds for an African American applicant with the same `pirat = 0.3`.
+Calculate the **expected odds** for an African American applicant with the same `pirat = 0.3`.
 :::
 
 <button class="solution-btn" onclick="myFunction('sol-2')">Solution</button>
@@ -657,7 +657,7 @@ Calculate the expected odds for an African American applicant with the same `pir
 $$
 \text{odds}(\text{afam}=1) = \text{odds}(\text{afam}=0) \times e^{\hat{\beta}_2} = 0.15 \times 3.56 = 0.534
 $$
-The expected odds of denial for an African American applicant with `pirat = 0.3` is 0.534.
+The **expected odds** of denial for an African American applicant with `pirat = 0.3` is 0.534.
 :::
 
 
