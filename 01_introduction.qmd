@@ -123,11 +123,12 @@ Why is it important to distinguish between sample and population in business ana
 
   **Sample estimators:**
 
-  - Biased (population style) estimator: 
+  - **Biased** (population style) estimator: 
     $$ \hat{\sigma}^2 = \dfrac{1}{n}\sum_{i=1}^n (X_i - \bar{X})^2 $$
-  - Unbiased estimator: 
+  - **Unbiased** estimator: 
     $$s^2 = \dfrac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X})^2 $$
-  The latter ($s^2$) subtracts 1 from $n$ in the denominator, which is known as a degrees of freedom correction. This version has some desirable properties but we will not discuss these for now. Suffice to say that both versions are usually fine.  
+    The latter ($s^2$) subtracts 1 from $n$ in the denominator, which is known as a <span class="env-green">degrees of freedom correction</span>. 
+    This version has some desirable properties but we will not discuss these for now. Suffice to say that both versions are usually fine in practice.
 
 ::: {.example #exm-10}
 An operations planner models next-hour demand arrivals for a micro-warehouse (number of urgent orders) as $X \in \{0,1,2\}$ with probabilities 0.2, 0.5, 0.3. Compute the variability (variance) of order arrivals using the shortcut formula $\mathbb{E}[X^2] - (\mathbb{E}[X])^2$ to inform staffing.
