@@ -17,6 +17,8 @@ execute:
 book:
   title: "FIN5005 Fall 2025"
   search: true
+  downloads: 
+    - pdf
   chapters:
     - part: "Introduction"
       chapters:

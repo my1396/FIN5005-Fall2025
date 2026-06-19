@@ -307,7 +307,7 @@ Kurtosis measures tail weight (propensity for outliers) relative to a normal dis
 - **Kurtosis < 3 (platykurtic):** Light / thin tails, fewer extremes
 
 ```{r fig-t, fig.cap="Examples of heavy-tailed distributions.", out.width="70%", echo=FALSE}
-knitr::include_graphics("images/t_distribution2.png")
+knitr::include_graphics("images/t_distribution.png")
 ```
 
 <span class="env-green">$t$-distribution</span> has *higher* kurtosis than normal distributions. 
