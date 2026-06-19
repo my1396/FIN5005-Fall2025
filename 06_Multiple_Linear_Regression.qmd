@@ -47,9 +47,9 @@ $$
 
 where $\text{STR}$ is the <span class="env-green">student-teacher ratio</span> (representing class size).
 
-# Descriptive Analysis
+## Descriptive Analysis
 
-## Summary Statistics
+### Summary Statistics
 
 ```{r}
 # Data Preparation
@@ -74,7 +74,7 @@ cas %>%
 ```
 
 
-## Scatter Plot
+### Scatter Plot
 
 Scatter plot of TestScore against expenditure and STR:
 
@@ -107,7 +107,7 @@ cor(cas %>% select(TestScore, expenditure, STR)) %>% round(2)
 ```
 
 
-# Run Multiple Regression
+### Run Multiple Regression
 
 We estimate the model using OLS (`lm()` function) and obtain the following results:
 
@@ -116,7 +116,7 @@ model_multiple <- lm(TestScore ~ expenditure + STR, data = cas)
 summary(model_multiple)
 ```
 
-## Interpretation of the Coefficients
+### Interpretation of the Coefficients
 
 The estimated model is
 
@@ -128,19 +128,21 @@ $$
 * **Expenditure (0.0025):** **Holding STR constant**, a one-unit increase in expenditure is associated with an increase of 0.0025 points in the test score. This effect is very small and statistically insignificant (p-value = 0.17).
 
 
-## Compare with Simple Regression
+### Compare with Simple Regression
 
 ```{r model-simple, results='asis'}
 library(stargazer)
 model_simple <- lm(TestScore ~ expenditure, data = cas)
-stargazer(model_simple, model_multiple,
+stargazer(
+    model_simple, model_multiple,
     digits = 4,
-    type = "html",
+    type = ifelse(knitr::is_html_output(), "html", "latex"),
     dep.var.labels = "Test Score",
     column.labels = c("SLR", "MLR"),
     covariate.labels = c("Expenditure", "STR"),
-    notes = "<span>&#42;</span>: p<0.1; <span>&#42;&#42;</span>: <strong>p<0.05</strong>; <span>&#42;&#42;&#42;</span>: p<0.01 <br> Standard errors in parentheses.",
-    notes.append = F
+    header = FALSE,
+    notes = "Standard errors in parentheses.",
+    notes.append = TRUE
 )
 ```
 
@@ -167,7 +169,7 @@ In the simple regression, the positive effect of expenditure partly reflected th
 This illustrates the importance of multiple regression: it separates the effect of each regressor while holding others fixed, and it reveals that the real driver of test scores here is class size, not expenditure.
 
 
-## Regression diagnostics
+### Regression diagnostics
 
 * **Residual Standard Error (RSE):**
 
@@ -190,7 +192,7 @@ This illustrates the importance of multiple regression: it separates the effect 
   * Both models are statistically significant overall. The MLR has a smaller F-statistic because it includes more regressors, but still clearly improves explanatory power.
 
 
-# F-test for Significance of the Overall Regression
+## F-test for Significance of the Overall Regression
 
 F-test is also known as the one-way analysis of variance (ANOVA) test. It tests whether the regression model as a whole is statistically significant.
 
@@ -247,7 +249,7 @@ where $F_{\text{obs}}$ is your calculated/observed test statistic based on your 
 - The logic of the test is that the $F$ statistic is a measure of the loss of fit (namely, all of $R^2$) that results when we impose the restriction that all the slopes are zero. If $F$ is large, then the hypothesis is rejected.
 
 
-## Example: F-test for the Multiple Regression Model
+### Example: F-test for the Multiple Regression Model
 
 ::: {.step-list}
 1. **Null and alternative hypotheses**
@@ -305,7 +307,7 @@ where $F_{\text{obs}}$ is your calculated/observed test statistic based on your 
 [distribution-table]: https://drive.google.com/file/d/1Iwec44x4N5AItbpFugbUOKHBIE10cMOw/view?usp=drive_link "distribution tables all-in-one"
 
 
-# More Alternative Model Specifications
+## More Alternative Model Specifications
 
 We now consider student demographics as additional regressors. We include the following variables:
 
@@ -321,13 +323,13 @@ Note
 We consider the following models:
 
 $$
-\begin{align*}
+\begin{aligned}
   (I) \quad TestScore=& \, \beta_0 + \beta_1 \times STR + u, \\
   (II) \quad TestScore=& \, \beta_0 + \beta_1 \times STR + \beta_2 \times english + u, \\
   (III) \quad TestScore=& \, \beta_0 + \beta_1 \times STR + \beta_2 \times english + \beta_3 \times lunch + u, \\
   (IV) \quad TestScore=& \, \beta_0 + \beta_1 \times STR + \beta_2 \times english + \beta_4 \times calworks + u, \\
   (V) \quad TestScore=& \, \beta_0 + \beta_1 \times STR + \beta_2 \times english + \beta_3 \times lunch + \beta_4 \times calworks + u.
-\end{align*}
+\end{aligned}
 $$
 
 
@@ -351,20 +353,29 @@ rob_se <- list(
 )
 
 # generate a summarizing table using stargazer
-stargazer(spec1, spec2, spec3, spec4, spec5,
-    type = "html",
+is_html <- knitr::is_html_output()
+out_env <- ifelse(is_html, "table", "sidewaystable")
+out_font <- if(is_html) NULL else "small" 
+out_sep <- ifelse(is_html, "", "1pt")
+
+stargazer(
+    spec1, spec2, spec3, spec4, spec5,
+    type = ifelse(knitr::is_html_output(), "html", "latex"),
     se = rob_se,
     digits = 3,
-    header = F,
+    header = FALSE,
     column.labels = c("(I)", "(II)", "(III)", "(IV)", "(V)"),
     model.numbers = FALSE,
-    notes = "<span>&#42;</span>: p<0.1; <span>&#42;&#42;</span>: <strong>p<0.05</strong>; <span>&#42;&#42;&#42;</span>: p<0.01 <br> Standard errors in parentheses.",
-    notes.append = F
+    notes = "Standard errors in parentheses.",
+    notes.append = TRUE,
+    float.env = out_env,
+    font.size = out_font,
+    column.sep.width = out_sep
 )
 ```
 
 
-## <span class="env-green">**Interpretations**</span>
+### <span class="env-green">**Interpretations**</span>
 
 - Adding control variables roughly halves the coefficient on **STR**.  
 - The estimate is sensitive to the set of control variables used.  

@@ -2,6 +2,9 @@
 title: "Probability and Data in Business Analytics"
 ---
 
+```{r, child="_chunk-opt.qmd", include=FALSE}
+```
+
 ::: {.callout-note appearance="simple" icon=false}
 🎯 **Study Objectives**
 
@@ -304,7 +307,7 @@ Kurtosis measures tail weight (propensity for outliers) relative to a normal dis
 - **Kurtosis < 3 (platykurtic):** Light / thin tails, fewer extremes
 
 ```{r fig-t, fig.cap="Examples of heavy-tailed distributions.", out.width="70%", echo=FALSE}
-knitr::include_graphics("images/t distribution.png")
+knitr::include_graphics("images/t_distribution2.png")
 ```
 
 <span class="env-green">$t$-distribution</span> has *higher* kurtosis than normal distributions. 
@@ -316,7 +319,7 @@ knitr::include_graphics("images/t distribution.png")
 
 
 ```{r fig-t-dist-change-df, fig.cap="The comparison between the *t*-distribution and the normal distribution at degrees of freedom ranging from 1 to 50. Figure source: from [T.J. Kyner](https://tjkyner.medium.com/the-normal-distribution-vs-students-t-distribution-322aa12ffd15).", out.width = "80%", echo=F}
-knitr::include_graphics("images/t-dist change df.gif") 
+include_gif("images/t-dist_chang_df.gif") 
 ```
 
 :::{.callout-tip title="For the $t$-distribution:"}

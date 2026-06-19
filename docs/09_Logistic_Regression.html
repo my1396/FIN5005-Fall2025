@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Regression with a Binary Dependent Variable – FIN5005 Fall 2025</title>
+<title>12&nbsp; Regression with a Binary Dependent Variable – FIN5005 Fall 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,6 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./08_Interactions.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -76,15 +77,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b1eab047c83979204f5fc89f48c6bdb2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-f904b3a17f9ba91b23ca1e8d6d4821c4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-b1eab047c83979204f5fc89f48c6bdb2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-27c0d98ca6df567ad1a4fcea6d804f1c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-07b387b1400a7d16fdbb0946b5db9a0d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-27c0d98ca6df567ad1a4fcea6d804f1c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -337,7 +338,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -512,40 +513,12 @@ window.Quarto = {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">FIN5005 Fall 2025</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_introduction.html">Basics</a></li><li class="breadcrumb-item"><a href="./09_Logistic_Regression.html">Regression with a Binary Dependent Variable</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_introduction.html">Basics</a></li><li class="breadcrumb-item"><a href="./09_Logistic_Regression.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regression with a Binary Dependent Variable</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -555,9 +528,17 @@ window.Quarto = {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">FIN5005 Fall 2025</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -565,16 +546,10 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./00_environment_setup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Environment Setup</span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Basics</span></a>
+ <span class="menu-text">Introduction</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -582,62 +557,85 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Course Overview</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_environment_setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Environment Setup</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Basics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./01_introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Probability and Data in Business Analytics</span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Probability and Data in Business Analytics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_Lab-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 1: Probability &amp; Descriptive Statistics</span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Lab 1: Probability &amp; Descriptive Statistics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02_Data_Visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data Visualization</span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data Visualization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_Linear_Regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Simple Linear Regression</span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04_Theoretical_Framework_LR.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Theoretical Framework of Linear Regression</span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Theoretical Framework of Linear Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05_Hypothesis_Testing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hypothesis Testing and Confidence Intervals</span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hypothesis Testing and Confidence Intervals</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06_Multiple_Linear_Regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Multiple Linear Regression</span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Multiple Linear Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07_Lab-2_dummy-variable.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 2: Regression with Dummy Variables</span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Lab 2: Regression with Dummy Variables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08_Interactions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Interactions of Binary Variables</span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Interactions of Binary Variables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09_Logistic_Regression.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Regression with a Binary Dependent Variable</span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regression with a Binary Dependent Variable</span></span></a>
   </div>
 </li>
       </ul>
@@ -649,41 +647,41 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#why-binary-dependent-variables-require-special-treatment" id="toc-why-binary-dependent-variables-require-special-treatment" class="nav-link active" data-scroll-target="#why-binary-dependent-variables-require-special-treatment"><span class="header-section-number">1</span> Why Binary Dependent Variables Require Special Treatment</a>
+  <li><a href="#why-binary-dependent-variables-require-special-treatment" id="toc-why-binary-dependent-variables-require-special-treatment" class="nav-link active" data-scroll-target="#why-binary-dependent-variables-require-special-treatment"><span class="header-section-number">12.1</span> Why Binary Dependent Variables Require Special Treatment</a>
   <ul>
-  <li><a href="#why-linear-regression-fails" id="toc-why-linear-regression-fails" class="nav-link" data-scroll-target="#why-linear-regression-fails"><span class="header-section-number">1.1</span> Why Linear Regression Fails</a></li>
-  <li><a href="#the-solution-logit-and-probit-models" id="toc-the-solution-logit-and-probit-models" class="nav-link" data-scroll-target="#the-solution-logit-and-probit-models"><span class="header-section-number">1.2</span> The Solution: Logit and Probit Models</a></li>
+  <li><a href="#why-linear-regression-fails" id="toc-why-linear-regression-fails" class="nav-link" data-scroll-target="#why-linear-regression-fails"><span class="header-section-number">12.1.1</span> Why Linear Regression Fails</a></li>
+  <li><a href="#the-solution-logit-and-probit-models" id="toc-the-solution-logit-and-probit-models" class="nav-link" data-scroll-target="#the-solution-logit-and-probit-models"><span class="header-section-number">12.1.2</span> The Solution: Logit and Probit Models</a></li>
   </ul></li>
-  <li><a href="#the-hmda-dataset-mortgage-lending-discrimination" id="toc-the-hmda-dataset-mortgage-lending-discrimination" class="nav-link" data-scroll-target="#the-hmda-dataset-mortgage-lending-discrimination"><span class="header-section-number">2</span> The HMDA Dataset: Mortgage Lending Discrimination</a>
+  <li><a href="#the-hmda-dataset-mortgage-lending-discrimination" id="toc-the-hmda-dataset-mortgage-lending-discrimination" class="nav-link" data-scroll-target="#the-hmda-dataset-mortgage-lending-discrimination"><span class="header-section-number">12.2</span> The HMDA Dataset: Mortgage Lending Discrimination</a>
   <ul>
-  <li><a href="#load-the-data" id="toc-load-the-data" class="nav-link" data-scroll-target="#load-the-data"><span class="header-section-number">2.1</span> Load the Data</a></li>
-  <li><a href="#variable-definitions" id="toc-variable-definitions" class="nav-link" data-scroll-target="#variable-definitions"><span class="header-section-number">2.2</span> Variable Definitions</a></li>
-  <li><a href="#data-exploration" id="toc-data-exploration" class="nav-link" data-scroll-target="#data-exploration"><span class="header-section-number">2.3</span> Data Exploration</a>
+  <li><a href="#load-the-data" id="toc-load-the-data" class="nav-link" data-scroll-target="#load-the-data"><span class="header-section-number">12.2.1</span> Load the Data</a></li>
+  <li><a href="#variable-definitions" id="toc-variable-definitions" class="nav-link" data-scroll-target="#variable-definitions"><span class="header-section-number">12.2.2</span> Variable Definitions</a></li>
+  <li><a href="#data-exploration" id="toc-data-exploration" class="nav-link" data-scroll-target="#data-exploration"><span class="header-section-number">12.2.3</span> Data Exploration</a>
   <ul class="collapse">
   <li><a href="#frequency-tables-and-contingency-tables" id="toc-frequency-tables-and-contingency-tables" class="nav-link" data-scroll-target="#frequency-tables-and-contingency-tables">Frequency Tables and Contingency Tables</a></li>
   <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics">Summary Statistics</a></li>
   </ul></li>
-  <li><a href="#visualizing-the-contingency-table" id="toc-visualizing-the-contingency-table" class="nav-link" data-scroll-target="#visualizing-the-contingency-table"><span class="header-section-number">2.4</span> Visualizing the Contingency Table</a>
+  <li><a href="#visualizing-the-contingency-table" id="toc-visualizing-the-contingency-table" class="nav-link" data-scroll-target="#visualizing-the-contingency-table"><span class="header-section-number">12.2.4</span> Visualizing the Contingency Table</a>
   <ul class="collapse">
   <li><a href="#mosaic-plot" id="toc-mosaic-plot" class="nav-link" data-scroll-target="#mosaic-plot">Mosaic Plot</a></li>
   </ul></li>
-  <li><a href="#measures-of-risk-and-association-for-binary-outcomes" id="toc-measures-of-risk-and-association-for-binary-outcomes" class="nav-link" data-scroll-target="#measures-of-risk-and-association-for-binary-outcomes"><span class="header-section-number">2.5</span> Measures of Risk and Association for Binary Outcomes</a></li>
+  <li><a href="#measures-of-risk-and-association-for-binary-outcomes" id="toc-measures-of-risk-and-association-for-binary-outcomes" class="nav-link" data-scroll-target="#measures-of-risk-and-association-for-binary-outcomes"><span class="header-section-number">12.2.5</span> Measures of Risk and Association for Binary Outcomes</a></li>
   </ul></li>
-  <li><a href="#model-specification-the-boston-mortgage-example" id="toc-model-specification-the-boston-mortgage-example" class="nav-link" data-scroll-target="#model-specification-the-boston-mortgage-example"><span class="header-section-number">3</span> Model Specification: The Boston Mortgage Example</a>
+  <li><a href="#model-specification-the-boston-mortgage-example" id="toc-model-specification-the-boston-mortgage-example" class="nav-link" data-scroll-target="#model-specification-the-boston-mortgage-example"><span class="header-section-number">12.3</span> Model Specification: The Boston Mortgage Example</a>
   <ul>
-  <li><a href="#preparing-the-data" id="toc-preparing-the-data" class="nav-link" data-scroll-target="#preparing-the-data"><span class="header-section-number">3.1</span> Preparing the Data</a></li>
-  <li><a href="#model-1-linear-probability-model" id="toc-model-1-linear-probability-model" class="nav-link" data-scroll-target="#model-1-linear-probability-model"><span class="header-section-number">3.2</span> Model 1: Linear Probability Model</a></li>
-  <li><a href="#model-2-logit-regression-with-a-single-predictor" id="toc-model-2-logit-regression-with-a-single-predictor" class="nav-link" data-scroll-target="#model-2-logit-regression-with-a-single-predictor"><span class="header-section-number">3.3</span> Model 2: Logit Regression with a single predictor</a></li>
-  <li><a href="#model-3-linear-probability-model-with-multiple-predictors" id="toc-model-3-linear-probability-model-with-multiple-predictors" class="nav-link" data-scroll-target="#model-3-linear-probability-model-with-multiple-predictors"><span class="header-section-number">3.4</span> Model 3: Linear Probability Model with Multiple Predictors</a></li>
-  <li><a href="#model-4-logit-model-with-multiple-predictors" id="toc-model-4-logit-model-with-multiple-predictors" class="nav-link" data-scroll-target="#model-4-logit-model-with-multiple-predictors"><span class="header-section-number">3.5</span> Model 4: Logit Model with Multiple Predictors</a></li>
-  <li><a href="#model-5-probit-model" id="toc-model-5-probit-model" class="nav-link" data-scroll-target="#model-5-probit-model"><span class="header-section-number">3.6</span> Model 5: Probit Model</a></li>
-  <li><a href="#comparison-logit-and-probit" id="toc-comparison-logit-and-probit" class="nav-link" data-scroll-target="#comparison-logit-and-probit"><span class="header-section-number">3.7</span> Comparison: Logit, and Probit</a></li>
-  <li><a href="#predicted-probabilities" id="toc-predicted-probabilities" class="nav-link" data-scroll-target="#predicted-probabilities"><span class="header-section-number">3.8</span> Predicted Probabilities</a></li>
+  <li><a href="#preparing-the-data" id="toc-preparing-the-data" class="nav-link" data-scroll-target="#preparing-the-data"><span class="header-section-number">12.3.1</span> Preparing the Data</a></li>
+  <li><a href="#model-1-linear-probability-model" id="toc-model-1-linear-probability-model" class="nav-link" data-scroll-target="#model-1-linear-probability-model"><span class="header-section-number">12.3.2</span> Model 1: Linear Probability Model</a></li>
+  <li><a href="#model-2-logit-regression-with-a-single-predictor" id="toc-model-2-logit-regression-with-a-single-predictor" class="nav-link" data-scroll-target="#model-2-logit-regression-with-a-single-predictor"><span class="header-section-number">12.3.3</span> Model 2: Logit Regression with a single predictor</a></li>
+  <li><a href="#model-3-linear-probability-model-with-multiple-predictors" id="toc-model-3-linear-probability-model-with-multiple-predictors" class="nav-link" data-scroll-target="#model-3-linear-probability-model-with-multiple-predictors"><span class="header-section-number">12.3.4</span> Model 3: Linear Probability Model with Multiple Predictors</a></li>
+  <li><a href="#model-4-logit-model-with-multiple-predictors" id="toc-model-4-logit-model-with-multiple-predictors" class="nav-link" data-scroll-target="#model-4-logit-model-with-multiple-predictors"><span class="header-section-number">12.3.5</span> Model 4: Logit Model with Multiple Predictors</a></li>
+  <li><a href="#model-5-probit-model" id="toc-model-5-probit-model" class="nav-link" data-scroll-target="#model-5-probit-model"><span class="header-section-number">12.3.6</span> Model 5: Probit Model</a></li>
+  <li><a href="#comparison-logit-and-probit" id="toc-comparison-logit-and-probit" class="nav-link" data-scroll-target="#comparison-logit-and-probit"><span class="header-section-number">12.3.7</span> Comparison: Logit, and Probit</a></li>
+  <li><a href="#predicted-probabilities" id="toc-predicted-probabilities" class="nav-link" data-scroll-target="#predicted-probabilities"><span class="header-section-number">12.3.8</span> Predicted Probabilities</a></li>
   </ul></li>
-  <li><a href="#summary-logit-vs.-probit-vs.-lpm" id="toc-summary-logit-vs.-probit-vs.-lpm" class="nav-link" data-scroll-target="#summary-logit-vs.-probit-vs.-lpm"><span class="header-section-number">4</span> Summary: Logit vs.&nbsp;Probit vs.&nbsp;LPM</a></li>
+  <li><a href="#summary-logit-vs.-probit-vs.-lpm" id="toc-summary-logit-vs.-probit-vs.-lpm" class="nav-link" data-scroll-target="#summary-logit-vs.-probit-vs.-lpm"><span class="header-section-number">12.4</span> Summary: Logit vs.&nbsp;Probit vs.&nbsp;LPM</a></li>
   </ul>
 </nav>
     </div>
@@ -691,9 +689,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_introduction.html">Basics</a></li><li class="breadcrumb-item"><a href="./09_Logistic_Regression.html">Regression with a Binary Dependent Variable</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_introduction.html">Basics</a></li><li class="breadcrumb-item"><a href="./09_Logistic_Regression.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regression with a Binary Dependent Variable</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Regression with a Binary Dependent Variable</h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regression with a Binary Dependent Variable</span></h1>
 </div>
 
 
@@ -716,7 +714,7 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>🎯 <strong>Study Objectives</strong></p>
+<p><img src="filters/emoji/1f3af.png" style="height:1em"> <strong>Study Objectives</strong></p>
 <ul>
 <li>Understand why linear regression is inappropriate for binary dependent variables.</li>
 <li>Learn the logit and probit models for analyzing binary outcomes.</li>
@@ -728,8 +726,8 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<section id="why-binary-dependent-variables-require-special-treatment" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="why-binary-dependent-variables-require-special-treatment"><span class="header-section-number">1</span> Why Binary Dependent Variables Require Special Treatment</h2>
+<section id="why-binary-dependent-variables-require-special-treatment" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="why-binary-dependent-variables-require-special-treatment"><span class="header-section-number">12.1</span> Why Binary Dependent Variables Require Special Treatment</h2>
 <p>In many economic and financial applications, the dependent variable is <strong>binary</strong> (takes only two values: 0 or 1). Examples include:</p>
 <ul>
 <li><strong>Mortgage approval</strong>: Did the bank approve the mortgage application? (Yes = 1, No = 0)</li>
@@ -738,8 +736,8 @@ window.Quarto = {
 <li><strong>Market entry</strong>: Does the firm enter the market? (Yes = 1, No = 0)</li>
 <li><strong>Product choice</strong>: Does the consumer purchase the product? (Yes = 1, No = 0)</li>
 </ul>
-<section id="why-linear-regression-fails" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="why-linear-regression-fails"><span class="header-section-number">1.1</span> Why Linear Regression Fails</h3>
+<section id="why-linear-regression-fails" class="level3" data-number="12.1.1">
+<h3 data-number="12.1.1" class="anchored" data-anchor-id="why-linear-regression-fails"><span class="header-section-number">12.1.1</span> Why Linear Regression Fails</h3>
 <p>If we try to use ordinary linear regression (OLS) with a binary dependent variable <span class="math inline">\(Y_i \in \{0,1\}\)</span>:</p>
 <p><span class="math display">\[
 Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \cdots + \beta_k X_{ki} + u_i
@@ -752,8 +750,8 @@ Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \cdots + \beta_k X_{ki} + u_i
 <li><p><strong>Nonlinear relationship</strong>: The effect of <span class="math inline">\(X\)</span> on the probability of <span class="math inline">\(Y=1\)</span> is unlikely to be constant across all values of <span class="math inline">\(X\)</span>. For example, increasing income from \$20,000 to \$30,000 likely has a different effect on mortgage approval than increasing from \$200,000 to \$210,000.</p></li>
 </ol>
 </section>
-<section id="the-solution-logit-and-probit-models" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="the-solution-logit-and-probit-models"><span class="header-section-number">1.2</span> The Solution: Logit and Probit Models</h3>
+<section id="the-solution-logit-and-probit-models" class="level3" data-number="12.1.2">
+<h3 data-number="12.1.2" class="anchored" data-anchor-id="the-solution-logit-and-probit-models"><span class="header-section-number">12.1.2</span> The Solution: Logit and Probit Models</h3>
 <p>To address these problems, we use <strong>nonlinear models</strong> that ensure predicted probabilities stay within [0,1]:</p>
 <ul>
 <li><strong>Logit model</strong>: Uses the logistic cumulative distribution function (CDF)</li>
@@ -761,12 +759,12 @@ Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \cdots + \beta_k X_{ki} + u_i
 </ul>
 </section>
 </section>
-<section id="the-hmda-dataset-mortgage-lending-discrimination" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="the-hmda-dataset-mortgage-lending-discrimination"><span class="header-section-number">2</span> The HMDA Dataset: Mortgage Lending Discrimination</h2>
+<section id="the-hmda-dataset-mortgage-lending-discrimination" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="the-hmda-dataset-mortgage-lending-discrimination"><span class="header-section-number">12.2</span> The HMDA Dataset: Mortgage Lending Discrimination</h2>
 <p>We will use data from the <strong>Federal Reserve Bank of Boston</strong> collected under the <strong>Home Mortgage Disclosure Act (HMDA)</strong>. The dataset contains information on mortgage applications in the Boston area in 1990. The dataset contains 2380 observations with 14 variables.</p>
 <p><strong>Research Question:</strong> Do banks discriminate against minority applicants when making mortgage lending decisions, after controlling for economic factors?</p>
-<section id="load-the-data" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="load-the-data"><span class="header-section-number">2.1</span> Load the Data</h3>
+<section id="load-the-data" class="level3" data-number="12.2.1">
+<h3 data-number="12.2.1" class="anchored" data-anchor-id="load-the-data"><span class="header-section-number">12.2.1</span> Load the Data</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required packages</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"AER"</span>, <span class="st">"tidyverse"</span>, <span class="st">"stargazer"</span>, <span class="st">"margins"</span>, <span class="st">"data.table"</span>)</span>
@@ -809,8 +807,8 @@ Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \cdots + \beta_k X_{ki} + u_i
 </div>
 </div>
 </section>
-<section id="variable-definitions" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="variable-definitions"><span class="header-section-number">2.2</span> Variable Definitions</h3>
+<section id="variable-definitions" class="level3" data-number="12.2.2">
+<h3 data-number="12.2.2" class="anchored" data-anchor-id="variable-definitions"><span class="header-section-number">12.2.2</span> Variable Definitions</h3>
 <p>The key variables in the HMDA dataset are:</p>
 <ul>
 <li>We will mainly use <code>deny</code>, <code>pirat</code>, and <code>afam</code> in our analysis.</li>
@@ -886,8 +884,8 @@ Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \cdots + \beta_k X_{ki} + u_i
 </tbody>
 </table>
 </section>
-<section id="data-exploration" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="data-exploration"><span class="header-section-number">2.3</span> Data Exploration</h3>
+<section id="data-exploration" class="level3" data-number="12.2.3">
+<h3 data-number="12.2.3" class="anchored" data-anchor-id="data-exploration"><span class="header-section-number">12.2.3</span> Data Exploration</h3>
 <section id="frequency-tables-and-contingency-tables" class="level4">
 <h4 class="anchored" data-anchor-id="frequency-tables-and-contingency-tables">Frequency Tables and Contingency Tables</h4>
 <p><strong>Let’s examine the denial rates overall and by race.</strong></p>
@@ -997,14 +995,14 @@ deny     no   yes
 <pre><code># A tibble: 2 × 5
   afam      n denial_rate mean_pirat mean_lvrat
   &lt;fct&gt; &lt;int&gt;       &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;
-1 no     2041  0.09260167  0.3274625  0.7259712
-2 yes     339  0.2831858   0.3509891  0.8088478</code></pre>
+1 no     2041      0.0926      0.327      0.726
+2 yes     339      0.283       0.351      0.809</code></pre>
 </div>
 </div>
 </section>
 </section>
-<section id="visualizing-the-contingency-table" class="level3" data-number="2.4">
-<h3 data-number="2.4" class="anchored" data-anchor-id="visualizing-the-contingency-table"><span class="header-section-number">2.4</span> Visualizing the Contingency Table</h3>
+<section id="visualizing-the-contingency-table" class="level3" data-number="12.2.4">
+<h3 data-number="12.2.4" class="anchored" data-anchor-id="visualizing-the-contingency-table"><span class="header-section-number">12.2.4</span> Visualizing the Contingency Table</h3>
 <p>We can visualize the contingency table using a <strong>Stacked Bar Plot</strong>.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -1043,8 +1041,8 @@ deny     no   yes
 </ul>
 </section>
 </section>
-<section id="measures-of-risk-and-association-for-binary-outcomes" class="level3" data-number="2.5">
-<h3 data-number="2.5" class="anchored" data-anchor-id="measures-of-risk-and-association-for-binary-outcomes"><span class="header-section-number">2.5</span> Measures of Risk and Association for Binary Outcomes</h3>
+<section id="measures-of-risk-and-association-for-binary-outcomes" class="level3" data-number="12.2.5">
+<h3 data-number="12.2.5" class="anchored" data-anchor-id="measures-of-risk-and-association-for-binary-outcomes"><span class="header-section-number">12.2.5</span> Measures of Risk and Association for Binary Outcomes</h3>
 <p>To quantify the difference in mortgage denial rates between racial groups, we can calculate several measures of risk and association.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate risk (denial rate) for each group</span></span>
@@ -1186,11 +1184,11 @@ Important Distinction
 </div>
 </section>
 </section>
-<section id="model-specification-the-boston-mortgage-example" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="model-specification-the-boston-mortgage-example"><span class="header-section-number">3</span> Model Specification: The Boston Mortgage Example</h2>
+<section id="model-specification-the-boston-mortgage-example" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="model-specification-the-boston-mortgage-example"><span class="header-section-number">12.3</span> Model Specification: The Boston Mortgage Example</h2>
 <p>We want to model the probability that a mortgage application is denied as a function of applicant characteristics.</p>
-<section id="preparing-the-data" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="preparing-the-data"><span class="header-section-number">3.1</span> Preparing the Data</h3>
+<section id="preparing-the-data" class="level3" data-number="12.3.1">
+<h3 data-number="12.3.1" class="anchored" data-anchor-id="preparing-the-data"><span class="header-section-number">12.3.1</span> Preparing the Data</h3>
 <p>First, we create a binary numeric variable for denial (1 = denied, 0 = approved) and recode some factors:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create binary dependent variable</span></span>
@@ -1212,8 +1210,8 @@ Important Distinction
 </div>
 </div>
 </section>
-<section id="model-1-linear-probability-model" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="model-1-linear-probability-model"><span class="header-section-number">3.2</span> Model 1: Linear Probability Model</h3>
+<section id="model-1-linear-probability-model" class="level3" data-number="12.3.2">
+<h3 data-number="12.3.2" class="anchored" data-anchor-id="model-1-linear-probability-model"><span class="header-section-number">12.3.2</span> Model 1: Linear Probability Model</h3>
 <p>Let’s start with a simple linear regression to see its limitations.</p>
 <p>The OLS regression of the binary dependent variable, <span class="math inline">\(deny\)</span> against the payment-to-income ratio (<code>pirat</code>), is estimated as:</p>
 <p><span class="math display">\[
@@ -1246,7 +1244,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <img src="09_Logistic_Regression_files/figure-html/fig-linear-1.png" id="fig-linear" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-linear-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1
+Figure&nbsp;12.1
 </figcaption>
 </figure>
 </div>
@@ -1273,8 +1271,8 @@ Shortcomings with the linear probability model
 </div>
 </div>
 </section>
-<section id="model-2-logit-regression-with-a-single-predictor" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="model-2-logit-regression-with-a-single-predictor"><span class="header-section-number">3.3</span> Model 2: Logit Regression with a single predictor</h3>
+<section id="model-2-logit-regression-with-a-single-predictor" class="level3" data-number="12.3.3">
+<h3 data-number="12.3.3" class="anchored" data-anchor-id="model-2-logit-regression-with-a-single-predictor"><span class="header-section-number">12.3.3</span> Model 2: Logit Regression with a single predictor</h3>
 <p>The estimated model is <span class="math display">\[
 \mathrm P(deny_i = 1 | pirat_i) = F(\beta_0 + \beta_1 \cdot pirat_i) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 \cdot pirat_i)}} ,
 \]</span></p>
@@ -1311,7 +1309,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <img src="09_Logistic_Regression_files/figure-html/fig-logit-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-logit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: The logit model uses the logistic distribution function to model the probability of denial as a function of the payment-to-income ratio. Unlike the linear probability model, the logit model ensures predicted probabilities remain within the [0,1] range.
+Figure&nbsp;12.2: The logit model uses the logistic distribution function to model the probability of denial as a function of the payment-to-income ratio. Unlike the linear probability model, the logit model ensures predicted probabilities remain within the [0,1] range.
 </figcaption>
 </figure>
 </div>
@@ -1319,14 +1317,14 @@ Figure&nbsp;2: The logit model uses the logistic distribution function to model 
 </div>
 <p>The estimated logit regression function has a stretched “S” shape: It is nearly 0 and flat for small values of P/I ratio, it turns and increases for intermediate values, and it flattens out again and is nearly 1 for large values.</p>
 <div id="exm-1" class="example theorem">
-<p><span class="theorem-title"><strong>Example 1</strong></span> <strong>Predicted probability.</strong></p>
+<p><span class="theorem-title"><strong>Example 12.1</strong></span> <strong>Predicted probability.</strong></p>
 <p>What is the probability of denial given a P/I ratio of 0.3? What about for P/I ratio being 0.4 and 0.5?</p>
 </div>
 <button class="solution-btn" onclick="myFunction('sol-1')">
 Solution
 </button>
 <div id="sol-1" class="solution-answer env-green proof solution">
-<p><span class="proof-title"><em>Solution 1</em>. </span>For P/I ratio of 0.3, the estimated probability of denial based on the estimated logit model is: <span class="math display">\[
+<p><span class="proof-title"><em>Solution 12.1</em>. </span>For P/I ratio of 0.3, the estimated probability of denial based on the estimated logit model is: <span class="math display">\[
 \widehat{P}(deny = 1 | pirat = 0.3) = \frac{1}{1 + e^{-(-4.02 + 5.88 \cdot 0.3)}} \approx 9.4\%
 \]</span> That is, the probability of denial is approximately 9.4%.</p>
 <p>For P/I ratio of 0.4: <span class="math display">\[
@@ -1368,8 +1366,8 @@ z = \frac{\hat{\beta}_1 - 0}{SE(\hat{\beta}_1)} = \frac{5.88 - 0}{1} \approx 5.8
 \]</span></p>
 <p>Since <span class="math inline">\(z &gt; 1.96\)</span>, we reject the null hypothesis at the 5% significance level and conclude that there is a statistically significant positive relationship between payment-to-income ratio and the probability of mortgage denial.</p>
 </section>
-<section id="model-3-linear-probability-model-with-multiple-predictors" class="level3" data-number="3.4">
-<h3 data-number="3.4" class="anchored" data-anchor-id="model-3-linear-probability-model-with-multiple-predictors"><span class="header-section-number">3.4</span> Model 3: Linear Probability Model with Multiple Predictors</h3>
+<section id="model-3-linear-probability-model-with-multiple-predictors" class="level3" data-number="12.3.4">
+<h3 data-number="12.3.4" class="anchored" data-anchor-id="model-3-linear-probability-model-with-multiple-predictors"><span class="header-section-number">12.3.4</span> Model 3: Linear Probability Model with Multiple Predictors</h3>
 <p><span class="math display">\[
 deny_i = \beta_0 + \beta_1 \cdot pirat_i + \beta_2 \cdot afam_i
 \]</span></p>
@@ -1405,8 +1403,8 @@ F-statistic: 97.76 on 2 and 2377 DF,  p-value: &lt; 2.2e-16</code></pre>
 <li><span class="math inline">\(\hat{\beta}_2\)</span>: African American applicants have a probability of denial that is <span class="math inline">\(\hat{\beta}_2\)</span> percentage points higher than non-African American applicants, holding <code>pirat</code> constant.</li>
 </ul>
 </section>
-<section id="model-4-logit-model-with-multiple-predictors" class="level3" data-number="3.5">
-<h3 data-number="3.5" class="anchored" data-anchor-id="model-4-logit-model-with-multiple-predictors"><span class="header-section-number">3.5</span> Model 4: Logit Model with Multiple Predictors</h3>
+<section id="model-4-logit-model-with-multiple-predictors" class="level3" data-number="12.3.5">
+<h3 data-number="12.3.5" class="anchored" data-anchor-id="model-4-logit-model-with-multiple-predictors"><span class="header-section-number">12.3.5</span> Model 4: Logit Model with Multiple Predictors</h3>
 <p>Now we estimate a logit model including both P/I ratio (<code>pirat</code>) and African-American binary (<code>afam_binary</code>) as predictors:</p>
 <p><span class="math display">\[
 P(deny_i = 1 | pirat_i, afam_i) = F(\beta_0 + \beta_1 \cdot pirat_i + \beta_2 \cdot afam_i) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 \cdot pirat_i + \beta_2 \cdot afam_i)}} .
@@ -1455,24 +1453,24 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <p>Based on the estimates, <span class="math inline">\(e^{1.2} = 3.56\)</span>, that is, African American applicants have odds of denial that are 3.56 times higher than non-African American applicants, holding <code>pirat</code> constant.</p></li>
 </ul>
 <div id="exm-2" class="example theorem">
-<p><span class="theorem-title"><strong>Example 2</strong></span> Suppose we have:</p>
+<p><span class="theorem-title"><strong>Example 12.2</strong></span> Suppose we have:</p>
 <ul>
 <li>Odds of denial for a non-African American applicant with <code>pirat = 0.3</code> is 0.15</li>
 <li>The odds ratio for African Americans compared to non-African American is <span class="math inline">\(e^{\hat{\beta}_2} = 3.56\)</span></li>
 </ul>
-<p>Calculate the expected odds for an African American applicant with the same <code>pirat = 0.3</code>.</p>
+<p>Calculate the <strong>expected odds</strong> for an African American applicant with the same <code>pirat = 0.3</code>.</p>
 </div>
 <button class="solution-btn" onclick="myFunction('sol-2')">
 Solution
 </button>
 <div id="sol-2" class="solution-answer env-green proof solution">
-<p><span class="proof-title"><em>Solution 2</em>. </span><span class="math display">\[
+<p><span class="proof-title"><em>Solution 12.2</em>. </span><span class="math display">\[
 \text{odds}(\text{afam}=1) = \text{odds}(\text{afam}=0) \times e^{\hat{\beta}_2} = 0.15 \times 3.56 = 0.534
 \]</span> The <strong>expected odds</strong> of denial for an African American applicant with <code>pirat = 0.3</code> is 0.534.</p>
 </div>
 </section>
-<section id="model-5-probit-model" class="level3" data-number="3.6">
-<h3 data-number="3.6" class="anchored" data-anchor-id="model-5-probit-model"><span class="header-section-number">3.6</span> Model 5: Probit Model</h3>
+<section id="model-5-probit-model" class="level3" data-number="12.3.6">
+<h3 data-number="12.3.6" class="anchored" data-anchor-id="model-5-probit-model"><span class="header-section-number">12.3.6</span> Model 5: Probit Model</h3>
 <p>In contrast to the logit model, which uses the logistic CDF, the probit model uses the <span class="env-green">standard normal</span> distribution function to model the probability of denial. <span class="math display">\[
 P(deny_i = 1 | X_i) = \Phi(\beta_0 + \beta_1 \cdot pirat_i + \beta_2 \cdot afam_i)
 \]</span></p>
@@ -1497,8 +1495,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
 </section>
-<section id="comparison-logit-and-probit" class="level3" data-number="3.7">
-<h3 data-number="3.7" class="anchored" data-anchor-id="comparison-logit-and-probit"><span class="header-section-number">3.7</span> Comparison: Logit, and Probit</h3>
+<section id="comparison-logit-and-probit" class="level3" data-number="12.3.7">
+<h3 data-number="12.3.7" class="anchored" data-anchor-id="comparison-logit-and-probit"><span class="header-section-number">12.3.7</span> Comparison: Logit, and Probit</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -1514,11 +1512,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <li>Logit is more common in economics and finance due to the convenient odds ratio interpretation.</li>
 </ul>
 </section>
-<section id="predicted-probabilities" class="level3" data-number="3.8">
-<h3 data-number="3.8" class="anchored" data-anchor-id="predicted-probabilities"><span class="header-section-number">3.8</span> Predicted Probabilities</h3>
+<section id="predicted-probabilities" class="level3" data-number="12.3.8">
+<h3 data-number="12.3.8" class="anchored" data-anchor-id="predicted-probabilities"><span class="header-section-number">12.3.8</span> Predicted Probabilities</h3>
 <p>To compare effects across models, we calculate <strong>predicted probabilities</strong> at specific values of the predictors.</p>
 <div id="exm-3" class="example theorem">
-<p><span class="theorem-title"><strong>Example 3</strong></span> For the three multivariate models (models 3–5), what is the predicted probability of denial for:</p>
+<p><span class="theorem-title"><strong>Example 12.3</strong></span> For the three multivariate models (models 3–5), what is the predicted probability of denial for:</p>
 <ul>
 <li>An African American applicant with <code>pirat = 0.3</code>?</li>
 <li>A non-African American applicant with <code>pirat = 0.3</code>?</li>
@@ -1528,7 +1526,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 Solution
 </button>
 <div id="sol-3" class="solution-answer env-green proof solution">
-<p><span class="proof-title"><em>Solution 3</em>. </span>&nbsp;</p>
+<p><span class="proof-title"><em>Solution 12.3</em>. </span>&nbsp;</p>
 <p><strong>For linear probability model (LPM):</strong></p>
 <ul>
 <li>African American applicant (<code>afam_binary = 1</code>): <span class="math display">\[
@@ -1559,8 +1557,8 @@ Solution
 </div>
 </section>
 </section>
-<section id="summary-logit-vs.-probit-vs.-lpm" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="summary-logit-vs.-probit-vs.-lpm"><span class="header-section-number">4</span> Summary: Logit vs.&nbsp;Probit vs.&nbsp;LPM</h2>
+<section id="summary-logit-vs.-probit-vs.-lpm" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="summary-logit-vs.-probit-vs.-lpm"><span class="header-section-number">12.4</span> Summary: Logit vs.&nbsp;Probit vs.&nbsp;LPM</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 31%">
@@ -2026,6 +2024,15 @@ Solution
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./08_Interactions.html" class="pagination-link" aria-label="Interactions of Binary Variables">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Interactions of Binary Variables</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

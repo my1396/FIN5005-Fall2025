@@ -32,3 +32,55 @@ knitr::knit_hooks$set(output = function(x, options) {
 })
 ```
 
+```{r}
+#' Conditionally include a GIF or a static PNG based on output format
+#'   - If knitting to PDF/LaTeX, extract a specified frame from the GIF and include it as a static PNG.
+#'   - If knitting to HTML/Word, include the original animated GIF.
+#'
+#' @param path The file path to the original GIF.
+#' @param frame The frame number to extract for the PDF (default is 1).
+#' @param ... Additional arguments passed to knitr::include_graphics().
+#' @return A knitr::asis_output object for the appropriate image.
+include_gif <- function(path, frame = 1, ...) {
+  # Check if we are knitting to PDF/LaTeX
+  if (knitr::is_latex_output()) {
+    
+    # Create a new filename by swapping the extension to _static.png
+    # e.g., "images/my_plot.gif" becomes "images/my_plot_static.png"
+    png_path <- paste0(tools::file_path_sans_ext(path), "_static.png")
+    
+    # If the static image doesn't exist yet, create it
+    if (!file.exists(png_path)) {
+      
+      # Ensure the magick package is installed
+      if (!requireNamespace("magick", quietly = TRUE)) {
+        stop("The 'magick' package is required to convert GIFs. Please install it.")
+      }
+      
+      # Read the GIF
+      img <- magick::image_read(path)
+      
+      # Failsafe: If you ask for frame 50 but there are only 20 frames, grab the last one
+      if (frame > length(img)) {
+        warning(sprintf("Requested frame %d exceeds GIF length. Using the last frame.", frame))
+        frame <- length(img)
+      }
+      
+      # Extract the specified frame and save as PNG
+      magick::image_write(img[frame], path = png_path, format = "png")
+    }
+    
+    # Feed the newly created static PNG to LaTeX
+    knitr::include_graphics(png_path, ...)
+    
+  } else {
+    # If compiling to HTML/Word, just use the original animated GIF
+    knitr::include_graphics(path, ...)
+  }
+}
+#
+# use example
+# include_gif("path-to-image.gif")
+# you can choose which frame to extract for the PDF version by setting the frame argument
+# include_gif("path-to-image.gif", frame = 10) # extracts the 10th frame for the PDF version
+```

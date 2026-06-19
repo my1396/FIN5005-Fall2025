@@ -1,5 +1,5 @@
 ---
-title: "Seting Up Your Environment"
+title: "Environment Setup"
 ---
 
 ::: {.callout-note appearance="simple" icon=false}

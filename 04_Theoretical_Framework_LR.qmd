@@ -134,7 +134,7 @@ where
 
 @eq-beta-distribution is called the **exact (finite-sample) distribution** of the OLS estimator.
 
-$\var(\hat\bbeta) = \sigma^2 (\boldsymbol{X}'\boldsymbol{X})^{-1}$ is called the **variance-covariance matrix** of the OLS estimator, often denoted as $V_{\hat\beta}.$
+$\var(\hat{\bbeta}) = \sigma^2 (\boldsymbol{X}'\boldsymbol{X})^{-1}$ is called the **variance-covariance matrix** of the OLS estimator, often denoted as $V_{\hat\beta}.$
 
 
 We estimate $\sigma^2$ with $\hat{\sigma}^2:$
@@ -159,7 +159,7 @@ The sampling distribution describes the values they could take over different po
 
 ::: {.callout-tip title="Sampling Distribution vs. Exact Distribution"}
 - The distribution depends on the sample data $(X_i, Y_i).$
-- Based on Central Limit Theorem (CLT), we can establish the sampling distribution of $\hat\bbeta$ when sample size is large, i.e., $n\to\infty$.
+- Based on Central Limit Theorem (CLT), we can establish the sampling distribution of $\hat{\bbeta}$ when sample size is large, i.e., $n\to\infty$.
 :::
 
 
@@ -388,21 +388,21 @@ Conversely, smaller sample sizes result in a wider sampling distribution, indica
 
 ### Large Sample Distribution of OLS Estimator
 
-Now we can establish the large sample distribution of the OLS estimator $\hat\bbeta$ based on CLT.
+Now we can establish the large sample distribution of the OLS estimator $\hat{\bbeta}$ based on CLT.
 
 Under the Gauss-Markov assumptions, as $n\to\infty$,
 $$
-\sqrt{n} (\hat\bbeta - \bbeta) \xrightarrow{d} N(0, \sigma^2 E(\bX_i\bX_i')^{-1})
+\sqrt{n} (\hat{\bbeta} - \bbeta) \xrightarrow{d} N(0, \sigma^2 E(\bX_i\bX_i')^{-1})
 $$
 
 
-- Again, note the scaling by $\sqrt{n}.$ It shows how fast the estimator $\hat\bbeta$ converges to the true parameter $\bbeta$ as sample size $n$ increases.
+- Again, note the scaling by $\sqrt{n}.$ It shows how fast the estimator $\hat{\bbeta}$ converges to the true parameter $\bbeta$ as sample size $n$ increases.
 - Note the difference of the variance between the exact distribution and the large sample distribution. 
   - The exact distribution depends on the **sample data** $\bX'\bX$
   - The large sample distribution depends on the **population moment** $E(\bX_i\bX_i')$.
-- It suggests that $\hat\bbeta$ is **asymptotically normal** and **consistent**.
+- It suggests that $\hat{\bbeta}$ is **asymptotically normal** and **consistent**.
   
-  "Consistency" means that as the sample size $n$ increases, the estimator $\hat\bbeta$ converges in probability to the true parameter $\bbeta$.
+  "Consistency" means that as the sample size $n$ increases, the estimator $\hat{\bbeta}$ converges in probability to the true parameter $\bbeta$.
 
 ## Measure of Fit
 

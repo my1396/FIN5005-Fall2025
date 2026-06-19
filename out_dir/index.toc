@@ -1,0 +1,133 @@
+\contentsline {chapter}{\numberline {1}Course Overview}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Course Overview}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Course Materials}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Course Evaluation}{3}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Study Objectives}{3}{section.1.4}%
+\contentsline {section}{\numberline {1.5}How to Reach Me}{4}{section.1.5}%
+\contentsline {part}{\numberline {I}Introduction}{5}{part.1}%
+\contentsline {chapter}{\numberline {2}Environment Setup}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Cloud Solution}{7}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}RStudio Cloud}{8}{subsection.2.1.1}%
+\contentsline {section}{\numberline {2.2}Local Solution}{8}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}RStudio Desktop}{8}{subsection.2.2.1}%
+\contentsline {part}{\numberline {II}Basics}{11}{part.2}%
+\contentsline {chapter}{\numberline {3}Probability and Data in Business Analytics}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Probability Axioms}{13}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Sample vs.~Population: Estimating the Big Picture}{14}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Moments}{15}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Expectation, Variance, and Standard Deviation}{15}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Sums of Random Variables: Expectation \& Variance}{18}{subsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.2.1}Variance of Linear Transformations \& Portfolios}{19}{subsubsection.3.3.2.1}%
+\contentsline {subsection}{\numberline {3.3.3}Skewness}{20}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Kurtosis}{21}{subsection.3.3.4}%
+\contentsline {section}{\numberline {3.4}Covariance, Correlation \& Independence}{23}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Population vs.~Sample: Summary \& Estimators}{25}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Quick Reference Table}{25}{subsection.3.5.1}%
+\contentsline {chapter}{\numberline {4}Lab 1: Probability \& Descriptive Statistics}{27}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Instructions}{27}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Datasets}{27}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Independence vs.~Zero Correlation}{29}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Descriptive Statistics on Asset Returns}{31}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Large Sample Gives More Accurate Estimates}{34}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Correlated Asset Returns}{37}{section.4.6}%
+\contentsline {subsubsection}{\numberline {4.6.1}{ Exercise}}{39}{subsubsection.4.6.0.1}%
+\contentsline {subsection}{\numberline {4.6.1}Reflection}{40}{subsection.4.6.1}%
+\contentsline {chapter}{\numberline {5}Data Visualization}{41}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Descriptive Analysis and Data Visualization with \texttt {CASchools}}{41}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Dataset Overview}{41}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Summary Statistics}{44}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Expenditure Variation Analysis}{45}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}Group Comparison: K-6 vs K-8 Schools}{47}{subsection.5.1.4}%
+\contentsline {subsubsection}{\numberline {5.1.4.1}Box plot by grades span}{48}{subsubsection.5.1.4.1}%
+\contentsline {subsection}{\numberline {5.1.5}Correlation Analysis}{50}{subsection.5.1.5}%
+\contentsline {subsection}{\numberline {5.1.6}Academic Performance Relationship}{52}{subsection.5.1.6}%
+\contentsline {section}{\numberline {5.2}Q-Q Plot}{54}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}QQ plot visualization tool}{54}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Skewness}{54}{subsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.2.1}Positive skew}{54}{subsubsection.5.2.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2.2}Negative skew}{56}{subsubsection.5.2.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Kurtosis}{57}{subsection.5.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.3.1}Fat tails}{57}{subsubsection.5.2.3.1}%
+\contentsline {subsubsection}{\numberline {5.2.3.2}Thin tails}{59}{subsubsection.5.2.3.2}%
+\contentsline {chapter}{\numberline {6}Simple Linear Regression}{63}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Data Preparation}{63}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Descriptive Statistics}{65}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Scatter Plot}{67}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Simple Linear Regression}{69}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Model Specification}{69}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Estimating the Coefficients of the Linear Regression Model}{70}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}Interpretation of the output}{71}{subsection.6.4.3}%
+\contentsline {subsubsection}{\numberline {6.4.3.1}A. \textbf {Model Specification and Fitted Values}}{71}{subsubsection.6.4.3.1}%
+\contentsline {subsubsection}{\numberline {6.4.3.2}B. \textbf {Coefficients}}{71}{subsubsection.6.4.3.2}%
+\contentsline {subsubsection}{\numberline {6.4.3.3}C. \textbf {Statistical Significance}}{72}{subsubsection.6.4.3.3}%
+\contentsline {subsubsection}{\numberline {6.4.3.4}D. \textbf {Model Fit}}{72}{subsubsection.6.4.3.4}%
+\contentsline {subsubsection}{\numberline {6.4.3.5}E. \textbf {Residuals}}{72}{subsubsection.6.4.3.5}%
+\contentsline {section}{\numberline {6.5}Report by Stargazer}{74}{section.6.5}%
+\contentsline {chapter}{\numberline {7}Theoretical Framework of Linear Regression}{75}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Assumptions of Linear Regression}{76}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Regression Framework and OLS Estimator}{76}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Exact Distribution of OLS Estimator}{78}{subsection.7.2.1}%
+\contentsline {section}{\numberline {7.3}Sampling Distribution of OLS Estimator}{79}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Central Limit Theorem (CLT)}{79}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}CLT Example}{80}{subsection.7.3.2}%
+\contentsline {subsection}{\numberline {7.3.3}Large Sample Distribution of OLS Estimator}{84}{subsection.7.3.3}%
+\contentsline {section}{\numberline {7.4}Measure of Fit}{85}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Homoskedasticity}{86}{section.7.5}%
+\contentsline {subsection}{\numberline {7.5.1}Detection of Heteroskedasticity}{86}{subsection.7.5.1}%
+\contentsline {subsection}{\numberline {7.5.2}Graphical Method}{86}{subsection.7.5.2}%
+\contentsline {subsection}{\numberline {7.5.3}Fix Heteroskedasticity}{87}{subsection.7.5.3}%
+\contentsline {chapter}{\numberline {8}Hypothesis Testing and Confidence Intervals}{89}{chapter.8}%
+\contentsline {section}{\numberline {8.1}t-test for Single Coefficient}{90}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}P-value Approach}{91}{subsection.8.1.1}%
+\contentsline {section}{\numberline {8.2}Confidence Interval for Single Coefficient}{93}{section.8.2}%
+\contentsline {chapter}{\numberline {9}Multiple Linear Regression}{95}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Descriptive Analysis}{96}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Summary Statistics}{96}{subsection.9.1.1}%
+\contentsline {subsection}{\numberline {9.1.2}Scatter Plot}{97}{subsection.9.1.2}%
+\contentsline {subsection}{\numberline {9.1.3}Run Multiple Regression}{97}{subsection.9.1.3}%
+\contentsline {subsection}{\numberline {9.1.4}Interpretation of the Coefficients}{98}{subsection.9.1.4}%
+\contentsline {subsection}{\numberline {9.1.5}Compare with Simple Regression}{98}{subsection.9.1.5}%
+\contentsline {subsection}{\numberline {9.1.6}Regression diagnostics}{100}{subsection.9.1.6}%
+\contentsline {section}{\numberline {9.2}F-test for Significance of the Overall Regression}{101}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}Example: F-test for the Multiple Regression Model}{102}{subsection.9.2.1}%
+\contentsline {section}{\numberline {9.3}More Alternative Model Specifications}{103}{section.9.3}%
+\contentsline {subsection}{\numberline {9.3.1}{\textbf {Interpretations}}}{104}{subsection.9.3.1}%
+\contentsline {chapter}{\numberline {10}Lab 2: Regression with Dummy Variables}{109}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Instructions}{109}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Load data into working directory}{110}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Regression When \(X\) is a Binary Variable}{111}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}Data Visualization}{112}{subsection.10.3.1}%
+\contentsline {subsection}{\numberline {10.3.2}Regression with a Binary Variable}{113}{subsection.10.3.2}%
+\contentsline {section}{\numberline {10.4}MLR with a Binary Variable}{114}{section.10.4}%
+\contentsline {section}{\numberline {10.5}ANOVA test}{115}{section.10.5}%
+\contentsline {subsection}{\numberline {10.5.1}One-way ANOVA test}{115}{subsection.10.5.1}%
+\contentsline {subsection}{\numberline {10.5.2}Two-way ANOVA test}{117}{subsection.10.5.2}%
+\contentsline {chapter}{\numberline {11}Interactions of Binary Variables}{119}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Interactions of Two Binary Variables}{120}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}Add More Controls Variables}{123}{subsection.11.1.1}%
+\contentsline {subsection}{\numberline {11.1.2}Two-Way ANOVA Mathematical Formulation}{125}{subsection.11.1.2}%
+\contentsline {section}{\numberline {11.2}Interactions of a Binary Variable and a Continuous Variable}{127}{section.11.2}%
+\contentsline {chapter}{\numberline {12}Regression with a Binary Dependent Variable}{131}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Why Binary Dependent Variables Require Special Treatment}{131}{section.12.1}%
+\contentsline {subsection}{\numberline {12.1.1}Why Linear Regression Fails}{132}{subsection.12.1.1}%
+\contentsline {subsection}{\numberline {12.1.2}The Solution: Logit and Probit Models}{132}{subsection.12.1.2}%
+\contentsline {section}{\numberline {12.2}The HMDA Dataset: Mortgage Lending Discrimination}{132}{section.12.2}%
+\contentsline {subsection}{\numberline {12.2.1}Load the Data}{133}{subsection.12.2.1}%
+\contentsline {subsection}{\numberline {12.2.2}Variable Definitions}{134}{subsection.12.2.2}%
+\contentsline {subsection}{\numberline {12.2.3}Data Exploration}{134}{subsection.12.2.3}%
+\contentsline {subsubsection}{\numberline {12.2.3.1}Frequency Tables and Contingency Tables}{134}{subsubsection.12.2.3.1}%
+\contentsline {subsubsection}{\numberline {12.2.3.2}Summary Statistics}{136}{subsubsection.12.2.3.2}%
+\contentsline {subsection}{\numberline {12.2.4}Visualizing the Contingency Table}{137}{subsection.12.2.4}%
+\contentsline {subsubsection}{\numberline {12.2.4.1}Mosaic Plot}{138}{subsubsection.12.2.4.1}%
+\contentsline {subsection}{\numberline {12.2.5}Measures of Risk and Association for Binary Outcomes}{138}{subsection.12.2.5}%
+\contentsline {section}{\numberline {12.3}Model Specification: The Boston Mortgage Example}{142}{section.12.3}%
+\contentsline {subsection}{\numberline {12.3.1}Preparing the Data}{142}{subsection.12.3.1}%
+\contentsline {subsection}{\numberline {12.3.2}Model 1: Linear Probability Model}{142}{subsection.12.3.2}%
+\contentsline {subsection}{\numberline {12.3.3}Model 2: Logit Regression with a single predictor}{144}{subsection.12.3.3}%
+\contentsline {subsection}{\numberline {12.3.4}Model 3: Linear Probability Model with Multiple Predictors}{147}{subsection.12.3.4}%
+\contentsline {subsection}{\numberline {12.3.5}Model 4: Logit Model with Multiple Predictors}{148}{subsection.12.3.5}%
+\contentsline {subsection}{\numberline {12.3.6}Model 5: Probit Model}{150}{subsection.12.3.6}%
+\contentsline {subsection}{\numberline {12.3.7}Comparison: Logit, and Probit}{150}{subsection.12.3.7}%
+\contentsline {subsection}{\numberline {12.3.8}Predicted Probabilities}{151}{subsection.12.3.8}%
+\contentsline {section}{\numberline {12.4}Summary: Logit vs.~Probit vs.~LPM}{152}{section.12.4}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
