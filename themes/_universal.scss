@@ -136,3 +136,12 @@ p:has(+ ul) {
 .step-list ol>li > *:not(:first-child) ul,
 .step-list ol>li > *:not(:first-child) ol { margin-left: 1.2em; }
 
+// Make images wider than container scrollable with horizontal overflow
+.scroll-img {
+  overflow-x: auto;
+}
+
+.scroll-img img {
+  max-width: none;
+  display: block;
+}
