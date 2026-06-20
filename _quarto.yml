@@ -64,6 +64,7 @@ format:
     from: markdown+tex_math_single_backslash+markdown_in_html_blocks
     keep-tex: true
     fontsize: 12pt
+    fig-format: pdf
 
 knitr:
   opts_chunk: 

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.6.2)  19 JUN 2026 17:16
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.6.2)  20 JUN 2026 10:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -729,338 +729,295 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 \enit@inbox=\box75
 \enit@count@id=\count366
 \enitdp@description=\count367
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/xcharter/XCharter.fontspec)
+)
 
 Package fontspec Info: 
-(fontspec)             XCharter-Roman scale = 0.8960465269975546.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-Roman scale = 1.
+(fontspec)             DejaVu Serif scale = 0.8303719074065455.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Roman scale = 0.8960465269975546.
+(fontspec)             DejaVu Serif scale = 1.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Roman scale = 1.
+(fontspec)             DejaVu Serif scale = 0.8303719074065455.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Roman scale = 0.8960465269975546.
+(fontspec)             DejaVu Serif scale = 1.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Roman scale = 1.
+(fontspec)             DejaVu Serif/B scale = 0.8303719074065455.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Bold scale = 0.8868283417101204.
+(fontspec)             DejaVu Serif/B scale = 1.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Bold scale = 1.
+(fontspec)             DejaVu Serif/I scale = 0.8303719074065455.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Bold scale = 0.8868283417101204.
+(fontspec)             DejaVu Serif/I scale = 1.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Bold scale = 1.
+(fontspec)             DejaVu Serif/BI scale = 0.8303719074065455.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Italic scale = 0.894188534299229.
+(fontspec)             DejaVu Serif/BI scale = 1.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Italic scale = 1.
+(fontspec)             Font family 'DejaVuSerif(0)' created for font 'DejaVu
+(fontspec)             Serif' with options
+(fontspec)             [Scale=MatchLowercase,Ligatures=TeX,Scale=1].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.: <->s*[1]"DejaVu
+(fontspec)             Serif/OT:script=latn;language=dflt;mapping=tex-text;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.: <->s*[1]"DejaVu
+(fontspec)             Serif/B/OT:script=latn;language=dflt;mapping=tex-text;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.: <->s*[1]"DejaVu
+(fontspec)             Serif/I/OT:script=latn;language=dflt;mapping=tex-text;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.: <->s*[1]"DejaVu
+(fontspec)             Serif/BI/OT:script=latn;language=dflt;mapping=tex-text;"
+
+LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/m/n' will be
+(Font)              scaled to size 12.0pt on input line 187.
+
+Package fontspec Info: 
+(fontspec)             DejaVu Serif scale = 0.9999975501784696.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Italic scale = 0.894188534299229.
+(fontspec)             DejaVu Serif scale = 0.9999975501784696.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Italic scale = 1.
+(fontspec)             DejaVu Serif/B scale = 0.9999975501784696.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Slanted scale = 0.8960465269975546.
+(fontspec)             DejaVu Serif/I scale = 0.9999975501784696.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Slanted scale = 1.
+(fontspec)             DejaVu Serif/BI scale = 0.9999975501784696.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Slanted scale = 0.8960465269975546.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-Slanted scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-BoldItalic scale = 0.8813883702667422.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-BoldItalic scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-BoldItalic scale = 0.8813883702667422.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-BoldItalic scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-BoldSlanted scale = 0.8868283417101204.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-BoldSlanted scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-BoldSlanted scale = 0.8868283417101204.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-BoldSlanted scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Font family 'XCharter(0)' created for font 'XCharter'
-(fontspec)             with options
-(fontspec)             [Scale=MatchLowercase,Ligatures=TeX,Scale=1,Extension =
-(fontspec)             .otf,UprightFont = XCharter-Roman,BoldFont =
-(fontspec)             XCharter-Bold,ItalicFont =
-(fontspec)             XCharter-Italic,BoldItalicFont =
-(fontspec)             XCharter-BoldItalic,SlantedFont =
-(fontspec)             XCharter-Slanted,BoldSlantedFont =
-(fontspec)             XCharter-BoldSlanted,SmallCapsFeatures =
-(fontspec)             {Letters=SmallCaps}].
+(fontspec)             Font family 'DejaVuSerif(1)' created for font 'DejaVu
+(fontspec)             Serif' with options [Scale=MatchLowercase].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[1]"[XCharter-Roman.otf]/OT:script=latn;language=dflt;mapping=tex-text;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
-(fontspec)             <->s*[1]"[XCharter-Roman.otf]/OT:script=latn;language=dflt;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[0.9999975501784696]"DejaVu
+(fontspec)             Serif/OT:script=latn;language=dflt;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[1]"[XCharter-Bold.otf]/OT:script=latn;language=dflt;mapping=tex-text;"
-(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
-(fontspec)             <->s*[1]"[XCharter-Bold.otf]/OT:script=latn;language=dflt;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[0.9999975501784696]"DejaVu
+(fontspec)             Serif/B/OT:script=latn;language=dflt;"
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->s*[1]"[XCharter-Italic.otf]/OT:script=latn;language=dflt;mapping=tex-text;"
-(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
-(fontspec)             <->s*[1]"[XCharter-Italic.otf]/OT:script=latn;language=dflt;+smcp;mapping=tex-text;"
-(fontspec)             - 'slanted' (m/sl) with NFSS spec.:
-(fontspec)             <->s*[1]"[XCharter-Slanted.otf]/OT:script=latn;language=dflt;mapping=tex-text;"
-(fontspec)             - 'slanted small caps'  (m/scsl) with NFSS spec.:
-(fontspec)             <->s*[1]"[XCharter-Slanted.otf]/OT:script=latn;language=dflt;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[0.9999975501784696]"DejaVu
+(fontspec)             Serif/I/OT:script=latn;language=dflt;"
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->s*[1]"[XCharter-BoldItalic.otf]/OT:script=latn;language=dflt;mapping=tex-text;"
-(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
-(fontspec)             <->s*[1]"[XCharter-BoldItalic.otf]/OT:script=latn;language=dflt;+smcp;mapping=tex-text;"
-(fontspec)             - 'bold slanted' (b/sl) with NFSS spec.:
-(fontspec)             <->s*[1]"[XCharter-BoldSlanted.otf]/OT:script=latn;language=dflt;mapping=tex-text;"
-(fontspec)             - 'bold slanted small caps'  (b/scsl) with NFSS spec.:
-(fontspec)             <->s*[1]"[XCharter-BoldSlanted.otf]/OT:script=latn;language=dflt;+smcp;mapping=tex-text;"
-
-LaTeX Font Info:    Font shape `TU/XCharter(0)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 183.
-
-Package fontspec Info: 
-(fontspec)             XCharter-Roman scale = 0.9999973564205934.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-Roman scale = 0.9999973564205934.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-Roman scale = 0.9999973564205934.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-Bold scale = 0.9897097646039972.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-Bold scale = 0.9897097646039972.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-Italic scale = 0.9979238170109825.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-Italic scale = 0.9979238170109825.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-Slanted scale = 0.9999973564205934.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-Slanted scale = 0.9999973564205934.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-BoldItalic scale = 0.9836386992089784.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-BoldItalic scale = 0.9836386992089784.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-BoldSlanted scale = 0.9897097646039972.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-BoldSlanted scale = 0.9897097646039972.
-
-
-Package fontspec Info: 
-(fontspec)             Font family 'XCharter(1)' created for font 'XCharter'
-(fontspec)             with options [Scale=MatchLowercase,Extension =
-(fontspec)             .otf,UprightFont = XCharter-Roman,BoldFont =
-(fontspec)             XCharter-Bold,ItalicFont =
-(fontspec)             XCharter-Italic,BoldItalicFont =
-(fontspec)             XCharter-BoldItalic,SlantedFont =
-(fontspec)             XCharter-Slanted,BoldSlantedFont =
-(fontspec)             XCharter-BoldSlanted,SmallCapsFeatures =
-(fontspec)             {Letters=SmallCaps}].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[0.9999973564205934]"[XCharter-Roman.otf]/OT:script=latn;language=dflt;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
-(fontspec)             <->s*[0.9999973564205934]"[XCharter-Roman.otf]/OT:script=latn;language=dflt;+smcp;"
-(fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[0.9897097646039972]"[XCharter-Bold.otf]/OT:script=latn;language=dflt;"
-(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
-(fontspec)             <->s*[0.9897097646039972]"[XCharter-Bold.otf]/OT:script=latn;language=dflt;+smcp;"
-(fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->s*[0.9979238170109825]"[XCharter-Italic.otf]/OT:script=latn;language=dflt;"
-(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
-(fontspec)             <->s*[0.9979238170109825]"[XCharter-Italic.otf]/OT:script=latn;language=dflt;+smcp;"
-(fontspec)             - 'slanted' (m/sl) with NFSS spec.:
-(fontspec)             <->s*[0.9999973564205934]"[XCharter-Slanted.otf]/OT:script=latn;language=dflt;"
-(fontspec)             - 'slanted small caps'  (m/scsl) with NFSS spec.:
-(fontspec)             <->s*[0.9999973564205934]"[XCharter-Slanted.otf]/OT:script=latn;language=dflt;+smcp;"
-(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->s*[0.9836386992089784]"[XCharter-BoldItalic.otf]/OT:script=latn;language=dflt;"
-(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
-(fontspec)             <->s*[0.9836386992089784]"[XCharter-BoldItalic.otf]/OT:script=latn;language=dflt;+smcp;"
-(fontspec)             - 'bold slanted' (b/sl) with NFSS spec.:
-(fontspec)             <->s*[0.9897097646039972]"[XCharter-BoldSlanted.otf]/OT:script=latn;language=dflt;"
-(fontspec)             - 'bold slanted small caps'  (b/scsl) with NFSS spec.:
-(fontspec)             <->s*[0.9897097646039972]"[XCharter-BoldSlanted.otf]/OT:script=latn;language=dflt;+smcp;"
+(fontspec)             <->s*[0.9999975501784696]"DejaVu
+(fontspec)             Serif/BI/OT:script=latn;language=dflt;"
 
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/XCharter(1)/m/n on input line 183.
+(Font)                  OT1/lmr/m/n --> TU/DejaVuSerif(1)/m/n on input line 187.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/XCharter(1)/m/it on input line 183.
+(Font)                  OT1/lmr/m/it --> TU/DejaVuSerif(1)/m/it on input line 187.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/XCharter(1)/b/n on input line 183.
+(Font)                  OT1/lmr/bx/n --> TU/DejaVuSerif(1)/b/n on input line 187.
 
 Package fontspec Info: 
-(fontspec)             Consolas scale = 0.9811613411942305.
-
-
-Package fontspec Info: 
-(fontspec)             Consolas scale = 0.9811613411942305.
+(fontspec)             DejaVu Sans scale = 0.9491049360469308.
 
 
 Package fontspec Info: 
-(fontspec)             Consolas/B scale = 0.9695728511194557.
+(fontspec)             DejaVu Sans scale = 0.9491049360469308.
 
 
 Package fontspec Info: 
-(fontspec)             Consolas/I scale = 0.9811613411942305.
+(fontspec)             DejaVu Sans/B scale = 0.9491049360469308.
 
 
 Package fontspec Info: 
-(fontspec)             Consolas/BI scale = 0.9695728511194557.
+(fontspec)             DejaVu Sans/I scale = 0.9491049360469308.
 
 
 Package fontspec Info: 
-(fontspec)             Font family 'Consolas(0)' created for font 'Consolas'
-(fontspec)             with options
+(fontspec)             DejaVu Sans/BI scale = 0.9491049360469308.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'DejaVuSans(0)' created for font 'DejaVu
+(fontspec)             Sans' with options
+(fontspec)             [Scale=MatchLowercase,Ligatures=TeX].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0.9491049360469308]"DejaVu
+(fontspec)             Sans/OT:script=latn;language=dflt;mapping=tex-text;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9491049360469308]"DejaVu
+(fontspec)             Sans/B/OT:script=latn;language=dflt;mapping=tex-text;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[0.9491049360469308]"DejaVu
+(fontspec)             Sans/I/OT:script=latn;language=dflt;mapping=tex-text;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[0.9491049360469308]"DejaVu
+(fontspec)             Sans/BI/OT:script=latn;language=dflt;mapping=tex-text;"
+
+
+Package fontspec Info: 
+(fontspec)             DejaVu Sans scale = 0.9491049360469308.
+
+
+Package fontspec Info: 
+(fontspec)             DejaVu Sans scale = 0.9491049360469308.
+
+
+Package fontspec Info: 
+(fontspec)             DejaVu Sans/B scale = 0.9491049360469308.
+
+
+Package fontspec Info: 
+(fontspec)             DejaVu Sans/I scale = 0.9491049360469308.
+
+
+Package fontspec Info: 
+(fontspec)             DejaVu Sans/BI scale = 0.9491049360469308.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'DejaVuSans(1)' created for font 'DejaVu
+(fontspec)             Sans' with options [Scale=MatchLowercase].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0.9491049360469308]"DejaVu
+(fontspec)             Sans/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9491049360469308]"DejaVu
+(fontspec)             Sans/B/OT:script=latn;language=dflt;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[0.9491049360469308]"DejaVu
+(fontspec)             Sans/I/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[0.9491049360469308]"DejaVu
+(fontspec)             Sans/BI/OT:script=latn;language=dflt;"
+
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/lmss/m/n --> TU/DejaVuSans(1)/m/n on input line 188.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/lmss/bx/n --> TU/DejaVuSans(1)/b/n on input line 188.
+
+Package fontspec Info: 
+(fontspec)             DejaVu Sans Mono scale = 0.9491049360469308.
+
+
+Package fontspec Info: 
+(fontspec)             DejaVu Sans Mono scale = 0.9491049360469308.
+
+
+Package fontspec Info: 
+(fontspec)             DejaVu Sans Mono/B scale = 0.9491049360469308.
+
+
+Package fontspec Info: 
+(fontspec)             DejaVu Sans Mono/I scale = 0.9491049360469308.
+
+
+Package fontspec Info: 
+(fontspec)             DejaVu Sans Mono/BI scale = 0.9491049360469308.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'DejaVuSansMono(0)' created for font
+(fontspec)             'DejaVu Sans Mono' with options
 (fontspec)             [Scale=MatchLowercase,WordSpace={1,0,0},HyphenChar=None,PunctuationSpace=WordSpace].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[0.9811613411942305]"Consolas/OT:script=latn;language=dflt;"
+(fontspec)             <->s*[0.9491049360469308]"DejaVu Sans
+(fontspec)             Mono/OT:script=latn;language=dflt;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[0.9695728511194557]"Consolas/B/OT:script=latn;language=dflt;"
+(fontspec)             <->s*[0.9491049360469308]"DejaVu Sans
+(fontspec)             Mono/B/OT:script=latn;language=dflt;"
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->s*[0.9811613411942305]"Consolas/I/OT:script=latn;language=dflt;"
+(fontspec)             <->s*[0.9491049360469308]"DejaVu Sans
+(fontspec)             Mono/I/OT:script=latn;language=dflt;"
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->s*[0.9695728511194557]"Consolas/BI/OT:script=latn;language=dflt;"
+(fontspec)             <->s*[0.9491049360469308]"DejaVu Sans
+(fontspec)             Mono/BI/OT:script=latn;language=dflt;"
 
 
 Package fontspec Info: 
-(fontspec)             Consolas scale = 0.9811613411942305.
+(fontspec)             DejaVu Sans Mono scale = 0.9491049360469308.
 
 
 Package fontspec Info: 
-(fontspec)             Consolas scale = 0.9811613411942305.
+(fontspec)             DejaVu Sans Mono scale = 0.9491049360469308.
 
 
 Package fontspec Info: 
-(fontspec)             Consolas/B scale = 0.9695728511194557.
+(fontspec)             DejaVu Sans Mono/B scale = 0.9491049360469308.
 
 
 Package fontspec Info: 
-(fontspec)             Consolas/I scale = 0.9811613411942305.
+(fontspec)             DejaVu Sans Mono/I scale = 0.9491049360469308.
 
 
 Package fontspec Info: 
-(fontspec)             Consolas/BI scale = 0.9695728511194557.
+(fontspec)             DejaVu Sans Mono/BI scale = 0.9491049360469308.
 
 
 Package fontspec Info: 
-(fontspec)             Font family 'Consolas(1)' created for font 'Consolas'
-(fontspec)             with options [Scale=MatchLowercase].
+(fontspec)             Font family 'DejaVuSansMono(1)' created for font
+(fontspec)             'DejaVu Sans Mono' with options [Scale=MatchLowercase].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[0.9811613411942305]"Consolas/OT:script=latn;language=dflt;"
+(fontspec)             <->s*[0.9491049360469308]"DejaVu Sans
+(fontspec)             Mono/OT:script=latn;language=dflt;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[0.9695728511194557]"Consolas/B/OT:script=latn;language=dflt;"
+(fontspec)             <->s*[0.9491049360469308]"DejaVu Sans
+(fontspec)             Mono/B/OT:script=latn;language=dflt;"
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->s*[0.9811613411942305]"Consolas/I/OT:script=latn;language=dflt;"
+(fontspec)             <->s*[0.9491049360469308]"DejaVu Sans
+(fontspec)             Mono/I/OT:script=latn;language=dflt;"
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->s*[0.9695728511194557]"Consolas/BI/OT:script=latn;language=dflt;"
+(fontspec)             <->s*[0.9491049360469308]"DejaVu Sans
+(fontspec)             Mono/BI/OT:script=latn;language=dflt;"
 
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/Consolas(1)/m/n on input line 184.
+(Font)                  OT1/lmtt/m/n --> TU/DejaVuSansMono(1)/m/n on input line 189.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/Consolas(1)/b/n on input line 184.
+(Font)                  OT1/lmtt/m/n --> TU/DejaVuSansMono(1)/b/n on input line 189.
 
 Package fontspec Info: 
-(fontspec)             XCharter-Math scale = 1.041122056075281.
+(fontspec)             XCharter-Math scale = 1.123465250885551.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Math scale = 1.041122056075281.
+(fontspec)             XCharter-Math scale = 1.123465250885551.
 
 
 Package fontspec Info: 
@@ -1072,25 +1029,25 @@ Package fontspec Info:
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[1.041122056075281]"[XCharter-Math.otf]/OT:script=math;language=dflt;"
+(fontspec)             <->s*[1.123465250885551]"[XCharter-Math.otf]/OT:script=math;language=dflt;"
 
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(0)/m/n' will be
-(Font)              scaled to size 12.49347pt on input line 186.
+(Font)              scaled to size 13.4815pt on input line 192.
 
 Package fontspec Info: 
-(fontspec)             XCharter-Math scale = 1.041122056075281.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-Math scale = 1.041122056075281.
+(fontspec)             XCharter-Math scale = 1.123465250885551.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Math scale = 1.041122056075281.
+(fontspec)             XCharter-Math scale = 1.123465250885551.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Math scale = 1.041122056075281.
+(fontspec)             XCharter-Math scale = 1.123465250885551.
+
+
+Package fontspec Info: 
+(fontspec)             XCharter-Math scale = 1.123465250885551.
 
 
 Package fontspec Info: 
@@ -1102,179 +1059,142 @@ Package fontspec Info:
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <10.2->s*[1.041122056075281]"[XCharter-Math.otf]/OT:script=math;language=dflt;"<7.5-10.2>s*[1.041122056075281]"[XCharter-Math.otf]/OT:script=math;language=dflt;+ssty=0;"<-7.5>s*[1.041122056075281]"[XCharter-Math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             <10.2->s*[1.123465250885551]"[XCharter-Math.otf]/OT:script=math;language=dflt;"<7.5-10.2>s*[1.123465250885551]"[XCharter-Math.otf]/OT:script=math;language=dflt;+ssty=0;"<-7.5>s*[1.123465250885551]"[XCharter-Math.otf]/OT:script=math;language=dflt;+ssty=1;"
 
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(1)/m/n' will be
-(Font)              scaled to size 12.49347pt on input line 186.
+(Font)              scaled to size 13.4815pt on input line 192.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 186.
+(Font)              `operators' in the math version `normal' on input line 192.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/XCharter-Math.otf(1)/m/n on input line 186.
+(Font)                  OT1/lmr/m/n --> TU/XCharter-Math.otf(1)/m/n on input line 192.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 186.
+(Font)              `operators' in the math version `bold' on input line 192.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> TU/XCharter-Math.otf(1)/b/n on input line 186.
+(Font)                  OT1/lmr/bx/n --> TU/XCharter-Math.otf(1)/b/n on input line 192.
 
 Package fontspec Info: 
-(fontspec)             XCharter-Math scale = 1.041122056075281.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-Math scale = 1.041226168280889.
+(fontspec)             XCharter-Math scale = 1.123465250885551.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Math scale = 1.041122056075281.
+(fontspec)             XCharter-Math scale = 1.12357759741064.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Math scale = 1.041226168280889.
+(fontspec)             XCharter-Math scale = 1.123465250885551.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Math scale = 1.041122056075281.
+(fontspec)             XCharter-Math scale = 1.12357759741064.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Math scale = 1.041226168280889.
+(fontspec)             XCharter-Math scale = 1.123465250885551.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Math scale = 1.041122056075281.
+(fontspec)             XCharter-Math scale = 1.12357759741064.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Math scale = 1.041226168280889.
+(fontspec)             XCharter-Math scale = 1.123465250885551.
+
+
+Package fontspec Info: 
+(fontspec)             XCharter-Math scale = 1.12357759741064.
 
 
 Package fontspec Info: 
 (fontspec)             Font family 'XCharter-Math.otf(2)' created for font
 (fontspec)             'XCharter-Math.otf' with options
 (fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=10.2-},{Size=7.5-10.2,Font=XCharter-Math.otf,Style=MathScript},{Size=-7.5,Font=XCharter-Math.otf,Style=MathScriptScript}},ScaleAgain=1.0001,FontAdjustment={\fontdimen
-(fontspec)             8\font =9.99478pt\relax \fontdimen 9\font
-(fontspec)             =5.02237pt\relax \fontdimen 10\font =6.39665pt\relax
-(fontspec)             \fontdimen 11\font =9.20769pt\relax \fontdimen 12\font
-(fontspec)             =4.44768pt\relax \fontdimen 13\font =5.24725pt\relax
-(fontspec)             \fontdimen 14\font =5.24725pt\relax \fontdimen 15\font
-(fontspec)             =4.74751pt\relax \fontdimen 16\font =3.74805pt\relax
-(fontspec)             \fontdimen 17\font =3.74805pt\relax \fontdimen 18\font
-(fontspec)             =5.18478pt\relax \fontdimen 19\font =0.62468pt\relax
-(fontspec)             \fontdimen 22\font =3.49817pt\relax \fontdimen 20\font
+(fontspec)             8\font =10.7852pt\relax \fontdimen 9\font
+(fontspec)             =5.41957pt\relax \fontdimen 10\font =6.90253pt\relax
+(fontspec)             \fontdimen 11\font =9.93587pt\relax \fontdimen 12\font
+(fontspec)             =4.79942pt\relax \fontdimen 13\font =5.66223pt\relax
+(fontspec)             \fontdimen 14\font =5.66223pt\relax \fontdimen 15\font
+(fontspec)             =5.12297pt\relax \fontdimen 16\font =4.04445pt\relax
+(fontspec)             \fontdimen 17\font =4.04445pt\relax \fontdimen 18\font
+(fontspec)             =5.59482pt\relax \fontdimen 19\font =0.67407pt\relax
+(fontspec)             \fontdimen 22\font =3.77483pt\relax \fontdimen 20\font
 (fontspec)             =0pt\relax \fontdimen 21\font =0pt\relax }].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <10.2->s*[1.041226168280889]"[XCharter-Math.otf]/OT:script=math;language=dflt;"<7.5-10.2>s*[1.041226168280889]"[XCharter-Math.otf]/OT:script=math;language=dflt;+ssty=0;"<-7.5>s*[1.041226168280889]"[XCharter-Math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             <10.2->s*[1.12357759741064]"[XCharter-Math.otf]/OT:script=math;language=dflt;"<7.5-10.2>s*[1.12357759741064]"[XCharter-Math.otf]/OT:script=math;language=dflt;+ssty=0;"<-7.5>s*[1.12357759741064]"[XCharter-Math.otf]/OT:script=math;language=dflt;+ssty=1;"
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 186.
+(Font)              `symbols' in the math version `normal' on input line 192.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/lmsy/m/n --> TU/XCharter-Math.otf(2)/m/n on input line 186.
+(Font)                  OMS/lmsy/m/n --> TU/XCharter-Math.otf(2)/m/n on input line 192.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 186.
+(Font)              `symbols' in the math version `bold' on input line 192.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/lmsy/b/n --> TU/XCharter-Math.otf(2)/b/n on input line 186.
+(Font)                  OMS/lmsy/b/n --> TU/XCharter-Math.otf(2)/b/n on input line 192.
 
 Package fontspec Info: 
-(fontspec)             XCharter-Math scale = 1.041122056075281.
-
-
-Package fontspec Info: 
-(fontspec)             XCharter-Math scale = 1.041017943869673.
+(fontspec)             XCharter-Math scale = 1.123465250885551.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Math scale = 1.041122056075281.
+(fontspec)             XCharter-Math scale = 1.123352904360462.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Math scale = 1.041017943869673.
+(fontspec)             XCharter-Math scale = 1.123465250885551.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Math scale = 1.041122056075281.
+(fontspec)             XCharter-Math scale = 1.123352904360462.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Math scale = 1.041017943869673.
+(fontspec)             XCharter-Math scale = 1.123465250885551.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Math scale = 1.041122056075281.
+(fontspec)             XCharter-Math scale = 1.123352904360462.
 
 
 Package fontspec Info: 
-(fontspec)             XCharter-Math scale = 1.041017943869673.
+(fontspec)             XCharter-Math scale = 1.123465250885551.
+
+
+Package fontspec Info: 
+(fontspec)             XCharter-Math scale = 1.123352904360462.
 
 
 Package fontspec Info: 
 (fontspec)             Font family 'XCharter-Math.otf(3)' created for font
 (fontspec)             'XCharter-Math.otf' with options
 (fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=10.2-},{Size=7.5-10.2,Font=XCharter-Math.otf,Style=MathScript},{Size=-7.5,Font=XCharter-Math.otf,Style=MathScriptScript}},ScaleAgain=0.9999,FontAdjustment={\fontdimen
-(fontspec)             8\font =0.72462pt\relax \fontdimen 9\font
-(fontspec)             =1.38678pt\relax \fontdimen 10\font =2.08641pt\relax
-(fontspec)             \fontdimen 11\font =2.49869pt\relax \fontdimen 12\font
-(fontspec)             =7.49608pt\relax \fontdimen 13\font =0pt\relax }].
+(fontspec)             8\font =0.78192pt\relax \fontdimen 9\font
+(fontspec)             =1.49644pt\relax \fontdimen 10\font =2.25142pt\relax
+(fontspec)             \fontdimen 11\font =2.6963pt\relax \fontdimen 12\font
+(fontspec)             =8.0889pt\relax \fontdimen 13\font =0pt\relax }].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <10.2->s*[1.041017943869673]"[XCharter-Math.otf]/OT:script=math;language=dflt;"<7.5-10.2>s*[1.041017943869673]"[XCharter-Math.otf]/OT:script=math;language=dflt;+ssty=0;"<-7.5>s*[1.041017943869673]"[XCharter-Math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             <10.2->s*[1.123352904360462]"[XCharter-Math.otf]/OT:script=math;language=dflt;"<7.5-10.2>s*[1.123352904360462]"[XCharter-Math.otf]/OT:script=math;language=dflt;+ssty=0;"<-7.5>s*[1.123352904360462]"[XCharter-Math.otf]/OT:script=math;language=dflt;+ssty=1;"
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 186.
+(Font)              `largesymbols' in the math version `normal' on input line 192.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/lmex/m/n --> TU/XCharter-Math.otf(3)/m/n on input line 186.
+(Font)                  OMX/lmex/m/n --> TU/XCharter-Math.otf(3)/m/n on input line 192.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 186.
+(Font)              `largesymbols' in the math version `bold' on input line 192.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/lmex/m/n --> TU/XCharter-Math.otf(3)/b/n on input line 186.
+(Font)                  OMX/lmex/m/n --> TU/XCharter-Math.otf(3)/b/n on input line 192.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/newunicodechar/newunicodechar.sty
 Package: newunicodechar 2018/04/08 v1.2 Defining Unicode characters
 )
 
 Package fontspec Info: 
-(fontspec)             DejaVu Sans scale = 0.8795412957094129.
-
-
-Package fontspec Info: 
-(fontspec)             DejaVu Sans scale = 0.8795412957094129.
-
-
-Package fontspec Info: 
-(fontspec)             DejaVu Sans/B scale = 0.8795412957094129.
-
-
-Package fontspec Info: 
-(fontspec)             DejaVu Sans/I scale = 0.8795412957094129.
-
-
-Package fontspec Info: 
-(fontspec)             DejaVu Sans/BI scale = 0.8795412957094129.
-
-
-Package fontspec Info: 
-(fontspec)             Font family 'DejaVuSans(0)' created for font 'DejaVu
-(fontspec)             Sans' with options [Scale=MatchLowercase].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[0.8795412957094129]"DejaVu
-(fontspec)             Sans/OT:script=latn;language=dflt;"
-(fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[0.8795412957094129]"DejaVu
-(fontspec)             Sans/B/OT:script=latn;language=dflt;"
-(fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->s*[0.8795412957094129]"DejaVu
-(fontspec)             Sans/I/OT:script=latn;language=dflt;"
-(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->s*[0.8795412957094129]"DejaVu
-(fontspec)             Sans/BI/OT:script=latn;language=dflt;"
+(fontspec)             DejaVu Sans scale = 0.9491049360469308.
 
  (/usr/local/texlive/2026/texmf-dist/tex/xelatex/xecjk/xeCJK.sty
 Package: xeCJK 2022/08/05 v3.9.1 Typesetting CJK scripts with XeLaTeX
@@ -1348,7 +1268,7 @@ File: xeCJK.cfg 2022/08/05 v3.9.1 Configuration file for xeCJK package
 ))
 
 Package fontspec Info: 
-(fontspec)             LXGW WenKai scale = 1.027776041907236.
+(fontspec)             LXGW WenKai scale = 1.109063689543025.
 
 
 Package fontspec Info: 
@@ -1357,15 +1277,15 @@ Package fontspec Info:
 
 
 Package fontspec Info: 
-(fontspec)             LXGW WenKai scale = 1.027776041907236.
+(fontspec)             LXGW WenKai scale = 1.109063689543025.
 
 
 Package fontspec Info: 
-(fontspec)             LXGW WenKai/B scale = 1.027776041907236.
+(fontspec)             LXGW WenKai/B scale = 1.109063689543025.
 
 
 Package fontspec Info: 
-(fontspec)             LXGW WenKai/BI scale = 1.027776041907236.
+(fontspec)             LXGW WenKai/BI scale = 1.109063689543025.
 
 
 Package fontspec Info: 
@@ -1377,13 +1297,13 @@ Package fontspec Info:
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[1.027776041907236]"LXGW
+(fontspec)             <->s*[1.109063689543025]"LXGW
 (fontspec)             WenKai/OT:script=hani;language=dflt;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[1.027776041907236]"LXGW
+(fontspec)             <->s*[1.109063689543025]"LXGW
 (fontspec)             WenKai/B/OT:script=hani;language=dflt;"
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->s*[1.027776041907236]"LXGW
+(fontspec)             <->s*[1.109063689543025]"LXGW
 (fontspec)             WenKai/BI/OT:script=hani;language=dflt;"
 
  (/usr/local/texlive/2026/texmf-dist/tex/latex/changepage/changepage.sty
@@ -1443,13 +1363,23 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@roff=\dimen307
 )
 ==> First Aid for varwidth.sty applied!
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/rotating.sty
+Package: rotating 2025/01/14 v2.16e rotated objects in LaTeX
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\c@r@tfl@t=\count385
+\rotFPtop=\skip90
+\rotFPbot=\skip91
+\rot@float@box=\box81
+\rot@mess@toks=\toks34
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count385
-\float@exts=\toks34
-\float@box=\box81
-\@float@everytoks=\toks35
-\@floatcapt=\box82
+\c@float@type=\count386
+\float@exts=\toks35
+\float@box=\box82
+\@float@everytoks=\toks36
+\@floatcapt=\box83
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
 
@@ -1467,8 +1397,8 @@ Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@parindent=\dimen314
 \caption@hangindent=\dimen315
 )
-\c@caption@flags=\count386
-\c@continuedfloat=\count387
+\c@caption@flags=\count387
+\c@continuedfloat=\count388
 Package caption Info: changepage package is loaded.
 \caption@adjustwidth@hsize=\dimen316
 \caption@adjustwidth@linewidth=\dimen317
@@ -1478,54 +1408,55 @@ Package caption Info: longtable package is loaded.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
+Package caption Info: rotating package is loaded.
 Package caption Info: threeparttable package is loaded.
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/siunitx/siunitx.sty
 Package: siunitx 2025-07-09 v3.4.14 A comprehensive (SI) units package
-\l__siunitx_number_uncert_offset_int=\count388
-\l__siunitx_number_exponent_fixed_int=\count389
-\l__siunitx_number_min_decimal_int=\count390
-\l__siunitx_number_min_integer_int=\count391
-\l__siunitx_number_round_precision_int=\count392
-\l__siunitx_number_lower_threshold_int=\count393
-\l__siunitx_number_upper_threshold_int=\count394
-\l__siunitx_number_group_first_int=\count395
-\l__siunitx_number_group_size_int=\count396
-\l__siunitx_number_group_minimum_int=\count397
+\l__siunitx_number_uncert_offset_int=\count389
+\l__siunitx_number_exponent_fixed_int=\count390
+\l__siunitx_number_min_decimal_int=\count391
+\l__siunitx_number_min_integer_int=\count392
+\l__siunitx_number_round_precision_int=\count393
+\l__siunitx_number_lower_threshold_int=\count394
+\l__siunitx_number_upper_threshold_int=\count395
+\l__siunitx_number_group_first_int=\count396
+\l__siunitx_number_group_size_int=\count397
+\l__siunitx_number_group_minimum_int=\count398
 \l__siunitx_angle_tmp_dim=\dimen318
-\l__siunitx_angle_marker_box=\box83
-\l__siunitx_angle_unit_box=\box84
-\l__siunitx_compound_count_int=\count398
+\l__siunitx_angle_marker_box=\box84
+\l__siunitx_angle_unit_box=\box85
+\l__siunitx_compound_count_int=\count399
  (/usr/local/texlive/2026/texmf-dist/tex/latex/translations/translations.sty
 Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages (CN)
 )
-\l__siunitx_table_tmp_box=\box85
+\l__siunitx_table_tmp_box=\box86
 \l__siunitx_table_tmp_dim=\dimen319
 \l__siunitx_table_column_width_dim=\dimen320
-\l__siunitx_table_integer_box=\box86
-\l__siunitx_table_decimal_box=\box87
-\l__siunitx_table_uncert_box=\box88
-\l__siunitx_table_before_box=\box89
-\l__siunitx_table_after_box=\box90
+\l__siunitx_table_integer_box=\box87
+\l__siunitx_table_decimal_box=\box88
+\l__siunitx_table_uncert_box=\box89
+\l__siunitx_table_before_box=\box90
+\l__siunitx_table_after_box=\box91
 \l__siunitx_table_before_dim=\dimen321
 \l__siunitx_table_carry_dim=\dimen322
-\l__siunitx_unit_tmp_int=\count399
-\l__siunitx_unit_position_int=\count400
-\l__siunitx_unit_total_int=\count401
+\l__siunitx_unit_tmp_int=\count400
+\l__siunitx_unit_position_int=\count401
+\l__siunitx_unit_total_int=\count402
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/tools/dcolumn.sty
 Package: dcolumn 2025/10/21 v1.06 decimal alignment package (DPC)
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2024/10/29 v1.0k Color table columns (DPC)
-\everycr=\toks36
-\minrowclearance=\skip90
-\rownum=\count402
+\everycr=\toks37
+\minrowclearance=\skip92
+\rownum=\count403
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2025/11/28 version 6.9.0 text color boxes
  (/usr/local/texlive/2026/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/local/texlive/2026/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/texlive/2026/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks37
+\pgfutil@everybye=\toks38
 \pgfutil@tempdima=\dimen323
 \pgfutil@tempdimb=\dimen324
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box91
+\pgfutil@abb=\box92
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/pgf.revision.tex)
 Package: pgfrcs 2025-08-29 v3.1.11a (3.1.11a)
 ))
@@ -1533,10 +1464,10 @@ Package: pgf 2025-08-29 v3.1.11a (3.1.11a)
  (/usr/local/texlive/2026/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/local/texlive/2026/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks38
-\pgfkeys@temptoks=\toks39
+\pgfkeys@pathtoks=\toks39
+\pgfkeys@temptoks=\toks40
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
-\pgfkeys@tmptoks=\toks40
+\pgfkeys@tmptoks=\toks41
 ))
 \pgf@x=\dimen325
 \pgf@y=\dimen326
@@ -1550,14 +1481,14 @@ Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@yd=\dimen334
 \w@pgf@writea=\write4
 \r@pgf@reada=\read3
-\c@pgf@counta=\count403
-\c@pgf@countb=\count404
-\c@pgf@countc=\count405
-\c@pgf@countd=\count406
-\t@pgf@toka=\toks41
-\t@pgf@tokb=\toks42
-\t@pgf@tokc=\toks43
-\pgf@sys@id@count=\count407
+\c@pgf@counta=\count404
+\c@pgf@countb=\count405
+\c@pgf@countc=\count406
+\c@pgf@countd=\count407
+\t@pgf@toka=\toks42
+\t@pgf@tokb=\toks43
+\t@pgf@tokc=\toks44
+\pgf@sys@id@count=\count408
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
 )
@@ -1569,24 +1500,24 @@ File: pgfsys-dvipdfmx.def 2025-08-29 v3.1.11a (3.1.11a)
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
 File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
 )
-\pgfsys@objnum=\count408
+\pgfsys@objnum=\count409
 ))) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfsyssoftpath@smallbuffer@items=\count409
-\pgfsyssoftpath@bigbuffer@items=\count410
+\pgfsyssoftpath@smallbuffer@items=\count410
+\pgfsyssoftpath@bigbuffer@items=\count411
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen335
-\pgfmath@count=\count411
-\pgfmath@box=\box92
-\pgfmath@toks=\toks44
-\pgfmath@stack@operand=\toks45
-\pgfmath@stack@operation=\toks46
+\pgfmath@count=\count412
+\pgfmath@box=\box93
+\pgfmath@toks=\toks45
+\pgfmath@stack@operand=\toks46
+\pgfmath@stack@operation=\toks47
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count412
+\c@pgfmathroundto@lastzeros=\count413
 )) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@picminx=\dimen336
@@ -1613,10 +1544,10 @@ File: pgfcorepathusage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@shorten@start@additional=\dimen353
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfpic=\box93
-\pgf@hbox=\box94
-\pgf@layerbox@main=\box95
-\pgf@picture@serial@count=\count413
+\pgfpic=\box94
+\pgf@hbox=\box95
+\pgf@layerbox@main=\box96
+\pgf@picture@serial@count=\count414
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgflinewidth=\dimen354
@@ -1637,13 +1568,13 @@ File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@max=\dimen359
-\pgf@sys@shading@range@num=\count414
-\pgf@shadingcount=\count415
+\pgf@sys@shading@range@num=\count415
+\pgf@shadingcount=\count416
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
 File: pgfcoreexternal.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfexternal@startupbox=\box96
+\pgfexternal@startupbox=\box97
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
 File: pgfcorelayers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
@@ -1654,7 +1585,7 @@ File: pgfcorepatterns.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 File: pgfcorerdf.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ))) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfnodeparttextbox=\box97
+\pgfnodeparttextbox=\box98
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
@@ -1667,13 +1598,13 @@ Package: pgfcomp-version-1-18 2025-08-29 v3.1.11a (3.1.11a)
 Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
 \pgffor@iter=\dimen362
 \pgffor@skip=\dimen363
-\pgffor@stack=\toks47
-\pgffor@toks=\toks48
+\pgffor@stack=\toks48
+\pgffor@toks=\toks49
 )) (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@plot@mark@count=\count416
+\pgf@plot@mark@count=\count417
 \pgfplotmarksize=\dimen364
 )
 \tikz@lastx=\dimen365
@@ -1684,46 +1615,46 @@ File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \tikz@lastmovetoy=\dimen370
 \tikzleveldistance=\dimen371
 \tikzsiblingdistance=\dimen372
-\tikz@figbox=\box98
-\tikz@figbox@bg=\box99
-\tikz@tempbox=\box100
-\tikz@tempbox@bg=\box101
-\tikztreelevel=\count417
-\tikznumberofchildren=\count418
-\tikznumberofcurrentchild=\count419
-\tikz@fig@count=\count420
+\tikz@figbox=\box99
+\tikz@figbox@bg=\box100
+\tikz@tempbox=\box101
+\tikz@tempbox@bg=\box102
+\tikztreelevel=\count418
+\tikznumberofchildren=\count419
+\tikznumberofcurrentchild=\count420
+\tikz@fig@count=\count421
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfmatrixcurrentrow=\count421
-\pgfmatrixcurrentcolumn=\count422
-\pgf@matrix@numberofcolumns=\count423
+\pgfmatrixcurrentrow=\count422
+\pgfmatrixcurrentcolumn=\count423
+\pgf@matrix@numberofcolumns=\count424
 )
-\tikz@expandcount=\count424
+\tikz@expandcount=\count425
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ))) (/usr/local/texlive/2026/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks49
-\verbatim@line=\toks50
+\every@verbatim=\toks50
+\verbatim@line=\toks51
 \verbatim@in@stream=\read4
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/environ/environ.sty
 Package: environ 2014/05/04 v0.3 A new way to define environments
  (/usr/local/texlive/2026/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
-\tcb@titlebox=\box102
-\tcb@upperbox=\box103
-\tcb@lowerbox=\box104
-\tcb@phantombox=\box105
-\c@tcbbreakpart=\count425
-\c@tcblayer=\count426
-\c@tcolorbox@number=\count427
-\l__tcobox_tmpa_box=\box106
+\tcb@titlebox=\box103
+\tcb@upperbox=\box104
+\tcb@lowerbox=\box105
+\tcb@phantombox=\box106
+\c@tcbbreakpart=\count426
+\c@tcblayer=\count427
+\c@tcolorbox@number=\count428
+\l__tcobox_tmpa_box=\box107
 \l__tcobox_tmpa_dim=\dimen373
-\tcb@temp=\box107
 \tcb@temp=\box108
 \tcb@temp=\box109
 \tcb@temp=\box110
+\tcb@temp=\box111
  (/usr/local/texlive/2026/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
 Library (tcolorbox): 'tcbskins.code.tex' version '6.9.0'
 (/usr/local/texlive/2026/texmf-dist/tex/latex/tikzfill/tikzfill.image.sty
@@ -1732,7 +1663,7 @@ Package: tikzfill.image 2023/08/08 v1.0.1 Image filling library for TikZ
 Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/tikzfill/tikzlibraryfill.image.code.tex
 File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
-\l__tikzfill_img_box=\box111
+\l__tikzfill_img_box=\box112
 )) (/usr/local/texlive/2026/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.9.0'
 )) (/usr/local/texlive/2026/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.tex
@@ -1742,9 +1673,9 @@ Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
 Package pdfcol Info: Interface disabled because of missing PDF mode of pdfTeX.
 )
 Package pdfcol Info: pdfTeX's color stacks are not available.
-\tcb@testbox=\box112
-\tcb@totalupperbox=\box113
-\tcb@totallowerbox=\box114
+\tcb@testbox=\box113
+\tcb@totalupperbox=\box114
+\tcb@totallowerbox=\box115
 )) (/usr/local/texlive/2026/texmf-dist/tex/latex/fontawesome5/fontawesome5.sty
 Package: fontawesome5 2022/05/02 v5.15.4 Font Awesome 5
  (/usr/local/texlive/2026/texmf-dist/tex/latex/fontawesome5/fontawesome5-utex-helper.sty
@@ -1753,42 +1684,42 @@ LaTeX Font Info:    Trying to load font information for TU+fontawesomefree on in
  (/usr/local/texlive/2026/texmf-dist/tex/latex/fontawesome5/tufontawesomefree.fd)
 LaTeX Font Info:    Trying to load font information for TU+fontawesomebrands on input line 70.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/fontawesome5/tufontawesomebrands.fd)))
-\@float@every@codelisting=\toks51
-\c@codelisting=\count428
+\@float@every@codelisting=\toks52
+\c@codelisting=\count429
  (/usr/local/texlive/2026/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
-\thm@style=\toks52
-\thm@bodyfont=\toks53
-\thm@headfont=\toks54
-\thm@notefont=\toks55
-\thm@headpunct=\toks56
-\thm@preskip=\skip91
-\thm@postskip=\skip92
-\thm@headsep=\skip93
-\dth@everypar=\toks57
+\thm@style=\toks53
+\thm@bodyfont=\toks54
+\thm@headfont=\toks55
+\thm@notefont=\toks56
+\thm@headpunct=\toks57
+\thm@preskip=\skip93
+\thm@postskip=\skip94
+\thm@headsep=\skip95
+\dth@everypar=\toks58
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/xpatch/xpatch.sty
 Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
 )
 Class scrbook Info: amsthm's \deferred@thm@head patched.
-\c@theorem=\count429
-\c@example=\count430
-\c@refremark=\count431
-\c@refsolution=\count432
+\c@theorem=\count430
+\c@example=\count431
+\c@refremark=\count432
+\c@refsolution=\count433
  (/usr/local/texlive/2026/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count433
+\c@subfigure=\count434
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count434
+\c@subtable=\count435
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
  (/usr/local/texlive/2026/texmf-dist/tex/latex/bookmark/bkm-dvipdfm.def
 File: bkm-dvipdfm.def 2023-12-10 v1.31 bookmark driver for dvipdfm (HO)
-\BKM@id=\count435
+\BKM@id=\count436
 )) (/usr/local/texlive/2026/texmf-dist/tex/latex/xurl/xurl.sty
 Package: xurl 2022/01/09 v 0.10 modify URL breaks
 )
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 490.
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 499.
  (out_dir/index.aux
 
 LaTeX Warning: Label `exm-1' multiply defined.
@@ -1826,61 +1757,72 @@ LaTeX Warning: Label `sol-3' multiply defined.
 )
 \openout1 = `index.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 490.
-LaTeX Font Info:    ... okay on input line 490.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 490.
-LaTeX Font Info:    ... okay on input line 490.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 490.
-LaTeX Font Info:    ... okay on input line 490.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 490.
-LaTeX Font Info:    ... okay on input line 490.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 490.
-LaTeX Font Info:    ... okay on input line 490.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 490.
-LaTeX Font Info:    ... okay on input line 490.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 490.
-LaTeX Font Info:    ... okay on input line 490.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 490.
-LaTeX Font Info:    ... okay on input line 490.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 490.
-LaTeX Font Info:    ... okay on input line 490.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 490.
-LaTeX Font Info:    ... okay on input line 490.
-Package scrbase Info: activating english \partname on input line 490.
-Package scrbase Info: activating english \chaptername on input line 490.
-Package scrbase Info: activating english \appendixname on input line 490.
-Package scrbase Info: activating english \figurename on input line 490.
-Package scrbase Info: activating english \tablename on input line 490.
-Package scrbase Info: activating english \contentsname on input line 490.
-Package scrbase Info: activating english \listfigurename on input line 490.
-Package scrbase Info: activating english \listtablename on input line 490.
-Package scrbase Info: activating english \bibname on input line 490.
-Package scrbase Info: activating english \indexname on input line 490.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 490.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/b/n on input line 490.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 499.
+LaTeX Font Info:    ... okay on input line 499.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 499.
+LaTeX Font Info:    ... okay on input line 499.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 499.
+LaTeX Font Info:    ... okay on input line 499.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 499.
+LaTeX Font Info:    ... okay on input line 499.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 499.
+LaTeX Font Info:    ... okay on input line 499.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 499.
+LaTeX Font Info:    ... okay on input line 499.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 499.
+LaTeX Font Info:    ... okay on input line 499.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 499.
+LaTeX Font Info:    ... okay on input line 499.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 499.
+LaTeX Font Info:    ... okay on input line 499.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 499.
+LaTeX Font Info:    ... okay on input line 499.
+Package scrbase Info: activating english \partname on input line 499.
+Package scrbase Info: activating english \chaptername on input line 499.
+Package scrbase Info: activating english \appendixname on input line 499.
+Package scrbase Info: activating english \figurename on input line 499.
+Package scrbase Info: activating english \tablename on input line 499.
+Package scrbase Info: activating english \contentsname on input line 499.
+Package scrbase Info: activating english \listfigurename on input line 499.
+Package scrbase Info: activating english \listtablename on input line 499.
+Package scrbase Info: activating english \bibname on input line 499.
+Package scrbase Info: activating english \indexname on input line 499.
 Package microtype Info: Patching varwidth to enable character protrusion.
 \MT@vwid@leftmargin=\dimen374
 \MT@vwid@rightmargin=\dimen375
-LaTeX Info: Redefining \microtypecontext on input line 490.
-Package microtype Info: Applying patch `item' on input line 490.
-Package microtype Info: Applying patch `toc' on input line 490.
-Package microtype Info: Applying patch `eqnum' on input line 490.
-Package microtype Info: Applying patch `footnote' on input line 490.
-Package microtype Info: Applying patch `verbatim' on input line 490.
-LaTeX Info: Redefining \microtypesetup on input line 490.
+LaTeX Info: Redefining \microtypecontext on input line 499.
+Package microtype Info: Applying patch `item' on input line 499.
+Package microtype Info: Applying patch `toc' on input line 499.
+Package microtype Info: Applying patch `eqnum' on input line 499.
+Package microtype Info: Applying patch `footnote' on input line 499.
+Package microtype Info: Applying patch `verbatim' on input line 499.
+LaTeX Info: Redefining \microtypesetup on input line 499.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of spacing.
 Package microtype Info: No adjustment of kerning.
 Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `XCharter' (encoding: TU).
+(microtype)             `DejaVuSerif' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-Package microtype Info: Character `"AD' is missing
-(microtype)             in font `\TU/XCharter(0)/m/n/12'.
+Package microtype Info: Character `textendash ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/n/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textemdash ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/n/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteleft ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/n/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteright ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/n/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblleft ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/n/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblright ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/n/12'.
 (microtype)             Ignoring protrusion settings for this character.
 
 *geometry* driver: auto-detecting
@@ -1917,16 +1859,16 @@ Package microtype Info: Character `"AD' is missing
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 490.
+Package hyperref Info: Link coloring OFF on input line 499.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 (/usr/local/texlive/2026/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 490.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 499.
 
 Package fontspec Info: 
-(fontspec)             Microsoft YaHei scale = 0.9619980824837177.
+(fontspec)             Microsoft YaHei scale = 1.038083297517656.
 
 
 Package fontspec Info: 
@@ -1935,31 +1877,51 @@ Package fontspec Info:
 
 
 Package fontspec Info: 
-(fontspec)             Microsoft YaHei scale = 0.9619980824837177.
+(fontspec)             Microsoft YaHei scale = 1.038083297517656.
 
 
 Package fontspec Info: 
-(fontspec)             Microsoft YaHei scale = 0.9619980824837177.
+(fontspec)             Microsoft YaHei scale = 1.038083297517656.
 
+LaTeX Font Info:    Font shape `TU/DejaVuSans(0)/m/n' will be
+(Font)              scaled to size 11.38934pt on input line 502.
 Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmss' (encoding: TU).
+(microtype)             `DejaVuSans' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
+Package microtype Info: Character `textendash ' is missing
+(microtype)             in font `TU/DejaVuSans(0)/m/n/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textemdash ' is missing
+(microtype)             in font `TU/DejaVuSans(0)/m/n/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteleft ' is missing
+(microtype)             in font `TU/DejaVuSans(0)/m/n/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteright ' is missing
+(microtype)             in font `TU/DejaVuSans(0)/m/n/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblleft ' is missing
+(microtype)             in font `TU/DejaVuSans(0)/m/n/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblright ' is missing
+(microtype)             in font `TU/DejaVuSans(0)/m/n/12'.
+(microtype)             Ignoring protrusion settings for this character.
 
 Package fontspec Info: 
-(fontspec)             Microsoft YaHei/B scale = 0.9619980824837177.
+(fontspec)             Microsoft YaHei/B scale = 1.038083297517656.
 
 
 Package fontspec Info: 
-(fontspec)             Microsoft YaHei/B scale = 0.9619980824837177.
+(fontspec)             Microsoft YaHei/B scale = 1.038083297517656.
 
 
 Package fontspec Info: 
-(fontspec)             Microsoft YaHei/BI scale = 0.9619980824837177.
+(fontspec)             Microsoft YaHei/BI scale = 1.038083297517656.
 
 
 Package fontspec Info: 
-(fontspec)             Microsoft YaHei/BI scale = 0.9619980824837177.
+(fontspec)             Microsoft YaHei/BI scale = 1.038083297517656.
 
 
 Package fontspec Info: 
@@ -1971,53 +1933,57 @@ Package fontspec Info:
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[0.9619980824837177]"Microsoft
+(fontspec)             <->s*[1.038083297517656]"Microsoft
 (fontspec)             YaHei/OT:script=hani;language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
-(fontspec)             <->s*[0.9619980824837177]"Microsoft
+(fontspec)             <->s*[1.038083297517656]"Microsoft
 (fontspec)             YaHei/OT:script=hani;language=dflt;+smcp;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[0.9619980824837177]"Microsoft
+(fontspec)             <->s*[1.038083297517656]"Microsoft
 (fontspec)             YaHei/B/OT:script=hani;language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
-(fontspec)             <->s*[0.9619980824837177]"Microsoft
+(fontspec)             <->s*[1.038083297517656]"Microsoft
 (fontspec)             YaHei/B/OT:script=hani;language=dflt;+smcp;"
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->s*[0.9619980824837177]"Microsoft
+(fontspec)             <->s*[1.038083297517656]"Microsoft
 (fontspec)             YaHei/BI/OT:script=hani;language=dflt;"
 (fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
-(fontspec)             <->s*[0.9619980824837177]"Microsoft
+(fontspec)             <->s*[1.038083297517656]"Microsoft
 (fontspec)             YaHei/BI/OT:script=hani;language=dflt;+smcp;"
 
-LaTeX Font Info:    Font shape `TU/XCharter(0)/m/n' will be
-(Font)              scaled to size 17.28pt on input line 493.
+LaTeX Font Info:    Font shape `TU/DejaVuSans(0)/b/n' will be
+(Font)              scaled to size 11.38934pt on input line 502.
+LaTeX Font Info:    Font shape `TU/DejaVuSans(0)/b/n' will be
+(Font)              scaled to size 23.6139pt on input line 502.
+LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/m/n' will be
+(Font)              scaled to size 17.28pt on input line 502.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(1)/m/n' will be
-(Font)              scaled to size 17.99059pt on input line 493.
+(Font)              scaled to size 19.41336pt on input line 502.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(1)/m/n' will be
-(Font)              scaled to size 10.41122pt on input line 493.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 493.
+(Font)              scaled to size 11.23459pt on input line 502.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 502.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(2)/m/n' will be
-(Font)              scaled to size 17.99243pt on input line 493.
+(Font)              scaled to size 19.41547pt on input line 502.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(2)/m/n' will be
-(Font)              scaled to size 12.49475pt on input line 493.
+(Font)              scaled to size 13.48297pt on input line 502.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(2)/m/n' will be
-(Font)              scaled to size 10.4123pt on input line 493.
+(Font)              scaled to size 11.23581pt on input line 502.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(3)/m/n' will be
-(Font)              scaled to size 17.98874pt on input line 493.
+(Font)              scaled to size 19.41151pt on input line 502.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(3)/m/n' will be
-(Font)              scaled to size 12.49219pt on input line 493.
+(Font)              scaled to size 13.48022pt on input line 502.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(3)/m/n' will be
-(Font)              scaled to size 10.41016pt on input line 493.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 493.
+(Font)              scaled to size 11.23352pt on input line 502.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 502.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 493.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 502.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-msb.cfg
@@ -2032,22 +1998,47 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 
 ]
-Package tocbasic Info: character protrusion at toc deactivated on input line 497.
+Package tocbasic Info: character protrusion at toc deactivated on input line 506.
  (out_dir/index.toc
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(1)/m/n' will be
-(Font)              scaled to size 8.7454pt on input line 2.
+(Font)              scaled to size 9.43704pt on input line 2.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(1)/m/n' will be
-(Font)              scaled to size 6.87141pt on input line 2.
+(Font)              scaled to size 7.41483pt on input line 2.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(2)/m/n' will be
-(Font)              scaled to size 8.7463pt on input line 2.
+(Font)              scaled to size 9.43806pt on input line 2.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(2)/m/n' will be
-(Font)              scaled to size 6.87212pt on input line 2.
+(Font)              scaled to size 7.41563pt on input line 2.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(3)/m/n' will be
-(Font)              scaled to size 8.74452pt on input line 2.
+(Font)              scaled to size 9.43614pt on input line 2.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(3)/m/n' will be
-(Font)              scaled to size 6.8707pt on input line 2.
-LaTeX Font Info:    Font shape `TU/XCharter(0)/m/n' will be
+(Font)              scaled to size 7.41412pt on input line 2.
+LaTeX Font Info:    Font shape `TU/DejaVuSans(0)/b/n' will be
+(Font)              scaled to size 13.6672pt on input line 7.
+LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/m/n' will be
 (Font)              scaled to size 14.4pt on input line 7.
+Package microtype Info: Character `textendash ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/n/14.4'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textemdash ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/n/14.4'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteleft ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/n/14.4'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteright ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/n/14.4'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblleft ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/n/14.4'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblright ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/n/14.4'.
+(microtype)             Ignoring protrusion settings for this character.
+
+Overfull \hbox (0.41927pt too wide) detected at line 13
+ []\TU/DejaVuSans(0)/b/n/14.4 13
+ []
+
 
 Package fontspec Info: 
 (fontspec)             Script 'CJK' not explicitly supported within font
@@ -2057,25 +2048,25 @@ Package fontspec Info:
 
 
 Package fontspec Info: 
-(fontspec)             Maple Mono NF CN scale = 0.8745431047836148.
+(fontspec)             Maple Mono NF CN scale = 0.9437114341134556.
 
 
 Package fontspec Info: 
-(fontspec)             Maple Mono NF CN scale = 0.8745431047836148.
+(fontspec)             Maple Mono NF CN scale = 0.9437114341134556.
 
-LaTeX Font Info:    Font shape `TU/Consolas(0)/m/n' will be
-(Font)              scaled to size 11.77386pt on input line 36.
-
-Package fontspec Info: 
-(fontspec)             Maple Mono NF CN/B scale = 0.8745431047836148.
-
+LaTeX Font Info:    Font shape `TU/DejaVuSansMono(0)/m/n' will be
+(Font)              scaled to size 11.38934pt on input line 36.
 
 Package fontspec Info: 
-(fontspec)             Maple Mono NF CN/I scale = 0.8745431047836148.
+(fontspec)             Maple Mono NF CN/B scale = 0.9437114341134556.
 
 
 Package fontspec Info: 
-(fontspec)             Maple Mono NF CN/BI scale = 0.8745431047836148.
+(fontspec)             Maple Mono NF CN/I scale = 0.9437114341134556.
+
+
+Package fontspec Info: 
+(fontspec)             Maple Mono NF CN/BI scale = 0.9437114341134556.
 
 
 Package fontspec Info: 
@@ -2087,221 +2078,660 @@ Package fontspec Info:
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[0.8745431047836148]"Maple Mono NF
+(fontspec)             <->s*[0.9437114341134556]"Maple Mono NF
 (fontspec)             CN/OT:script=hani;language=dflt;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[0.8745431047836148]"Maple Mono NF
+(fontspec)             <->s*[0.9437114341134556]"Maple Mono NF
 (fontspec)             CN/B/OT:script=hani;language=dflt;"
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->s*[0.8745431047836148]"Maple Mono NF
+(fontspec)             <->s*[0.9437114341134556]"Maple Mono NF
 (fontspec)             CN/I/OT:script=hani;language=dflt;"
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->s*[0.8745431047836148]"Maple Mono NF
+(fontspec)             <->s*[0.9437114341134556]"Maple Mono NF
 (fontspec)             CN/BI/OT:script=hani;language=dflt;"
 
- [3]
-LaTeX Font Info:    Font shape `TU/XCharter(0)/m/sl' will be
-(Font)              scaled to size 12.0pt on input line 89.
- [4]
-Overfull \hbox (1.41597pt too wide) detected at line 90
- []\TU/XCharter(0)/m/n/12 100
+[3]
+Overfull \hbox (5.1741pt too wide) detected at line 83
+ []\TU/DejaVuSans(0)/b/n/12 101
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 91
- []\TU/XCharter(0)/m/n/12 101
+Overfull \hbox (4.30426pt too wide) detected at line 84
+ []\TU/DejaVuSerif(0)/m/n/12 102
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 92
- []\TU/XCharter(0)/m/n/12 102
+Overfull \hbox (4.30426pt too wide) detected at line 85
+ []\TU/DejaVuSerif(0)/m/n/12 102
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 93
- []\TU/XCharter(0)/m/n/12 103
+Overfull \hbox (4.30426pt too wide) detected at line 86
+ []\TU/DejaVuSerif(0)/m/n/12 103
  []
 
-LaTeX Font Info:    Font shape `TU/XCharter(0)/b/n' will be
+
+Overfull \hbox (4.30426pt too wide) detected at line 87
+ []\TU/DejaVuSerif(0)/m/n/12 103
+ []
+
+LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/m/sl' in size <12> not available
+(Font)              Font shape `TU/DejaVuSerif(0)/m/it' tried instead on input line 88.
+LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/m/it' will be
+(Font)              scaled to size 12.0pt on input line 88.
+Package microtype Info: Character `textendash ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/it/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textemdash ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/it/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteleft ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/it/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteright ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/it/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblleft ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/it/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblright ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/it/12'.
+(microtype)             Ignoring protrusion settings for this character.
+[4]
+Overfull \hbox (4.30426pt too wide) detected at line 88
+ []\TU/DejaVuSerif(0)/m/n/12 104
+ []
+
+
+Overfull \hbox (4.30426pt too wide) detected at line 89
+ []\TU/DejaVuSerif(0)/m/n/12 104
+ []
+
+
+Overfull \hbox (4.30426pt too wide) detected at line 90
+ []\TU/DejaVuSerif(0)/m/n/12 106
+ []
+
+
+Overfull \hbox (4.30426pt too wide) detected at line 91
+ []\TU/DejaVuSerif(0)/m/n/12 107
+ []
+
+
+Overfull \hbox (4.30426pt too wide) detected at line 92
+ []\TU/DejaVuSerif(0)/m/n/12 108
+ []
+
+
+Overfull \hbox (4.30426pt too wide) detected at line 93
+ []\TU/DejaVuSerif(0)/m/n/12 110
+ []
+
+LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/b/n' will be
 (Font)              scaled to size 12.0pt on input line 94.
 
-Overfull \hbox (1.41597pt too wide) detected at line 94
- []\TU/XCharter(0)/m/n/12 104
+Overfull \hbox (4.30426pt too wide) detected at line 94
+ []\TU/DejaVuSerif(0)/m/n/12 111
  []
 
 
-Overfull \hbox (1.19997pt too wide) detected at line 95
- []\TU/lmss/bx/n/12 109
+Package tocbasic Warning: number width of chapter toc entries should be increased!
+(tocbasic)                Currently used number width = 20.17604pt,
+(tocbasic)                Wanted number separation    = 4.55566pt,
+(tocbasic)                Reserved number width       = 17.08401pt on input line 95.
+
+
+Overfull \hbox (2.17604pt too wide) detected at line 95
+\TU/DejaVuSans(0)/b/n/12 10. 
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 96
- []\TU/XCharter(0)/m/n/12 109
+Overfull \hbox (5.1741pt too wide) detected at line 95
+ []\TU/DejaVuSans(0)/b/n/12 115
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 97
- []\TU/XCharter(0)/m/n/12 110
+Package tocbasic Warning: number width of section toc entries should be increased!
+(tocbasic)                Currently used number width = 30.5332pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 27.60004pt on input line 96.
+
+
+Overfull \hbox (2.93317pt too wide) detected at line 96
+\TU/DejaVuSerif(0)/m/n/12 10.1. 
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 98
- []\TU/XCharter(0)/m/n/12 111
+Overfull \hbox (4.30426pt too wide) detected at line 96
+ []\TU/DejaVuSerif(0)/m/n/12 115
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 99
- []\TU/XCharter(0)/m/n/12 112
+Package tocbasic Warning: number width of section toc entries should be increased!
+(tocbasic)                Currently used number width = 30.5332pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 27.60004pt on input line 97.
+
+
+Overfull \hbox (2.93317pt too wide) detected at line 97
+\TU/DejaVuSerif(0)/m/n/12 10.2. 
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 100
- []\TU/XCharter(0)/m/n/12 113
+Overfull \hbox (4.30426pt too wide) detected at line 97
+ []\TU/DejaVuSerif(0)/m/n/12 116
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 101
- []\TU/XCharter(0)/m/n/12 114
+Package tocbasic Warning: number width of section toc entries should be increased!
+(tocbasic)                Currently used number width = 30.5332pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 27.60004pt on input line 98.
+
+
+Overfull \hbox (2.93317pt too wide) detected at line 98
+\TU/DejaVuSerif(0)/m/n/12 10.3. 
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 102
- []\TU/XCharter(0)/m/n/12 115
+Overfull \hbox (4.30426pt too wide) detected at line 98
+ []\TU/DejaVuSerif(0)/m/n/12 117
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 103
- []\TU/XCharter(0)/m/n/12 115
+Package tocbasic Warning: number width of subsection toc entries should be increased!
+(tocbasic)                Currently used number width = 41.98242pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 38.39996pt on input line 99.
+
+
+Overfull \hbox (3.58246pt too wide) detected at line 99
+\TU/DejaVuSerif(0)/m/n/12 10.3.1. 
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 104
- []\TU/XCharter(0)/m/n/12 117
+Overfull \hbox (4.30426pt too wide) detected at line 99
+ []\TU/DejaVuSerif(0)/m/n/12 118
  []
 
 
-Overfull \hbox (1.19997pt too wide) detected at line 105
- []\TU/lmss/bx/n/12 119
+Package tocbasic Warning: number width of subsection toc entries should be increased!
+(tocbasic)                Currently used number width = 41.98242pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 38.39996pt on input line 100.
+
+
+Overfull \hbox (3.58246pt too wide) detected at line 100
+\TU/DejaVuSerif(0)/m/n/12 10.3.2. 
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 106
- []\TU/XCharter(0)/m/n/12 120
+Overfull \hbox (4.30426pt too wide) detected at line 100
+ []\TU/DejaVuSerif(0)/m/n/12 119
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 107
- []\TU/XCharter(0)/m/n/12 123
+Package tocbasic Warning: number width of section toc entries should be increased!
+(tocbasic)                Currently used number width = 30.5332pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 27.60004pt on input line 101.
+
+
+Overfull \hbox (2.93317pt too wide) detected at line 101
+\TU/DejaVuSerif(0)/m/n/12 10.4. 
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 108
- []\TU/XCharter(0)/m/n/12 125
+Overfull \hbox (4.30426pt too wide) detected at line 101
+ []\TU/DejaVuSerif(0)/m/n/12 120
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 109
- []\TU/XCharter(0)/m/n/12 127
+Package tocbasic Warning: number width of section toc entries should be increased!
+(tocbasic)                Currently used number width = 30.5332pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 27.60004pt on input line 102.
+
+
+Overfull \hbox (2.93317pt too wide) detected at line 102
+\TU/DejaVuSerif(0)/m/n/12 10.5. 
  []
 
 
-Overfull \hbox (1.19997pt too wide) detected at line 110
- []\TU/lmss/bx/n/12 131
+Overfull \hbox (4.30426pt too wide) detected at line 102
+ []\TU/DejaVuSerif(0)/m/n/12 121
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 111
- []\TU/XCharter(0)/m/n/12 131
+Package tocbasic Warning: number width of subsection toc entries should be increased!
+(tocbasic)                Currently used number width = 41.98242pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 38.39996pt on input line 103.
+
+
+Overfull \hbox (3.58246pt too wide) detected at line 103
+\TU/DejaVuSerif(0)/m/n/12 10.5.1. 
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 112
- []\TU/XCharter(0)/m/n/12 132
+Overfull \hbox (4.30426pt too wide) detected at line 103
+ []\TU/DejaVuSerif(0)/m/n/12 121
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 113
- []\TU/XCharter(0)/m/n/12 132
+Package tocbasic Warning: number width of subsection toc entries should be increased!
+(tocbasic)                Currently used number width = 41.98242pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 38.39996pt on input line 104.
+
+
+Overfull \hbox (3.58246pt too wide) detected at line 104
+\TU/DejaVuSerif(0)/m/n/12 10.5.2. 
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 114
- []\TU/XCharter(0)/m/n/12 132
+Overfull \hbox (4.30426pt too wide) detected at line 104
+ []\TU/DejaVuSerif(0)/m/n/12 123
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 115
- []\TU/XCharter(0)/m/n/12 133
+Package tocbasic Warning: number width of chapter toc entries should be increased!
+(tocbasic)                Currently used number width = 20.17604pt,
+(tocbasic)                Wanted number separation    = 4.55566pt,
+(tocbasic)                Reserved number width       = 17.08401pt on input line 105.
+
+
+Overfull \hbox (2.17604pt too wide) detected at line 105
+\TU/DejaVuSans(0)/b/n/12 11. 
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 116
- []\TU/XCharter(0)/m/n/12 134
+Overfull \hbox (5.1741pt too wide) detected at line 105
+ []\TU/DejaVuSans(0)/b/n/12 125
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 117
- []\TU/XCharter(0)/m/n/12 134
+Package tocbasic Warning: number width of section toc entries should be increased!
+(tocbasic)                Currently used number width = 30.5332pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 27.60004pt on input line 106.
+
+
+Overfull \hbox (2.93317pt too wide) detected at line 106
+\TU/DejaVuSerif(0)/m/n/12 11.1. 
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 120
- []\TU/XCharter(0)/m/n/12 137
+Overfull \hbox (4.30426pt too wide) detected at line 106
+ []\TU/DejaVuSerif(0)/m/n/12 126
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 122
- []\TU/XCharter(0)/m/n/12 138
+Package tocbasic Warning: number width of subsection toc entries should be increased!
+(tocbasic)                Currently used number width = 41.98242pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 38.39996pt on input line 107.
+
+
+Overfull \hbox (3.58246pt too wide) detected at line 107
+\TU/DejaVuSerif(0)/m/n/12 11.1.1. 
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 123
- []\TU/XCharter(0)/m/n/12 142
+Overfull \hbox (4.30426pt too wide) detected at line 107
+ []\TU/DejaVuSerif(0)/m/n/12 129
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 124
- []\TU/XCharter(0)/m/n/12 142
+Package tocbasic Warning: number width of subsection toc entries should be increased!
+(tocbasic)                Currently used number width = 41.98242pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 38.39996pt on input line 108.
+
+
+Overfull \hbox (3.58246pt too wide) detected at line 108
+\TU/DejaVuSerif(0)/m/n/12 11.1.2. 
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 125
- []\TU/XCharter(0)/m/n/12 142
+Overfull \hbox (4.30426pt too wide) detected at line 108
+ []\TU/DejaVuSerif(0)/m/n/12 131
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 126
- []\TU/XCharter(0)/m/n/12 144
+Package tocbasic Warning: number width of section toc entries should be increased!
+(tocbasic)                Currently used number width = 30.5332pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 27.60004pt on input line 109.
+
+
+Overfull \hbox (2.93317pt too wide) detected at line 109
+\TU/DejaVuSerif(0)/m/n/12 11.2. 
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 127
- []\TU/XCharter(0)/m/n/12 147
+Overfull \hbox (4.30426pt too wide) detected at line 109
+ []\TU/DejaVuSerif(0)/m/n/12 133
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 128
- []\TU/XCharter(0)/m/n/12 148
+Package tocbasic Warning: number width of chapter toc entries should be increased!
+(tocbasic)                Currently used number width = 20.17604pt,
+(tocbasic)                Wanted number separation    = 4.55566pt,
+(tocbasic)                Reserved number width       = 17.08401pt on input line 110.
+
+
+Overfull \hbox (2.17604pt too wide) detected at line 110
+\TU/DejaVuSans(0)/b/n/12 12. 
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 129
- []\TU/XCharter(0)/m/n/12 150
+Overfull \hbox (5.1741pt too wide) detected at line 110
+ []\TU/DejaVuSans(0)/b/n/12 137
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 130
- []\TU/XCharter(0)/m/n/12 150
+Package tocbasic Warning: number width of section toc entries should be increased!
+(tocbasic)                Currently used number width = 30.5332pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 27.60004pt on input line 111.
+
+
+Overfull \hbox (2.93317pt too wide) detected at line 111
+\TU/DejaVuSerif(0)/m/n/12 12.1. 
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 131
- []\TU/XCharter(0)/m/n/12 151
+Overfull \hbox (4.30426pt too wide) detected at line 111
+ []\TU/DejaVuSerif(0)/m/n/12 137
  []
 
 
-Overfull \hbox (1.41597pt too wide) detected at line 132
- []\TU/XCharter(0)/m/n/12 152
+Package tocbasic Warning: number width of subsection toc entries should be increased!
+(tocbasic)                Currently used number width = 41.98242pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 38.39996pt on input line 112.
+
+
+Overfull \hbox (3.58246pt too wide) detected at line 112
+\TU/DejaVuSerif(0)/m/n/12 12.1.1. 
+ []
+
+
+Overfull \hbox (4.30426pt too wide) detected at line 112
+ []\TU/DejaVuSerif(0)/m/n/12 138
+ []
+
+
+Package tocbasic Warning: number width of subsection toc entries should be increased!
+(tocbasic)                Currently used number width = 41.98242pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 38.39996pt on input line 113.
+
+
+Overfull \hbox (3.58246pt too wide) detected at line 113
+\TU/DejaVuSerif(0)/m/n/12 12.1.2. 
+ []
+
+
+Overfull \hbox (4.30426pt too wide) detected at line 113
+ []\TU/DejaVuSerif(0)/m/n/12 138
+ []
+
+
+Package tocbasic Warning: number width of section toc entries should be increased!
+(tocbasic)                Currently used number width = 30.5332pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 27.60004pt on input line 114.
+
+
+Overfull \hbox (2.93317pt too wide) detected at line 114
+\TU/DejaVuSerif(0)/m/n/12 12.2. 
+ []
+
+
+Overfull \hbox (4.30426pt too wide) detected at line 114
+ []\TU/DejaVuSerif(0)/m/n/12 138
+ []
+
+
+Package tocbasic Warning: number width of subsection toc entries should be increased!
+(tocbasic)                Currently used number width = 41.98242pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 38.39996pt on input line 115.
+
+
+Overfull \hbox (3.58246pt too wide) detected at line 115
+\TU/DejaVuSerif(0)/m/n/12 12.2.1. 
+ []
+
+
+Overfull \hbox (4.30426pt too wide) detected at line 115
+ []\TU/DejaVuSerif(0)/m/n/12 139
+ []
+
+
+Package tocbasic Warning: number width of subsection toc entries should be increased!
+(tocbasic)                Currently used number width = 41.98242pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 38.39996pt on input line 116.
+
+
+Overfull \hbox (3.58246pt too wide) detected at line 116
+\TU/DejaVuSerif(0)/m/n/12 12.2.2. 
+ []
+
+
+Overfull \hbox (4.30426pt too wide) detected at line 116
+ []\TU/DejaVuSerif(0)/m/n/12 140
+ []
+
+
+Package tocbasic Warning: number width of subsection toc entries should be increased!
+(tocbasic)                Currently used number width = 41.98242pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 38.39996pt on input line 117.
+
+
+Overfull \hbox (3.58246pt too wide) detected at line 117
+\TU/DejaVuSerif(0)/m/n/12 12.2.3. 
+ []
+
+
+Overfull \hbox (4.30426pt too wide) detected at line 117
+ []\TU/DejaVuSerif(0)/m/n/12 141
+ []
+
+
+Package tocbasic Warning: number width of subsection toc entries should be increased!
+(tocbasic)                Currently used number width = 41.98242pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 38.39996pt on input line 120.
+
+
+Overfull \hbox (3.58246pt too wide) detected at line 120
+\TU/DejaVuSerif(0)/m/n/12 12.2.4. 
+ []
+
+
+Overfull \hbox (4.30426pt too wide) detected at line 120
+ []\TU/DejaVuSerif(0)/m/n/12 143
+ []
+
+
+Package tocbasic Warning: number width of subsection toc entries should be increased!
+(tocbasic)                Currently used number width = 41.98242pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 38.39996pt on input line 122.
+
+
+Overfull \hbox (3.58246pt too wide) detected at line 122
+\TU/DejaVuSerif(0)/m/n/12 12.2.5. 
+ []
+
+
+Overfull \hbox (4.30426pt too wide) detected at line 122
+ []\TU/DejaVuSerif(0)/m/n/12 145
+ []
+
+
+Package tocbasic Warning: number width of section toc entries should be increased!
+(tocbasic)                Currently used number width = 30.5332pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 27.60004pt on input line 123.
+
+
+Overfull \hbox (2.93317pt too wide) detected at line 123
+\TU/DejaVuSerif(0)/m/n/12 12.3. 
+ []
+
+
+Overfull \hbox (4.30426pt too wide) detected at line 123
+ []\TU/DejaVuSerif(0)/m/n/12 149
+ []
+
+
+Package tocbasic Warning: number width of subsection toc entries should be increased!
+(tocbasic)                Currently used number width = 41.98242pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 38.39996pt on input line 124.
+
+
+Overfull \hbox (3.58246pt too wide) detected at line 124
+\TU/DejaVuSerif(0)/m/n/12 12.3.1. 
+ []
+
+
+Overfull \hbox (4.30426pt too wide) detected at line 124
+ []\TU/DejaVuSerif(0)/m/n/12 149
+ []
+
+
+Package tocbasic Warning: number width of subsection toc entries should be increased!
+(tocbasic)                Currently used number width = 41.98242pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 38.39996pt on input line 125.
+
+
+Overfull \hbox (3.58246pt too wide) detected at line 125
+\TU/DejaVuSerif(0)/m/n/12 12.3.2. 
+ []
+
+
+Overfull \hbox (4.30426pt too wide) detected at line 125
+ []\TU/DejaVuSerif(0)/m/n/12 149
+ []
+
+
+Package tocbasic Warning: number width of subsection toc entries should be increased!
+(tocbasic)                Currently used number width = 41.98242pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 38.39996pt on input line 126.
+
+
+Overfull \hbox (3.58246pt too wide) detected at line 126
+\TU/DejaVuSerif(0)/m/n/12 12.3.3. 
+ []
+
+
+Overfull \hbox (4.30426pt too wide) detected at line 126
+ []\TU/DejaVuSerif(0)/m/n/12 151
+ []
+
+
+Package tocbasic Warning: number width of subsection toc entries should be increased!
+(tocbasic)                Currently used number width = 41.98242pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 38.39996pt on input line 127.
+
+
+Overfull \hbox (3.58246pt too wide) detected at line 127
+\TU/DejaVuSerif(0)/m/n/12 12.3.4. 
+ []
+
+
+Overfull \hbox (4.30426pt too wide) detected at line 127
+ []\TU/DejaVuSerif(0)/m/n/12 154
+ []
+
+
+Package tocbasic Warning: number width of subsection toc entries should be increased!
+(tocbasic)                Currently used number width = 41.98242pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 38.39996pt on input line 128.
+
+
+Overfull \hbox (3.58246pt too wide) detected at line 128
+\TU/DejaVuSerif(0)/m/n/12 12.3.5. 
+ []
+
+
+Overfull \hbox (4.30426pt too wide) detected at line 128
+ []\TU/DejaVuSerif(0)/m/n/12 155
+ []
+
+
+Package tocbasic Warning: number width of subsection toc entries should be increased!
+(tocbasic)                Currently used number width = 41.98242pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 38.39996pt on input line 129.
+
+
+Overfull \hbox (3.58246pt too wide) detected at line 129
+\TU/DejaVuSerif(0)/m/n/12 12.3.6. 
+ []
+
+
+Overfull \hbox (4.30426pt too wide) detected at line 129
+ []\TU/DejaVuSerif(0)/m/n/12 157
+ []
+
+
+Package tocbasic Warning: number width of subsection toc entries should be increased!
+(tocbasic)                Currently used number width = 41.98242pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 38.39996pt on input line 130.
+
+
+Overfull \hbox (3.58246pt too wide) detected at line 130
+\TU/DejaVuSerif(0)/m/n/12 12.3.7. 
+ []
+
+
+Overfull \hbox (4.30426pt too wide) detected at line 130
+ []\TU/DejaVuSerif(0)/m/n/12 158
+ []
+
+
+Package tocbasic Warning: number width of subsection toc entries should be increased!
+(tocbasic)                Currently used number width = 41.98242pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 38.39996pt on input line 131.
+
+
+Overfull \hbox (3.58246pt too wide) detected at line 131
+\TU/DejaVuSerif(0)/m/n/12 12.3.8. 
+ []
+
+
+Overfull \hbox (4.30426pt too wide) detected at line 131
+ []\TU/DejaVuSerif(0)/m/n/12 158
+ []
+
+
+Package tocbasic Warning: number width of section toc entries should be increased!
+(tocbasic)                Currently used number width = 30.5332pt,
+(tocbasic)                Wanted number separation    = 4.79993pt,
+(tocbasic)                Reserved number width       = 27.60004pt on input line 132.
+
+
+Overfull \hbox (2.93317pt too wide) detected at line 132
+\TU/DejaVuSerif(0)/m/n/12 12.4. 
+ []
+
+
+Overfull \hbox (4.30426pt too wide) detected at line 132
+ []\TU/DejaVuSerif(0)/m/n/12 159
  []
 
 )
@@ -2313,220 +2743,249 @@ Overfull \hbox (1.41597pt too wide) detected at line 132
 
 ]
 chapter 1.
+LaTeX Font Info:    Font shape `TU/DejaVuSans(0)/b/n' will be
+(Font)              scaled to size 16.40065pt on input line 512.
 
-Overfull \hbox (7.00194pt too wide) in paragraph at lines 543--544
-[]\TU/XCharter(0)/b/n/12 Category  
+Overfull \hbox (17.69441pt too wide) in paragraph at lines 552--553
+[]\TU/DejaVuSerif(0)/b/n/12 Category  
  []
 
 
-Overfull \hbox (18.98994pt too wide) in paragraph at lines 553--553
-[]|\TU/XCharter(0)/b/n/12 Descriptive|  
+Overfull \hbox (33.29793pt too wide) in paragraph at lines 562--562
+[]|\TU/DejaVuSerif(0)/b/n/12 Descriptive|  
  []
 
-LaTeX Font Info:    Font shape `TU/DejaVuSans(0)/m/n' will be
-(Font)              scaled to size 10.55457pt on input line 554.
+LaTeX Font Info:    Font shape `TU/DejaVuSans(1)/m/n' will be
+(Font)              scaled to size 11.38934pt on input line 563.
+Package microtype Info: Character `textendash ' is missing
+(microtype)             in font `TU/DejaVuSans(1)/m/n/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textemdash ' is missing
+(microtype)             in font `TU/DejaVuSans(1)/m/n/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteleft ' is missing
+(microtype)             in font `TU/DejaVuSans(1)/m/n/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteright ' is missing
+(microtype)             in font `TU/DejaVuSans(1)/m/n/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblleft ' is missing
+(microtype)             in font `TU/DejaVuSans(1)/m/n/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblright ' is missing
+(microtype)             in font `TU/DejaVuSans(1)/m/n/12'.
+(microtype)             Ignoring protrusion settings for this character.
 
-Overfull \hbox (11.96994pt too wide) in paragraph at lines 555--555
-[]|\TU/XCharter(0)/b/n/12 Predictive|  
+Overfull \hbox (25.15926pt too wide) in paragraph at lines 564--564
+[]|\TU/DejaVuSerif(0)/b/n/12 Predictive|  
  []
 
 
-Overfull \hbox (22.49394pt too wide) in paragraph at lines 560--560
-[]|\TU/XCharter(0)/b/n/12 Prescriptive|  
+Overfull \hbox (38.23738pt too wide) in paragraph at lines 569--569
+[]|\TU/DejaVuSerif(0)/b/n/12 Prescriptive|  
  []
 
-[1
+
+ignored: Infinite glue shrinkage found in box being split [1
 
 
-]
-LaTeX Font Info:    Font shape `TU/XCharter(0)/m/it' will be
-(Font)              scaled to size 12.0pt on input line 626.
- [2]
+] [2]
 File: filters/emoji/2757.png Graphic file (type bmp)
 <filters/emoji/2757.png>
 LaTeX Font Info:    Font shape `TU/LXGWWenKai(0)/m/n' will be
-(Font)              scaled to size 12.33325pt on input line 666.
+(Font)              scaled to size 13.30884pt on input line 675.
 
 Missing character: There is no ️ (U+FE0F) in font LXGW WenKai/OT:script=hani;language=dflt;!
-[3] [4]
-part I.
-Package scrkbase Info: You've told me to use the font selection of the element
-(scrkbase)             `partprefix' that is an alias of element `partnumber'
-(scrkbase)              on input line 756.
-[5
-
-
-] [6]
-chapter 2.
-[7
+[3] [4] [5] [6
 
 
 ]
-Missing character: There is no 🎈 (U+1F388) in font [XCharter-Roman.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
-[8] [9] [10
+part I.
+Package scrkbase Info: You've told me to use the font selection of the element
+(scrkbase)             `partprefix' that is an alias of element `partnumber'
+(scrkbase)              on input line 765.
+[7] [8]
+chapter 2.
+[9
+
+
+]
+Underfull \hbox (badness 2608) in paragraph at lines 833--835
+[]\TU/DejaVuSerif(0)/b/n/12 Language support\TU/DejaVuSerif(0)/m/n/12 : supports multiple programming lan-
+ []
+
+Missing character: There is no 🎈 (U+1F388) in font DejaVu Serif/OT:script=latn;language=dflt;mapping=tex-text;!
+[10] [11] [12
 
 
 ]
 part II.
 Package scrkbase Info: You've told me to use the font selection of the element
 (scrkbase)             `partprefix' that is an alias of element `partnumber'
-(scrkbase)              on input line 912.
-[11] [12]
+(scrkbase)              on input line 921.
+[13] [14]
 chapter 3.
 File: filters/emoji/1f3af.png Graphic file (type bmp)
 <filters/emoji/1f3af.png>
-LaTeX Font Info:    Font shape `TU/XCharter(0)/m/n' will be
-(Font)              scaled to size 8.4pt on input line 953.
-LaTeX Font Info:    Font shape `TU/XCharter(0)/m/n' will be
-(Font)              scaled to size 6.6pt on input line 953.
-[13
+LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/m/n' will be
+(Font)              scaled to size 8.4pt on input line 962.
+LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/m/n' will be
+(Font)              scaled to size 6.6pt on input line 962.
+[15
 
 
-] [14] [15] [16]
-Underfull \hbox (badness 10000) in paragraph at lines 1240--1241
+] [16] [17] [18]
+Underfull \hbox (badness 10000) in paragraph at lines 1249--1250
 
  []
 
 
-Overfull \hbox (10.67436pt too wide) detected at line 1246
+Overfull \hbox (43.82623pt too wide) detected at line 1255
 [][]
  []
 
-[17]
-Underfull \hbox (badness 10000) in paragraph at lines 1248--1249
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 1257--1258
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1251--1252
+Underfull \hbox (badness 10000) in paragraph at lines 1260--1261
 
  []
 
-[18] [19]
+[20] [21]
+Underfull \hbox (badness 2762) in paragraph at lines 1367--1369
+[]\TU/DejaVuSerif(0)/m/n/12 Constant 2 adds no variance. $[][][][] [] [][][][][][][][] [] [][][][][][][] []
+ []
+
 File: images/Skewness.png Graphic file (type bmp)
 <images/Skewness.png>
- (/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-TU-empty.cfg
+(/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-TU-empty.cfg
 File: mt-TU-empty.cfg 2021/06/22 v1.1 microtype config. file: fonts with nonstandard glyph set (RS)
-) [20]
-LaTeX Font Info:    Font shape `TU/DejaVuSans(0)/b/n' will be
-(Font)              scaled to size 10.55457pt on input line 1429.
-File: images/t_distribution2.png Graphic file (type bmp)
-<images/t_distribution2.png>
+) [22]
+LaTeX Font Info:    Font shape `TU/DejaVuSans(1)/b/n' will be
+(Font)              scaled to size 11.38934pt on input line 1438.
+File: images/t_distribution.png Graphic file (type bmp)
+<images/t_distribution.png>
+ [23]
 File: images/t-dist_chang_df_static.png Graphic file (type bmp)
 <images/t-dist_chang_df_static.png>
+ [24] [25] [26]
+Underfull \hbox (badness 10000) in paragraph at lines 1675--1679
+[]\TU/DejaVuSerif(0)/b/n/12 Population parameters (target): \TU/DejaVuSerif(0)/m/n/12 Fixed (but usually un-
+ []
 
-Underfull \vbox (badness 1132) has occurred while \output is active []
-
-
-Underfull \vbox (badness 1132) has occurred while \output is active []
-
- [21] [22] [23] [24]
-Overfull \hbox (5.0659pt too wide) in paragraph at lines 1715--1717
-[]|\TU/XCharter(0)/m/n/12 Unbiased 
+[27]
+Overfull \hbox (14.48694pt too wide) in paragraph at lines 1724--1726
+[]|\TU/DejaVuSerif(0)/m/n/12 Unbiased 
  []
 
 
-Overfull \hbox (6.0619pt too wide) in paragraph at lines 1725--1726
-[]|\TU/XCharter(0)/m/n/12 Measures 
+Overfull \hbox (4.76799pt too wide) in paragraph at lines 1731--1731
+[]|\TU/DejaVuSerif(0)/m/n/12 Skewness|  
  []
 
 
-Overfull \hbox (2.45227pt too wide) in paragraph at lines 1728--1728
-[]|\TU/XCharter(0)/m/n/12 Covariance|  
+Overfull \hbox (2.19966pt too wide) in paragraph at lines 1733--1733
+[] [][][][][]$|  
  []
 
 
-Overfull \hbox (3.86827pt too wide) in paragraph at lines 1731--1731
-[]|\TU/XCharter(0)/m/n/12 Correlation|  
+Overfull \hbox (16.45569pt too wide) in paragraph at lines 1734--1735
+[]|\TU/DejaVuSerif(0)/m/n/12 Measures 
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [25] [26]
+Overfull \hbox (13.37541pt too wide) in paragraph at lines 1737--1737
+[]|\TU/DejaVuSerif(0)/m/n/12 Covariance|  
+ []
+
+
+Overfull \hbox (14.34221pt too wide) in paragraph at lines 1740--1740
+[]|\TU/DejaVuSerif(0)/m/n/12 Correlation|  
+ []
+
+[28]
 chapter 4.
-LaTeX Font Info:    Font shape `TU/Consolas(0)/m/n' will be
-(Font)              scaled to size 5.88693pt on input line 1796.
+LaTeX Font Info:    Font shape `TU/DejaVuSansMono(0)/m/n' will be
+(Font)              scaled to size 5.69467pt on input line 1805.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(1)/m/n' will be
-(Font)              scaled to size 6.24673pt on input line 1796.
+(Font)              scaled to size 6.74075pt on input line 1805.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(1)/m/n' will be
-(Font)              scaled to size 5.20561pt on input line 1796.
+(Font)              scaled to size 5.6173pt on input line 1805.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(2)/m/n' will be
-(Font)              scaled to size 6.24738pt on input line 1796.
+(Font)              scaled to size 6.74149pt on input line 1805.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(2)/m/n' will be
-(Font)              scaled to size 5.20615pt on input line 1796.
+(Font)              scaled to size 5.6179pt on input line 1805.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(3)/m/n' will be
-(Font)              scaled to size 6.2461pt on input line 1796.
+(Font)              scaled to size 6.74011pt on input line 1805.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(3)/m/n' will be
-(Font)              scaled to size 5.20508pt on input line 1796.
-LaTeX Font Info:    Font shape `TU/XCharter(0)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1796.
-LaTeX Font Info:    Font shape `TU/Consolas(0)/b/n' will be
-(Font)              scaled to size 11.63489pt on input line 1798.
-[27
+(Font)              scaled to size 5.61676pt on input line 1805.
+LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 1805.
+LaTeX Font Info:    Font shape `TU/DejaVuSansMono(0)/b/n' will be
+(Font)              scaled to size 11.38934pt on input line 1807.
+[29
 
 
 ]
 LaTeX Font Info:    Font shape `TU/MapleMonoNFCN(0)/m/n' will be
-(Font)              scaled to size 10.4945pt on input line 1810.
+(Font)              scaled to size 11.32452pt on input line 1821.
 
-Overfull \hbox (59.58617pt too wide) in paragraph at lines 1811--1811
-[]\TU/Consolas(0)/m/n/12 ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──[] 
+Overfull \hbox (162.39516pt too wide) in paragraph at lines 1823--1823
+[]\TU/DejaVuSansMono(0)/m/n/12 Setup complete (packages loaded: tidyverse, data.table, ggsci, moments, knitr, kableExtra).[] 
  []
 
-Missing character: There is no ✔ (U+2714) in font Consolas/OT:script=latn;language=dflt;!
-Missing character: There is no ✔ (U+2714) in font Consolas/OT:script=latn;language=dflt;!
-Missing character: There is no ✔ (U+2714) in font Consolas/OT:script=latn;language=dflt;!
-Missing character: There is no ✔ (U+2714) in font Consolas/OT:script=latn;language=dflt;!
-Missing character: There is no ✔ (U+2714) in font Consolas/OT:script=latn;language=dflt;!
-Missing character: There is no ✔ (U+2714) in font Consolas/OT:script=latn;language=dflt;!
-Missing character: There is no ✔ (U+2714) in font Consolas/OT:script=latn;language=dflt;!
-Missing character: There is no ✔ (U+2714) in font Consolas/OT:script=latn;language=dflt;!
-Missing character: There is no ✔ (U+2714) in font Consolas/OT:script=latn;language=dflt;!
-Missing character: There is no ✔ (U+2714) in font Consolas/OT:script=latn;language=dflt;!
-Missing character: There is no ✔ (U+2714) in font Consolas/OT:script=latn;language=dflt;!
-Missing character: There is no ✔ (U+2714) in font Consolas/OT:script=latn;language=dflt;!
-Missing character: There is no ✔ (U+2714) in font Consolas/OT:script=latn;language=dflt;!
-Missing character: There is no ✔ (U+2714) in font Consolas/OT:script=latn;language=dflt;!
 
-Overfull \hbox (68.21727pt too wide) in paragraph at lines 1817--1817
-[]\TU/Consolas(0)/m/n/12 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──[] 
+Overfull \vbox (13.20277pt too high) detected at line 1851
  []
 
-Missing character: There is no ✖ (U+2716) in font Consolas/OT:script=latn;language=dflt;!
-Missing character: There is no ✖ (U+2716) in font Consolas/OT:script=latn;language=dflt;!
-Missing character: There is no ✖ (U+2716) in font Consolas/OT:script=latn;language=dflt;!
-Missing character: There is no ✖ (U+2716) in font Consolas/OT:script=latn;language=dflt;!
-Missing character: There is no ℹ (U+2139) in font Consolas/OT:script=latn;language=dflt;!
-Missing character: There is no ℹ (U+2139) in font Consolas/OT:script=latn;language=dflt;!
-
-Overfull \hbox (186.89493pt too wide) in paragraph at lines 1820--1820
-[]\TU/Consolas(0)/m/n/12 ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors[] 
- []
-
-[28]
-Overfull \hbox (132.95055pt too wide) in paragraph at lines 1851--1851
-[] \TU/Consolas(0)/m/n/12 Setup complete (packages loaded: tidyverse, data.table, ggsci, moments, knitr, kableExtra).[] 
- []
-
-[29]
+[30]
 File: filters/emoji/1f4a1.png Graphic file (type bmp)
 <filters/emoji/1f4a1.png>
 File: filters/emoji/274c.png Graphic file (type bmp)
 <filters/emoji/274c.png>
 File: filters/emoji/2705.png Graphic file (type bmp)
 <filters/emoji/2705.png>
+ [31]
 File: 01_Lab-1_files/figure-pdf/cell-5-output-1.png Graphic file (type bmp)
 <01_Lab-1_files/figure-pdf/cell-5-output-1.png>
- [30]
-Overfull \hbox (283.9948pt too wide) in paragraph at lines 1965--1965
-[]\TU/Consolas(0)/m/n/12 read_csv[][]([][]"https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/asset_returns.csv"[][])[]|  
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [32]
+Overfull \hbox (326.96213pt too wide) in paragraph at lines 1937--1937
+[]\TU/DejaVuSansMono(0)/m/n/12 read_csv[][]([][]"https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/asset_returns.csv"[][])[]|  
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [31] [32]
-File: 01_Lab-1_files/figure-pdf/cell-9-output-1.png Graphic file (type bmp)
-<01_Lab-1_files/figure-pdf/cell-9-output-1.png>
+Overfull \hbox (100.68239pt too wide) in paragraph at lines 1945--1945
+[]\TU/DejaVuSansMono(0)/m/n/12 ── Column specification ────────────────────────────────────────────────────────[] 
+ []
 
-Overfull \hbox (248.51187pt too wide) in paragraph at lines 2066--2067
+Missing character: There is no ℹ (U+2139) in font DejaVu Sans Mono/OT:script=latn;language=dflt;!
+Missing character: There is no ℹ (U+2139) in font DejaVu Sans Mono/OT:script=latn;language=dflt;!
+
+Overfull \hbox (20.68462pt too wide) in paragraph at lines 1949--1949
+[]\TU/DejaVuSansMono(0)/m/n/12 ℹ Use []spec()[] to retrieve the full column specification for this data.[] 
+ []
+
+Missing character: There is no ℹ (U+2139) in font DejaVu Sans Mono/OT:script=latn;language=dflt;!
+Missing character: There is no ℹ (U+2139) in font DejaVu Sans Mono/OT:script=latn;language=dflt;!
+
+Overfull \hbox (84.68297pt too wide) in paragraph at lines 1950--1950
+[]\TU/DejaVuSansMono(0)/m/n/12 ℹ Specify the column types or set []show_col_types = FALSE[] to quiet this message.[] 
+ []
+
+[33] [34]
+File: 01_Lab-1_files/figure-pdf/cell-10-output-1.png Graphic file (type bmp)
+<01_Lab-1_files/figure-pdf/cell-10-output-1.png>
+
+Overfull \hbox (248.51187pt too wide) in paragraph at lines 2086--2087
 [][] 
  []
 
@@ -2536,599 +2995,891 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [33]
+ [35]
 File: filters/emoji/1f4a1.png Graphic file (type bmp)
 <filters/emoji/1f4a1.png>
- [34]
-Overfull \hbox (83.3217pt too wide) in paragraph at lines 2139--2139
-[]\TU/Consolas(0)/m/n/12 Variance estimators: var_n (biased, divide by n) vs var_n1 (unbiased, divide by n-1).[] 
+ [36]
+Overfull \hbox (114.39645pt too wide) in paragraph at lines 2159--2159
+[]\TU/DejaVuSansMono(0)/m/n/12 Variance estimators: var_n (biased, divide by n) vs var_n1 (unbiased, divide by n-1).[] 
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [35]
+ignored: Infinite glue shrinkage found in box being split [37]
 File: filters/emoji/1f4a1.png Graphic file (type bmp)
 <filters/emoji/1f4a1.png>
 
-Overfull \hbox (20.92284pt too wide) in paragraph at lines 2215--2215
-[] \TU/MapleMonoNFCN(0)/m/n/12 “ \TU/Consolas(0)/m/n/12 Removed 4 rows containing missing values or values outside the scale range[] 
+Overfull \hbox (48.17474pt too wide) in paragraph at lines 2235--2235
+[] \TU/MapleMonoNFCN(0)/m/n/12 “ \TU/DejaVuSansMono(0)/m/n/12 Removed 4 rows containing missing values or values outside the scale range[] 
  []
 
-
-Overfull \hbox (20.92284pt too wide) in paragraph at lines 2218--2218
-[] \TU/MapleMonoNFCN(0)/m/n/12 “ \TU/Consolas(0)/m/n/12 Removed 4 rows containing missing values or values outside the scale range[] 
+[38]
+Overfull \hbox (48.17474pt too wide) in paragraph at lines 2238--2238
+[] \TU/MapleMonoNFCN(0)/m/n/12 “ \TU/DejaVuSansMono(0)/m/n/12 Removed 4 rows containing missing values or values outside the scale range[] 
  []
 
-File: 01_Lab-1_files/figure-pdf/cell-11-output-2.png Graphic file (type bmp)
-<01_Lab-1_files/figure-pdf/cell-11-output-2.png>
+File: 01_Lab-1_files/figure-pdf/cell-12-output-2.png Graphic file (type bmp)
+<01_Lab-1_files/figure-pdf/cell-12-output-2.png>
 
-Overfull \hbox (113.00595pt too wide) in paragraph at lines 2222--2223
+Overfull \hbox (113.00595pt too wide) in paragraph at lines 2242--2243
 [][] 
  []
 
-[36]
-Overfull \hbox (355.20139pt too wide) in paragraph at lines 2233--2233
-[]\TU/Consolas(0)/m/n/12 read_csv[][]([][]"https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/correlated_asset_returns.csv"[][])[]|  
+
+Overfull \hbox (402.38875pt too wide) in paragraph at lines 2253--2253
+[]\TU/DejaVuSansMono(0)/m/n/12 read_csv[][]([][]"https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/correlated_asset_returns.csv"[][])[]|  
  []
 
-[37]
-File: 01_Lab-1_files/figure-pdf/cell-14-output-1.png Graphic file (type bmp)
-<01_Lab-1_files/figure-pdf/cell-14-output-1.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [38]
+[39]
+File: 01_Lab-1_files/figure-pdf/cell-15-output-1.png Graphic file (type bmp)
+<01_Lab-1_files/figure-pdf/cell-15-output-1.png>
+ [40]
 File: filters/emoji/1f4a1.png Graphic file (type bmp)
 <filters/emoji/1f4a1.png>
- [39] [40]
+ [41] [42]
 chapter 5.
 File: filters/emoji/1f3af.png Graphic file (type bmp)
 <filters/emoji/1f3af.png>
-LaTeX Font Info:    Font shape `TU/Consolas(0)/b/n' will be
-(Font)              scaled to size 16.75423pt on input line 2368.
-
-Overfull \hbox (264.57481pt too wide) in paragraph at lines 2390--2390
-[]\TU/Consolas(0)/m/n/12 "https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"[]|  
- []
-
-[41
+LaTeX Font Info:    Font shape `TU/DejaVuSansMono(0)/b/n' will be
+(Font)              scaled to size 16.40065pt on input line 2388.
+[43
 
 
 ]
-Overfull \hbox (14.27289pt too wide) in paragraph at lines 2422--2422
-[]     \TU/Consolas(0)/m/n/12 teachers calworks   lunch computer expenditure    income   english  read[] 
+Overfull \hbox (306.39125pt too wide) in paragraph at lines 2410--2410
+[]\TU/DejaVuSansMono(0)/m/n/12 "https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"[]|  
  []
 
 
-Overfull \hbox (1.32625pt too wide) in paragraph at lines 2424--2424
-[]  \TU/Consolas(0)/m/n/12 1:    10.90   0.5102  2.0408       67    6384.911 22.690001  0.000000 691.6[] 
+Overfull \hbox (2.39954pt too wide) in paragraph at lines 2434--2434
+[]  \TU/DejaVuSansMono(0)/m/n/12 4:    61457 Golden Feather Union Elementary       Butte  KK-08      243[] 
  []
 
 
-Overfull \hbox (5.6418pt too wide) in paragraph at lines 2425--2425
-[]  \TU/Consolas(0)/m/n/12 2:    11.15  15.4167 47.9167      101    5099.381  9.824000  4.583333 660.5[] 
+Overfull \hbox (41.2556pt too wide) in paragraph at lines 2442--2442
+[]     \TU/DejaVuSansMono(0)/m/n/12 teachers calworks   lunch computer expenditure    income   english  read[] 
  []
 
 
-Overfull \hbox (7.79958pt too wide) in paragraph at lines 2426--2426
-[]  \TU/Consolas(0)/m/n/12 3:    82.90  55.0323 76.3226      169    5501.955  8.978000 30.000002 636.3[] 
+Overfull \hbox (2.39966pt too wide) in paragraph at lines 2443--2443
+[]        \TU/DejaVuSansMono(0)/m/n/12 <num>    <num>   <num>    <num>       <num>     <num>     <num> <num>[] 
  []
 
 
-Overfull \hbox (3.48402pt too wide) in paragraph at lines 2427--2427
-[]  \TU/Consolas(0)/m/n/12 4:    14.00  36.4754 77.0492       85    7101.831  8.978000  0.000000 651.9[] 
+Overfull \hbox (27.54173pt too wide) in paragraph at lines 2444--2444
+[]  \TU/DejaVuSansMono(0)/m/n/12 1:    10.90   0.5102  2.0408       67    6384.911 22.690001  0.000000 691.6[] 
  []
 
 
-Overfull \hbox (7.79958pt too wide) in paragraph at lines 2428--2428
-[]  \TU/Consolas(0)/m/n/12 5:    71.50  33.1086 78.4270      171    5235.988  9.080333 13.857677 641.8[] 
+Overfull \hbox (32.11304pt too wide) in paragraph at lines 2445--2445
+[]  \TU/DejaVuSansMono(0)/m/n/12 2:    11.15  15.4167 47.9167      101    5099.381  9.824000  4.583333 660.5[] 
  []
 
 
-Overfull \hbox (7.79958pt too wide) in paragraph at lines 2430--2430
-[]\TU/Consolas(0)/m/n/12 416:    59.73   0.1016  3.5569      195    7290.339 28.716999  5.995935 700.9[] 
+Overfull \hbox (34.39867pt too wide) in paragraph at lines 2446--2446
+[]  \TU/DejaVuSansMono(0)/m/n/12 3:    82.90  55.0323 76.3226      169    5501.955  8.978000 30.000002 636.3[] 
  []
 
 
-Overfull \hbox (9.95734pt too wide) in paragraph at lines 2431--2431
-[]\TU/Consolas(0)/m/n/12 417:   208.48   1.0741  1.5038      721    5741.463 41.734108  4.726101 704.0[] 
+Overfull \hbox (29.8274pt too wide) in paragraph at lines 2447--2447
+[]  \TU/DejaVuSansMono(0)/m/n/12 4:    14.00  36.4754 77.0492       85    7101.831  8.978000  0.000000 651.9[] 
  []
 
 
-Overfull \hbox (9.95735pt too wide) in paragraph at lines 2432--2432
-[]\TU/Consolas(0)/m/n/12 418:    20.15   3.5635 37.1938       45    4402.832 23.733000 24.263039 648.3[] 
+Overfull \hbox (34.39867pt too wide) in paragraph at lines 2448--2448
+[]  \TU/DejaVuSansMono(0)/m/n/12 5:    71.50  33.1086 78.4270      171    5235.988  9.080333 13.857677 641.8[] 
  []
 
 
-Overfull \hbox (5.6418pt too wide) in paragraph at lines 2433--2433
-[]\TU/Consolas(0)/m/n/12 419:     5.00  11.8812 59.4059       14    4776.336  9.952000  2.970297 667.9[] 
+Overfull \hbox (34.39867pt too wide) in paragraph at lines 2450--2450
+[]\TU/DejaVuSansMono(0)/m/n/12 416:    59.73   0.1016  3.5569      195    7290.339 28.716999  5.995935 700.9[] 
  []
 
 
-Overfull \hbox (9.95735pt too wide) in paragraph at lines 2434--2434
-[]\TU/Consolas(0)/m/n/12 420:    93.40   6.9235 47.5712      313    5993.393 12.502000  5.005624 660.5[] 
+Overfull \hbox (36.68431pt too wide) in paragraph at lines 2451--2451
+[]\TU/DejaVuSansMono(0)/m/n/12 417:   208.48   1.0741  1.5038      721    5741.463 41.734108  4.726101 704.0[] 
  []
 
-[42]
+
+Overfull \hbox (36.6843pt too wide) in paragraph at lines 2452--2452
+[]\TU/DejaVuSansMono(0)/m/n/12 418:    20.15   3.5635 37.1938       45    4402.832 23.733000 24.263039 648.3[] 
+ []
+
+
+Overfull \hbox (32.11304pt too wide) in paragraph at lines 2453--2453
+[]\TU/DejaVuSansMono(0)/m/n/12 419:     5.00  11.8812 59.4059       14    4776.336  9.952000  2.970297 667.9[] 
+ []
+
+
+Overfull \hbox (36.68431pt too wide) in paragraph at lines 2454--2454
+[]\TU/DejaVuSansMono(0)/m/n/12 420:    93.40   6.9235 47.5712      313    5993.393 12.502000  5.005624 660.5[] 
+ []
+
+[44]
+Underfull \hbox (badness 1629) in paragraph at lines 2482--2485
+[]\TU/DejaVuSerif(0)/b/n/12 Student performance measures \TU/DejaVuSerif(0)/m/n/12 (average reading and math
+ []
+
+
 ignored: Infinite glue shrinkage found in box being split
-LaTeX Font Info:    Font shape `TU/Consolas(0)/m/sl' in size <12> not available
-(Font)              Font shape `TU/Consolas(0)/m/it' tried instead on input line 2508.
-LaTeX Font Info:    Font shape `TU/Consolas(0)/m/it' will be
-(Font)              scaled to size 11.77386pt on input line 2508.
- [43] [44] [45] [46]
+LaTeX Font Info:    Font shape `TU/DejaVuSansMono(0)/m/sl' in size <12> not available
+(Font)              Font shape `TU/DejaVuSansMono(0)/m/it' tried instead on input line 2528.
+LaTeX Font Info:    Font shape `TU/DejaVuSansMono(0)/m/it' will be
+(Font)              scaled to size 11.38934pt on input line 2528.
+[45] [46] [47] [48]
 File: 02_Data_Visualization_files/figure-pdf/unnamed-chunk-4-1.pdf Graphic file (type pdf)
 <use 02_Data_Visualization_files/figure-pdf/unnamed-chunk-4-1.pdf>
- [47]
-Overfull \hbox (22.90398pt too wide) in paragraph at lines 2719--2719
-[]\TU/Consolas(0)/m/n/12 1  KK-08 359 3926.070 4881.139 5267.365 5195.919 5539.380 7711.507 658.2412[] 
+ [49]
+Overfull \hbox (50.39813pt too wide) in paragraph at lines 2739--2739
+[]\TU/DejaVuSansMono(0)/m/n/12 1  KK-08 359 3926.070 4881.139 5267.365 5195.919 5539.380 7711.507 658.2412[] 
  []
 
 
-Overfull \hbox (20.7462pt too wide) in paragraph at lines 2720--2720
-[]\TU/Consolas(0)/m/n/12 2  KK-06  61 4715.446 5092.917 5577.493 5399.383 5990.794 7614.379 897.8770[] 
+Overfull \hbox (48.11249pt too wide) in paragraph at lines 2740--2740
+[]\TU/DejaVuSansMono(0)/m/n/12 2  KK-06  61 4715.446 5092.917 5577.493 5399.383 5990.794 7614.379 897.8770[] 
  []
 
+[50]
 File: 02_Data_Visualization_files/figure-pdf/hist-1.pdf Graphic file (type pdf)
 <use 02_Data_Visualization_files/figure-pdf/hist-1.pdf>
-[48] [49] [50]
+
+Underfull \hbox (badness 1014) in paragraph at lines 2789--2793
+[]\TU/DejaVuSerif(0)/m/n/12 The \TU/DejaVuSerif(0)/b/n/12 box \TU/DejaVuSerif(0)/m/n/12 itself spans from the \TU/DejaVuSerif(0)/b/n/12 first quartile (Q1, 25th per-
+ []
+
+[51] [52] [53]
 File: 02_Data_Visualization_files/figure-pdf/unnamed-chunk-7-1.pdf Graphic file (type pdf)
 <use 02_Data_Visualization_files/figure-pdf/unnamed-chunk-7-1.pdf>
 
-Overfull \hbox (11.99332pt too wide) in paragraph at lines 2945--2946
+Overfull \hbox (11.99332pt too wide) in paragraph at lines 2965--2966
 [][] 
  []
 
-[51] [52]
+[54]
 File: 02_Data_Visualization_files/figure-pdf/unnamed-chunk-9-1.pdf Graphic file (type pdf)
 <use 02_Data_Visualization_files/figure-pdf/unnamed-chunk-9-1.pdf>
- [53]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [55] [56]
 File: 02_Data_Visualization_files/figure-pdf/unnamed-chunk-11-1.pdf Graphic file (type pdf)
 <use 02_Data_Visualization_files/figure-pdf/unnamed-chunk-11-1.pdf>
 File: 02_Data_Visualization_files/figure-pdf/unnamed-chunk-12-1.pdf Graphic file (type pdf)
 <use 02_Data_Visualization_files/figure-pdf/unnamed-chunk-12-1.pdf>
- [54]
+ [57]
 File: filters/emoji/1f4a1.png Graphic file (type bmp)
 <filters/emoji/1f4a1.png>
- [55]
+ [58]
 File: 02_Data_Visualization_files/figure-pdf/unnamed-chunk-15-1.pdf Graphic file (type pdf)
 <use 02_Data_Visualization_files/figure-pdf/unnamed-chunk-15-1.pdf>
 File: 02_Data_Visualization_files/figure-pdf/unnamed-chunk-16-1.pdf Graphic file (type pdf)
 <use 02_Data_Visualization_files/figure-pdf/unnamed-chunk-16-1.pdf>
- [56]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [59]
 File: filters/emoji/1f4a1.png Graphic file (type bmp)
 <filters/emoji/1f4a1.png>
+ [60]
 File: 02_Data_Visualization_files/figure-pdf/unnamed-chunk-19-1.pdf Graphic file (type pdf)
 <use 02_Data_Visualization_files/figure-pdf/unnamed-chunk-19-1.pdf>
 File: 02_Data_Visualization_files/figure-pdf/unnamed-chunk-20-1.pdf Graphic file (type pdf)
 <use 02_Data_Visualization_files/figure-pdf/unnamed-chunk-20-1.pdf>
- [57] [58]
+ [61]
 File: 02_Data_Visualization_files/figure-pdf/unnamed-chunk-23-1.pdf Graphic file (type pdf)
 <use 02_Data_Visualization_files/figure-pdf/unnamed-chunk-23-1.pdf>
 File: 02_Data_Visualization_files/figure-pdf/unnamed-chunk-24-1.pdf Graphic file (type pdf)
 <use 02_Data_Visualization_files/figure-pdf/unnamed-chunk-24-1.pdf>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 5696) has occurred while \output is active []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 5696) has occurred while \output is active []
 
- [59] [60] [61] [62
+ [62] [63] [64]
+chapter 6.
+
+Overfull \hbox (306.39125pt too wide) in paragraph at lines 3346--3346
+[]\TU/DejaVuSansMono(0)/m/n/12 "https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"[]|  
+ []
+
+
+Overfull \hbox (2.39954pt too wide) in paragraph at lines 3363--3363
+[]  \TU/DejaVuSansMono(0)/m/n/12 4:    61457 Golden Feather Union Elementary       Butte  KK-08      243[] 
+ []
+
+[65
 
 
 ]
-chapter 6.
-
-Overfull \hbox (264.57481pt too wide) in paragraph at lines 3326--3326
-[]\TU/Consolas(0)/m/n/12 "https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"[]|  
- []
-
-[63]
-Overfull \hbox (14.27289pt too wide) in paragraph at lines 3351--3351
-[]     \TU/Consolas(0)/m/n/12 teachers calworks   lunch computer expenditure    income   english  read[] 
+Overfull \hbox (41.2556pt too wide) in paragraph at lines 3371--3371
+[]     \TU/DejaVuSansMono(0)/m/n/12 teachers calworks   lunch computer expenditure    income   english  read[] 
  []
 
 
-Overfull \hbox (1.32625pt too wide) in paragraph at lines 3353--3353
-[]  \TU/Consolas(0)/m/n/12 1:    10.90   0.5102  2.0408       67    6384.911 22.690001  0.000000 691.6[] 
+Overfull \hbox (2.39966pt too wide) in paragraph at lines 3372--3372
+[]        \TU/DejaVuSansMono(0)/m/n/12 <num>    <num>   <num>    <num>       <num>     <num>     <num> <num>[] 
  []
 
 
-Overfull \hbox (5.6418pt too wide) in paragraph at lines 3354--3354
-[]  \TU/Consolas(0)/m/n/12 2:    11.15  15.4167 47.9167      101    5099.381  9.824000  4.583333 660.5[] 
+Overfull \hbox (27.54173pt too wide) in paragraph at lines 3373--3373
+[]  \TU/DejaVuSansMono(0)/m/n/12 1:    10.90   0.5102  2.0408       67    6384.911 22.690001  0.000000 691.6[] 
  []
 
 
-Overfull \hbox (7.79958pt too wide) in paragraph at lines 3355--3355
-[]  \TU/Consolas(0)/m/n/12 3:    82.90  55.0323 76.3226      169    5501.955  8.978000 30.000002 636.3[] 
+Overfull \hbox (32.11304pt too wide) in paragraph at lines 3374--3374
+[]  \TU/DejaVuSansMono(0)/m/n/12 2:    11.15  15.4167 47.9167      101    5099.381  9.824000  4.583333 660.5[] 
  []
 
 
-Overfull \hbox (3.48402pt too wide) in paragraph at lines 3356--3356
-[]  \TU/Consolas(0)/m/n/12 4:    14.00  36.4754 77.0492       85    7101.831  8.978000  0.000000 651.9[] 
+Overfull \hbox (34.39867pt too wide) in paragraph at lines 3375--3375
+[]  \TU/DejaVuSansMono(0)/m/n/12 3:    82.90  55.0323 76.3226      169    5501.955  8.978000 30.000002 636.3[] 
  []
 
 
-Overfull \hbox (7.79958pt too wide) in paragraph at lines 3357--3357
-[]  \TU/Consolas(0)/m/n/12 5:    71.50  33.1086 78.4270      171    5235.988  9.080333 13.857677 641.8[] 
+Overfull \hbox (29.8274pt too wide) in paragraph at lines 3376--3376
+[]  \TU/DejaVuSansMono(0)/m/n/12 4:    14.00  36.4754 77.0492       85    7101.831  8.978000  0.000000 651.9[] 
  []
 
 
-Overfull \hbox (7.79958pt too wide) in paragraph at lines 3359--3359
-[]\TU/Consolas(0)/m/n/12 416:    59.73   0.1016  3.5569      195    7290.339 28.716999  5.995935 700.9[] 
+Overfull \hbox (34.39867pt too wide) in paragraph at lines 3377--3377
+[]  \TU/DejaVuSansMono(0)/m/n/12 5:    71.50  33.1086 78.4270      171    5235.988  9.080333 13.857677 641.8[] 
  []
 
 
-Overfull \hbox (9.95734pt too wide) in paragraph at lines 3360--3360
-[]\TU/Consolas(0)/m/n/12 417:   208.48   1.0741  1.5038      721    5741.463 41.734108  4.726101 704.0[] 
+Overfull \hbox (34.39867pt too wide) in paragraph at lines 3379--3379
+[]\TU/DejaVuSansMono(0)/m/n/12 416:    59.73   0.1016  3.5569      195    7290.339 28.716999  5.995935 700.9[] 
  []
 
 
-Overfull \hbox (9.95735pt too wide) in paragraph at lines 3361--3361
-[]\TU/Consolas(0)/m/n/12 418:    20.15   3.5635 37.1938       45    4402.832 23.733000 24.263039 648.3[] 
+Overfull \hbox (36.68431pt too wide) in paragraph at lines 3380--3380
+[]\TU/DejaVuSansMono(0)/m/n/12 417:   208.48   1.0741  1.5038      721    5741.463 41.734108  4.726101 704.0[] 
  []
 
 
-Overfull \hbox (5.6418pt too wide) in paragraph at lines 3362--3362
-[]\TU/Consolas(0)/m/n/12 419:     5.00  11.8812 59.4059       14    4776.336  9.952000  2.970297 667.9[] 
+Overfull \hbox (36.6843pt too wide) in paragraph at lines 3381--3381
+[]\TU/DejaVuSansMono(0)/m/n/12 418:    20.15   3.5635 37.1938       45    4402.832 23.733000 24.263039 648.3[] 
  []
 
 
-Overfull \hbox (9.95735pt too wide) in paragraph at lines 3363--3363
-[]\TU/Consolas(0)/m/n/12 420:    93.40   6.9235 47.5712      313    5993.393 12.502000  5.005624 660.5[] 
+Overfull \hbox (32.11304pt too wide) in paragraph at lines 3382--3382
+[]\TU/DejaVuSansMono(0)/m/n/12 419:     5.00  11.8812 59.4059       14    4776.336  9.952000  2.970297 667.9[] 
  []
 
-[64] [65] [66]
+
+Overfull \hbox (36.68431pt too wide) in paragraph at lines 3383--3383
+[]\TU/DejaVuSansMono(0)/m/n/12 420:    93.40   6.9235 47.5712      313    5993.393 12.502000  5.005624 660.5[] 
+ []
+
+[66] [67] [68] [69]
 File: 03_Linear_Regression_files/figure-pdf/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use 03_Linear_Regression_files/figure-pdf/unnamed-chunk-3-1.pdf>
- [67]
-Underfull \hbox (badness 2245) in paragraph at lines 3622--3624
-[]\TU/XCharter(0)/b/n/12 The reported correlation coefficient \TU/XCharter(0)/m/n/12 is 0.19 between expenditure and
+ [70]
+Underfull \hbox (badness 1694) in paragraph at lines 3697--3700
+[]$[][]$ \TU/DejaVuSerif(0)/m/n/12 is the error term, capturing all other factors affecting
  []
 
-[68] [69]
+[71]
 File: filters/emoji/1f4cc.png Graphic file (type bmp)
 <filters/emoji/1f4cc.png>
- [70] [71]
+ [72] [73]
+Underfull \hbox (badness 2318) in paragraph at lines 3864--3866
+[]\TU/DejaVuSerif(0)/m/n/12 Many other factors (teacher quality, socio-economic back-
+ []
+
+[74]
 File: 03_Linear_Regression_files/figure-pdf/unnamed-chunk-6-1.pdf Graphic file (type pdf)
 <use 03_Linear_Regression_files/figure-pdf/unnamed-chunk-6-1.pdf>
 
-Overfull \hbox (12.00182pt too wide) in paragraph at lines 3874--3875
+Overfull \hbox (12.00182pt too wide) in paragraph at lines 3894--3895
 [][] 
  []
 
-[72]
 File: filters/emoji/2705.png Graphic file (type bmp)
 <filters/emoji/2705.png>
- [73] [74]
+[75] [76] [77] [78
+
+
+]
 chapter 7.
 File: filters/emoji/1f3af.png Graphic file (type bmp)
 <filters/emoji/1f3af.png>
-[75
-
-
-] [76]
-LaTeX Font Info:    Font shape `TU/XCharter(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 4117.
-LaTeX Font Info:    Font shape `TU/XCharter(1)/m/n' will be
-(Font)              scaled to size 8.4pt on input line 4117.
-LaTeX Font Info:    Font shape `TU/XCharter(1)/m/n' will be
-(Font)              scaled to size 6.6pt on input line 4117.
- [77]
+[79] [80]
+LaTeX Font Info:    Font shape `TU/DejaVuSerif(1)/m/n' will be
+(Font)              scaled to size 12.0pt on input line 4137.
+Package microtype Info: Character `textendash ' is missing
+(microtype)             in font `TU/DejaVuSerif(1)/m/n/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textemdash ' is missing
+(microtype)             in font `TU/DejaVuSerif(1)/m/n/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteleft ' is missing
+(microtype)             in font `TU/DejaVuSerif(1)/m/n/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteright ' is missing
+(microtype)             in font `TU/DejaVuSerif(1)/m/n/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblleft ' is missing
+(microtype)             in font `TU/DejaVuSerif(1)/m/n/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblright ' is missing
+(microtype)             in font `TU/DejaVuSerif(1)/m/n/12'.
+(microtype)             Ignoring protrusion settings for this character.
+LaTeX Font Info:    Font shape `TU/DejaVuSerif(1)/m/n' will be
+(Font)              scaled to size 8.4pt on input line 4137.
+LaTeX Font Info:    Font shape `TU/DejaVuSerif(1)/m/n' will be
+(Font)              scaled to size 6.6pt on input line 4137.
+ [81]
 
 LaTeX Font Warning: Font shape `TU/XCharter-Math.otf(1)/b/n' undefined
-(Font)              using `TU/XCharter-Math.otf(1)/m/n' instead on input line 4172.
+(Font)              using `TU/XCharter-Math.otf(1)/m/n' instead on input line 4192.
 
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(1)/b/n' will be
-(Font)              scaled to size 8.7454pt on input line 4172.
+(Font)              scaled to size 9.43704pt on input line 4192.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(1)/b/n' will be
-(Font)              scaled to size 6.87141pt on input line 4172.
+(Font)              scaled to size 7.41483pt on input line 4192.
 
 LaTeX Font Warning: Font shape `TU/XCharter-Math.otf(2)/b/n' undefined
-(Font)              using `TU/XCharter-Math.otf(2)/m/n' instead on input line 4172.
+(Font)              using `TU/XCharter-Math.otf(2)/m/n' instead on input line 4192.
 
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(2)/b/n' will be
-(Font)              scaled to size 8.7463pt on input line 4172.
+(Font)              scaled to size 9.43806pt on input line 4192.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(2)/b/n' will be
-(Font)              scaled to size 6.87212pt on input line 4172.
+(Font)              scaled to size 7.41563pt on input line 4192.
 
 LaTeX Font Warning: Font shape `TU/XCharter-Math.otf(3)/b/n' undefined
-(Font)              using `TU/XCharter-Math.otf(3)/m/n' instead on input line 4172.
+(Font)              using `TU/XCharter-Math.otf(3)/m/n' instead on input line 4192.
 
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(3)/b/n' will be
-(Font)              scaled to size 8.74452pt on input line 4172.
+(Font)              scaled to size 9.43614pt on input line 4192.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(3)/b/n' will be
-(Font)              scaled to size 6.8707pt on input line 4172.
+(Font)              scaled to size 7.41412pt on input line 4192.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(1)/b/n' will be
-(Font)              scaled to size 12.49347pt on input line 4172.
+(Font)              scaled to size 13.4815pt on input line 4192.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(2)/b/n' will be
-(Font)              scaled to size 12.49475pt on input line 4172.
+(Font)              scaled to size 13.48297pt on input line 4192.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(3)/b/n' will be
-(Font)              scaled to size 12.49219pt on input line 4172.
-[78]
-LaTeX Font Info:    Font shape `TU/XCharter(0)/m/it' will be
-(Font)              scaled to size 8.4pt on input line 4249.
-LaTeX Font Info:    Font shape `TU/XCharter(0)/m/it' will be
-(Font)              scaled to size 6.6pt on input line 4249.
-LaTeX Font Info:    Font shape `TU/XCharter(0)/b/it' will be
-(Font)              scaled to size 12.0pt on input line 4253.
- [79] [80] [81] [82]
+(Font)              scaled to size 13.48022pt on input line 4192.
+[82]
+LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/m/it' will be
+(Font)              scaled to size 8.4pt on input line 4269.
+LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/m/it' will be
+(Font)              scaled to size 6.6pt on input line 4269.
+LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/b/it' will be
+(Font)              scaled to size 12.0pt on input line 4273.
+ [83] [84] [85] [86]
 File: images/CLT.png Graphic file (type bmp)
 <images/CLT.png>
 
-Overfull \hbox (35.96686pt too wide) in paragraph at lines 4518--4519
+Overfull \hbox (35.96686pt too wide) in paragraph at lines 4538--4539
  [][] 
  []
 
-
-Underfull \vbox (badness 3646) has occurred while \output is active []
-
-
-Underfull \vbox (badness 3646) has occurred while \output is active []
-
- [83]
-Underfull \hbox (badness 1845) in paragraph at lines 4565--4567
-[]\TU/XCharter(0)/m/n/12 The large sample distribution depends on the \TU/XCharter(0)/b/n/12 population moment
- []
-
-[84]
-Underfull \hbox (badness 1629) in paragraph at lines 4621--4624
-[]\TU/XCharter(0)/m/n/12 In a regression model with multiple explanatory variables, we often use \TU/XCharter(0)/b/n/12 ad-
- []
-
-[85]
+[87] [88] [89]
 File: 04_Theoretical_Framework_LR_files/figure-pdf/unnamed-chunk-1-1.pdf Graphic file (type pdf)
 <use 04_Theoretical_Framework_LR_files/figure-pdf/unnamed-chunk-1-1.pdf>
- [86]
-Overfull \hbox (264.57481pt too wide) in paragraph at lines 4692--4692
-[]\TU/Consolas(0)/m/n/12 "https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"[]|  
+ [90]
+Overfull \hbox (306.39125pt too wide) in paragraph at lines 4712--4712
+[]\TU/DejaVuSansMono(0)/m/n/12 "https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"[]|  
  []
 
-LaTeX Font Info:    Font shape `TU/XCharter(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 4692.
-LaTeX Font Info:    Font shape `TU/XCharter(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 4692.
-[87] [88]
+LaTeX Font Info:    Font shape `TU/DejaVuSerif(1)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 4712.
+LaTeX Font Info:    Font shape `TU/DejaVuSerif(1)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 4712.
+[91] [92] [93] [94
+
+
+]
 chapter 8.
-[89
+[95]
+Underfull \hbox (badness 7415) in paragraph at lines 4892--4894
+[]\TU/DejaVuSerif(0)/m/n/12 Coming back to the regression output, we have estimate
+ []
 
 
-] [90] [91] [92] [93] [94
+Underfull \hbox (badness 1661) in paragraph at lines 4892--4894
+[] [][][][][][][][][]$ \TU/DejaVuSerif(0)/m/n/12 value to test against with $[] [][]$ standard error
+ []
+
+[96] [97] [98] [99] [100
 
 
 ]
 chapter 9.
 File: filters/emoji/1f3af.png Graphic file (type bmp)
 <filters/emoji/1f3af.png>
+[101]
 File: filters/emoji/1f4a1.png Graphic file (type bmp)
 <filters/emoji/1f4a1.png>
-[95]
-Overfull \hbox (264.57481pt too wide) in paragraph at lines 5145--5145
-[]\TU/Consolas(0)/m/n/12 "https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"[]|  
+
+Overfull \hbox (306.39125pt too wide) in paragraph at lines 5165--5165
+[]\TU/DejaVuSansMono(0)/m/n/12 "https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"[]|  
  []
 
+[102]
 File: 06_Multiple_Linear_Regression_files/figure-pdf/fig-scatter-1-1.pdf Graphic file (type pdf)
 <use 06_Multiple_Linear_Regression_files/figure-pdf/fig-scatter-1-1.pdf>
-[96] [97] [98] [99] [100] [101] [102] [103]
-Overfull \hbox (28.91168pt too wide) detected at line 5618
+ [103] [104]
+Overfull \hbox (8.45001pt too wide) in paragraph at lines 5310--5339
+ [][] 
+ []
+
+[105] [106] [107] [108] [109]
+Overfull \hbox (64.92958pt too wide) detected at line 5639
 [][]
  []
 
+[110]
+LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/m/n' will be
+(Font)              scaled to size 10.95pt on input line 5687.
+Package microtype Info: Character `textendash ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textemdash ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteleft ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteright ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblleft ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblright ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(1)/m/n' will be
+(Font)              scaled to size 12.30186pt on input line 5688.
+LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(1)/m/n' will be
+(Font)              scaled to size 8.98767pt on input line 5688.
+LaTeX Font Info:    Font shape `TU/DejaVuSerif(1)/m/n' will be
+(Font)              scaled to size 10.95pt on input line 5688.
+Package microtype Info: Character `textendash ' is missing
+(microtype)             in font `TU/DejaVuSerif(1)/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textemdash ' is missing
+(microtype)             in font `TU/DejaVuSerif(1)/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteleft ' is missing
+(microtype)             in font `TU/DejaVuSerif(1)/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteright ' is missing
+(microtype)             in font `TU/DejaVuSerif(1)/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblleft ' is missing
+(microtype)             in font `TU/DejaVuSerif(1)/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblright ' is missing
+(microtype)             in font `TU/DejaVuSerif(1)/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+LaTeX Font Info:    Font shape `TU/DejaVuSerif(1)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 5688.
+LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(2)/m/n' will be
+(Font)              scaled to size 12.3032pt on input line 5688.
+LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(2)/m/n' will be
+(Font)              scaled to size 8.98865pt on input line 5688.
+LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(3)/m/n' will be
+(Font)              scaled to size 12.30069pt on input line 5688.
+LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(3)/m/n' will be
+(Font)              scaled to size 8.98682pt on input line 5688.
+LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/m/it' will be
+(Font)              scaled to size 10.95pt on input line 5691.
+Package microtype Info: Character `textendash ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textemdash ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteleft ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteright ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblleft ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblright ' is missing
+(microtype)             in font `TU/DejaVuSerif(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
 
-Overfull \hbox (398.13557pt too wide) in paragraph at lines 5655--5688
+Overfull \hbox (158.96002pt too wide) in paragraph at lines 5688--5722
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5694--5697
+Underfull \hbox (badness 10000) in paragraph at lines 5728--5731
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5697--5699
+Underfull \hbox (badness 10000) in paragraph at lines 5731--5733
 
  []
 
-[104] [105]
-Underfull \hbox (badness 10000) in paragraph at lines 5717--5720
+
+Underfull \hbox (badness 10000) in paragraph at lines 5751--5754
 
  []
 
-LaTeX Font Info:    Font shape `TU/XCharter(0)/m/n' will be
-(Font)              scaled to size 15.60004pt on input line 5745.
-[106]
+[111] [112]
 File: 06_Multiple_Linear_Regression_files/figure-pdf/fig-scatter-2-1.pdf Graphic file (type pdf)
 <use 06_Multiple_Linear_Regression_files/figure-pdf/fig-scatter-2-1.pdf>
- [107] [108
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [113] [114]
 chapter 10.
 File: filters/emoji/1f3af.png Graphic file (type bmp)
 <filters/emoji/1f3af.png>
-[109]
-Overfull \hbox (14.27289pt too wide) in paragraph at lines 5920--5920
-[]     \TU/Consolas(0)/m/n/12 teachers calworks   lunch computer expenditure    income   english  read[] 
+
+Underfull \hbox (badness 4859) in paragraph at lines 5895--5898
+\TU/DejaVuSerif(0)/m/n/12 We continue to use the same dataset California school dataset
+ []
+
+[115
+
+
+]
+Overfull \hbox (2.39954pt too wide) in paragraph at lines 5946--5946
+[]  \TU/DejaVuSansMono(0)/m/n/12 4:    61457 Golden Feather Union Elementary       Butte  KK-08      243[] 
  []
 
 
-Overfull \hbox (1.32625pt too wide) in paragraph at lines 5922--5922
-[]  \TU/Consolas(0)/m/n/12 1:    10.90   0.5102  2.0408       67    6384.911 22.690001  0.000000 691.6[] 
- []
-
-[110]
-Overfull \hbox (5.6418pt too wide) in paragraph at lines 5923--5923
-[]  \TU/Consolas(0)/m/n/12 2:    11.15  15.4167 47.9167      101    5099.381  9.824000  4.583333 660.5[] 
+Overfull \hbox (41.2556pt too wide) in paragraph at lines 5954--5954
+[]     \TU/DejaVuSansMono(0)/m/n/12 teachers calworks   lunch computer expenditure    income   english  read[] 
  []
 
 
-Overfull \hbox (7.79958pt too wide) in paragraph at lines 5924--5924
-[]  \TU/Consolas(0)/m/n/12 3:    82.90  55.0323 76.3226      169    5501.955  8.978000 30.000002 636.3[] 
+Overfull \hbox (2.39966pt too wide) in paragraph at lines 5955--5955
+[]        \TU/DejaVuSansMono(0)/m/n/12 <num>    <num>   <num>    <num>       <num>     <num>     <num> <num>[] 
+ []
+
+[116]
+Overfull \hbox (27.54173pt too wide) in paragraph at lines 5956--5956
+[]  \TU/DejaVuSansMono(0)/m/n/12 1:    10.90   0.5102  2.0408       67    6384.911 22.690001  0.000000 691.6[] 
  []
 
 
-Overfull \hbox (3.48402pt too wide) in paragraph at lines 5925--5925
-[]  \TU/Consolas(0)/m/n/12 4:    14.00  36.4754 77.0492       85    7101.831  8.978000  0.000000 651.9[] 
+Overfull \hbox (32.11304pt too wide) in paragraph at lines 5957--5957
+[]  \TU/DejaVuSansMono(0)/m/n/12 2:    11.15  15.4167 47.9167      101    5099.381  9.824000  4.583333 660.5[] 
  []
 
 
-Overfull \hbox (7.79958pt too wide) in paragraph at lines 5926--5926
-[]  \TU/Consolas(0)/m/n/12 5:    71.50  33.1086 78.4270      171    5235.988  9.080333 13.857677 641.8[] 
+Overfull \hbox (34.39867pt too wide) in paragraph at lines 5958--5958
+[]  \TU/DejaVuSansMono(0)/m/n/12 3:    82.90  55.0323 76.3226      169    5501.955  8.978000 30.000002 636.3[] 
  []
 
 
-Overfull \hbox (7.79958pt too wide) in paragraph at lines 5928--5928
-[]\TU/Consolas(0)/m/n/12 416:    59.73   0.1016  3.5569      195    7290.339 28.716999  5.995935 700.9[] 
+Overfull \hbox (29.8274pt too wide) in paragraph at lines 5959--5959
+[]  \TU/DejaVuSansMono(0)/m/n/12 4:    14.00  36.4754 77.0492       85    7101.831  8.978000  0.000000 651.9[] 
  []
 
 
-Overfull \hbox (9.95734pt too wide) in paragraph at lines 5929--5929
-[]\TU/Consolas(0)/m/n/12 417:   208.48   1.0741  1.5038      721    5741.463 41.734108  4.726101 704.0[] 
+Overfull \hbox (34.39867pt too wide) in paragraph at lines 5960--5960
+[]  \TU/DejaVuSansMono(0)/m/n/12 5:    71.50  33.1086 78.4270      171    5235.988  9.080333 13.857677 641.8[] 
  []
 
 
-Overfull \hbox (9.95735pt too wide) in paragraph at lines 5930--5930
-[]\TU/Consolas(0)/m/n/12 418:    20.15   3.5635 37.1938       45    4402.832 23.733000 24.263039 648.3[] 
+Overfull \hbox (34.39867pt too wide) in paragraph at lines 5962--5962
+[]\TU/DejaVuSansMono(0)/m/n/12 416:    59.73   0.1016  3.5569      195    7290.339 28.716999  5.995935 700.9[] 
  []
 
 
-Overfull \hbox (5.6418pt too wide) in paragraph at lines 5931--5931
-[]\TU/Consolas(0)/m/n/12 419:     5.00  11.8812 59.4059       14    4776.336  9.952000  2.970297 667.9[] 
+Overfull \hbox (36.68431pt too wide) in paragraph at lines 5963--5963
+[]\TU/DejaVuSansMono(0)/m/n/12 417:   208.48   1.0741  1.5038      721    5741.463 41.734108  4.726101 704.0[] 
  []
 
 
-Overfull \hbox (9.95735pt too wide) in paragraph at lines 5932--5932
-[]\TU/Consolas(0)/m/n/12 420:    93.40   6.9235 47.5712      313    5993.393 12.502000  5.005624 660.5[] 
+Overfull \hbox (36.6843pt too wide) in paragraph at lines 5964--5964
+[]\TU/DejaVuSansMono(0)/m/n/12 418:    20.15   3.5635 37.1938       45    4402.832 23.733000 24.263039 648.3[] 
  []
 
-LaTeX Font Info:    Font shape `TU/XCharter(1)/m/n' will be
-(Font)              scaled to size 17.28pt on input line 5972.
-LaTeX Font Info:    Font shape `TU/XCharter(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 5972.
-[111] [112] [113]
+
+Overfull \hbox (32.11304pt too wide) in paragraph at lines 5965--5965
+[]\TU/DejaVuSansMono(0)/m/n/12 419:     5.00  11.8812 59.4059       14    4776.336  9.952000  2.970297 667.9[] 
+ []
+
+
+Overfull \hbox (36.68431pt too wide) in paragraph at lines 5966--5966
+[]\TU/DejaVuSansMono(0)/m/n/12 420:    93.40   6.9235 47.5712      313    5993.393 12.502000  5.005624 660.5[] 
+ []
+
+LaTeX Font Info:    Font shape `TU/DejaVuSerif(1)/m/n' will be
+(Font)              scaled to size 17.28pt on input line 6006.
+LaTeX Font Info:    Font shape `TU/DejaVuSerif(1)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 6006.
+Package microtype Info: Character `textendash ' is missing
+(microtype)             in font `TU/DejaVuSerif(1)/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textemdash ' is missing
+(microtype)             in font `TU/DejaVuSerif(1)/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteleft ' is missing
+(microtype)             in font `TU/DejaVuSerif(1)/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteright ' is missing
+(microtype)             in font `TU/DejaVuSerif(1)/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblleft ' is missing
+(microtype)             in font `TU/DejaVuSerif(1)/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblright ' is missing
+(microtype)             in font `TU/DejaVuSerif(1)/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+[117] [118] [119]
 File: filters/emoji/1f4a1.png Graphic file (type bmp)
 <filters/emoji/1f4a1.png>
- [114]
+
+Overfull \hbox (25.25577pt too wide) in paragraph at lines 6183--6183
+[]\TU/DejaVuSansMono(0)/m/n/12 ====================================================================[] 
+ []
+
+
+Overfull \hbox (25.25583pt too wide) in paragraph at lines 6189--6189
+[]\TU/DejaVuSansMono(0)/m/n/12 --------------------------------------------------------------------[] 
+ []
+
+[120]
+Overfull \hbox (25.25583pt too wide) in paragraph at lines 6205--6205
+[]\TU/DejaVuSansMono(0)/m/n/12 --------------------------------------------------------------------[] 
+ []
+
+
+Overfull \hbox (25.25577pt too wide) in paragraph at lines 6211--6211
+[]\TU/DejaVuSansMono(0)/m/n/12 ====================================================================[] 
+ []
+
 File: filters/emoji/1f4a1.png Graphic file (type bmp)
 <filters/emoji/1f4a1.png>
- [115] [116]
+[121] [122]
 File: 07_Lab-2_dummy-variable_files/figure-pdf/cell-14-output-1.png Graphic file (type bmp)
 <07_Lab-2_dummy-variable_files/figure-pdf/cell-14-output-1.png>
- [117]
-Overfull \hbox (0.10698pt too wide) in alignment at lines 6356--6373
+ [123]
+Overfull \hbox (0.10698pt too wide) in alignment at lines 6390--6407
  [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (0.10698pt too wide) in alignment at lines 6373--6375
+Overfull \hbox (0.10698pt too wide) in alignment at lines 6407--6409
  [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (3.9799pt too wide) in paragraph at lines 6376--6376
-[]|\TU/XCharter(0)/m/n/12 146815.42|  
+Overfull \hbox (12.16048pt too wide) in paragraph at lines 6410--6410
+[]|\TU/DejaVuSerif(0)/m/n/12 146815.42|  
  []
 
 
-Overfull \hbox (5.1079pt too wide) in paragraph at lines 6377--6378
-[]|\TU/XCharter(0)/m/n/12 6.146085e- 
+Overfull \hbox (4.52571pt too wide) in paragraph at lines 6411--6411
+[]|\TU/DejaVuSerif(0)/m/n/12 34940.45|  
  []
 
 
-Overfull \hbox (0.10698pt too wide) in alignment at lines 6375--6378
+Overfull \hbox (4.52571pt too wide) in paragraph at lines 6411--6411
+[]|\TU/DejaVuSerif(0)/m/n/12 442.9261|  
+ []
+
+
+Overfull \hbox (13.65396pt too wide) in paragraph at lines 6411--6412
+[]|\TU/DejaVuSerif(0)/m/n/12 6.146085e- 
+ []
+
+
+Overfull \hbox (0.10698pt too wide) in alignment at lines 6409--6412
  [] [] [] [] [] [] [] 
  []
 
-[118]
+[124]
 chapter 11.
 File: filters/emoji/1f3af.png Graphic file (type bmp)
 <filters/emoji/1f3af.png>
-[119
+[125
 
 
-] [120]
-Overfull \hbox (27.6086pt too wide) in paragraph at lines 6557--6558
-[]\TU/XCharter(0)/m/n/12 Scenario  
+] [126]
+Overfull \hbox (36.10521pt too wide) in paragraph at lines 6591--6592
+[]\TU/DejaVuSerif(0)/m/n/12 Scenario  
  []
 
 
-Overfull \hbox (17.55797pt too wide) in paragraph at lines 6586--6587
- []\TU/XCharter(0)/m/n/12 Scenario 
+Overfull \hbox (26.05458pt too wide) in paragraph at lines 6620--6621
+ []\TU/DejaVuSerif(0)/m/n/12 Scenario 
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [121] [122] [123]
+Overfull \hbox (2.32617pt too wide) in paragraph at lines 6622--6623
+ []$[][][][][]$ 
+ []
+
+[127] [128]
+Overfull \hbox (3.4074pt too wide) detected at line 6724
+[][][][][][]
+ []
+
+
+Overfull \hbox (25.25577pt too wide) in paragraph at lines 6743--6743
+[]\TU/DejaVuSansMono(0)/m/n/12 ====================================================================[] 
+ []
+
+
+Overfull \hbox (25.25583pt too wide) in paragraph at lines 6749--6749
+[]\TU/DejaVuSansMono(0)/m/n/12 --------------------------------------------------------------------[] 
+ []
+
+[129]
+Overfull \hbox (25.25583pt too wide) in paragraph at lines 6768--6768
+[]\TU/DejaVuSansMono(0)/m/n/12 --------------------------------------------------------------------[] 
+ []
+
+
+Overfull \hbox (25.25577pt too wide) in paragraph at lines 6774--6774
+[]\TU/DejaVuSansMono(0)/m/n/12 ====================================================================[] 
+ []
+
 File: 08_Interactions_files/figure-pdf/unnamed-chunk-4-1.pdf Graphic file (type pdf)
 <use 08_Interactions_files/figure-pdf/unnamed-chunk-4-1.pdf>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3271) has occurred while \output is active []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3271) has occurred while \output is active []
 
- [124] [125] [126] [127] [128]
+ [130] [131] [132] [133] [134]
 File: 08_Interactions_files/figure-pdf/unnamed-chunk-7-1.pdf Graphic file (type pdf)
 <use 08_Interactions_files/figure-pdf/unnamed-chunk-7-1.pdf>
- [129] [130
+ [135] [136
 
 
 ]
 chapter 12.
 File: filters/emoji/1f3af.png Graphic file (type bmp)
 <filters/emoji/1f3af.png>
-[131] [132]
-Overfull \hbox (18.5885pt too wide) in paragraph at lines 7153--7153
-[]        \TU/Consolas(0)/m/n/12 deny pirat hirat     lvrat  chist  mhist  phist unemp selfemp insurance[] 
+[137] [138]
+Overfull \hbox (45.82695pt too wide) in paragraph at lines 7187--7187
+[]        \TU/DejaVuSansMono(0)/m/n/12 deny pirat hirat     lvrat  chist  mhist  phist unemp selfemp insurance[] 
  []
 
 
-Overfull \hbox (20.7463pt too wide) in paragraph at lines 7154--7154
-[]      \TU/Consolas(0)/m/n/12 <fctr> <num> <num>     <num> <fctr> <fctr> <fctr> <num>  <fctr>    <fctr>[] 
+Overfull \hbox (48.11261pt too wide) in paragraph at lines 7188--7188
+[]      \TU/DejaVuSansMono(0)/m/n/12 <fctr> <num> <num>     <num> <fctr> <fctr> <fctr> <num>  <fctr>    <fctr>[] 
  []
 
 
-Underfull \vbox (badness 1325) has occurred while \output is active []
+Overfull \hbox (6.971pt too wide) in paragraph at lines 7195--7195
+[]\TU/DejaVuSansMono(0)/m/n/12 2376:     no 0.310 0.250 0.8000000      1      1     no   3.2     yes        no[] 
+ []
 
 
-Underfull \vbox (badness 1325) has occurred while \output is active []
+Overfull \hbox (4.68535pt too wide) in paragraph at lines 7196--7196
+[]\TU/DejaVuSansMono(0)/m/n/12 2377:     no 0.300 0.300 0.7770492      1      2     no   3.2      no        no[] 
+ []
 
- [133] [134] [135] [136]
+
+Overfull \hbox (4.68535pt too wide) in paragraph at lines 7197--7197
+[]\TU/DejaVuSansMono(0)/m/n/12 2378:     no 0.260 0.200 0.5267606      2      1     no   3.1      no        no[] 
+ []
+
+
+Overfull \hbox (9.25664pt too wide) in paragraph at lines 7198--7198
+[]\TU/DejaVuSansMono(0)/m/n/12 2379:    yes 0.320 0.260 0.7538462      6      1    yes   3.1      no        no[] 
+ []
+
+
+Overfull \hbox (6.971pt too wide) in paragraph at lines 7199--7199
+[]\TU/DejaVuSansMono(0)/m/n/12 2380:    yes 0.350 0.260 0.8135593      2      2     no   4.3      no        no[] 
+ []
+
+[139] [140] [141] [142]
 File: 09_Logistic_Regression_files/figure-pdf/unnamed-chunk-6-1.pdf Graphic file (type pdf)
 <use 09_Logistic_Regression_files/figure-pdf/unnamed-chunk-6-1.pdf>
- [137]
+
+Underfull \vbox (badness 6284) has occurred while \output is active []
+
+
+Underfull \vbox (badness 6284) has occurred while \output is active []
+
+ [143]
 File: 09_Logistic_Regression_files/figure-pdf/unnamed-chunk-7-1.pdf Graphic file (type pdf)
 <use 09_Logistic_Regression_files/figure-pdf/unnamed-chunk-7-1.pdf>
- [138] [139] [140]
-Overfull \hbox (9.7704pt too wide) detected at line 7590
+
+Underfull \vbox (badness 2376) has occurred while \output is active []
+
+
+Underfull \vbox (badness 2376) has occurred while \output is active []
+
+ [144]
+Overfull \vbox (11.41689pt too high) detected at line 7487
+ []
+
+[145]
+Underfull \hbox (badness 3179) in paragraph at lines 7539--7542
+[]\TU/DejaVuSerif(0)/m/n/12 By contrast, the control group is non-African Americans
+ []
+
+[146] [147]
+Overfull \hbox (53.40631pt too wide) detected at line 7624
 [][] [] [] [] []
  []
 
-[141] [142]
+[148] [149]
 File: 09_Logistic_Regression_files/figure-pdf/fig-linear-1.pdf Graphic file (type pdf)
 <use 09_Logistic_Regression_files/figure-pdf/fig-linear-1.pdf>
- [143]
+ [150] [151]
 File: 09_Logistic_Regression_files/figure-pdf/fig-logit-1.pdf Graphic file (type pdf)
 <use 09_Logistic_Regression_files/figure-pdf/fig-logit-1.pdf>
- [144] [145] [146] [147]
-Overfull \hbox (32.63405pt too wide) detected at line 7984
+ [152] [153] [154]
+Overfull \hbox (69.34956pt too wide) detected at line 8018
 [][][][][][][] [] [][][][][][][][][] [][][][][][] [] [][][][] [] [][] [] [][][][][][] [] [][] [] [][][][][][] [] [][]
  []
 
-[148] [149]
+[155] [156]
 File: 09_Logistic_Regression_files/figure-pdf/unnamed-chunk-20-1.pdf Graphic file (type pdf)
 <use 09_Logistic_Regression_files/figure-pdf/unnamed-chunk-20-1.pdf>
- [150]
-Overfull \hbox (47.20204pt too wide) detected at line 8203
+
+Underfull \vbox (badness 2503) has occurred while \output is active []
+
+
+Underfull \vbox (badness 2503) has occurred while \output is active []
+
+ [157] [158]
+Overfull \hbox (25.3187pt too wide) detected at line 8223
+[][][][][][] [] [][][][][][][] [] [][][][] [][][][] [] [][] [] [] [] [][][][]
+ []
+
+
+Overfull \hbox (25.3187pt too wide) detected at line 8227
+[][][][][][] [] [][][][][][][] [] [][][][] [][][][] [] [][] [] [] [] [][][][]
+ []
+
+
+Overfull \hbox (83.4404pt too wide) detected at line 8237
 [][][][][][] [] [][][][][][][] [] [][][][] [][][][] [] [][] [] [][][][][][][] [] [][][][] [] [][][] [] [][][][] [] [][] [] [][][][][][][][][]
  []
 
 
-Overfull \hbox (18.71693pt too wide) detected at line 8208
+Overfull \hbox (52.70255pt too wide) detected at line 8242
 [][][][][][] [] [][][][][][][] [] [][][][] [][][][] [] [][] [] [][][][][][][] [] [][][][] [] [][][] [] [][][][] [] [][] [] [][][][][]
  []
 
-[151] [152] (out_dir/index.aux)
+
+Overfull \hbox (1.19495pt too wide) in paragraph at lines 8276--8276
+[]|\TU/DejaVuSerif(0)/b/n/12 Heteroskedasticity|  
+ []
+
+
+ignored: Infinite glue shrinkage found in box being split [159] [160] (out_dir/index.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
@@ -3142,12 +3893,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 49054 strings out of 468168
- 1073270 string characters out of 5432816
- 1738150 words of memory out of 5000000
- 76962 multiletter control sequences out of 15000+600000
- 642639 words of font info for 208 fonts, out of 8000000 for 9000
+ 49207 strings out of 468168
+ 1076033 string characters out of 5432816
+ 1733301 words of memory out of 5000000
+ 77105 multiletter control sequences out of 15000+600000
+ 646018 words of font info for 224 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 108i,26n,127p,11318b,1728s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,26n,127p,11318b,1562s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out_dir/index.xdv (158 pages, 2297480 bytes).
+Output written on out_dir/index.xdv (166 pages, 2308768 bytes).

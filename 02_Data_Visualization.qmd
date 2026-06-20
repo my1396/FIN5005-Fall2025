@@ -26,7 +26,9 @@ The following prints the first and last 5 rows of the dataset, together with dat
 pkgs <- c("tidyverse", "moments", "data.table", "ggsci")
 missing <- setdiff(pkgs, rownames(installed.packages()))
 if (length(missing) > 0) install.packages(missing)
-invisible(lapply(pkgs, function(pkg) suppressPackageStartupMessages(library(pkg, character.only = TRUE))))
+invisible(lapply(pkgs, function(pkg) {
+    suppressPackageStartupMessages(library(pkg, character.only = TRUE))
+}))
 f_name <- "https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"
 cas <- read_csv(f_name, 
   col_types = cols(
@@ -154,7 +156,7 @@ ggplot(cas, aes(x = expenditure)) +
 
 **What the Histogram Reveals:**
 
-- Most districts cluster around the \\$5,000-\\$5,500 range
+- Most districts cluster around the \\$5,000–\\$5,500 range
 - Variability is moderate
 - The distribution has a long right tail, indicating positive skewness. That suggests that expenditure per student is concentrated at lower values for most districts, while a smaller number of districts spend substantially more, pulling the mean above the median
 - There are **few extreme positive outliers**, indicating some districts do spend significantly more than average
