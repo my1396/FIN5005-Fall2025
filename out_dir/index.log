@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.6.2)  20 JUN 2026 10:24
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.6.2)  1 JUL 2026 16:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1373,6 +1373,8 @@ Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 \rotFPbot=\skip91
 \rot@float@box=\box81
 \rot@mess@toks=\toks34
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count386
@@ -1701,8 +1703,8 @@ Package: amsthm 2020/05/29 v2.20.6
 Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
 )
 Class scrbook Info: amsthm's \deferred@thm@head patched.
-\c@theorem=\count430
-\c@example=\count431
+\c@example=\count430
+\c@theorem=\count431
 \c@refremark=\count432
 \c@refsolution=\count433
  (/usr/local/texlive/2026/texmf-dist/tex/latex/caption/subcaption.sty
@@ -1719,7 +1721,7 @@ File: bkm-dvipdfm.def 2023-12-10 v1.31 bookmark driver for dvipdfm (HO)
 )) (/usr/local/texlive/2026/texmf-dist/tex/latex/xurl/xurl.sty
 Package: xurl 2022/01/09 v 0.10 modify URL breaks
 )
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 499.
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 500.
  (out_dir/index.aux
 
 LaTeX Warning: Label `exm-1' multiply defined.
@@ -1757,46 +1759,46 @@ LaTeX Warning: Label `sol-3' multiply defined.
 )
 \openout1 = `index.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 499.
-LaTeX Font Info:    ... okay on input line 499.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 499.
-LaTeX Font Info:    ... okay on input line 499.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 499.
-LaTeX Font Info:    ... okay on input line 499.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 499.
-LaTeX Font Info:    ... okay on input line 499.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 499.
-LaTeX Font Info:    ... okay on input line 499.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 499.
-LaTeX Font Info:    ... okay on input line 499.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 499.
-LaTeX Font Info:    ... okay on input line 499.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 499.
-LaTeX Font Info:    ... okay on input line 499.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 499.
-LaTeX Font Info:    ... okay on input line 499.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 499.
-LaTeX Font Info:    ... okay on input line 499.
-Package scrbase Info: activating english \partname on input line 499.
-Package scrbase Info: activating english \chaptername on input line 499.
-Package scrbase Info: activating english \appendixname on input line 499.
-Package scrbase Info: activating english \figurename on input line 499.
-Package scrbase Info: activating english \tablename on input line 499.
-Package scrbase Info: activating english \contentsname on input line 499.
-Package scrbase Info: activating english \listfigurename on input line 499.
-Package scrbase Info: activating english \listtablename on input line 499.
-Package scrbase Info: activating english \bibname on input line 499.
-Package scrbase Info: activating english \indexname on input line 499.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 500.
+LaTeX Font Info:    ... okay on input line 500.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 500.
+LaTeX Font Info:    ... okay on input line 500.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 500.
+LaTeX Font Info:    ... okay on input line 500.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 500.
+LaTeX Font Info:    ... okay on input line 500.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 500.
+LaTeX Font Info:    ... okay on input line 500.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 500.
+LaTeX Font Info:    ... okay on input line 500.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 500.
+LaTeX Font Info:    ... okay on input line 500.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 500.
+LaTeX Font Info:    ... okay on input line 500.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 500.
+LaTeX Font Info:    ... okay on input line 500.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 500.
+LaTeX Font Info:    ... okay on input line 500.
+Package scrbase Info: activating english \partname on input line 500.
+Package scrbase Info: activating english \chaptername on input line 500.
+Package scrbase Info: activating english \appendixname on input line 500.
+Package scrbase Info: activating english \figurename on input line 500.
+Package scrbase Info: activating english \tablename on input line 500.
+Package scrbase Info: activating english \contentsname on input line 500.
+Package scrbase Info: activating english \listfigurename on input line 500.
+Package scrbase Info: activating english \listtablename on input line 500.
+Package scrbase Info: activating english \bibname on input line 500.
+Package scrbase Info: activating english \indexname on input line 500.
 Package microtype Info: Patching varwidth to enable character protrusion.
 \MT@vwid@leftmargin=\dimen374
 \MT@vwid@rightmargin=\dimen375
-LaTeX Info: Redefining \microtypecontext on input line 499.
-Package microtype Info: Applying patch `item' on input line 499.
-Package microtype Info: Applying patch `toc' on input line 499.
-Package microtype Info: Applying patch `eqnum' on input line 499.
-Package microtype Info: Applying patch `footnote' on input line 499.
-Package microtype Info: Applying patch `verbatim' on input line 499.
-LaTeX Info: Redefining \microtypesetup on input line 499.
+LaTeX Info: Redefining \microtypecontext on input line 500.
+Package microtype Info: Applying patch `item' on input line 500.
+Package microtype Info: Applying patch `toc' on input line 500.
+Package microtype Info: Applying patch `eqnum' on input line 500.
+Package microtype Info: Applying patch `footnote' on input line 500.
+Package microtype Info: Applying patch `verbatim' on input line 500.
+LaTeX Info: Redefining \microtypesetup on input line 500.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
@@ -1859,13 +1861,13 @@ Package microtype Info: Character `textquotedblright ' is missing
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 499.
+Package hyperref Info: Link coloring OFF on input line 500.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 (/usr/local/texlive/2026/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 499.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 500.
 
 Package fontspec Info: 
 (fontspec)             Microsoft YaHei scale = 1.038083297517656.
@@ -1884,7 +1886,7 @@ Package fontspec Info:
 (fontspec)             Microsoft YaHei scale = 1.038083297517656.
 
 LaTeX Font Info:    Font shape `TU/DejaVuSans(0)/m/n' will be
-(Font)              scaled to size 11.38934pt on input line 502.
+(Font)              scaled to size 11.38934pt on input line 503.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `DejaVuSans' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
@@ -1952,38 +1954,38 @@ Package fontspec Info:
 (fontspec)             YaHei/BI/OT:script=hani;language=dflt;+smcp;"
 
 LaTeX Font Info:    Font shape `TU/DejaVuSans(0)/b/n' will be
-(Font)              scaled to size 11.38934pt on input line 502.
+(Font)              scaled to size 11.38934pt on input line 503.
 LaTeX Font Info:    Font shape `TU/DejaVuSans(0)/b/n' will be
-(Font)              scaled to size 23.6139pt on input line 502.
+(Font)              scaled to size 23.6139pt on input line 503.
 LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/m/n' will be
-(Font)              scaled to size 17.28pt on input line 502.
+(Font)              scaled to size 17.28pt on input line 503.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(1)/m/n' will be
-(Font)              scaled to size 19.41336pt on input line 502.
+(Font)              scaled to size 19.41336pt on input line 503.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(1)/m/n' will be
-(Font)              scaled to size 11.23459pt on input line 502.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 502.
+(Font)              scaled to size 11.23459pt on input line 503.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 503.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(2)/m/n' will be
-(Font)              scaled to size 19.41547pt on input line 502.
+(Font)              scaled to size 19.41547pt on input line 503.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(2)/m/n' will be
-(Font)              scaled to size 13.48297pt on input line 502.
+(Font)              scaled to size 13.48297pt on input line 503.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(2)/m/n' will be
-(Font)              scaled to size 11.23581pt on input line 502.
+(Font)              scaled to size 11.23581pt on input line 503.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(3)/m/n' will be
-(Font)              scaled to size 19.41151pt on input line 502.
+(Font)              scaled to size 19.41151pt on input line 503.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(3)/m/n' will be
-(Font)              scaled to size 13.48022pt on input line 502.
+(Font)              scaled to size 13.48022pt on input line 503.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(3)/m/n' will be
-(Font)              scaled to size 11.23352pt on input line 502.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 502.
+(Font)              scaled to size 11.23352pt on input line 503.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 503.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 502.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 503.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-msb.cfg
@@ -1998,7 +2000,7 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 
 ]
-Package tocbasic Info: character protrusion at toc deactivated on input line 506.
+Package tocbasic Info: character protrusion at toc deactivated on input line 507.
  (out_dir/index.toc
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(1)/m/n' will be
 (Font)              scaled to size 9.43704pt on input line 2.
@@ -2091,28 +2093,23 @@ Package fontspec Info:
 (fontspec)             CN/BI/OT:script=hani;language=dflt;"
 
 [3]
-Overfull \hbox (5.1741pt too wide) detected at line 83
- []\TU/DejaVuSans(0)/b/n/12 101
- []
-
-
 Overfull \hbox (4.30426pt too wide) detected at line 84
- []\TU/DejaVuSerif(0)/m/n/12 102
+ []\TU/DejaVuSerif(0)/m/n/12 100
  []
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 85
- []\TU/DejaVuSerif(0)/m/n/12 102
+ []\TU/DejaVuSerif(0)/m/n/12 100
  []
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 86
- []\TU/DejaVuSerif(0)/m/n/12 103
+ []\TU/DejaVuSerif(0)/m/n/12 101
  []
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 87
- []\TU/DejaVuSerif(0)/m/n/12 103
+ []\TU/DejaVuSerif(0)/m/n/12 101
  []
 
 LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/m/sl' in size <12> not available
@@ -2139,32 +2136,32 @@ Package microtype Info: Character `textquotedblright ' is missing
 (microtype)             Ignoring protrusion settings for this character.
 [4]
 Overfull \hbox (4.30426pt too wide) detected at line 88
- []\TU/DejaVuSerif(0)/m/n/12 104
+ []\TU/DejaVuSerif(0)/m/n/12 102
  []
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 89
- []\TU/DejaVuSerif(0)/m/n/12 104
+ []\TU/DejaVuSerif(0)/m/n/12 102
  []
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 90
- []\TU/DejaVuSerif(0)/m/n/12 106
+ []\TU/DejaVuSerif(0)/m/n/12 104
  []
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 91
- []\TU/DejaVuSerif(0)/m/n/12 107
+ []\TU/DejaVuSerif(0)/m/n/12 105
  []
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 92
- []\TU/DejaVuSerif(0)/m/n/12 108
+ []\TU/DejaVuSerif(0)/m/n/12 106
  []
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 93
- []\TU/DejaVuSerif(0)/m/n/12 110
+ []\TU/DejaVuSerif(0)/m/n/12 108
  []
 
 LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/b/n' will be
@@ -2187,7 +2184,7 @@ Overfull \hbox (2.17604pt too wide) detected at line 95
 
 
 Overfull \hbox (5.1741pt too wide) detected at line 95
- []\TU/DejaVuSans(0)/b/n/12 115
+ []\TU/DejaVuSans(0)/b/n/12 113
  []
 
 
@@ -2203,7 +2200,7 @@ Overfull \hbox (2.93317pt too wide) detected at line 96
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 96
- []\TU/DejaVuSerif(0)/m/n/12 115
+ []\TU/DejaVuSerif(0)/m/n/12 113
  []
 
 
@@ -2219,7 +2216,7 @@ Overfull \hbox (2.93317pt too wide) detected at line 97
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 97
- []\TU/DejaVuSerif(0)/m/n/12 116
+ []\TU/DejaVuSerif(0)/m/n/12 114
  []
 
 
@@ -2235,7 +2232,7 @@ Overfull \hbox (2.93317pt too wide) detected at line 98
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 98
- []\TU/DejaVuSerif(0)/m/n/12 117
+ []\TU/DejaVuSerif(0)/m/n/12 115
  []
 
 
@@ -2251,7 +2248,7 @@ Overfull \hbox (3.58246pt too wide) detected at line 99
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 99
- []\TU/DejaVuSerif(0)/m/n/12 118
+ []\TU/DejaVuSerif(0)/m/n/12 116
  []
 
 
@@ -2267,7 +2264,7 @@ Overfull \hbox (3.58246pt too wide) detected at line 100
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 100
- []\TU/DejaVuSerif(0)/m/n/12 119
+ []\TU/DejaVuSerif(0)/m/n/12 117
  []
 
 
@@ -2283,7 +2280,7 @@ Overfull \hbox (2.93317pt too wide) detected at line 101
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 101
- []\TU/DejaVuSerif(0)/m/n/12 120
+ []\TU/DejaVuSerif(0)/m/n/12 118
  []
 
 
@@ -2299,7 +2296,7 @@ Overfull \hbox (2.93317pt too wide) detected at line 102
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 102
- []\TU/DejaVuSerif(0)/m/n/12 121
+ []\TU/DejaVuSerif(0)/m/n/12 119
  []
 
 
@@ -2315,7 +2312,7 @@ Overfull \hbox (3.58246pt too wide) detected at line 103
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 103
- []\TU/DejaVuSerif(0)/m/n/12 121
+ []\TU/DejaVuSerif(0)/m/n/12 119
  []
 
 
@@ -2331,7 +2328,7 @@ Overfull \hbox (3.58246pt too wide) detected at line 104
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 104
- []\TU/DejaVuSerif(0)/m/n/12 123
+ []\TU/DejaVuSerif(0)/m/n/12 121
  []
 
 
@@ -2347,7 +2344,7 @@ Overfull \hbox (2.17604pt too wide) detected at line 105
 
 
 Overfull \hbox (5.1741pt too wide) detected at line 105
- []\TU/DejaVuSans(0)/b/n/12 125
+ []\TU/DejaVuSans(0)/b/n/12 123
  []
 
 
@@ -2363,7 +2360,7 @@ Overfull \hbox (2.93317pt too wide) detected at line 106
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 106
- []\TU/DejaVuSerif(0)/m/n/12 126
+ []\TU/DejaVuSerif(0)/m/n/12 124
  []
 
 
@@ -2379,7 +2376,7 @@ Overfull \hbox (3.58246pt too wide) detected at line 107
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 107
- []\TU/DejaVuSerif(0)/m/n/12 129
+ []\TU/DejaVuSerif(0)/m/n/12 127
  []
 
 
@@ -2395,7 +2392,7 @@ Overfull \hbox (3.58246pt too wide) detected at line 108
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 108
- []\TU/DejaVuSerif(0)/m/n/12 131
+ []\TU/DejaVuSerif(0)/m/n/12 129
  []
 
 
@@ -2411,7 +2408,7 @@ Overfull \hbox (2.93317pt too wide) detected at line 109
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 109
- []\TU/DejaVuSerif(0)/m/n/12 133
+ []\TU/DejaVuSerif(0)/m/n/12 131
  []
 
 
@@ -2427,7 +2424,7 @@ Overfull \hbox (2.17604pt too wide) detected at line 110
 
 
 Overfull \hbox (5.1741pt too wide) detected at line 110
- []\TU/DejaVuSans(0)/b/n/12 137
+ []\TU/DejaVuSans(0)/b/n/12 135
  []
 
 
@@ -2443,7 +2440,7 @@ Overfull \hbox (2.93317pt too wide) detected at line 111
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 111
- []\TU/DejaVuSerif(0)/m/n/12 137
+ []\TU/DejaVuSerif(0)/m/n/12 135
  []
 
 
@@ -2459,7 +2456,7 @@ Overfull \hbox (3.58246pt too wide) detected at line 112
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 112
- []\TU/DejaVuSerif(0)/m/n/12 138
+ []\TU/DejaVuSerif(0)/m/n/12 136
  []
 
 
@@ -2475,7 +2472,7 @@ Overfull \hbox (3.58246pt too wide) detected at line 113
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 113
- []\TU/DejaVuSerif(0)/m/n/12 138
+ []\TU/DejaVuSerif(0)/m/n/12 136
  []
 
 
@@ -2491,7 +2488,7 @@ Overfull \hbox (2.93317pt too wide) detected at line 114
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 114
- []\TU/DejaVuSerif(0)/m/n/12 138
+ []\TU/DejaVuSerif(0)/m/n/12 136
  []
 
 
@@ -2507,7 +2504,7 @@ Overfull \hbox (3.58246pt too wide) detected at line 115
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 115
- []\TU/DejaVuSerif(0)/m/n/12 139
+ []\TU/DejaVuSerif(0)/m/n/12 137
  []
 
 
@@ -2523,7 +2520,7 @@ Overfull \hbox (3.58246pt too wide) detected at line 116
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 116
- []\TU/DejaVuSerif(0)/m/n/12 140
+ []\TU/DejaVuSerif(0)/m/n/12 138
  []
 
 
@@ -2539,7 +2536,7 @@ Overfull \hbox (3.58246pt too wide) detected at line 117
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 117
- []\TU/DejaVuSerif(0)/m/n/12 141
+ []\TU/DejaVuSerif(0)/m/n/12 139
  []
 
 
@@ -2555,7 +2552,7 @@ Overfull \hbox (3.58246pt too wide) detected at line 120
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 120
- []\TU/DejaVuSerif(0)/m/n/12 143
+ []\TU/DejaVuSerif(0)/m/n/12 141
  []
 
 
@@ -2571,7 +2568,7 @@ Overfull \hbox (3.58246pt too wide) detected at line 122
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 122
- []\TU/DejaVuSerif(0)/m/n/12 145
+ []\TU/DejaVuSerif(0)/m/n/12 143
  []
 
 
@@ -2587,7 +2584,7 @@ Overfull \hbox (2.93317pt too wide) detected at line 123
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 123
- []\TU/DejaVuSerif(0)/m/n/12 149
+ []\TU/DejaVuSerif(0)/m/n/12 147
  []
 
 
@@ -2603,7 +2600,7 @@ Overfull \hbox (3.58246pt too wide) detected at line 124
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 124
- []\TU/DejaVuSerif(0)/m/n/12 149
+ []\TU/DejaVuSerif(0)/m/n/12 147
  []
 
 
@@ -2619,7 +2616,7 @@ Overfull \hbox (3.58246pt too wide) detected at line 125
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 125
- []\TU/DejaVuSerif(0)/m/n/12 149
+ []\TU/DejaVuSerif(0)/m/n/12 147
  []
 
 
@@ -2635,7 +2632,7 @@ Overfull \hbox (3.58246pt too wide) detected at line 126
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 126
- []\TU/DejaVuSerif(0)/m/n/12 151
+ []\TU/DejaVuSerif(0)/m/n/12 149
  []
 
 
@@ -2651,7 +2648,7 @@ Overfull \hbox (3.58246pt too wide) detected at line 127
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 127
- []\TU/DejaVuSerif(0)/m/n/12 154
+ []\TU/DejaVuSerif(0)/m/n/12 152
  []
 
 
@@ -2667,7 +2664,7 @@ Overfull \hbox (3.58246pt too wide) detected at line 128
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 128
- []\TU/DejaVuSerif(0)/m/n/12 155
+ []\TU/DejaVuSerif(0)/m/n/12 153
  []
 
 
@@ -2683,7 +2680,7 @@ Overfull \hbox (3.58246pt too wide) detected at line 129
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 129
- []\TU/DejaVuSerif(0)/m/n/12 157
+ []\TU/DejaVuSerif(0)/m/n/12 155
  []
 
 
@@ -2699,7 +2696,7 @@ Overfull \hbox (3.58246pt too wide) detected at line 130
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 130
- []\TU/DejaVuSerif(0)/m/n/12 158
+ []\TU/DejaVuSerif(0)/m/n/12 156
  []
 
 
@@ -2715,7 +2712,7 @@ Overfull \hbox (3.58246pt too wide) detected at line 131
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 131
- []\TU/DejaVuSerif(0)/m/n/12 158
+ []\TU/DejaVuSerif(0)/m/n/12 156
  []
 
 
@@ -2731,7 +2728,7 @@ Overfull \hbox (2.93317pt too wide) detected at line 132
 
 
 Overfull \hbox (4.30426pt too wide) detected at line 132
- []\TU/DejaVuSerif(0)/m/n/12 159
+ []\TU/DejaVuSerif(0)/m/n/12 157
  []
 
 )
@@ -2744,19 +2741,19 @@ Overfull \hbox (4.30426pt too wide) detected at line 132
 ]
 chapter 1.
 LaTeX Font Info:    Font shape `TU/DejaVuSans(0)/b/n' will be
-(Font)              scaled to size 16.40065pt on input line 512.
+(Font)              scaled to size 16.40065pt on input line 513.
 
-Overfull \hbox (17.69441pt too wide) in paragraph at lines 552--553
+Overfull \hbox (17.69441pt too wide) in paragraph at lines 553--554
 []\TU/DejaVuSerif(0)/b/n/12 Category  
  []
 
 
-Overfull \hbox (33.29793pt too wide) in paragraph at lines 562--562
+Overfull \hbox (33.29793pt too wide) in paragraph at lines 563--563
 []|\TU/DejaVuSerif(0)/b/n/12 Descriptive|  
  []
 
 LaTeX Font Info:    Font shape `TU/DejaVuSans(1)/m/n' will be
-(Font)              scaled to size 11.38934pt on input line 563.
+(Font)              scaled to size 11.38934pt on input line 564.
 Package microtype Info: Character `textendash ' is missing
 (microtype)             in font `TU/DejaVuSans(1)/m/n/12'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -2776,12 +2773,12 @@ Package microtype Info: Character `textquotedblright ' is missing
 (microtype)             in font `TU/DejaVuSans(1)/m/n/12'.
 (microtype)             Ignoring protrusion settings for this character.
 
-Overfull \hbox (25.15926pt too wide) in paragraph at lines 564--564
+Overfull \hbox (25.15926pt too wide) in paragraph at lines 565--565
 []|\TU/DejaVuSerif(0)/b/n/12 Predictive|  
  []
 
 
-Overfull \hbox (38.23738pt too wide) in paragraph at lines 569--569
+Overfull \hbox (38.23738pt too wide) in paragraph at lines 570--570
 []|\TU/DejaVuSerif(0)/b/n/12 Prescriptive|  
  []
 
@@ -2793,7 +2790,7 @@ ignored: Infinite glue shrinkage found in box being split [1
 File: filters/emoji/2757.png Graphic file (type bmp)
 <filters/emoji/2757.png>
 LaTeX Font Info:    Font shape `TU/LXGWWenKai(0)/m/n' will be
-(Font)              scaled to size 13.30884pt on input line 675.
+(Font)              scaled to size 13.30884pt on input line 676.
 
 Missing character: There is no ️ (U+FE0F) in font LXGW WenKai/OT:script=hani;language=dflt;!
 [3] [4] [5] [6
@@ -2803,14 +2800,14 @@ Missing character: There is no ️ (U+FE0F) in font LXGW WenKai/OT:script=hani;l
 part I.
 Package scrkbase Info: You've told me to use the font selection of the element
 (scrkbase)             `partprefix' that is an alias of element `partnumber'
-(scrkbase)              on input line 765.
+(scrkbase)              on input line 766.
 [7] [8]
 chapter 2.
 [9
 
 
 ]
-Underfull \hbox (badness 2608) in paragraph at lines 833--835
+Underfull \hbox (badness 2608) in paragraph at lines 834--836
 []\TU/DejaVuSerif(0)/b/n/12 Language support\TU/DejaVuSerif(0)/m/n/12 : supports multiple programming lan-
  []
 
@@ -2822,40 +2819,40 @@ Missing character: There is no 🎈 (U+1F388) in font DejaVu Serif/OT:script=lat
 part II.
 Package scrkbase Info: You've told me to use the font selection of the element
 (scrkbase)             `partprefix' that is an alias of element `partnumber'
-(scrkbase)              on input line 921.
+(scrkbase)              on input line 922.
 [13] [14]
 chapter 3.
 File: filters/emoji/1f3af.png Graphic file (type bmp)
 <filters/emoji/1f3af.png>
 LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/m/n' will be
-(Font)              scaled to size 8.4pt on input line 962.
+(Font)              scaled to size 8.4pt on input line 963.
 LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/m/n' will be
-(Font)              scaled to size 6.6pt on input line 962.
+(Font)              scaled to size 6.6pt on input line 963.
 [15
 
 
 ] [16] [17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 1249--1250
+Underfull \hbox (badness 10000) in paragraph at lines 1250--1251
 
  []
 
 
-Overfull \hbox (43.82623pt too wide) detected at line 1255
+Overfull \hbox (43.82623pt too wide) detected at line 1256
 [][]
  []
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 1257--1258
+Underfull \hbox (badness 10000) in paragraph at lines 1258--1259
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1260--1261
+Underfull \hbox (badness 10000) in paragraph at lines 1261--1262
 
  []
 
 [20] [21]
-Underfull \hbox (badness 2762) in paragraph at lines 1367--1369
+Underfull \hbox (badness 2762) in paragraph at lines 1368--1370
 []\TU/DejaVuSerif(0)/m/n/12 Constant 2 adds no variance. $[][][][] [] [][][][][][][][] [] [][][][][][][] []
  []
 
@@ -2865,80 +2862,80 @@ File: images/Skewness.png Graphic file (type bmp)
 File: mt-TU-empty.cfg 2021/06/22 v1.1 microtype config. file: fonts with nonstandard glyph set (RS)
 ) [22]
 LaTeX Font Info:    Font shape `TU/DejaVuSans(1)/b/n' will be
-(Font)              scaled to size 11.38934pt on input line 1438.
+(Font)              scaled to size 11.38934pt on input line 1439.
 File: images/t_distribution.png Graphic file (type bmp)
 <images/t_distribution.png>
  [23]
 File: images/t-dist_chang_df_static.png Graphic file (type bmp)
 <images/t-dist_chang_df_static.png>
  [24] [25] [26]
-Underfull \hbox (badness 10000) in paragraph at lines 1675--1679
+Underfull \hbox (badness 10000) in paragraph at lines 1676--1680
 []\TU/DejaVuSerif(0)/b/n/12 Population parameters (target): \TU/DejaVuSerif(0)/m/n/12 Fixed (but usually un-
  []
 
 [27]
-Overfull \hbox (14.48694pt too wide) in paragraph at lines 1724--1726
+Overfull \hbox (14.48694pt too wide) in paragraph at lines 1725--1727
 []|\TU/DejaVuSerif(0)/m/n/12 Unbiased 
  []
 
 
-Overfull \hbox (4.76799pt too wide) in paragraph at lines 1731--1731
+Overfull \hbox (4.76799pt too wide) in paragraph at lines 1732--1732
 []|\TU/DejaVuSerif(0)/m/n/12 Skewness|  
  []
 
 
-Overfull \hbox (2.19966pt too wide) in paragraph at lines 1733--1733
+Overfull \hbox (2.19966pt too wide) in paragraph at lines 1734--1734
 [] [][][][][]$|  
  []
 
 
-Overfull \hbox (16.45569pt too wide) in paragraph at lines 1734--1735
+Overfull \hbox (16.45569pt too wide) in paragraph at lines 1735--1736
 []|\TU/DejaVuSerif(0)/m/n/12 Measures 
  []
 
 
-Overfull \hbox (13.37541pt too wide) in paragraph at lines 1737--1737
+Overfull \hbox (13.37541pt too wide) in paragraph at lines 1738--1738
 []|\TU/DejaVuSerif(0)/m/n/12 Covariance|  
  []
 
 
-Overfull \hbox (14.34221pt too wide) in paragraph at lines 1740--1740
+Overfull \hbox (14.34221pt too wide) in paragraph at lines 1741--1741
 []|\TU/DejaVuSerif(0)/m/n/12 Correlation|  
  []
 
 [28]
 chapter 4.
 LaTeX Font Info:    Font shape `TU/DejaVuSansMono(0)/m/n' will be
-(Font)              scaled to size 5.69467pt on input line 1805.
+(Font)              scaled to size 5.69467pt on input line 1806.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(1)/m/n' will be
-(Font)              scaled to size 6.74075pt on input line 1805.
+(Font)              scaled to size 6.74075pt on input line 1806.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(1)/m/n' will be
-(Font)              scaled to size 5.6173pt on input line 1805.
+(Font)              scaled to size 5.6173pt on input line 1806.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(2)/m/n' will be
-(Font)              scaled to size 6.74149pt on input line 1805.
+(Font)              scaled to size 6.74149pt on input line 1806.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(2)/m/n' will be
-(Font)              scaled to size 5.6179pt on input line 1805.
+(Font)              scaled to size 5.6179pt on input line 1806.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(3)/m/n' will be
-(Font)              scaled to size 6.74011pt on input line 1805.
+(Font)              scaled to size 6.74011pt on input line 1806.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(3)/m/n' will be
-(Font)              scaled to size 5.61676pt on input line 1805.
+(Font)              scaled to size 5.61676pt on input line 1806.
 LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1805.
+(Font)              scaled to size 6.0pt on input line 1806.
 LaTeX Font Info:    Font shape `TU/DejaVuSansMono(0)/b/n' will be
-(Font)              scaled to size 11.38934pt on input line 1807.
+(Font)              scaled to size 11.38934pt on input line 1808.
 [29
 
 
 ]
 LaTeX Font Info:    Font shape `TU/MapleMonoNFCN(0)/m/n' will be
-(Font)              scaled to size 11.32452pt on input line 1821.
+(Font)              scaled to size 11.32452pt on input line 1822.
 
-Overfull \hbox (162.39516pt too wide) in paragraph at lines 1823--1823
-[]\TU/DejaVuSansMono(0)/m/n/12 Setup complete (packages loaded: tidyverse, data.table, ggsci, moments, knitr, kableExtra).[] 
+Overfull \hbox (235.53612pt too wide) in paragraph at lines 1824--1824
+[]\TU/DejaVuSansMono(0)/m/n/12 Setup complete (packages loaded: tidyverse, data.table, ggsci, moments, knitr, kableExtra, IRdisplay).[] 
  []
 
 
-Overfull \vbox (13.20277pt too high) detected at line 1851
+Overfull \vbox (13.20277pt too high) detected at line 1852
  []
 
 [30]
@@ -2949,8 +2946,8 @@ File: filters/emoji/274c.png Graphic file (type bmp)
 File: filters/emoji/2705.png Graphic file (type bmp)
 <filters/emoji/2705.png>
  [31]
-File: 01_Lab-1_files/figure-pdf/cell-5-output-1.png Graphic file (type bmp)
-<01_Lab-1_files/figure-pdf/cell-5-output-1.png>
+File: 01_Lab-1_files/figure-pdf/cell-6-output-1.png Graphic file (type bmp)
+<01_Lab-1_files/figure-pdf/cell-6-output-1.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -2958,183 +2955,180 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [32]
-Overfull \hbox (326.96213pt too wide) in paragraph at lines 1937--1937
+Overfull \hbox (326.96213pt too wide) in paragraph at lines 1938--1938
 []\TU/DejaVuSansMono(0)/m/n/12 read_csv[][]([][]"https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/asset_returns.csv"[][])[]|  
  []
 
 
-Overfull \hbox (100.68239pt too wide) in paragraph at lines 1945--1945
+Overfull \hbox (100.68239pt too wide) in paragraph at lines 1946--1946
 []\TU/DejaVuSansMono(0)/m/n/12 ── Column specification ────────────────────────────────────────────────────────[] 
  []
 
 Missing character: There is no ℹ (U+2139) in font DejaVu Sans Mono/OT:script=latn;language=dflt;!
 Missing character: There is no ℹ (U+2139) in font DejaVu Sans Mono/OT:script=latn;language=dflt;!
 
-Overfull \hbox (20.68462pt too wide) in paragraph at lines 1949--1949
+Overfull \hbox (20.68462pt too wide) in paragraph at lines 1950--1950
 []\TU/DejaVuSansMono(0)/m/n/12 ℹ Use []spec()[] to retrieve the full column specification for this data.[] 
  []
 
 Missing character: There is no ℹ (U+2139) in font DejaVu Sans Mono/OT:script=latn;language=dflt;!
 Missing character: There is no ℹ (U+2139) in font DejaVu Sans Mono/OT:script=latn;language=dflt;!
 
-Overfull \hbox (84.68297pt too wide) in paragraph at lines 1950--1950
+Overfull \hbox (84.68297pt too wide) in paragraph at lines 1951--1951
 []\TU/DejaVuSansMono(0)/m/n/12 ℹ Specify the column types or set []show_col_types = FALSE[] to quiet this message.[] 
  []
 
 [33] [34]
-File: 01_Lab-1_files/figure-pdf/cell-10-output-1.png Graphic file (type bmp)
-<01_Lab-1_files/figure-pdf/cell-10-output-1.png>
+File: images/asset_returns_histograms.png Graphic file (type bmp)
+<images/asset_returns_histograms.png>
 
-Overfull \hbox (248.51187pt too wide) in paragraph at lines 2086--2087
+Overfull \hbox (12.00594pt too wide) in paragraph at lines 2059--2060
 [][] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [35]
 File: filters/emoji/1f4a1.png Graphic file (type bmp)
 <filters/emoji/1f4a1.png>
- [36]
-Overfull \hbox (114.39645pt too wide) in paragraph at lines 2159--2159
+[35]
+Overfull \hbox (114.39645pt too wide) in paragraph at lines 2132--2132
 []\TU/DejaVuSansMono(0)/m/n/12 Variance estimators: var_n (biased, divide by n) vs var_n1 (unbiased, divide by n-1).[] 
  []
 
-
-ignored: Infinite glue shrinkage found in box being split [37]
+[36]
 File: filters/emoji/1f4a1.png Graphic file (type bmp)
 <filters/emoji/1f4a1.png>
+ [37]
+File: 01_Lab-1_files/figure-pdf/cell-12-output-1.png Graphic file (type bmp)
+<01_Lab-1_files/figure-pdf/cell-12-output-1.png>
 
-Overfull \hbox (48.17474pt too wide) in paragraph at lines 2235--2235
-[] \TU/MapleMonoNFCN(0)/m/n/12 “ \TU/DejaVuSansMono(0)/m/n/12 Removed 4 rows containing missing values or values outside the scale range[] 
- []
-
-[38]
-Overfull \hbox (48.17474pt too wide) in paragraph at lines 2238--2238
-[] \TU/MapleMonoNFCN(0)/m/n/12 “ \TU/DejaVuSansMono(0)/m/n/12 Removed 4 rows containing missing values or values outside the scale range[] 
- []
-
-File: 01_Lab-1_files/figure-pdf/cell-12-output-2.png Graphic file (type bmp)
-<01_Lab-1_files/figure-pdf/cell-12-output-2.png>
-
-Overfull \hbox (113.00595pt too wide) in paragraph at lines 2242--2243
-[][] 
- []
-
-
-Overfull \hbox (402.38875pt too wide) in paragraph at lines 2253--2253
+Overfull \hbox (402.38875pt too wide) in paragraph at lines 2217--2217
 []\TU/DejaVuSansMono(0)/m/n/12 read_csv[][]([][]"https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/correlated_asset_returns.csv"[][])[]|  
  []
 
-[39]
+
+Overfull \hbox (100.68239pt too wide) in paragraph at lines 2228--2228
+[]\TU/DejaVuSansMono(0)/m/n/12 ── Column specification ────────────────────────────────────────────────────────[] 
+ []
+
+[38]
+Missing character: There is no ℹ (U+2139) in font DejaVu Sans Mono/OT:script=latn;language=dflt;!
+Missing character: There is no ℹ (U+2139) in font DejaVu Sans Mono/OT:script=latn;language=dflt;!
+
+Overfull \hbox (20.68462pt too wide) in paragraph at lines 2232--2232
+[]\TU/DejaVuSansMono(0)/m/n/12 ℹ Use []spec()[] to retrieve the full column specification for this data.[] 
+ []
+
+Missing character: There is no ℹ (U+2139) in font DejaVu Sans Mono/OT:script=latn;language=dflt;!
+Missing character: There is no ℹ (U+2139) in font DejaVu Sans Mono/OT:script=latn;language=dflt;!
+
+Overfull \hbox (84.68297pt too wide) in paragraph at lines 2233--2233
+[]\TU/DejaVuSansMono(0)/m/n/12 ℹ Specify the column types or set []show_col_types = FALSE[] to quiet this message.[] 
+ []
+
 File: 01_Lab-1_files/figure-pdf/cell-15-output-1.png Graphic file (type bmp)
 <01_Lab-1_files/figure-pdf/cell-15-output-1.png>
- [40]
+[39]
 File: filters/emoji/1f4a1.png Graphic file (type bmp)
 <filters/emoji/1f4a1.png>
- [41] [42]
+ [40] [41] [42
+
+
+]
 chapter 5.
 File: filters/emoji/1f3af.png Graphic file (type bmp)
 <filters/emoji/1f3af.png>
 LaTeX Font Info:    Font shape `TU/DejaVuSansMono(0)/b/n' will be
-(Font)              scaled to size 16.40065pt on input line 2388.
-[43
-
-
-]
-Overfull \hbox (306.39125pt too wide) in paragraph at lines 2410--2410
+(Font)              scaled to size 16.40065pt on input line 2363.
+[43]
+Overfull \hbox (306.39125pt too wide) in paragraph at lines 2387--2387
 []\TU/DejaVuSansMono(0)/m/n/12 "https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"[]|  
  []
 
 
-Overfull \hbox (2.39954pt too wide) in paragraph at lines 2434--2434
+Overfull \hbox (2.39954pt too wide) in paragraph at lines 2411--2411
 []  \TU/DejaVuSansMono(0)/m/n/12 4:    61457 Golden Feather Union Elementary       Butte  KK-08      243[] 
  []
 
 
-Overfull \hbox (41.2556pt too wide) in paragraph at lines 2442--2442
+Overfull \hbox (41.2556pt too wide) in paragraph at lines 2419--2419
 []     \TU/DejaVuSansMono(0)/m/n/12 teachers calworks   lunch computer expenditure    income   english  read[] 
  []
 
 
-Overfull \hbox (2.39966pt too wide) in paragraph at lines 2443--2443
+Overfull \hbox (2.39966pt too wide) in paragraph at lines 2420--2420
 []        \TU/DejaVuSansMono(0)/m/n/12 <num>    <num>   <num>    <num>       <num>     <num>     <num> <num>[] 
  []
 
 
-Overfull \hbox (27.54173pt too wide) in paragraph at lines 2444--2444
+Overfull \hbox (27.54173pt too wide) in paragraph at lines 2421--2421
 []  \TU/DejaVuSansMono(0)/m/n/12 1:    10.90   0.5102  2.0408       67    6384.911 22.690001  0.000000 691.6[] 
  []
 
 
-Overfull \hbox (32.11304pt too wide) in paragraph at lines 2445--2445
+Overfull \hbox (32.11304pt too wide) in paragraph at lines 2422--2422
 []  \TU/DejaVuSansMono(0)/m/n/12 2:    11.15  15.4167 47.9167      101    5099.381  9.824000  4.583333 660.5[] 
  []
 
 
-Overfull \hbox (34.39867pt too wide) in paragraph at lines 2446--2446
+Overfull \hbox (34.39867pt too wide) in paragraph at lines 2423--2423
 []  \TU/DejaVuSansMono(0)/m/n/12 3:    82.90  55.0323 76.3226      169    5501.955  8.978000 30.000002 636.3[] 
  []
 
 
-Overfull \hbox (29.8274pt too wide) in paragraph at lines 2447--2447
+Overfull \hbox (29.8274pt too wide) in paragraph at lines 2424--2424
 []  \TU/DejaVuSansMono(0)/m/n/12 4:    14.00  36.4754 77.0492       85    7101.831  8.978000  0.000000 651.9[] 
  []
 
 
-Overfull \hbox (34.39867pt too wide) in paragraph at lines 2448--2448
+Overfull \hbox (34.39867pt too wide) in paragraph at lines 2425--2425
 []  \TU/DejaVuSansMono(0)/m/n/12 5:    71.50  33.1086 78.4270      171    5235.988  9.080333 13.857677 641.8[] 
  []
 
 
-Overfull \hbox (34.39867pt too wide) in paragraph at lines 2450--2450
+Overfull \hbox (34.39867pt too wide) in paragraph at lines 2427--2427
 []\TU/DejaVuSansMono(0)/m/n/12 416:    59.73   0.1016  3.5569      195    7290.339 28.716999  5.995935 700.9[] 
  []
 
 
-Overfull \hbox (36.68431pt too wide) in paragraph at lines 2451--2451
+Overfull \hbox (36.68431pt too wide) in paragraph at lines 2428--2428
 []\TU/DejaVuSansMono(0)/m/n/12 417:   208.48   1.0741  1.5038      721    5741.463 41.734108  4.726101 704.0[] 
  []
 
 
-Overfull \hbox (36.6843pt too wide) in paragraph at lines 2452--2452
+Overfull \hbox (36.6843pt too wide) in paragraph at lines 2429--2429
 []\TU/DejaVuSansMono(0)/m/n/12 418:    20.15   3.5635 37.1938       45    4402.832 23.733000 24.263039 648.3[] 
  []
 
 
-Overfull \hbox (32.11304pt too wide) in paragraph at lines 2453--2453
+Overfull \hbox (32.11304pt too wide) in paragraph at lines 2430--2430
 []\TU/DejaVuSansMono(0)/m/n/12 419:     5.00  11.8812 59.4059       14    4776.336  9.952000  2.970297 667.9[] 
  []
 
 
-Overfull \hbox (36.68431pt too wide) in paragraph at lines 2454--2454
+Overfull \hbox (36.68431pt too wide) in paragraph at lines 2431--2431
 []\TU/DejaVuSansMono(0)/m/n/12 420:    93.40   6.9235 47.5712      313    5993.393 12.502000  5.005624 660.5[] 
  []
 
 [44]
-Underfull \hbox (badness 1629) in paragraph at lines 2482--2485
+Underfull \hbox (badness 1629) in paragraph at lines 2459--2462
 []\TU/DejaVuSerif(0)/b/n/12 Student performance measures \TU/DejaVuSerif(0)/m/n/12 (average reading and math
  []
 
 
 ignored: Infinite glue shrinkage found in box being split
 LaTeX Font Info:    Font shape `TU/DejaVuSansMono(0)/m/sl' in size <12> not available
-(Font)              Font shape `TU/DejaVuSansMono(0)/m/it' tried instead on input line 2528.
+(Font)              Font shape `TU/DejaVuSansMono(0)/m/it' tried instead on input line 2505.
 LaTeX Font Info:    Font shape `TU/DejaVuSansMono(0)/m/it' will be
-(Font)              scaled to size 11.38934pt on input line 2528.
+(Font)              scaled to size 11.38934pt on input line 2505.
 [45] [46] [47] [48]
 File: 02_Data_Visualization_files/figure-pdf/unnamed-chunk-4-1.pdf Graphic file (type pdf)
 <use 02_Data_Visualization_files/figure-pdf/unnamed-chunk-4-1.pdf>
  [49]
-Overfull \hbox (50.39813pt too wide) in paragraph at lines 2739--2739
+Overfull \hbox (50.39813pt too wide) in paragraph at lines 2716--2716
 []\TU/DejaVuSansMono(0)/m/n/12 1  KK-08 359 3926.070 4881.139 5267.365 5195.919 5539.380 7711.507 658.2412[] 
  []
 
 
-Overfull \hbox (48.11249pt too wide) in paragraph at lines 2740--2740
+Overfull \hbox (48.11249pt too wide) in paragraph at lines 2717--2717
 []\TU/DejaVuSansMono(0)/m/n/12 2  KK-06  61 4715.446 5092.917 5577.493 5399.383 5990.794 7614.379 897.8770[] 
  []
 
@@ -3142,7 +3136,7 @@ Overfull \hbox (48.11249pt too wide) in paragraph at lines 2740--2740
 File: 02_Data_Visualization_files/figure-pdf/hist-1.pdf Graphic file (type pdf)
 <use 02_Data_Visualization_files/figure-pdf/hist-1.pdf>
 
-Underfull \hbox (badness 1014) in paragraph at lines 2789--2793
+Underfull \hbox (badness 1014) in paragraph at lines 2766--2770
 []\TU/DejaVuSerif(0)/m/n/12 The \TU/DejaVuSerif(0)/b/n/12 box \TU/DejaVuSerif(0)/m/n/12 itself spans from the \TU/DejaVuSerif(0)/b/n/12 first quartile (Q1, 25th per-
  []
 
@@ -3150,7 +3144,7 @@ Underfull \hbox (badness 1014) in paragraph at lines 2789--2793
 File: 02_Data_Visualization_files/figure-pdf/unnamed-chunk-7-1.pdf Graphic file (type pdf)
 <use 02_Data_Visualization_files/figure-pdf/unnamed-chunk-7-1.pdf>
 
-Overfull \hbox (11.99332pt too wide) in paragraph at lines 2965--2966
+Overfull \hbox (11.99332pt too wide) in paragraph at lines 2942--2943
 [][] 
  []
 
@@ -3204,12 +3198,12 @@ Underfull \vbox (badness 5696) has occurred while \output is active []
  [62] [63] [64]
 chapter 6.
 
-Overfull \hbox (306.39125pt too wide) in paragraph at lines 3346--3346
+Overfull \hbox (306.39125pt too wide) in paragraph at lines 3323--3323
 []\TU/DejaVuSansMono(0)/m/n/12 "https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"[]|  
  []
 
 
-Overfull \hbox (2.39954pt too wide) in paragraph at lines 3363--3363
+Overfull \hbox (2.39954pt too wide) in paragraph at lines 3340--3340
 []  \TU/DejaVuSansMono(0)/m/n/12 4:    61457 Golden Feather Union Elementary       Butte  KK-08      243[] 
  []
 
@@ -3217,101 +3211,101 @@ Overfull \hbox (2.39954pt too wide) in paragraph at lines 3363--3363
 
 
 ]
-Overfull \hbox (41.2556pt too wide) in paragraph at lines 3371--3371
+Overfull \hbox (41.2556pt too wide) in paragraph at lines 3348--3348
 []     \TU/DejaVuSansMono(0)/m/n/12 teachers calworks   lunch computer expenditure    income   english  read[] 
  []
 
 
-Overfull \hbox (2.39966pt too wide) in paragraph at lines 3372--3372
+Overfull \hbox (2.39966pt too wide) in paragraph at lines 3349--3349
 []        \TU/DejaVuSansMono(0)/m/n/12 <num>    <num>   <num>    <num>       <num>     <num>     <num> <num>[] 
  []
 
 
-Overfull \hbox (27.54173pt too wide) in paragraph at lines 3373--3373
+Overfull \hbox (27.54173pt too wide) in paragraph at lines 3350--3350
 []  \TU/DejaVuSansMono(0)/m/n/12 1:    10.90   0.5102  2.0408       67    6384.911 22.690001  0.000000 691.6[] 
  []
 
 
-Overfull \hbox (32.11304pt too wide) in paragraph at lines 3374--3374
+Overfull \hbox (32.11304pt too wide) in paragraph at lines 3351--3351
 []  \TU/DejaVuSansMono(0)/m/n/12 2:    11.15  15.4167 47.9167      101    5099.381  9.824000  4.583333 660.5[] 
  []
 
 
-Overfull \hbox (34.39867pt too wide) in paragraph at lines 3375--3375
+Overfull \hbox (34.39867pt too wide) in paragraph at lines 3352--3352
 []  \TU/DejaVuSansMono(0)/m/n/12 3:    82.90  55.0323 76.3226      169    5501.955  8.978000 30.000002 636.3[] 
  []
 
 
-Overfull \hbox (29.8274pt too wide) in paragraph at lines 3376--3376
+Overfull \hbox (29.8274pt too wide) in paragraph at lines 3353--3353
 []  \TU/DejaVuSansMono(0)/m/n/12 4:    14.00  36.4754 77.0492       85    7101.831  8.978000  0.000000 651.9[] 
  []
 
 
-Overfull \hbox (34.39867pt too wide) in paragraph at lines 3377--3377
+Overfull \hbox (34.39867pt too wide) in paragraph at lines 3354--3354
 []  \TU/DejaVuSansMono(0)/m/n/12 5:    71.50  33.1086 78.4270      171    5235.988  9.080333 13.857677 641.8[] 
  []
 
 
-Overfull \hbox (34.39867pt too wide) in paragraph at lines 3379--3379
+Overfull \hbox (34.39867pt too wide) in paragraph at lines 3356--3356
 []\TU/DejaVuSansMono(0)/m/n/12 416:    59.73   0.1016  3.5569      195    7290.339 28.716999  5.995935 700.9[] 
  []
 
 
-Overfull \hbox (36.68431pt too wide) in paragraph at lines 3380--3380
+Overfull \hbox (36.68431pt too wide) in paragraph at lines 3357--3357
 []\TU/DejaVuSansMono(0)/m/n/12 417:   208.48   1.0741  1.5038      721    5741.463 41.734108  4.726101 704.0[] 
  []
 
 
-Overfull \hbox (36.6843pt too wide) in paragraph at lines 3381--3381
+Overfull \hbox (36.6843pt too wide) in paragraph at lines 3358--3358
 []\TU/DejaVuSansMono(0)/m/n/12 418:    20.15   3.5635 37.1938       45    4402.832 23.733000 24.263039 648.3[] 
  []
 
 
-Overfull \hbox (32.11304pt too wide) in paragraph at lines 3382--3382
+Overfull \hbox (32.11304pt too wide) in paragraph at lines 3359--3359
 []\TU/DejaVuSansMono(0)/m/n/12 419:     5.00  11.8812 59.4059       14    4776.336  9.952000  2.970297 667.9[] 
  []
 
 
-Overfull \hbox (36.68431pt too wide) in paragraph at lines 3383--3383
+Overfull \hbox (36.68431pt too wide) in paragraph at lines 3360--3360
 []\TU/DejaVuSansMono(0)/m/n/12 420:    93.40   6.9235 47.5712      313    5993.393 12.502000  5.005624 660.5[] 
  []
 
-[66] [67] [68] [69]
+[66] [67]
 File: 03_Linear_Regression_files/figure-pdf/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use 03_Linear_Regression_files/figure-pdf/unnamed-chunk-3-1.pdf>
- [70]
-Underfull \hbox (badness 1694) in paragraph at lines 3697--3700
+ [68]
+Underfull \hbox (badness 1694) in paragraph at lines 3560--3563
 []$[][]$ \TU/DejaVuSerif(0)/m/n/12 is the error term, capturing all other factors affecting
  []
 
-[71]
+[69]
 File: filters/emoji/1f4cc.png Graphic file (type bmp)
 <filters/emoji/1f4cc.png>
- [72] [73]
-Underfull \hbox (badness 2318) in paragraph at lines 3864--3866
+ [70] [71] [72]
+Underfull \hbox (badness 2318) in paragraph at lines 3727--3729
 []\TU/DejaVuSerif(0)/m/n/12 Many other factors (teacher quality, socio-economic back-
  []
 
-[74]
 File: 03_Linear_Regression_files/figure-pdf/unnamed-chunk-6-1.pdf Graphic file (type pdf)
 <use 03_Linear_Regression_files/figure-pdf/unnamed-chunk-6-1.pdf>
 
-Overfull \hbox (12.00182pt too wide) in paragraph at lines 3894--3895
+Overfull \hbox (12.00182pt too wide) in paragraph at lines 3757--3758
 [][] 
  []
 
+[73]
 File: filters/emoji/2705.png Graphic file (type bmp)
 <filters/emoji/2705.png>
-[75] [76] [77] [78
+ [74] [75] [76
 
 
 ]
 chapter 7.
 File: filters/emoji/1f3af.png Graphic file (type bmp)
 <filters/emoji/1f3af.png>
-[79] [80]
+[77] [78]
 LaTeX Font Info:    Font shape `TU/DejaVuSerif(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 4137.
+(Font)              scaled to size 12.0pt on input line 4000.
 Package microtype Info: Character `textendash ' is missing
 (microtype)             in font `TU/DejaVuSerif(1)/m/n/12'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -3331,113 +3325,113 @@ Package microtype Info: Character `textquotedblright ' is missing
 (microtype)             in font `TU/DejaVuSerif(1)/m/n/12'.
 (microtype)             Ignoring protrusion settings for this character.
 LaTeX Font Info:    Font shape `TU/DejaVuSerif(1)/m/n' will be
-(Font)              scaled to size 8.4pt on input line 4137.
+(Font)              scaled to size 8.4pt on input line 4000.
 LaTeX Font Info:    Font shape `TU/DejaVuSerif(1)/m/n' will be
-(Font)              scaled to size 6.6pt on input line 4137.
- [81]
+(Font)              scaled to size 6.6pt on input line 4000.
+ [79]
 
 LaTeX Font Warning: Font shape `TU/XCharter-Math.otf(1)/b/n' undefined
-(Font)              using `TU/XCharter-Math.otf(1)/m/n' instead on input line 4192.
+(Font)              using `TU/XCharter-Math.otf(1)/m/n' instead on input line 4055.
 
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(1)/b/n' will be
-(Font)              scaled to size 9.43704pt on input line 4192.
+(Font)              scaled to size 9.43704pt on input line 4055.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(1)/b/n' will be
-(Font)              scaled to size 7.41483pt on input line 4192.
+(Font)              scaled to size 7.41483pt on input line 4055.
 
 LaTeX Font Warning: Font shape `TU/XCharter-Math.otf(2)/b/n' undefined
-(Font)              using `TU/XCharter-Math.otf(2)/m/n' instead on input line 4192.
+(Font)              using `TU/XCharter-Math.otf(2)/m/n' instead on input line 4055.
 
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(2)/b/n' will be
-(Font)              scaled to size 9.43806pt on input line 4192.
+(Font)              scaled to size 9.43806pt on input line 4055.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(2)/b/n' will be
-(Font)              scaled to size 7.41563pt on input line 4192.
+(Font)              scaled to size 7.41563pt on input line 4055.
 
 LaTeX Font Warning: Font shape `TU/XCharter-Math.otf(3)/b/n' undefined
-(Font)              using `TU/XCharter-Math.otf(3)/m/n' instead on input line 4192.
+(Font)              using `TU/XCharter-Math.otf(3)/m/n' instead on input line 4055.
 
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(3)/b/n' will be
-(Font)              scaled to size 9.43614pt on input line 4192.
+(Font)              scaled to size 9.43614pt on input line 4055.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(3)/b/n' will be
-(Font)              scaled to size 7.41412pt on input line 4192.
+(Font)              scaled to size 7.41412pt on input line 4055.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(1)/b/n' will be
-(Font)              scaled to size 13.4815pt on input line 4192.
+(Font)              scaled to size 13.4815pt on input line 4055.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(2)/b/n' will be
-(Font)              scaled to size 13.48297pt on input line 4192.
+(Font)              scaled to size 13.48297pt on input line 4055.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(3)/b/n' will be
-(Font)              scaled to size 13.48022pt on input line 4192.
-[82]
+(Font)              scaled to size 13.48022pt on input line 4055.
+[80]
 LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/m/it' will be
-(Font)              scaled to size 8.4pt on input line 4269.
+(Font)              scaled to size 8.4pt on input line 4132.
 LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/m/it' will be
-(Font)              scaled to size 6.6pt on input line 4269.
+(Font)              scaled to size 6.6pt on input line 4132.
 LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/b/it' will be
-(Font)              scaled to size 12.0pt on input line 4273.
- [83] [84] [85] [86]
+(Font)              scaled to size 12.0pt on input line 4136.
+ [81] [82] [83] [84]
 File: images/CLT.png Graphic file (type bmp)
 <images/CLT.png>
 
-Overfull \hbox (35.96686pt too wide) in paragraph at lines 4538--4539
+Overfull \hbox (35.96686pt too wide) in paragraph at lines 4401--4402
  [][] 
  []
 
-[87] [88] [89]
+[85] [86] [87]
 File: 04_Theoretical_Framework_LR_files/figure-pdf/unnamed-chunk-1-1.pdf Graphic file (type pdf)
 <use 04_Theoretical_Framework_LR_files/figure-pdf/unnamed-chunk-1-1.pdf>
- [90]
-Overfull \hbox (306.39125pt too wide) in paragraph at lines 4712--4712
+ [88]
+Overfull \hbox (306.39125pt too wide) in paragraph at lines 4575--4575
 []\TU/DejaVuSansMono(0)/m/n/12 "https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"[]|  
  []
 
 LaTeX Font Info:    Font shape `TU/DejaVuSerif(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 4712.
+(Font)              scaled to size 6.0pt on input line 4575.
 LaTeX Font Info:    Font shape `TU/DejaVuSerif(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 4712.
-[91] [92] [93] [94
+(Font)              scaled to size 5.0pt on input line 4575.
+[89] [90] [91] [92
 
 
 ]
 chapter 8.
-[95]
-Underfull \hbox (badness 7415) in paragraph at lines 4892--4894
+[93]
+Underfull \hbox (badness 7415) in paragraph at lines 4755--4757
 []\TU/DejaVuSerif(0)/m/n/12 Coming back to the regression output, we have estimate
  []
 
 
-Underfull \hbox (badness 1661) in paragraph at lines 4892--4894
+Underfull \hbox (badness 1661) in paragraph at lines 4755--4757
 [] [][][][][][][][][]$ \TU/DejaVuSerif(0)/m/n/12 value to test against with $[] [][]$ standard error
  []
 
-[96] [97] [98] [99] [100
+[94] [95] [96] [97] [98
 
 
 ]
 chapter 9.
 File: filters/emoji/1f3af.png Graphic file (type bmp)
 <filters/emoji/1f3af.png>
-[101]
+[99]
 File: filters/emoji/1f4a1.png Graphic file (type bmp)
 <filters/emoji/1f4a1.png>
 
-Overfull \hbox (306.39125pt too wide) in paragraph at lines 5165--5165
+Overfull \hbox (306.39125pt too wide) in paragraph at lines 5028--5028
 []\TU/DejaVuSansMono(0)/m/n/12 "https://raw.githubusercontent.com/my1396/FIN5005-Fall2025/refs/heads/main/data/CASchools_test_score.csv"[]|  
  []
 
-[102]
+[100]
 File: 06_Multiple_Linear_Regression_files/figure-pdf/fig-scatter-1-1.pdf Graphic file (type pdf)
 <use 06_Multiple_Linear_Regression_files/figure-pdf/fig-scatter-1-1.pdf>
- [103] [104]
-Overfull \hbox (8.45001pt too wide) in paragraph at lines 5310--5339
+ [101] [102]
+Overfull \hbox (8.45001pt too wide) in paragraph at lines 5173--5202
  [][] 
  []
 
-[105] [106] [107] [108] [109]
-Overfull \hbox (64.92958pt too wide) detected at line 5639
+[103] [104] [105] [106] [107]
+Overfull \hbox (64.92958pt too wide) detected at line 5500
 [][]
  []
 
-[110]
+[108] [109]
 LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 5687.
+(Font)              scaled to size 10.95pt on input line 5545.
 Package microtype Info: Character `textendash ' is missing
 (microtype)             in font `TU/DejaVuSerif(0)/m/n/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -3457,11 +3451,11 @@ Package microtype Info: Character `textquotedblright ' is missing
 (microtype)             in font `TU/DejaVuSerif(0)/m/n/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(1)/m/n' will be
-(Font)              scaled to size 12.30186pt on input line 5688.
+(Font)              scaled to size 12.30186pt on input line 5546.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(1)/m/n' will be
-(Font)              scaled to size 8.98767pt on input line 5688.
+(Font)              scaled to size 8.98767pt on input line 5546.
 LaTeX Font Info:    Font shape `TU/DejaVuSerif(1)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 5688.
+(Font)              scaled to size 10.95pt on input line 5546.
 Package microtype Info: Character `textendash ' is missing
 (microtype)             in font `TU/DejaVuSerif(1)/m/n/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -3481,17 +3475,17 @@ Package microtype Info: Character `textquotedblright ' is missing
 (microtype)             in font `TU/DejaVuSerif(1)/m/n/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
 LaTeX Font Info:    Font shape `TU/DejaVuSerif(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 5688.
+(Font)              scaled to size 8.0pt on input line 5546.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(2)/m/n' will be
-(Font)              scaled to size 12.3032pt on input line 5688.
+(Font)              scaled to size 12.3032pt on input line 5546.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(2)/m/n' will be
-(Font)              scaled to size 8.98865pt on input line 5688.
+(Font)              scaled to size 8.98865pt on input line 5546.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(3)/m/n' will be
-(Font)              scaled to size 12.30069pt on input line 5688.
+(Font)              scaled to size 12.30069pt on input line 5546.
 LaTeX Font Info:    Font shape `TU/XCharter-Math.otf(3)/m/n' will be
-(Font)              scaled to size 8.98682pt on input line 5688.
+(Font)              scaled to size 8.98682pt on input line 5546.
 LaTeX Font Info:    Font shape `TU/DejaVuSerif(0)/m/it' will be
-(Font)              scaled to size 10.95pt on input line 5691.
+(Font)              scaled to size 10.95pt on input line 5549.
 Package microtype Info: Character `textendash ' is missing
 (microtype)             in font `TU/DejaVuSerif(0)/m/it/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -3511,115 +3505,113 @@ Package microtype Info: Character `textquotedblright ' is missing
 (microtype)             in font `TU/DejaVuSerif(0)/m/it/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
 
-Overfull \hbox (158.96002pt too wide) in paragraph at lines 5688--5722
- [][] 
+Overfull \hbox (12.0pt too wide) in paragraph at lines 5542--5583
+[] 
+ []
+
+[110
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 5589--5592
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5728--5731
+Underfull \hbox (badness 10000) in paragraph at lines 5592--5594
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5731--5733
+Underfull \hbox (badness 10000) in paragraph at lines 5612--5615
 
  []
 
+[111
 
-Underfull \hbox (badness 10000) in paragraph at lines 5751--5754
-
- []
-
-[111] [112]
+]
 File: 06_Multiple_Linear_Regression_files/figure-pdf/fig-scatter-2-1.pdf Graphic file (type pdf)
 <use 06_Multiple_Linear_Regression_files/figure-pdf/fig-scatter-2-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [113] [114]
+ [112]
 chapter 10.
 File: filters/emoji/1f3af.png Graphic file (type bmp)
 <filters/emoji/1f3af.png>
 
-Underfull \hbox (badness 4859) in paragraph at lines 5895--5898
+Underfull \hbox (badness 4859) in paragraph at lines 5756--5759
 \TU/DejaVuSerif(0)/m/n/12 We continue to use the same dataset California school dataset
  []
 
-[115
+[113
 
 
 ]
-Overfull \hbox (2.39954pt too wide) in paragraph at lines 5946--5946
+Overfull \hbox (2.39954pt too wide) in paragraph at lines 5807--5807
 []  \TU/DejaVuSansMono(0)/m/n/12 4:    61457 Golden Feather Union Elementary       Butte  KK-08      243[] 
  []
 
 
-Overfull \hbox (41.2556pt too wide) in paragraph at lines 5954--5954
+Overfull \hbox (41.2556pt too wide) in paragraph at lines 5815--5815
 []     \TU/DejaVuSansMono(0)/m/n/12 teachers calworks   lunch computer expenditure    income   english  read[] 
  []
 
 
-Overfull \hbox (2.39966pt too wide) in paragraph at lines 5955--5955
+Overfull \hbox (2.39966pt too wide) in paragraph at lines 5816--5816
 []        \TU/DejaVuSansMono(0)/m/n/12 <num>    <num>   <num>    <num>       <num>     <num>     <num> <num>[] 
  []
 
-[116]
-Overfull \hbox (27.54173pt too wide) in paragraph at lines 5956--5956
+[114]
+Overfull \hbox (27.54173pt too wide) in paragraph at lines 5817--5817
 []  \TU/DejaVuSansMono(0)/m/n/12 1:    10.90   0.5102  2.0408       67    6384.911 22.690001  0.000000 691.6[] 
  []
 
 
-Overfull \hbox (32.11304pt too wide) in paragraph at lines 5957--5957
+Overfull \hbox (32.11304pt too wide) in paragraph at lines 5818--5818
 []  \TU/DejaVuSansMono(0)/m/n/12 2:    11.15  15.4167 47.9167      101    5099.381  9.824000  4.583333 660.5[] 
  []
 
 
-Overfull \hbox (34.39867pt too wide) in paragraph at lines 5958--5958
+Overfull \hbox (34.39867pt too wide) in paragraph at lines 5819--5819
 []  \TU/DejaVuSansMono(0)/m/n/12 3:    82.90  55.0323 76.3226      169    5501.955  8.978000 30.000002 636.3[] 
  []
 
 
-Overfull \hbox (29.8274pt too wide) in paragraph at lines 5959--5959
+Overfull \hbox (29.8274pt too wide) in paragraph at lines 5820--5820
 []  \TU/DejaVuSansMono(0)/m/n/12 4:    14.00  36.4754 77.0492       85    7101.831  8.978000  0.000000 651.9[] 
  []
 
 
-Overfull \hbox (34.39867pt too wide) in paragraph at lines 5960--5960
+Overfull \hbox (34.39867pt too wide) in paragraph at lines 5821--5821
 []  \TU/DejaVuSansMono(0)/m/n/12 5:    71.50  33.1086 78.4270      171    5235.988  9.080333 13.857677 641.8[] 
  []
 
 
-Overfull \hbox (34.39867pt too wide) in paragraph at lines 5962--5962
+Overfull \hbox (34.39867pt too wide) in paragraph at lines 5823--5823
 []\TU/DejaVuSansMono(0)/m/n/12 416:    59.73   0.1016  3.5569      195    7290.339 28.716999  5.995935 700.9[] 
  []
 
 
-Overfull \hbox (36.68431pt too wide) in paragraph at lines 5963--5963
+Overfull \hbox (36.68431pt too wide) in paragraph at lines 5824--5824
 []\TU/DejaVuSansMono(0)/m/n/12 417:   208.48   1.0741  1.5038      721    5741.463 41.734108  4.726101 704.0[] 
  []
 
 
-Overfull \hbox (36.6843pt too wide) in paragraph at lines 5964--5964
+Overfull \hbox (36.6843pt too wide) in paragraph at lines 5825--5825
 []\TU/DejaVuSansMono(0)/m/n/12 418:    20.15   3.5635 37.1938       45    4402.832 23.733000 24.263039 648.3[] 
  []
 
 
-Overfull \hbox (32.11304pt too wide) in paragraph at lines 5965--5965
+Overfull \hbox (32.11304pt too wide) in paragraph at lines 5826--5826
 []\TU/DejaVuSansMono(0)/m/n/12 419:     5.00  11.8812 59.4059       14    4776.336  9.952000  2.970297 667.9[] 
  []
 
 
-Overfull \hbox (36.68431pt too wide) in paragraph at lines 5966--5966
+Overfull \hbox (36.68431pt too wide) in paragraph at lines 5827--5827
 []\TU/DejaVuSansMono(0)/m/n/12 420:    93.40   6.9235 47.5712      313    5993.393 12.502000  5.005624 660.5[] 
  []
 
 LaTeX Font Info:    Font shape `TU/DejaVuSerif(1)/m/n' will be
-(Font)              scaled to size 17.28pt on input line 6006.
+(Font)              scaled to size 17.28pt on input line 5867.
 LaTeX Font Info:    Font shape `TU/DejaVuSerif(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 6006.
+(Font)              scaled to size 10.0pt on input line 5867.
 Package microtype Info: Character `textendash ' is missing
 (microtype)             in font `TU/DejaVuSerif(1)/m/n/10'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -3638,113 +3630,113 @@ Package microtype Info: Character `textquotedblleft ' is missing
 Package microtype Info: Character `textquotedblright ' is missing
 (microtype)             in font `TU/DejaVuSerif(1)/m/n/10'.
 (microtype)             Ignoring protrusion settings for this character.
-[117] [118] [119]
+[115] [116] [117]
 File: filters/emoji/1f4a1.png Graphic file (type bmp)
 <filters/emoji/1f4a1.png>
 
-Overfull \hbox (25.25577pt too wide) in paragraph at lines 6183--6183
+Overfull \hbox (25.25577pt too wide) in paragraph at lines 6044--6044
 []\TU/DejaVuSansMono(0)/m/n/12 ====================================================================[] 
  []
 
 
-Overfull \hbox (25.25583pt too wide) in paragraph at lines 6189--6189
+Overfull \hbox (25.25583pt too wide) in paragraph at lines 6050--6050
 []\TU/DejaVuSansMono(0)/m/n/12 --------------------------------------------------------------------[] 
  []
 
-[120]
-Overfull \hbox (25.25583pt too wide) in paragraph at lines 6205--6205
+[118]
+Overfull \hbox (25.25583pt too wide) in paragraph at lines 6066--6066
 []\TU/DejaVuSansMono(0)/m/n/12 --------------------------------------------------------------------[] 
  []
 
 
-Overfull \hbox (25.25577pt too wide) in paragraph at lines 6211--6211
+Overfull \hbox (25.25577pt too wide) in paragraph at lines 6072--6072
 []\TU/DejaVuSansMono(0)/m/n/12 ====================================================================[] 
  []
 
 File: filters/emoji/1f4a1.png Graphic file (type bmp)
 <filters/emoji/1f4a1.png>
-[121] [122]
+[119] [120]
 File: 07_Lab-2_dummy-variable_files/figure-pdf/cell-14-output-1.png Graphic file (type bmp)
 <07_Lab-2_dummy-variable_files/figure-pdf/cell-14-output-1.png>
- [123]
-Overfull \hbox (0.10698pt too wide) in alignment at lines 6390--6407
+ [121]
+Overfull \hbox (0.10698pt too wide) in alignment at lines 6251--6268
  [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (0.10698pt too wide) in alignment at lines 6407--6409
+Overfull \hbox (0.10698pt too wide) in alignment at lines 6268--6270
  [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (12.16048pt too wide) in paragraph at lines 6410--6410
+Overfull \hbox (12.16048pt too wide) in paragraph at lines 6271--6271
 []|\TU/DejaVuSerif(0)/m/n/12 146815.42|  
  []
 
 
-Overfull \hbox (4.52571pt too wide) in paragraph at lines 6411--6411
+Overfull \hbox (4.52571pt too wide) in paragraph at lines 6272--6272
 []|\TU/DejaVuSerif(0)/m/n/12 34940.45|  
  []
 
 
-Overfull \hbox (4.52571pt too wide) in paragraph at lines 6411--6411
+Overfull \hbox (4.52571pt too wide) in paragraph at lines 6272--6272
 []|\TU/DejaVuSerif(0)/m/n/12 442.9261|  
  []
 
 
-Overfull \hbox (13.65396pt too wide) in paragraph at lines 6411--6412
+Overfull \hbox (13.65396pt too wide) in paragraph at lines 6272--6273
 []|\TU/DejaVuSerif(0)/m/n/12 6.146085e- 
  []
 
 
-Overfull \hbox (0.10698pt too wide) in alignment at lines 6409--6412
+Overfull \hbox (0.10698pt too wide) in alignment at lines 6270--6273
  [] [] [] [] [] [] [] 
  []
 
-[124]
+[122]
 chapter 11.
 File: filters/emoji/1f3af.png Graphic file (type bmp)
 <filters/emoji/1f3af.png>
-[125
+[123
 
 
-] [126]
-Overfull \hbox (36.10521pt too wide) in paragraph at lines 6591--6592
+] [124]
+Overfull \hbox (36.10521pt too wide) in paragraph at lines 6452--6453
 []\TU/DejaVuSerif(0)/m/n/12 Scenario  
  []
 
 
-Overfull \hbox (26.05458pt too wide) in paragraph at lines 6620--6621
+Overfull \hbox (26.05458pt too wide) in paragraph at lines 6481--6482
  []\TU/DejaVuSerif(0)/m/n/12 Scenario 
  []
 
 
-Overfull \hbox (2.32617pt too wide) in paragraph at lines 6622--6623
+Overfull \hbox (2.32617pt too wide) in paragraph at lines 6483--6484
  []$[][][][][]$ 
  []
 
-[127] [128]
-Overfull \hbox (3.4074pt too wide) detected at line 6724
+[125] [126]
+Overfull \hbox (3.4074pt too wide) detected at line 6585
 [][][][][][]
  []
 
 
-Overfull \hbox (25.25577pt too wide) in paragraph at lines 6743--6743
+Overfull \hbox (25.25577pt too wide) in paragraph at lines 6604--6604
 []\TU/DejaVuSansMono(0)/m/n/12 ====================================================================[] 
  []
 
 
-Overfull \hbox (25.25583pt too wide) in paragraph at lines 6749--6749
+Overfull \hbox (25.25583pt too wide) in paragraph at lines 6610--6610
 []\TU/DejaVuSansMono(0)/m/n/12 --------------------------------------------------------------------[] 
  []
 
-[129]
-Overfull \hbox (25.25583pt too wide) in paragraph at lines 6768--6768
+[127]
+Overfull \hbox (25.25583pt too wide) in paragraph at lines 6629--6629
 []\TU/DejaVuSansMono(0)/m/n/12 --------------------------------------------------------------------[] 
  []
 
 
-Overfull \hbox (25.25577pt too wide) in paragraph at lines 6774--6774
+Overfull \hbox (25.25577pt too wide) in paragraph at lines 6635--6635
 []\TU/DejaVuSansMono(0)/m/n/12 ====================================================================[] 
  []
 
@@ -3756,52 +3748,52 @@ Underfull \vbox (badness 3271) has occurred while \output is active []
 
 Underfull \vbox (badness 3271) has occurred while \output is active []
 
- [130] [131] [132] [133] [134]
+ [128] [129] [130] [131] [132]
 File: 08_Interactions_files/figure-pdf/unnamed-chunk-7-1.pdf Graphic file (type pdf)
 <use 08_Interactions_files/figure-pdf/unnamed-chunk-7-1.pdf>
- [135] [136
+ [133] [134
 
 
 ]
 chapter 12.
 File: filters/emoji/1f3af.png Graphic file (type bmp)
 <filters/emoji/1f3af.png>
-[137] [138]
-Overfull \hbox (45.82695pt too wide) in paragraph at lines 7187--7187
+[135] [136]
+Overfull \hbox (45.82695pt too wide) in paragraph at lines 7048--7048
 []        \TU/DejaVuSansMono(0)/m/n/12 deny pirat hirat     lvrat  chist  mhist  phist unemp selfemp insurance[] 
  []
 
 
-Overfull \hbox (48.11261pt too wide) in paragraph at lines 7188--7188
+Overfull \hbox (48.11261pt too wide) in paragraph at lines 7049--7049
 []      \TU/DejaVuSansMono(0)/m/n/12 <fctr> <num> <num>     <num> <fctr> <fctr> <fctr> <num>  <fctr>    <fctr>[] 
  []
 
 
-Overfull \hbox (6.971pt too wide) in paragraph at lines 7195--7195
+Overfull \hbox (6.971pt too wide) in paragraph at lines 7056--7056
 []\TU/DejaVuSansMono(0)/m/n/12 2376:     no 0.310 0.250 0.8000000      1      1     no   3.2     yes        no[] 
  []
 
 
-Overfull \hbox (4.68535pt too wide) in paragraph at lines 7196--7196
+Overfull \hbox (4.68535pt too wide) in paragraph at lines 7057--7057
 []\TU/DejaVuSansMono(0)/m/n/12 2377:     no 0.300 0.300 0.7770492      1      2     no   3.2      no        no[] 
  []
 
 
-Overfull \hbox (4.68535pt too wide) in paragraph at lines 7197--7197
+Overfull \hbox (4.68535pt too wide) in paragraph at lines 7058--7058
 []\TU/DejaVuSansMono(0)/m/n/12 2378:     no 0.260 0.200 0.5267606      2      1     no   3.1      no        no[] 
  []
 
 
-Overfull \hbox (9.25664pt too wide) in paragraph at lines 7198--7198
+Overfull \hbox (9.25664pt too wide) in paragraph at lines 7059--7059
 []\TU/DejaVuSansMono(0)/m/n/12 2379:    yes 0.320 0.260 0.7538462      6      1    yes   3.1      no        no[] 
  []
 
 
-Overfull \hbox (6.971pt too wide) in paragraph at lines 7199--7199
+Overfull \hbox (6.971pt too wide) in paragraph at lines 7060--7060
 []\TU/DejaVuSansMono(0)/m/n/12 2380:    yes 0.350 0.260 0.8135593      2      2     no   4.3      no        no[] 
  []
 
-[139] [140] [141] [142]
+[137] [138] [139] [140]
 File: 09_Logistic_Regression_files/figure-pdf/unnamed-chunk-6-1.pdf Graphic file (type pdf)
 <use 09_Logistic_Regression_files/figure-pdf/unnamed-chunk-6-1.pdf>
 
@@ -3810,7 +3802,7 @@ Underfull \vbox (badness 6284) has occurred while \output is active []
 
 Underfull \vbox (badness 6284) has occurred while \output is active []
 
- [143]
+ [141]
 File: 09_Logistic_Regression_files/figure-pdf/unnamed-chunk-7-1.pdf Graphic file (type pdf)
 <use 09_Logistic_Regression_files/figure-pdf/unnamed-chunk-7-1.pdf>
 
@@ -3819,32 +3811,32 @@ Underfull \vbox (badness 2376) has occurred while \output is active []
 
 Underfull \vbox (badness 2376) has occurred while \output is active []
 
- [144]
-Overfull \vbox (11.41689pt too high) detected at line 7487
+ [142]
+Overfull \vbox (11.41689pt too high) detected at line 7348
  []
 
-[145]
-Underfull \hbox (badness 3179) in paragraph at lines 7539--7542
+[143]
+Underfull \hbox (badness 3179) in paragraph at lines 7400--7403
 []\TU/DejaVuSerif(0)/m/n/12 By contrast, the control group is non-African Americans
  []
 
-[146] [147]
-Overfull \hbox (53.40631pt too wide) detected at line 7624
+[144] [145]
+Overfull \hbox (53.40631pt too wide) detected at line 7485
 [][] [] [] [] []
  []
 
-[148] [149]
+[146] [147]
 File: 09_Logistic_Regression_files/figure-pdf/fig-linear-1.pdf Graphic file (type pdf)
 <use 09_Logistic_Regression_files/figure-pdf/fig-linear-1.pdf>
- [150] [151]
+ [148] [149]
 File: 09_Logistic_Regression_files/figure-pdf/fig-logit-1.pdf Graphic file (type pdf)
 <use 09_Logistic_Regression_files/figure-pdf/fig-logit-1.pdf>
- [152] [153] [154]
-Overfull \hbox (69.34956pt too wide) detected at line 8018
+ [150] [151] [152]
+Overfull \hbox (69.34956pt too wide) detected at line 7879
 [][][][][][][] [] [][][][][][][][][] [][][][][][] [] [][][][] [] [][] [] [][][][][][] [] [][] [] [][][][][][] [] [][]
  []
 
-[155] [156]
+[153] [154]
 File: 09_Logistic_Regression_files/figure-pdf/unnamed-chunk-20-1.pdf Graphic file (type pdf)
 <use 09_Logistic_Regression_files/figure-pdf/unnamed-chunk-20-1.pdf>
 
@@ -3853,33 +3845,33 @@ Underfull \vbox (badness 2503) has occurred while \output is active []
 
 Underfull \vbox (badness 2503) has occurred while \output is active []
 
- [157] [158]
-Overfull \hbox (25.3187pt too wide) detected at line 8223
+ [155] [156]
+Overfull \hbox (25.3187pt too wide) detected at line 8084
 [][][][][][] [] [][][][][][][] [] [][][][] [][][][] [] [][] [] [] [] [][][][]
  []
 
 
-Overfull \hbox (25.3187pt too wide) detected at line 8227
+Overfull \hbox (25.3187pt too wide) detected at line 8088
 [][][][][][] [] [][][][][][][] [] [][][][] [][][][] [] [][] [] [] [] [][][][]
  []
 
 
-Overfull \hbox (83.4404pt too wide) detected at line 8237
+Overfull \hbox (83.4404pt too wide) detected at line 8098
 [][][][][][] [] [][][][][][][] [] [][][][] [][][][] [] [][] [] [][][][][][][] [] [][][][] [] [][][] [] [][][][] [] [][] [] [][][][][][][][][]
  []
 
 
-Overfull \hbox (52.70255pt too wide) detected at line 8242
+Overfull \hbox (52.70255pt too wide) detected at line 8103
 [][][][][][] [] [][][][][][][] [] [][][][] [][][][] [] [][] [] [][][][][][][] [] [][][][] [] [][][] [] [][][][] [] [][] [] [][][][][]
  []
 
 
-Overfull \hbox (1.19495pt too wide) in paragraph at lines 8276--8276
+Overfull \hbox (1.19495pt too wide) in paragraph at lines 8137--8137
 []|\TU/DejaVuSerif(0)/b/n/12 Heteroskedasticity|  
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [159] [160] (out_dir/index.aux)
+ignored: Infinite glue shrinkage found in box being split [157] [158] (out_dir/index.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
@@ -3893,12 +3885,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 49207 strings out of 468168
- 1076033 string characters out of 5432816
- 1733301 words of memory out of 5000000
- 77105 multiletter control sequences out of 15000+600000
+ 49231 strings out of 468168
+ 1076521 string characters out of 5432816
+ 1733525 words of memory out of 5000000
+ 77126 multiletter control sequences out of 15000+600000
  646018 words of font info for 224 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  108i,26n,127p,11318b,1562s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out_dir/index.xdv (166 pages, 2308768 bytes).
+Output written on out_dir/index.xdv (164 pages, 2298728 bytes).

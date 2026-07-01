@@ -321,7 +321,6 @@ Note
 
 
 We consider the following models:
-
 $$
 \begin{aligned}
   (I) \quad TestScore=& \, \beta_0 + \beta_1 \times STR + u, \\
@@ -333,7 +332,7 @@ $$
 $$
 
 
-```{r alterative-models, results='asis'}
+```{r alterative-models, eval=FALSE}
 library(sandwich) # for robust standard errors
 
 # estimate different model specifications
@@ -354,13 +353,9 @@ rob_se <- list(
 
 # generate a summarizing table using stargazer
 is_html <- knitr::is_html_output()
-out_env <- ifelse(is_html, "table", "sidewaystable")
-out_font <- if(is_html) NULL else "small" 
-out_sep <- ifelse(is_html, "", "1pt")
-
 stargazer(
     spec1, spec2, spec3, spec4, spec5,
-    type = ifelse(knitr::is_html_output(), "html", "latex"),
+    type = if (is_html) "html" else "latex",
     se = rob_se,
     digits = 3,
     header = FALSE,
@@ -368,11 +363,35 @@ stargazer(
     model.numbers = FALSE,
     notes = "Standard errors in parentheses.",
     notes.append = TRUE,
-    float.env = out_env,
-    font.size = out_font,
-    column.sep.width = out_sep
+    font.size = if (is_html) NULL else "small",
+    column.sep.width = if (is_html) "" else "1pt",
+    float = is_html   # PDF: emit a bare tabular so it fits inside adjustbox
 )
 ```
+
+<!-- The code above is only displayed (eval=FALSE); the chunk below re-runs
+     it via ref.label and prints the table. For PDF the table sits on a
+     landscape page and is scaled with adjustbox. The raw-LaTeX wrappers are
+     kept as literal {=latex} blocks (not cat() from R) so Quarto passes them
+     through reliably; only the table -- not the echoed source code -- goes
+     inside adjustbox, otherwise the verbatim listing breaks the box. In HTML
+     these blocks are dropped and a normal table is shown. -->
+::: {.content-visible when-format="pdf"}
+```{=latex}
+\begin{landscape}
+\begin{adjustbox}{width=\linewidth,center}
+```
+:::
+
+```{r alterative-models-out, ref.label='alterative-models', echo=FALSE, results='asis'}
+```
+
+::: {.content-visible when-format="pdf"}
+```{=latex}
+\end{adjustbox}
+\end{landscape}
+```
+:::
 
 
 ### <span class="env-green">**Interpretations**</span>

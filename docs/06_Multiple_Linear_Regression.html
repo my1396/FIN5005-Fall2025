@@ -770,7 +770,7 @@ Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 X_{3i} + \ldots + \bet
 <p>Scatter plot of TestScore against expenditure and STR:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-scatter-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-scatter-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-scatter-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="06_Multiple_Linear_Regression_files/figure-html/fig-scatter-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="1152">
@@ -1203,8 +1203,7 @@ F = \frac{0.027725}{0.00226511} \approx 12.24 .
 <ul>
 <li>Students eligible for CalWorks live in families with a total income below the threshold for the subsidized lunch program so both variables are indicators for the share of <strong>economically disadvantaged children</strong>.</li>
 </ul>
-<p>We consider the following models:</p>
-<p><span class="math display">\[
+<p>We consider the following models: <span class="math display">\[
 \begin{aligned}
   (I) \quad TestScore=&amp; \, \beta_0 + \beta_1 \times STR + u, \\
   (II) \quad TestScore=&amp; \, \beta_0 + \beta_1 \times STR + \beta_2 \times english + u, \\
@@ -1234,24 +1233,29 @@ F = \frac{0.027725}{0.00226511} \approx 12.24 .
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co"># generate a summarizing table using stargazer</span></span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>is_html <span class="ot">&lt;-</span> knitr<span class="sc">::</span><span class="fu">is_html_output</span>()</span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>out_env <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(is_html, <span class="st">"table"</span>, <span class="st">"sidewaystable"</span>)</span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>out_font <span class="ot">&lt;-</span> <span class="cf">if</span>(is_html) <span class="cn">NULL</span> <span class="cf">else</span> <span class="st">"small"</span> </span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>out_sep <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(is_html, <span class="st">""</span>, <span class="st">"1pt"</span>)</span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(</span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    spec1, spec2, spec3, spec4, spec5,</span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">type =</span> <span class="fu">ifelse</span>(knitr<span class="sc">::</span><span class="fu">is_html_output</span>(), <span class="st">"html"</span>, <span class="st">"latex"</span>),</span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">se =</span> rob_se,</span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">digits =</span> <span class="dv">3</span>,</span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">header =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">"(I)"</span>, <span class="st">"(II)"</span>, <span class="st">"(III)"</span>, <span class="st">"(IV)"</span>, <span class="st">"(V)"</span>),</span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">model.numbers =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">notes =</span> <span class="st">"Standard errors in parentheses."</span>,</span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">notes.append =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">float.env =</span> out_env,</span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">font.size =</span> out_font,</span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">column.sep.width =</span> out_sep</span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    spec1, spec2, spec3, spec4, spec5,</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">type =</span> <span class="cf">if</span> (is_html) <span class="st">"html"</span> <span class="cf">else</span> <span class="st">"latex"</span>,</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">se =</span> rob_se,</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">digits =</span> <span class="dv">3</span>,</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">header =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">"(I)"</span>, <span class="st">"(II)"</span>, <span class="st">"(III)"</span>, <span class="st">"(IV)"</span>, <span class="st">"(V)"</span>),</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">model.numbers =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">notes =</span> <span class="st">"Standard errors in parentheses."</span>,</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">notes.append =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">font.size =</span> <span class="cf">if</span> (is_html) <span class="cn">NULL</span> <span class="cf">else</span> <span class="st">"small"</span>,</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">column.sep.width =</span> <span class="cf">if</span> (is_html) <span class="st">""</span> <span class="cf">else</span> <span class="st">"1pt"</span>,</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">float =</span> is_html   <span class="co"># PDF: emit a bare tabular so it fits inside adjustbox</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<!-- The code above is only displayed (eval=FALSE); the chunk below re-runs
+     it via ref.label and prints the table. For PDF the table sits on a
+     landscape page and is scaled with adjustbox. The raw-LaTeX wrappers are
+     kept as literal {=latex} blocks (not cat() from R) so Quarto passes them
+     through reliably; only the table -- not the echoed source code -- goes
+     inside adjustbox, otherwise the verbatim listing breaks the box. In HTML
+     these blocks are dropped and a normal table is shown. -->
+<div class="cell" data-layout-align="center">
 <table style="text-align:center">
 <tbody><tr>
 <td colspan="6" style="border-bottom: 1px solid black">
@@ -1725,7 +1729,7 @@ calworks  0.74     1.00</code></pre>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-scatter-2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-scatter-2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-scatter-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="06_Multiple_Linear_Regression_files/figure-html/fig-scatter-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672">

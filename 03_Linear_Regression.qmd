@@ -5,7 +5,7 @@ title: "Simple Linear Regression"
 In this session, we will use the same `CASchools` dataset from the previous session and implement a simple linear regression model to explore a question of interest: 
 
 ::: {.callout-important appearance="minimal"}
-## Research Question
+## <i class="codicon codicon-ask" aria-hidden="true" style="font-size:1.5em; vertical-align: middle;"></i> Research Question
 
 <center style="font-size: 1.5em; font-weight: bold;">
 Does expenditure per student affect student performance \
@@ -53,7 +53,10 @@ A quick preview
 
 ```{r results="asis"}
 v <- setdiff(names(cas), c("district", "school", "county", "grades"))
-stargazer(as.data.frame(cas[v]), type="html", digits=2)
+stargazer(
+  as.data.frame(cas[v]), 
+  type = ifelse(knitr::is_html_output(), "html", "latex"), 
+  digits=2)
 ```
 
 ## Scatter Plot
